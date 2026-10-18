@@ -158,10 +158,11 @@ describe('PostgreSQL schema and generated migrations', () => {
   });
 
   test('refuses to delete a province that still has regions', async () => {
-    await expectPostgresError(
-      ownerDb().delete(provinces).where(eq(provinces.code, '11')),
+    // PostgreSQL 16 reports ON DELETE RESTRICT as 23503. PostgreSQL 18 reports it as 23001.
+    await expectPostgresError(ownerDb().delete(provinces).where(eq(provinces.code, '11')), [
+      PG_FOREIGN_KEY_VIOLATION,
       PG_RESTRICT_VIOLATION,
-    );
+    ]);
   });
 
   test('rejects an administrative code without the Kemendagri format', async () => {

@@ -11,13 +11,16 @@ export const PG_INVALID_TEXT_REPRESENTATION = '22P02';
 // Drizzle wraps driver errors; the PostgreSQL SQLSTATE lives on the original pg error.
 export async function expectPostgresError(
   operation: PromiseLike<unknown>,
-  sqlState: string,
+  sqlState: string | readonly string[],
 ): Promise<void> {
   const error = await Promise.resolve(operation).then(
     () => undefined,
     (reason: unknown) => reason,
   );
   const cause = error instanceof Error && 'cause' in error ? error.cause : error;
+  const code =
+    cause !== null && typeof cause === 'object' && 'code' in cause ? cause.code : undefined;
+  const allowed = typeof sqlState === 'string' ? [sqlState] : sqlState;
 
-  expect(cause).toMatchObject({ code: sqlState });
+  expect(allowed).toContain(code);
 }
