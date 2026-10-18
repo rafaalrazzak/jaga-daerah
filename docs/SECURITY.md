@@ -93,9 +93,12 @@ script-src 'self';
 style-src 'self';
 img-src 'self' data: https:;
 font-src 'self';
-connect-src 'self' https://api.jagadaerah.id;
+connect-src 'self' https://api.jagadaerah.id https://basemaps.cartocdn.com https://*.basemaps.cartocdn.com;
+worker-src 'self';
 upgrade-insecure-requests;
 ```
+
+The landing choropleth loads CARTO vector tiles (`basemaps.cartocdn.com` and its tile subdomains) and draws official kabupaten/kota polygons on top. The MapLibre worker is a same-origin file, so `script-src` stays `'self'` and `worker-src` is `'self'`. Do not add a public script host for that worker.
 
 Do not copy this into production unchanged if the final domain or asset policy differs. Tighten it after observing required resources in preview.
 

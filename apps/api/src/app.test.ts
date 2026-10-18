@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, spyOn, test } from 'bun:test';
 
 import { treaty } from '@elysiajs/eden';
-import { ErrorResponseSchema } from '@jaga-daerah/contracts';
+import { ErrorResponseSchema, LiveConditionsResponseSchema } from '@jaga-daerah/contracts';
 
 import { createApp } from '#api/app';
 import { parseAllowedOrigins } from '#api/plugins/cors-policy';
@@ -21,6 +21,8 @@ describe('createApp', () => {
       throw new Error(DATABASE_FAILURE);
     },
     allowedOrigins: [ALLOWED_ORIGIN],
+    fetchUpstream: () => Promise.reject(new Error('no upstream in tests')),
+    firmsMapKey: undefined,
   });
   const api = treaty(app);
 
@@ -117,6 +119,38 @@ describe('createApp', () => {
       route: '/v1/provinsi',
       status: 500,
       error_code: 'INTERNAL_ERROR',
+    });
+  });
+
+  describe('live conditions', () => {
+    test('answers without the database and marks unreachable feeds unavailable', async () => {
+      const response = await app.handle(
+        new Request('http://localhost/v1/daerah/kabupaten-bogor/terkini'),
+      );
+      const body = LiveConditionsResponseSchema.parse(await response.json());
+
+      expect(response.status).toBe(200);
+      expect(response.headers.get('Cache-Control')).toBe('public, max-age=60, s-maxage=120');
+      expect(body.data.region.code).toBe('32.01');
+      expect(body.data.forecast.status).toBe('unavailable');
+      expect(body.data.warnings.status).toBe('unavailable');
+      expect(body.data.hotspots.status).toBe('unavailable');
+    });
+
+    test('rejects a kecamatan outside the region', async () => {
+      const response = await app.handle(
+        new Request('http://localhost/v1/daerah/kabupaten-bogor/terkini?kecamatan=13.03.01'),
+      );
+      expect(response.status).toBe(400);
+      expect(ErrorResponseSchema.parse(await response.json()).error.code).toBe('INVALID_QUERY');
+    });
+
+    test('unknown slug is DAERAH_NOT_FOUND', async () => {
+      const response = await app.handle(
+        new Request('http://localhost/v1/daerah/kabupaten-tidak-ada/terkini'),
+      );
+      expect(response.status).toBe(404);
+      expect(ErrorResponseSchema.parse(await response.json()).error.code).toBe('DAERAH_NOT_FOUND');
     });
   });
 });

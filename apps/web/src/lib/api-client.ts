@@ -1,15 +1,19 @@
 import { createApiTreaty } from '@jaga-daerah/api/client';
 import {
   ErrorResponseSchema,
+  LiveConditionsResponseSchema,
   MapRealizationResponseSchema,
   MetaStatusResponseSchema,
+  NationalBriefResponseSchema,
   RegionProfileResponseSchema,
   RegionSearchResponseSchema,
 } from '@jaga-daerah/contracts';
 import type {
   ErrorCode,
+  LiveConditions,
   MapRealization,
   MetaStatus,
+  NationalBrief,
   RegionProfileResponse,
   RegionSummary,
 } from '@jaga-daerah/contracts';
@@ -48,6 +52,11 @@ export interface ApiClient {
   ): Promise<RegionProfileResponse>;
   getMetaStatus(options?: { signal?: AbortSignal }): Promise<MetaStatus>;
   getMapRealization(options?: { year?: number; signal?: AbortSignal }): Promise<MapRealization>;
+  getLiveConditions(
+    slug: string,
+    options?: { kecamatan?: string; signal?: AbortSignal },
+  ): Promise<LiveConditions>;
+  getNationalBrief(options?: { signal?: AbortSignal }): Promise<NationalBrief>;
 }
 
 function isAbort(error: unknown): boolean {
@@ -163,6 +172,23 @@ export function createApiClient(apiOrigin: string, fetcher?: typeof fetch): ApiC
           query: options.year === undefined ? {} : { year: options.year },
           fetch: { signal },
         }),
+      );
+      return body.data;
+    },
+
+    async getLiveConditions(slug, options = {}) {
+      const body = await call(LiveConditionsResponseSchema, options.signal, (signal) =>
+        api.v1.daerah({ slug }).terkini.get({
+          query: options.kecamatan === undefined ? {} : { kecamatan: options.kecamatan },
+          fetch: { signal },
+        }),
+      );
+      return body.data;
+    },
+
+    async getNationalBrief(options = {}) {
+      const body = await call(NationalBriefResponseSchema, options.signal, (signal) =>
+        api.v1.terkini.get({ fetch: { signal } }),
       );
       return body.data;
     },

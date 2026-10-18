@@ -7,6 +7,7 @@ import { corsPolicy } from '#api/plugins/cors-policy';
 import { errorHandler } from '#api/plugins/error-handler';
 import { requestContext } from '#api/plugins/request-context';
 import { healthRoutes } from '#api/routes/health';
+import { createLiveRoutes } from '#api/routes/live';
 import { createProfileRoutes } from '#api/routes/profiles';
 import { createProvinceRoutes } from '#api/routes/provinces';
 import { createRegionRoutes } from '#api/routes/regions';
@@ -23,6 +24,7 @@ export function createApp(dependencies: AppDependencies) {
     .use(createProvinceRoutes(dependencies))
     .use(createRegionRoutes(dependencies))
     .use(createProfileRoutes(dependencies))
+    .use(createLiveRoutes(dependencies))
     .compile();
 }
 

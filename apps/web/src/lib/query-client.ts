@@ -26,6 +26,13 @@ export const profileQueryKeys = {
     ['regions', 'profile', slug, year ?? 'latest'] as const,
 };
 
+export const liveQueryKeys = {
+  // `undefined` kecamatan means the region's own reference point.
+  region: (slug: string, kecamatan: string | undefined) =>
+    ['regions', 'live', slug, kecamatan ?? 'default'] as const,
+  national: () => ['live', 'national'] as const,
+};
+
 export const mapQueryKeys = {
   geometry: () => ['map', 'geometry'] as const,
   realization: (year: number | undefined) => ['map', 'realization', year ?? 'latest'] as const,

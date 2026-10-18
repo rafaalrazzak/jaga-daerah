@@ -10,6 +10,8 @@ export const CACHE_POLICIES = {
   search: 'public, max-age=60, s-maxage=3600, stale-while-revalidate=86400',
   profile: 'public, max-age=300, s-maxage=3600, stale-while-revalidate=86400',
   status: 'public, max-age=60, s-maxage=300',
+  // Live feeds change within minutes; no stale-while-revalidate so a warning never lingers.
+  live: 'public, max-age=60, s-maxage=120',
 } as const;
 
 export type CachePolicy = keyof typeof CACHE_POLICIES;
