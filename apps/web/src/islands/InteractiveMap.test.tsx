@@ -65,17 +65,13 @@ describe('InteractiveMap', () => {
     setup();
 
     const bandung = await waitFor(() => {
-      const path = document.querySelector('path[data-code="32.73"]');
+      const path = document.querySelector('[data-code="32.73"]');
       if (path === null) throw new Error('map not rendered');
       return path;
     });
     expect(bandung.getAttribute('data-class')).toBe('near');
-    expect(document.querySelector('path[data-code="32.04"]')?.getAttribute('data-class')).toBe(
-      'none',
-    );
-    expect(document.querySelector('path[data-code="11.71"]')?.getAttribute('data-class')).toBe(
-      'above',
-    );
+    expect(document.querySelector('[data-code="32.04"]')?.getAttribute('data-class')).toBe('none');
+    expect(document.querySelector('[data-code="11.71"]')?.getAttribute('data-class')).toBe('above');
     expect(screen().getByText(/dibanding median nasional \(92,0%\)/)).toBeDefined();
   });
 
@@ -106,7 +102,7 @@ describe('InteractiveMap', () => {
     expect(
       screen().getByText(/Lihat sebagai tabel \(\d+ daerah, Provinsi Jawa Barat\)/),
     ).toBeDefined();
-    expect(document.querySelector('path[data-code="11.71"]')?.getAttribute('class')).toContain(
+    expect(document.querySelector('[data-code="11.71"]')?.getAttribute('class')).toContain(
       'map-dimmed',
     );
     await user.click(screen().getByRole('button', { name: '← Seluruh Indonesia' }));
@@ -123,7 +119,7 @@ describe('InteractiveMap', () => {
       expect(getMapRealization).toHaveBeenLastCalledWith(expect.objectContaining({ year: 2024 })),
     );
     await waitFor(() =>
-      expect(document.querySelector('path[data-code="32.73"]')?.getAttribute('data-class')).toBe(
+      expect(document.querySelector('[data-code="32.73"]')?.getAttribute('data-class')).toBe(
         'far-below',
       ),
     );
@@ -132,7 +128,7 @@ describe('InteractiveMap', () => {
   test('a mouse click opens the profile; a first tap only shows the figures', async () => {
     const { navigate } = setup();
     const path = await waitFor(() => {
-      const element = document.querySelector('path[data-code="32.73"]');
+      const element = document.querySelector('[data-code="32.73"]');
       if (element === null) throw new Error('map not rendered');
       return element;
     });
@@ -157,11 +153,40 @@ describe('InteractiveMap', () => {
     await user.click(button);
 
     expect(button.getAttribute('aria-pressed')).toBe('true');
-    expect(document.querySelector('path[data-code="11.71"]')?.getAttribute('class')).not.toContain(
+    expect(document.querySelector('[data-code="11.71"]')?.getAttribute('class')).not.toContain(
       'map-dimmed',
     );
-    expect(document.querySelector('path[data-code="32.73"]')?.getAttribute('class')).toContain(
+    expect(document.querySelector('[data-code="32.73"]')?.getAttribute('class')).toContain(
       'map-dimmed',
     );
+  });
+
+  test('switches the choropleth to hospital counts and province electricity ratios', async () => {
+    setup();
+    const user = userEvent.setup();
+
+    await user.click(await screen().findByRole('radio', { name: 'Rumah sakit' }));
+    expect(screen().getByText('Jumlah rumah sakit dibanding kabupaten/kota lain')).toBeDefined();
+    expect(document.querySelector('[data-code="32.73"]')?.getAttribute('data-class')).not.toBe(
+      'none',
+    );
+
+    await user.click(screen().getByRole('radio', { name: 'Listrik' }));
+    expect(screen().getByText(/nasional 99,83%/)).toBeDefined();
+    expect(document.querySelector('[data-code="32.73"]')?.getAttribute('data-class')).toBe('above');
+    expect(screen().queryByLabelText('Tahun')).toBeNull();
+  });
+
+  test('zooms with accessible controls and restores the national extent', async () => {
+    setup();
+    const user = userEvent.setup();
+    const map = await screen().findByRole('region', { name: /Peta realisasi belanja/ });
+
+    const initialZoom = map.getAttribute('data-zoom');
+    await user.click(screen().getByRole('button', { name: 'Perbesar peta' }));
+    await waitFor(() => expect(map.getAttribute('data-zoom')).not.toBe(initialZoom));
+
+    await user.click(screen().getByRole('button', { name: 'Atur ulang pembesaran peta' }));
+    await waitFor(() => expect(map.getAttribute('data-zoom')).toBe(initialZoom));
   });
 });

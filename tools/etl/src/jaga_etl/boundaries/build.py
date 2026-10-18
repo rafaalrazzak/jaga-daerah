@@ -11,6 +11,7 @@ is close to conformal at Indonesia's latitudes. Simplification: Douglas–Peucke
 import json
 import math
 import re
+from collections.abc import Callable
 from dataclasses import dataclass
 
 ROW = re.compile(
@@ -118,15 +119,21 @@ class Projection:
         return ((lng - self.min_lng) * self.kx * self.scale, (self.max_lat - lat) * self.scale)
 
 
-def to_path(boundary: Boundary, project: Projection) -> tuple[str, list[float]]:
+def to_path(
+    boundary: Boundary,
+    project: Callable[[float, float], tuple[float, float]],
+    *,
+    tolerance: float = TOLERANCE_PX,
+    min_area: float = MIN_RING_AREA_PX,
+) -> tuple[str, list[float]]:
     """SVG path (one decimal) and bounding box [x0, y0, x1, y1] after simplification."""
     commands: list[str] = []
     xs: list[float] = []
     ys: list[float] = []
     for polygon in boundary.polygons:
         for ring in polygon:
-            points = simplify([project(lat, lng) for lat, lng in ring], TOLERANCE_PX)
-            if len(points) < 3 or _area(points) < MIN_RING_AREA_PX:
+            points = simplify([project(lat, lng) for lat, lng in ring], tolerance)
+            if len(points) < 3 or _area(points) < min_area:
                 continue
             commands.append("M" + "L".join(f"{x:.1f},{y:.1f}" for x, y in points) + "Z")
             xs.extend(x for x, _ in points)

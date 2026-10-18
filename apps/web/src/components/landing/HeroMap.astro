@@ -1,11 +1,8 @@
 ---
-// Hero graphic: Indonesia drawn from the project's own boundary file (coarsened at build time to
-// ~37 KB of path data), with three example regions annotated with real 2025 figures from the
-// dataset published 17 Oct 2026 (20261017-djpk52da2088). The outline is decorative; each
-// annotation is a real link to the region's profile.
+// A responsive national map with linked, sourced regional examples.
 import mapData from '../../../public/data/map-regions.json';
 
-const WIDTH = 420;
+const WIDTH = 720;
 const scale = WIDTH / mapData.width;
 const height = Math.round(mapData.height * scale);
 
@@ -25,47 +22,40 @@ function coarse(path: string): string {
 }
 
 const outline = mapData.provinces.map((province) => coarse(province.path)).join('');
-const centre = new Map(mapData.regions.map((region) => [region.code, region]));
+const centres = new Map(mapData.regions.map((region) => [region.code, region]));
 
-const ANNOTATIONS = [
+const EXAMPLES = [
   {
     code: '11.71',
     slug: 'kota-banda-aceh',
-    name: 'Kota Banda Aceh',
+    name: 'Banda Aceh',
     figure: '97,0%',
-    label: 'anggaran 2025 terpakai',
-    placement: 'right-below',
+    label: 'realisasi APBD · 2025',
   },
   {
     code: '96.01',
     slug: 'kabupaten-sorong',
     name: 'Kabupaten Sorong',
     figure: 'Rp69,56 miliar',
-    label: 'dana bagi hasil SDA 2025',
-    placement: 'left-below',
+    label: 'bagi hasil SDA · 2025',
   },
   {
     code: '32.73',
     slug: 'kota-bandung',
     name: 'Kota Bandung',
     figure: '89,8%',
-    label: 'anggaran 2025 terpakai',
-    placement: 'right-below',
+    label: 'realisasi APBD · 2025',
   },
 ] as const;
 
-const PLACEMENT = {
-  'right-below': 'translate-x-4 translate-y-4',
-  'left-below': '-translate-x-[calc(100%+1rem)] translate-y-4',
-} as const;
-
-const pins = ANNOTATIONS.flatMap((annotation) => {
-  const region = centre.get(annotation.code);
+const annotations = EXAMPLES.flatMap((example, index) => {
+  const region = centres.get(example.code);
   return region === undefined
     ? []
     : [
         {
-          ...annotation,
+          ...example,
+          index,
           left: ((region.cx * scale + 6) / (WIDTH + 12)) * 100,
           top: ((region.cy * scale + 6) / (height + 12)) * 100,
         },
@@ -73,8 +63,11 @@ const pins = ANNOTATIONS.flatMap((annotation) => {
 });
 ---
 
-<figure class="relative">
-  <div class="relative">
+<figure class="map-illustration overflow-hidden rounded-[1.5rem] bg-[hsl(var(--map-sea))] px-4 pt-4 sm:rounded-[1.75rem] sm:px-6 sm:pt-5">
+  <p class="px-1 text-xs font-semibold tracking-[0.12em] text-primary/75 uppercase">
+    Data wilayah · 2025
+  </p>
+  <div class="map-stage relative mt-2 px-2 sm:px-4">
     <svg
       viewBox={`-6 -6 ${WIDTH + 12} ${height + 12}`}
       class="hero-map block h-auto w-full"
@@ -83,103 +76,84 @@ const pins = ANNOTATIONS.flatMap((annotation) => {
     >
       <path
         d={outline}
-        class="fill-[hsl(var(--primary)/0.16)] stroke-[hsl(var(--background))]"
-        stroke-width="0.5"
+        class="fill-[hsl(var(--primary)/0.14)] stroke-[hsl(var(--background))]"
+        stroke-width="0.9"
       ></path>
     </svg>
 
-    {pins.map((pin, index) => (
-      <div class="absolute" style={`left:${pin.left}%;top:${pin.top}%`}>
-        <span class="hero-pin" aria-hidden="true" />
-        <a
-          href={`/daerah/${pin.slug}`}
-          class:list={[
-            'hero-callout absolute top-0 left-0 hidden w-52 rounded-2xl border border-border bg-card px-4 py-3 transition-colors hover:border-primary md:block',
-            PLACEMENT[pin.placement],
-          ]}
-          style={`animation-delay:${200 + index * 180}ms`}
-        >
-          <span class="block text-xs text-muted-foreground">{pin.name}</span>
-          <span class="mt-0.5 block text-2xl leading-tight font-extrabold tracking-tight">
-            {pin.figure}
-          </span>
-          <span class="block text-xs text-muted-foreground">{pin.label}</span>
-        </a>
-      </div>
+    {annotations.map((annotation) => (
+      <span
+        class="map-point absolute"
+        style={`left:${annotation.left}%;top:${annotation.top}%;--point-delay:${annotation.index * 220}ms`}
+        aria-hidden="true"
+      ></span>
     ))}
   </div>
-  <!-- Small screens: the same annotations as a list, since callouts would cover the map. -->
-  <ul class="mt-4 grid gap-2 md:hidden">
-    {pins.map((pin) => (
-      <li>
+
+  <ul class="grid border-t border-foreground/10 sm:grid-cols-3">
+    {annotations.map((annotation) => (
+      <li class="min-w-0 border-b border-foreground/10 last:border-b-0 sm:border-b-0 sm:border-l sm:first:border-l-0">
         <a
-          href={`/daerah/${pin.slug}`}
-          class="flex min-h-11 items-center justify-between gap-3 rounded-2xl border border-border bg-card px-4 py-3"
+          href={`/daerah/${annotation.slug}`}
+          class="grid min-h-16 w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-x-4 gap-y-1 px-1 py-3 text-left transition-colors hover:text-primary sm:min-h-20 sm:grid-cols-1 sm:content-center sm:gap-1 sm:px-4 sm:first:pl-1"
         >
           <span>
-            <span class="block text-xs text-muted-foreground">{pin.name}</span>
-            <span class="block text-xs text-muted-foreground">{pin.label}</span>
+            <span class="block text-sm font-semibold">{annotation.name}</span>
+            <span class="mt-0.5 block text-xs text-muted-foreground">{annotation.label}</span>
           </span>
-          <span class="text-lg font-extrabold tracking-tight">{pin.figure}</span>
+          <span class="shrink-0 text-sm font-bold tabular-nums sm:self-start">
+            {annotation.figure}
+          </span>
         </a>
       </li>
     ))}
   </ul>
-  <figcaption class="mt-4 text-center text-xs text-muted-foreground md:text-left">
-    Contoh angka 2025 dari DJPK Kemenkeu. Ketuk kartu untuk membuka profil lengkap.
+  <figcaption class="py-3 text-xs leading-relaxed text-muted-foreground">
+    Angka dari DJPK Kemenkeu. Pilih daerah untuk membuka profil beserta sumber datanya.
   </figcaption>
 </figure>
 
 <style>
-  .hero-map {
-    animation: hero-fade 900ms ease-out both;
-  }
-
-  .hero-pin {
-    position: absolute;
-    left: -6px;
-    top: -6px;
-    width: 12px;
-    height: 12px;
-    border-radius: 9999px;
+  .map-point {
+    width: 11px;
+    height: 11px;
+    margin: -5px 0 0 -5px;
+    border: 2px solid hsl(var(--map-sea));
+    border-radius: 50%;
     background: hsl(var(--primary));
-    box-shadow: 0 0 0 3px hsl(var(--card));
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.2);
   }
 
-  .hero-pin::after {
-    content: '';
-    position: absolute;
-    inset: -6px;
-    border-radius: 9999px;
-    border: 2px solid hsl(var(--primary) / 0.5);
-    animation: hero-pulse 2.4s ease-out infinite;
-  }
-
-  .hero-callout {
-    animation: hero-rise 600ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
-  }
-
-  @keyframes hero-fade {
-    from {
-      opacity: 0;
+  @media (prefers-reduced-motion: no-preference) {
+    .map-stage {
+      animation: map-enter 700ms ease-out both;
     }
-  }
 
-  @keyframes hero-pulse {
-    from {
-      transform: scale(0.6);
-      opacity: 1;
+    .map-point::after {
+      position: absolute;
+      inset: -5px;
+      border: 1px solid hsl(var(--primary) / 0.42);
+      border-radius: inherit;
+      content: '';
+      animation: map-ripple 3.4s ease-out var(--point-delay) infinite;
     }
-    to {
-      transform: scale(1.8);
-      opacity: 0;
-    }
-  }
 
-  @keyframes hero-rise {
-    from {
-      opacity: 0;
-      margin-top: 8px;
+    @keyframes map-enter {
+      from {
+        opacity: 0;
+        transform: translateY(7px);
+      }
+    }
+
+    @keyframes map-ripple {
+      from {
+        transform: scale(0.6);
+        opacity: 0.65;
+      }
+      to {
+        transform: scale(2.3);
+        opacity: 0;
+      }
     }
   }
 </style>

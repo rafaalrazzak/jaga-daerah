@@ -30,3 +30,9 @@ def province_files() -> list[tuple[str, str]]:
         (f"prov_{number}.sql", f"{RAW_BASE}/prov/wilayah_boundaries_prov_{number}.sql")
         for number in PROVINCE_FILE_NUMBERS
     ]
+
+
+def kecamatan_files() -> list[tuple[str, str]]:
+    return [
+        (f"kec_{code}.sql", f"{RAW_BASE}/kec/wilayah_boundaries_kec_{code}.sql") for code in PROVINCE_CODES
+    ]

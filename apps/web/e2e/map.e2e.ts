@@ -54,15 +54,15 @@ async function mockApi(page: Page) {
 async function openMap(page: Page) {
   await mockApi(page);
   await page.goto('/#peta');
-  await expect(page.locator('#peta svg path[data-code]')).toHaveCount(514);
+  await expect(page.locator('#peta [data-code]')).toHaveCount(514);
 }
 
 test.describe('realisation map', () => {
   test('renders every kab/kota with live coverage figures', async ({ page }) => {
     await openMap(page);
 
-    await expect(page.locator('path[data-code="63.03"]')).toHaveAttribute('data-class', 'above');
-    await expect(page.locator('path[data-code="32.04"]')).toHaveAttribute('data-class', 'none');
+    await expect(page.locator('[data-code="63.03"]')).toHaveAttribute('data-class', 'above');
+    await expect(page.locator('[data-code="32.04"]')).toHaveAttribute('data-class', 'none');
     await expect(page.getByText('daerah dengan data APBD')).toBeVisible();
     await expect(page.getByText('508', { exact: true })).toBeVisible();
   });
@@ -72,9 +72,22 @@ test.describe('realisation map', () => {
     await openMap(page);
     await page.getByLabel('Wilayah', { exact: true }).selectOption('63');
 
-    await page.locator('path[data-code="63.03"]').click();
+    await page.locator('[data-code="63.03"]').click({ force: true });
 
     await expect(page).toHaveURL(/\/daerah\/kabupaten-banjar$/);
+  });
+
+  test('zooms smoothly and resets to the selected map extent', async ({ page }) => {
+    await openMap(page);
+    const map = page.getByRole('region', { name: /Peta realisasi belanja/ });
+    await expect(map).toHaveAttribute('data-map-status', /live|fallback/);
+    const initialZoom = await map.getAttribute('data-zoom');
+
+    await page.getByRole('button', { name: 'Perbesar peta' }).click();
+    await expect.poll(async () => map.getAttribute('data-zoom')).not.toBe(initialZoom);
+
+    await page.getByRole('button', { name: 'Atur ulang pembesaran peta' }).click();
+    await expect(map).toHaveAttribute('data-zoom', initialZoom ?? '');
   });
 
   test('keeps the figures reachable by keyboard through the table', async ({ page }) => {

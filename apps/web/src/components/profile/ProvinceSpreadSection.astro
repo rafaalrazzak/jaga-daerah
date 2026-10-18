@@ -1,0 +1,31 @@
+---
+import Section from '@/components/ui/Section.astro';
+import ProvinceSpread from '@/islands/ProvinceSpread';
+import { spreadReading } from '@/lib/map-layers';
+
+interface Props {
+  regionCode: string;
+  regionName: string;
+  provinceName: string;
+}
+
+const { regionCode, regionName, provinceName } = Astro.props;
+const fallback = spreadReading(regionCode, 'rumah-sakit');
+---
+
+<Section
+  id="modul-persebaran"
+  title="Persebaran di provinsi"
+  meta={`${provinceName} · kabupaten/kota`}
+  lead={`Posisi ${regionName} di antara daerah lain di ${provinceName}.`}
+>
+  <ProvinceSpread
+    client:visible
+    regionCode={regionCode}
+    regionName={regionName}
+    provinceName={provinceName}
+  />
+  <noscript>
+    <p>{fallback.sentence}</p>
+  </noscript>
+</Section>
