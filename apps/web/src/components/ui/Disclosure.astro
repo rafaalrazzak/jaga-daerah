@@ -1,0 +1,21 @@
+---
+// Collapsible detail (full tables, method notes). Native <details>: works without JavaScript.
+interface Props {
+  summary: string;
+  open?: boolean;
+}
+
+const { summary, open = false } = Astro.props;
+---
+
+<details class="group rounded-2xl border border-border bg-card px-5 sm:px-6" {open}>
+  <summary class="flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 py-2 text-sm font-semibold [&::-webkit-details-marker]:hidden">
+    {summary}
+    <span aria-hidden="true" class="transition-transform group-open:rotate-180">
+      ▾
+    </span>
+  </summary>
+  <div class="pb-4">
+    <slot />
+  </div>
+</details>

@@ -1,0 +1,24 @@
+---
+// Link to an official source, opened in a new tab and announced as such.
+import { linkButton, textLink } from '@/components/ui/styles';
+import type { LinkButtonVariant } from '@/components/ui/styles';
+
+interface Props {
+  href: string;
+  /** Omit for an inline text link; pass a variant for a pill button. */
+  button?: LinkButtonVariant | undefined;
+  small?: boolean;
+}
+
+const { href, button, small = false } = Astro.props;
+---
+
+<a
+  {href}
+  target="_blank"
+  rel="noopener noreferrer"
+  class={button === undefined ? textLink : linkButton(button, small)}
+>
+  <slot />
+  <span class="sr-only"> (membuka tab baru)</span>
+</a>

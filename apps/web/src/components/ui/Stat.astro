@@ -1,0 +1,29 @@
+---
+// A labelled headline figure. Pass `value: null` for a figure the source does not state; it renders
+// "Data belum tersedia", never 0.
+import { finePrint, statLabel, statValue } from '@/components/ui/styles';
+
+interface Props {
+  label: string;
+  value: string | null;
+  unit?: string | undefined;
+  note?: string | undefined;
+}
+
+const { label, value, unit, note } = Astro.props;
+---
+
+<div>
+  <dt class={statLabel}>{label}</dt>
+  <dd class="mt-1">
+    {value === null ? (
+      <span class="text-base font-semibold text-muted-foreground">Data belum tersedia</span>
+    ) : (
+      <span class={statValue}>
+        {value}
+        {unit === undefined ? null : <span class="text-base font-bold"> {unit}</span>}
+      </span>
+    )}
+    {note === undefined ? null : <span class:list={[finePrint, 'mt-1 block']}>{note}</span>}
+  </dd>
+</div>

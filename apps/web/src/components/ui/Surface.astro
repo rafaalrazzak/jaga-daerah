@@ -1,0 +1,19 @@
+---
+// Rounded content panel (card, muted band, or brand-tinted highlight).
+import { cn } from '@almach/utils';
+
+import { surface } from '@/components/ui/styles';
+import type { SurfaceTone } from '@/components/ui/styles';
+
+interface Props {
+  tone?: SurfaceTone;
+  as?: 'div' | 'li' | 'article';
+  class?: string | undefined;
+}
+
+const { tone = 'card', as: Tag = 'div', class: className } = Astro.props;
+---
+
+<Tag class={cn(surface(tone), className)}>
+  <slot />
+</Tag>

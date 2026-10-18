@@ -1,0 +1,17 @@
+---
+// Static twin of @almach/ui's Badge: same variant recipe, no React runtime.
+import { badgeVariants } from '@almach/ui/badge';
+import type { BadgeProps } from '@almach/ui/badge';
+import { cn } from '@almach/utils';
+
+interface Props {
+  variant?: BadgeProps['variant'];
+  class?: string | undefined;
+}
+
+const { variant = 'secondary', class: className } = Astro.props;
+---
+
+<span class={cn(badgeVariants({ variant }), 'gap-1.5 rounded-full', className)}>
+  <slot />
+</span>
