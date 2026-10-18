@@ -7,22 +7,21 @@
   // Required by `pg` (Node net/tls APIs) behind the Drizzle client.
   "compatibility_flags": ["nodejs_compat"],
   "vars": {
-    // Exact browser origins allowed by CORS. Production/preview values are set per environment.
-    "CORS_ALLOWED_ORIGINS": "http://localhost:4321",
+    // Exact browser origins allowed by CORS. Local Astro, plus the Pages project from `bun run deploy`.
+    "CORS_ALLOWED_ORIGINS": "http://localhost:4321,https://jaga-daerah.pages.dev",
   },
-  // Declared so `wrangler types` stays the same with or without a local .dev.vars. The Worker
-  // treats it as optional at runtime (hotspots fall back to keyless MODIS when it is unset).
-  "secrets": {
-    "required": ["FIRMS_MAP_KEY", "ISPU_API_TOKEN"],
-  },
-  "hyperdrive": [
-    {
-      "binding": "HYPERDRIVE",
-      // Placeholder until a Hyperdrive config is provisioned (Milestone 7). Local development and
-      // tests supply CLOUDFLARE_HYPERDRIVE_LOCAL_CONNECTION_STRING_HYPERDRIVE instead.
-      "id": "00000000000000000000000000000000",
+  // Local `wrangler dev` only. Production deploy uses the DATABASE_URL secret, so a placeholder
+  // Hyperdrive id is not sent to Cloudflare.
+  "env": {
+    "local": {
+      "hyperdrive": [
+        {
+          "binding": "HYPERDRIVE",
+          "id": "00000000000000000000000000000000",
+        },
+      ],
     },
-  ],
+  },
   "observability": {
     "enabled": true,
     "traces": {

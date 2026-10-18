@@ -1,6 +1,7 @@
 import { env } from 'cloudflare:workers';
 
 import { createApp } from '#api/app';
+import { resolveConnectionString } from '#api/db/connection-string';
 import { createDatabase } from '#api/db/client';
 import { parseAllowedOrigins } from '#api/plugins/cors-policy';
 
@@ -9,10 +10,17 @@ const UPSTREAM_TIMEOUT_MS = 6000;
 // wrangler.jsonc for stable types, but read defensively: a deployment without it still works.
 const firmsMapKey: unknown = Reflect.get(env, 'FIRMS_MAP_KEY');
 const ispuApiToken: unknown = Reflect.get(env, 'ISPU_API_TOKEN');
+const allowedOrigins = env.CORS_ALLOWED_ORIGINS;
+if (allowedOrigins === undefined) {
+  throw new Error('CORS_ALLOWED_ORIGINS is not configured');
+}
 
 export default createApp({
-  openDatabase: () => createDatabase(env.HYPERDRIVE.connectionString),
-  allowedOrigins: parseAllowedOrigins(env.CORS_ALLOWED_ORIGINS),
+  openDatabase: () =>
+    createDatabase(
+      resolveConnectionString(Reflect.get(env, 'DATABASE_URL'), Reflect.get(env, 'HYPERDRIVE')),
+    ),
+  allowedOrigins: parseAllowedOrigins(allowedOrigins),
   // Edge-cached subrequests keep every profile view from reaching BMKG (60 requests/min/IP) or
   // FIRMS directly; BMKG rejects some default client user agents, so the Worker names itself.
   fetchUpstream: (url, ttlSeconds, headers) =>

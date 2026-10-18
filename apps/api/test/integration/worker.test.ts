@@ -80,7 +80,18 @@ describe('Worker runtime', () => {
   beforeAll(async () => {
     database = await startTestDatabase();
     wrangler = Bun.spawn(
-      ['bun', 'run', 'wrangler', 'dev', '--ip', '127.0.0.1', '--port', String(findFreePort())],
+      [
+        'bun',
+        'run',
+        'wrangler',
+        'dev',
+        '--env',
+        'local',
+        '--ip',
+        '127.0.0.1',
+        '--port',
+        String(findFreePort()),
+      ],
       {
         cwd: API_WORKSPACE_DIRECTORY,
         env: {

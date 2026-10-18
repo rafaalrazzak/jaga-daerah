@@ -13,6 +13,7 @@
     "db:check": "bun run --filter @jaga-daerah/api db:check",
     "db:generate": "bun run --filter @jaga-daerah/api db:generate",
     "db:migrate": "bun run --filter @jaga-daerah/api db:migrate",
+    "deploy": "bun run tools/deploy-cloudflare.ts",
     "dev": "bun run tools/dev-db.ts start && bun run --parallel --filter './apps/*' dev",
     "dev:db": "bun run tools/dev-db.ts",
     "etl:expenditure": "uv --directory tools/etl run python -m jaga_etl.expenditure --output ../../apps/web/src/data/expenditure.json",

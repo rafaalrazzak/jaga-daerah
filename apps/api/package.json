@@ -18,7 +18,7 @@
     "db:check": "drizzle-kit check",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "bun run scripts/migrate.ts",
-    "dev": "bun --env-file=../../.local/api.env run wrangler dev",
+    "dev": "bun --env-file=../../.local/api.env run wrangler dev --env local",
     "test": "bun test --path-ignore-patterns='test/{integration,db}/**'",
     "test:db": "bun test ./test/db",
     "test:integration": "bun test ./test/integration",
