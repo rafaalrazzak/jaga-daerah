@@ -1,0 +1,1 @@
+"""Hospitals and school counts."""

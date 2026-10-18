@@ -1,0 +1,81 @@
+---
+import ExternalLink from '@/components/ui/ExternalLink.astro';
+import Section from '@/components/ui/Section.astro';
+import { table } from '@/components/ui/styles';
+import { formatRupiahFull, formatRupiahShort } from '@/lib/format';
+import { REVENUE } from '@/lib/revenue';
+
+interface Props {
+  regionCode: string;
+  regionName: string;
+}
+
+const { regionCode, regionName } = Astro.props;
+const record = REVENUE.regions[regionCode];
+const labels = REVENUE.labels;
+---
+
+<Section
+  id="modul-pendapatan"
+  title="Pendapatan daerah"
+  meta={`Realisasi ${REVENUE.year} · tingkat kabupaten/kota`}
+  lead="Uang yang masuk ke kas daerah. Bukan penghasilan warga."
+>
+  {record === undefined ? (
+    <p class="rounded-2xl border border-border bg-card p-5 sm:p-6 text-muted-foreground">
+      Berkas DJPK tidak memuat realisasi pendapatan {regionName} untuk tahun {REVENUE.year}.
+    </p>
+  ) : (
+    <div
+      class="overflow-x-auto rounded-2xl border border-border bg-card p-5 sm:p-6"
+      tabindex="0"
+      role="region"
+      aria-label="Tabel pendapatan daerah"
+    >
+      <table class:list={[table.root, 'min-w-[24rem]']}>
+        <caption class="sr-only">
+          Realisasi pendapatan {regionName} tahun {REVENUE.year} menurut jenis, dalam rupiah. Sumber
+          DJPK.
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">Jenis pendapatan</th>
+            <th scope="col" class={table.numeric}>
+              Realisasi
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {record.rows.map((row) => (
+            <tr>
+              <th scope="row">{labels[row.type]}</th>
+              <td class={table.numeric}>
+                <span class="block font-semibold">{formatRupiahShort(row.amount)}</span>
+                <span class="block break-all text-xs leading-5 text-muted-foreground">
+                  {formatRupiahFull(row.amount)}
+                </span>
+              </td>
+            </tr>
+          ))}
+          <tr>
+            <th scope="row">Jumlah pendapatan daerah</th>
+            <td class={table.numeric}>
+              <span class="block font-semibold">{formatRupiahShort(record.total_amount)}</span>
+              <span class="block break-all text-xs leading-5 text-muted-foreground">
+                {formatRupiahFull(record.total_amount)}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  )}
+  <p slot="source" class="text-sm text-muted-foreground">
+    Sumber:{' '}
+    <ExternalLink href={REVENUE.source.url}>
+      berkas realisasi ringkas DJPK {REVENUE.year}
+    </ExternalLink>
+    {' · '}
+    <ExternalLink href={REVENUE.source.page}>seri data DJPK</ExternalLink>.
+  </p>
+</Section>

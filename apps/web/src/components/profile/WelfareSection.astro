@@ -1,0 +1,96 @@
+---
+import ExternalLink from '@/components/ui/ExternalLink.astro';
+import Section from '@/components/ui/Section.astro';
+import { formatCount } from '@/lib/format';
+import { WELFARE } from '@/lib/welfare';
+
+interface Props {
+  regionCode: string;
+  regionName: string;
+}
+
+const { regionCode, regionName } = Astro.props;
+const record = WELFARE.regions[regionCode];
+const poverty = record?.poverty ?? null;
+const output = record?.output_per_person_thousands ?? null;
+const development = record?.development ?? null;
+const UNAVAILABLE = 'Data belum tersedia';
+
+function formatDecimal(value: string): string {
+  const [whole, fraction] = value.split('.');
+  if (whole === undefined) return value;
+  const grouped = formatCount(Number(whole));
+  return fraction === undefined ? grouped : `${grouped},${fraction}`;
+}
+---
+
+<Section id="modul-kesejahteraan" title="Kemiskinan dan penghidupan" meta="kabupaten/kota · 2025">
+  <div class="grid gap-6 lg:grid-cols-3">
+    <article class="rounded-2xl border border-border bg-card p-5 sm:p-6">
+      <h3 class="text-lg font-semibold">Penduduk miskin</h3>
+      {poverty === null ? (
+        <p class="mt-4">
+          {UNAVAILABLE} untuk {regionName}.
+        </p>
+      ) : (
+        <div class="mt-4">
+          <p class="font-extrabold text-3xl tracking-tight tabular-nums">
+            {formatDecimal(poverty.percent)}
+            <span class="ml-1 font-semibold text-base text-muted-foreground">%</span>
+          </p>
+          <p class="mt-2 text-sm">{formatDecimal(poverty.people_thousands)} ribu jiwa</p>
+          <p class="mt-1 text-sm text-muted-foreground">
+            Garis kemiskinan Rp{formatCount(poverty.line_rupiah)} per orang per bulan
+          </p>
+        </div>
+      )}
+      <p class="mt-4 text-sm text-muted-foreground">
+        Susenas Maret 2025. Jumlah jiwa ditulis dalam ribuan.
+      </p>
+    </article>
+    <article class="rounded-2xl border border-border bg-card p-5 sm:p-6">
+      <h3 class="text-lg font-semibold">Hasil ekonomi per orang</h3>
+      {output === null ? (
+        <p class="mt-4">
+          {UNAVAILABLE} untuk {regionName}. BPS tidak memuat angka 2025 yang bisa dibaca untuk
+          daerah ini.
+        </p>
+      ) : (
+        <p class="mt-4 font-extrabold text-3xl tracking-tight tabular-nums">
+          {formatCount(output)}
+          <span class="ml-2 font-semibold text-base text-muted-foreground">ribu rupiah</span>
+        </p>
+      )}
+      <p class="mt-4 text-sm text-muted-foreground">
+        Hasil ekonomi daerah per orang, bukan gaji. Angka 2025 masih sementara.
+      </p>
+    </article>
+    <article class="rounded-2xl border border-border bg-card p-5 sm:p-6">
+      <h3 class="text-lg font-semibold">Indeks Pembangunan Manusia</h3>
+      {development === null ? (
+        <p class="mt-4">
+          {UNAVAILABLE} untuk {regionName}.
+        </p>
+      ) : (
+        <div class="mt-4">
+          <p class="font-extrabold text-3xl tracking-tight tabular-nums">
+            {formatDecimal(development.index)}
+          </p>
+          <p class="mt-2 text-sm">
+            Pengeluaran riil per orang {formatCount(development.adjusted_spending_thousands)} ribu
+            rupiah per tahun
+          </p>
+        </div>
+      )}
+      <p class="mt-4 text-sm text-muted-foreground">Komponen indeks ini, bukan gaji.</p>
+    </article>
+  </div>
+  <p slot="source" class="text-sm text-muted-foreground">
+    <ExternalLink href={WELFARE.poverty.source.url}>Kemiskinan kabupaten/kota 2025</ExternalLink>
+    {' · '}
+    <ExternalLink href={WELFARE.output.source.url}>PDRB kabupaten/kota 2021–2025</ExternalLink>
+    {' · '}
+    <ExternalLink href={WELFARE.development.source.url}>IPM 2025</ExternalLink>. Kosong berarti
+    tidak ada di buku BPS, bukan nol.
+  </p>
+</Section>

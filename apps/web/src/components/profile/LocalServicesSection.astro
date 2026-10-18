@@ -1,0 +1,151 @@
+---
+import ExternalLink from '@/components/ui/ExternalLink.astro';
+import Section from '@/components/ui/Section.astro';
+import { table } from '@/components/ui/styles';
+import { formatCount } from '@/lib/format';
+import { LOCAL_SERVICES } from '@/lib/local-services';
+
+interface Props {
+  regionCode: string;
+  regionName: string;
+}
+
+const { regionCode, regionName } = Astro.props;
+const record = LOCAL_SERVICES.regions[regionCode];
+const hospitals = record?.hospitals ?? null;
+const schools = record?.schools ?? null;
+const population = record?.population ?? null;
+const UNAVAILABLE = 'Data belum tersedia';
+const populationDate =
+  LOCAL_SERVICES.population.as_of === '2024-12-31'
+    ? '31 Desember 2024'
+    : LOCAL_SERVICES.population.as_of;
+---
+
+<Section
+  id="modul-layanan"
+  title="Penduduk, rumah sakit, dan sekolah"
+  meta="tingkat kabupaten/kota"
+>
+  <div class="rounded-2xl border border-border bg-card p-5 sm:p-6">
+    <h3 class="text-lg font-semibold">Jumlah penduduk</h3>
+    <p class="mt-2 text-sm text-muted-foreground">
+      Catatan Dukcapil, {populationDate}. Bukan hasil sensus.
+    </p>
+    {population === null ? (
+      <p class="mt-4">
+        {UNAVAILABLE} untuk {regionName}.
+      </p>
+    ) : (
+      <div class="mt-4">
+        <p class="font-extrabold text-3xl tracking-tight tabular-nums">
+          {formatCount(population.total)}
+          <span class="ml-2 font-semibold text-base text-muted-foreground">jiwa</span>
+        </p>
+        <p class="mt-2 text-sm text-muted-foreground">
+          Laki-laki {formatCount(population.male)} · Perempuan {formatCount(population.female)} ·{' '}
+          {populationDate}
+        </p>
+      </div>
+    )}
+  </div>
+  <div class="grid gap-6 lg:grid-cols-2">
+    <div
+      class="overflow-x-auto rounded-2xl border border-border bg-card p-5 sm:p-6"
+      tabindex="0"
+      role="region"
+      aria-label="Tabel rumah sakit"
+    >
+      <h3 class="mb-3 text-lg font-semibold">Rumah sakit</h3>
+      <p class="mb-4 text-sm text-muted-foreground">
+        Jumlah gedung pada daftar SIRS. Bukan tempat tidur.
+      </p>
+      {hospitals === null ? (
+        <p>
+          {UNAVAILABLE} untuk {regionName}.
+        </p>
+      ) : (
+        <table class={table.root}>
+          <caption class="sr-only">
+            Jumlah rumah sakit {regionName} pada daftar SIRS Kemenkes.
+          </caption>
+          <tbody>
+            <tr>
+              <th scope="row">Semua rumah sakit</th>
+              <td class:list={[table.numeric, 'font-semibold']}>{formatCount(hospitals.total)}</td>
+            </tr>
+            <tr>
+              <th scope="row">Umum</th>
+              <td class={table.numeric}>{formatCount(hospitals.umum)}</td>
+            </tr>
+            <tr>
+              <th scope="row">Ibu dan anak</th>
+              <td class={table.numeric}>{formatCount(hospitals.ibu_anak)}</td>
+            </tr>
+            <tr>
+              <th scope="row">Khusus</th>
+              <td class={table.numeric}>{formatCount(hospitals.khusus)}</td>
+            </tr>
+          </tbody>
+        </table>
+      )}
+    </div>
+    <div
+      class="overflow-x-auto rounded-2xl border border-border bg-card p-5 sm:p-6"
+      tabindex="0"
+      role="region"
+      aria-label="Tabel sekolah"
+    >
+      <h3 class="mb-3 text-lg font-semibold">Satuan pendidikan</h3>
+      <p class="mb-4 text-sm text-muted-foreground">Jumlah sekolah. Bukan jumlah murid.</p>
+      {schools === null ? (
+        <p>
+          {UNAVAILABLE} untuk {regionName}.
+        </p>
+      ) : (
+        <table class={table.root}>
+          <caption class="sr-only">
+            Jumlah satuan pendidikan {regionName} pada portal referensi Kemendikdasmen.
+          </caption>
+          <tbody>
+            <tr>
+              <th scope="row">SD dan sederajat</th>
+              <td class:list={[table.numeric, 'font-semibold']}>{formatCount(schools.sd)}</td>
+            </tr>
+            <tr>
+              <th scope="row">SMP dan sederajat</th>
+              <td class:list={[table.numeric, 'font-semibold']}>{formatCount(schools.smp)}</td>
+            </tr>
+            <tr>
+              <th scope="row">SMA</th>
+              <td class:list={[table.numeric, 'font-semibold']}>{formatCount(schools.sma)}</td>
+            </tr>
+            <tr>
+              <th scope="row">SMK</th>
+              <td class:list={[table.numeric, 'font-semibold']}>{formatCount(schools.smk)}</td>
+            </tr>
+          </tbody>
+        </table>
+      )}
+    </div>
+  </div>
+  <p slot="source" class="text-sm text-muted-foreground">
+    {LOCAL_SERVICES.hospitals.omitted} rumah sakit tidak masuk karena namanya tidak unik.{' '}
+    <a href="/sumber" class="underline underline-offset-4">
+      Daftar sumber
+    </a>
+    {' · '}
+    <ExternalLink href={LOCAL_SERVICES.population.source.url}>
+      Tabel penduduk berkode wilayah
+    </ExternalLink>
+    {' · '}
+    <ExternalLink href={LOCAL_SERVICES.hospitals.source.url}>
+      Daftar rumah sakit Kemenkes
+    </ExternalLink>
+    {' · '}
+    <ExternalLink href={LOCAL_SERVICES.schools.source.url}>
+      Referensi pendidikan Kemendikdasmen
+    </ExternalLink>
+    .
+  </p>
+</Section>

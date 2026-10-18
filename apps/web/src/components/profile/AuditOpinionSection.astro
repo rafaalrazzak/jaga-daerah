@@ -1,0 +1,74 @@
+---
+import type { AuditOpinionCode } from '@jaga-daerah/contracts';
+
+import ExternalLink from '@/components/ui/ExternalLink.astro';
+import Section from '@/components/ui/Section.astro';
+import { AUDIT_OPINIONS } from '@/lib/audit-opinions';
+
+interface Props {
+  regionCode: string;
+  regionName: string;
+  provinceCode: string;
+  provinceName: string;
+}
+
+const { regionCode, regionName, provinceCode, provinceName } = Astro.props;
+const own = AUDIT_OPINIONS.regions[regionCode];
+const province = AUDIT_OPINIONS.provinces[provinceCode];
+const record = own ?? province;
+const provincial = own === undefined;
+const years =
+  record === undefined ? [] : record.years.toSorted((left, right) => left.year - right.year);
+const latest = years.at(-1);
+const same =
+  latest !== undefined &&
+  years.every((item) => item.opinion === latest.opinion) &&
+  years.length > 1;
+
+const MEANING: Record<AuditOpinionCode, string> = {
+  WTP: 'BPK menilai laporan itu disajikan secara wajar dalam semua hal yang material.',
+  WDP: 'BPK menilai laporan itu wajar, kecuali hal tertentu yang dikecualikan.',
+  TW: 'BPK menilai laporan itu tidak disajikan secara wajar.',
+  TMP: 'BPK tidak menyatakan pendapat atas laporan itu.',
+};
+---
+
+<Section
+  id="modul-opini"
+  title="Opini laporan keuangan"
+  meta={
+    latest === undefined
+      ? 'BPK'
+      : `LKPD ${latest.year} · tingkat ${provincial ? 'provinsi' : 'kabupaten/kota'}`
+  }
+>
+  {latest === undefined || record === undefined ? (
+    <p class="rounded-2xl border border-border bg-card p-5 text-muted-foreground sm:p-6">
+      Data belum tersedia untuk {regionName}.
+    </p>
+  ) : (
+    <div class="rounded-2xl border border-border bg-card p-5 sm:p-6">
+      {provincial ? (
+        <p class="text-sm text-muted-foreground">
+          {regionName} tidak menyusun laporan keuangan sendiri. Opini di bawah ini adalah opini atas
+          laporan Provinsi {provinceName}.
+        </p>
+      ) : null}
+      <p class:list={['text-sm text-muted-foreground', provincial ? 'mt-4' : '']}>Opini BPK</p>
+      <p class="mt-1 text-2xl font-extrabold tracking-[-0.03em] text-balance sm:text-3xl">
+        {AUDIT_OPINIONS.labels[latest.opinion]}
+        <span class="text-base font-semibold text-muted-foreground"> ({latest.opinion})</span>
+      </p>
+      <p class="mt-2 max-w-2xl text-muted-foreground">{MEANING[latest.opinion]}</p>
+      <p class="mt-4 text-sm text-muted-foreground">
+        {same
+          ? `Opini yang sama sejak ${years[0]?.year}.`
+          : years.map((item) => `${item.year} ${item.opinion}`).join(' · ')}
+      </p>
+    </div>
+  )}
+  <p slot="source" class="text-sm text-muted-foreground">
+    Opini ini tentang laporan keuangan, bukan tentang pejabat. Sumber:{' '}
+    <ExternalLink href={AUDIT_OPINIONS.source.page}>Portal Data BPK</ExternalLink>.
+  </p>
+</Section>

@@ -1,0 +1,6205 @@
+{
+  "poverty": {
+    "year": 2025,
+    "source": {
+      "publisher": "Badan Pusat Statistik",
+      "title": "Data dan Informasi Kemiskinan Kabupaten/Kota Tahun 2025",
+      "url": "https://www.bps.go.id/id/publication/2025/11/28/f7534097ff9c717e794cd6e1/data-dan-informasi-kemiskinan-kabupaten--kota-tahun-2025.html",
+      "sha256": "a468dbaabdc9056d0f78054e04d6718bccf472f7a93e5de6a2850a2578c85511",
+      "retrieved_at": "2026-10-18T08:22:16.881492+00:00"
+    },
+    "note": "Persentase dan jumlah penduduk miskin kabupaten/kota tahun 2025, Badan Pusat Statistik, Tabel 2.1 buku Data dan Informasi Kemiskinan Kabupaten/Kota 2025. BPS menghitungnya dari Susenas Maret 2025. Jumlah ditulis dalam ribu jiwa, sama seperti tabel itu, bukan hasil bagi dengan catatan Dukcapil. Garis kemiskinan adalah batas pengeluaran per orang per bulan. Wilayah yang tidak ada di tabel dikosongkan, tidak diisi nol."
+  },
+  "output": {
+    "year": 2025,
+    "source": {
+      "publisher": "Badan Pusat Statistik",
+      "title": "Produk Domestik Regional Bruto Kabupaten/Kota di Indonesia 2021–2025",
+      "url": "https://www.bps.go.id/id/publication/2026/06/10/234d5061d35a199c70e77766/produk-domestik-regional-bruto-kabupaten-kota-di-indonesia-2021-2025.html",
+      "sha256": "1a6584c3585eebf718826e169af4ec769d47e2749a429483f26f706c5edf2d13",
+      "retrieved_at": "2026-10-18T08:22:16.881492+00:00"
+    },
+    "note": "PDRB per kapita atas dasar harga berlaku tahun 2025, Badan Pusat Statistik, dalam ribu rupiah. Ini hasil ekonomi daerah dibagi jumlah penduduk, bukan gaji dan bukan penghasilan rumah tangga. BPS menandai angka 2025 sebagai angka sangat sementara. Sel kosong berarti tabel itu tidak memuat angka 2025 yang bisa dibaca untuk daerah itu."
+  },
+  "development": {
+    "year": 2025,
+    "source": {
+      "publisher": "Badan Pusat Statistik",
+      "title": "Indeks Pembangunan Manusia 2025",
+      "url": "https://www.bps.go.id/id/publication/2026/04/24/f96755ab0e48765d028c0462/indeks-pembangunan-manusia-2025.html",
+      "sha256": "bcbf49350cc305071307a378d512797a54f10e647289542dc2199728b88e4025",
+      "retrieved_at": "2026-10-18T08:22:16.881492+00:00"
+    },
+    "note": "Indeks Pembangunan Manusia 2025 dan pengeluaran riil per kapita yang disesuaikan, Badan Pusat Statistik, Lampiran 2 buku Indeks Pembangunan Manusia 2025. Pengeluaran itu komponen IPM, dalam ribu rupiah per orang per tahun, bukan gaji. Wilayah yang tidak ada di lampiran dikosongkan, tidak diisi nol."
+  },
+  "regions": {
+    "11.01": {
+      "poverty": {
+        "people_thousands": "25.39",
+        "percent": "9.89",
+        "line_rupiah": 538174
+      },
+      "output_per_person_thousands": 32867,
+      "development": {
+        "index": "72.79",
+        "adjusted_spending_thousands": 9573
+      }
+    },
+    "11.02": {
+      "poverty": {
+        "people_thousands": "22.52",
+        "percent": "9.78",
+        "line_rupiah": 502074
+      },
+      "output_per_person_thousands": 30391,
+      "development": {
+        "index": "74.36",
+        "adjusted_spending_thousands": 9097
+      }
+    },
+    "11.03": {
+      "poverty": {
+        "people_thousands": "52.23",
+        "percent": "11.24",
+        "line_rupiah": 564943
+      },
+      "output_per_person_thousands": 35007,
+      "development": {
+        "index": "72.20",
+        "adjusted_spending_thousands": 10284
+      }
+    },
+    "11.04": {
+      "poverty": {
+        "people_thousands": "27.76",
+        "percent": "12.29",
+        "line_rupiah": 636315
+      },
+      "output_per_person_thousands": 50101,
+      "development": {
+        "index": "78.09",
+        "adjusted_spending_thousands": 12175
+      }
+    },
+    "11.05": {
+      "poverty": {
+        "people_thousands": "34.55",
+        "percent": "15.50",
+        "line_rupiah": 652009
+      },
+      "output_per_person_thousands": 71015,
+      "development": {
+        "index": "76.30",
+        "adjusted_spending_thousands": 10937
+      }
+    },
+    "11.06": {
+      "poverty": {
+        "people_thousands": "49.90",
+        "percent": "11.05",
+        "line_rupiah": 598160
+      },
+      "output_per_person_thousands": 45054,
+      "development": {
+        "index": "77.46",
+        "adjusted_spending_thousands": 11072
+      }
+    },
+    "11.07": {
+      "poverty": {
+        "people_thousands": "77.70",
+        "percent": "16.46",
+        "line_rupiah": 618445
+      },
+      "output_per_person_thousands": 34056,
+      "development": {
+        "index": "74.46",
+        "adjusted_spending_thousands": 11607
+      }
+    },
+    "11.08": {
+      "poverty": {
+        "people_thousands": "93.43",
+        "percent": "14.27",
+        "line_rupiah": 483719
+      },
+      "output_per_person_thousands": 48218,
+      "development": {
+        "index": "74.29",
+        "adjusted_spending_thousands": 9813
+      }
+    },
+    "11.09": {
+      "poverty": {
+        "people_thousands": "15.58",
+        "percent": "15.52",
+        "line_rupiah": 586505
+      },
+      "output_per_person_thousands": 34332,
+      "development": {
+        "index": "71.94",
+        "adjusted_spending_thousands": 8555
+      }
+    },
+    "11.10": {
+      "poverty": {
+        "people_thousands": "22.51",
+        "percent": "17.07",
+        "line_rupiah": 619322
+      },
+      "output_per_person_thousands": 27120,
+      "development": {
+        "index": "72.62",
+        "adjusted_spending_thousands": 10227
+      }
+    },
+    "11.11": {
+      "poverty": {
+        "people_thousands": "51.60",
+        "percent": "10.30",
+        "line_rupiah": 503866
+      },
+      "output_per_person_thousands": 42652,
+      "development": {
+        "index": "76.29",
+        "adjusted_spending_thousands": 10418
+      }
+    },
+    "11.12": {
+      "poverty": {
+        "people_thousands": "21.47",
+        "percent": "13.30",
+        "line_rupiah": 525947
+      },
+      "output_per_person_thousands": 35876,
+      "development": {
+        "index": "72.10",
+        "adjusted_spending_thousands": 9922
+      }
+    },
+    "11.13": {
+      "poverty": {
+        "people_thousands": "16.59",
+        "percent": "16.77",
+        "line_rupiah": 567201
+      },
+      "output_per_person_thousands": 34968,
+      "development": {
+        "index": "72.61",
+        "adjusted_spending_thousands": 10237
+      }
+    },
+    "11.14": {
+      "poverty": {
+        "people_thousands": "10.50",
+        "percent": "10.37",
+        "line_rupiah": 542092
+      },
+      "output_per_person_thousands": 38503,
+      "development": {
+        "index": "74.20",
+        "adjusted_spending_thousands": 11324
+      }
+    },
+    "11.15": {
+      "poverty": {
+        "people_thousands": "27.24",
+        "percent": "15.42",
+        "line_rupiah": 642820
+      },
+      "output_per_person_thousands": 74571,
+      "development": {
+        "index": "73.87",
+        "adjusted_spending_thousands": 9759
+      }
+    },
+    "11.16": {
+      "poverty": {
+        "people_thousands": "33.96",
+        "percent": "10.84",
+        "line_rupiah": 590294
+      },
+      "output_per_person_thousands": 38379,
+      "development": {
+        "index": "74.78",
+        "adjusted_spending_thousands": 9959
+      }
+    },
+    "11.17": {
+      "poverty": {
+        "people_thousands": "25.59",
+        "percent": "16.20",
+        "line_rupiah": 602421
+      },
+      "output_per_person_thousands": 40348,
+      "development": {
+        "index": "77.48",
+        "adjusted_spending_thousands": 12657
+      }
+    },
+    "11.18": {
+      "poverty": {
+        "people_thousands": "27.62",
+        "percent": "16.12",
+        "line_rupiah": 610755
+      },
+      "output_per_person_thousands": 29752,
+      "development": {
+        "index": "77.04",
+        "adjusted_spending_thousands": 11543
+      }
+    },
+    "11.71": {
+      "poverty": {
+        "people_thousands": "15.87",
+        "percent": "5.45",
+        "line_rupiah": 872944
+      },
+      "output_per_person_thousands": 104356,
+      "development": {
+        "index": "89.55",
+        "adjusted_spending_thousands": 18356
+      }
+    },
+    "11.72": {
+      "poverty": {
+        "people_thousands": "4.55",
+        "percent": "12.75",
+        "line_rupiah": 736956
+      },
+      "output_per_person_thousands": 44820,
+      "development": {
+        "index": "80.04",
+        "adjusted_spending_thousands": 13040
+      }
+    },
+    "11.73": {
+      "poverty": {
+        "people_thousands": "19.90",
+        "percent": "9.01",
+        "line_rupiah": 529671
+      },
+      "output_per_person_thousands": 62538,
+      "development": {
+        "index": "81.75",
+        "adjusted_spending_thousands": 13071
+      }
+    },
+    "11.74": {
+      "poverty": {
+        "people_thousands": "16.28",
+        "percent": "8.59",
+        "line_rupiah": 554363
+      },
+      "output_per_person_thousands": 38412,
+      "development": {
+        "index": "81.77",
+        "adjusted_spending_thousands": 13510
+      }
+    },
+    "11.75": {
+      "poverty": {
+        "people_thousands": "11.95",
+        "percent": "13.88",
+        "line_rupiah": 514372
+      },
+      "output_per_person_thousands": 29503,
+      "development": {
+        "index": "71.63",
+        "adjusted_spending_thousands": 8910
+      }
+    },
+    "12.01": {
+      "poverty": {
+        "people_thousands": "46.79",
+        "percent": "11.03",
+        "line_rupiah": 546223
+      },
+      "output_per_person_thousands": 36137,
+      "development": {
+        "index": "73.97",
+        "adjusted_spending_thousands": 11687
+      }
+    },
+    "12.02": {
+      "poverty": {
+        "people_thousands": "23.29",
+        "percent": "7.47",
+        "line_rupiah": 549677
+      },
+      "output_per_person_thousands": 36426,
+      "development": {
+        "index": "78.09",
+        "adjusted_spending_thousands": 12643
+      }
+    },
+    "12.03": {
+      "poverty": {
+        "people_thousands": "17.77",
+        "percent": "6.16",
+        "line_rupiah": 527232
+      },
+      "output_per_person_thousands": 73793,
+      "development": {
+        "index": "75.78",
+        "adjusted_spending_thousands": 12557
+      }
+    },
+    "12.04": {
+      "poverty": {
+        "people_thousands": "21.23",
+        "percent": "14.51",
+        "line_rupiah": 541016
+      },
+      "output_per_person_thousands": 35990,
+      "development": {
+        "index": "66.79",
+        "adjusted_spending_thousands": 8115
+      }
+    },
+    "12.05": {
+      "poverty": {
+        "people_thousands": "90.28",
+        "percent": "8.42",
+        "line_rupiah": 528073
+      },
+      "output_per_person_thousands": 62527,
+      "development": {
+        "index": "75.58",
+        "adjusted_spending_thousands": 12452
+      }
+    },
+    "12.06": {
+      "poverty": {
+        "people_thousands": "30.67",
+        "percent": "6.66",
+        "line_rupiah": 678885
+      },
+      "output_per_person_thousands": 70508,
+      "development": {
+        "index": "78.10",
+        "adjusted_spending_thousands": 13583
+      }
+    },
+    "12.07": {
+      "poverty": {
+        "people_thousands": "77.70",
+        "percent": "3.11",
+        "line_rupiah": 525433
+      },
+      "output_per_person_thousands": 78077,
+      "development": {
+        "index": "78.29",
+        "adjusted_spending_thousands": 13697
+      }
+    },
+    "12.08": {
+      "poverty": {
+        "people_thousands": "61.12",
+        "percent": "6.91",
+        "line_rupiah": 513793
+      },
+      "output_per_person_thousands": 60712,
+      "development": {
+        "index": "76.48",
+        "adjusted_spending_thousands": 12585
+      }
+    },
+    "12.09": {
+      "poverty": {
+        "people_thousands": "54.57",
+        "percent": "7.18",
+        "line_rupiah": 469559
+      },
+      "output_per_person_thousands": 76576,
+      "development": {
+        "index": "75.13",
+        "adjusted_spending_thousands": 12760
+      }
+    },
+    "12.10": {
+      "poverty": {
+        "people_thousands": "40.49",
+        "percent": "7.37",
+        "line_rupiah": 575408
+      },
+      "output_per_person_thousands": 104032,
+      "development": {
+        "index": "75.79",
+        "adjusted_spending_thousands": 12537
+      }
+    },
+    "12.11": {
+      "poverty": {
+        "people_thousands": "20.05",
+        "percent": "6.98",
+        "line_rupiah": 521738
+      },
+      "output_per_person_thousands": 40478,
+      "development": {
+        "index": "76.68",
+        "adjusted_spending_thousands": 11794
+      }
+    },
+    "12.12": {
+      "poverty": {
+        "people_thousands": "13.46",
+        "percent": "7.21",
+        "line_rupiah": 549563
+      },
+      "output_per_person_thousands": 49330,
+      "development": {
+        "index": "79.17",
+        "adjusted_spending_thousands": 13333
+      }
+    },
+    "12.13": {
+      "poverty": {
+        "people_thousands": "37.16",
+        "percent": "7.91",
+        "line_rupiah": 537240
+      },
+      "output_per_person_thousands": 42926,
+      "development": {
+        "index": "74.26",
+        "adjusted_spending_thousands": 11100
+      }
+    },
+    "12.14": {
+      "poverty": {
+        "people_thousands": "54.29",
+        "percent": "16.16",
+        "line_rupiah": 428859
+      },
+      "output_per_person_thousands": 24242,
+      "development": {
+        "index": "66.74",
+        "adjusted_spending_thousands": 8082
+      }
+    },
+    "12.15": {
+      "poverty": {
+        "people_thousands": "3.53",
+        "percent": "6.40",
+        "line_rupiah": 426571
+      },
+      "output_per_person_thousands": 32695,
+      "development": {
+        "index": "73.89",
+        "adjusted_spending_thousands": 9462
+      }
+    },
+    "12.16": {
+      "poverty": {
+        "people_thousands": "15.62",
+        "percent": "7.80",
+        "line_rupiah": 503769
+      },
+      "output_per_person_thousands": 42161,
+      "development": {
+        "index": "73.93",
+        "adjusted_spending_thousands": 9097
+      }
+    },
+    "12.17": {
+      "poverty": {
+        "people_thousands": "13.80",
+        "percent": "10.79",
+        "line_rupiah": 473942
+      },
+      "output_per_person_thousands": 44948,
+      "development": {
+        "index": "74.63",
+        "adjusted_spending_thousands": 10057
+      }
+    },
+    "12.18": {
+      "poverty": {
+        "people_thousands": "38.14",
+        "percent": "6.18",
+        "line_rupiah": 535422
+      },
+      "output_per_person_thousands": 66022,
+      "development": {
+        "index": "74.69",
+        "adjusted_spending_thousands": 12429
+      }
+    },
+    "12.19": {
+      "poverty": {
+        "people_thousands": "44.28",
+        "percent": "10.10",
+        "line_rupiah": 613493
+      },
+      "output_per_person_thousands": 115740,
+      "development": {
+        "index": "73.92",
+        "adjusted_spending_thousands": 11747
+      }
+    },
+    "12.20": {
+      "poverty": {
+        "people_thousands": "24.80",
+        "percent": "8.04",
+        "line_rupiah": 519411
+      },
+      "output_per_person_thousands": 68393,
+      "development": {
+        "index": "75.12",
+        "adjusted_spending_thousands": 11371
+      }
+    },
+    "12.21": {
+      "poverty": {
+        "people_thousands": "23.69",
+        "percent": "7.32",
+        "line_rupiah": 499761
+      },
+      "output_per_person_thousands": 71948,
+      "development": {
+        "index": "73.90",
+        "adjusted_spending_thousands": 10258
+      }
+    },
+    "12.22": {
+      "poverty": {
+        "people_thousands": "26.12",
+        "percent": "6.80",
+        "line_rupiah": 550141
+      },
+      "output_per_person_thousands": 134913,
+      "development": {
+        "index": "75.74",
+        "adjusted_spending_thousands": 12797
+      }
+    },
+    "12.23": {
+      "poverty": {
+        "people_thousands": "32.09",
+        "percent": "8.42",
+        "line_rupiah": 629870
+      },
+      "output_per_person_thousands": 95498,
+      "development": {
+        "index": "76.71",
+        "adjusted_spending_thousands": 13347
+      }
+    },
+    "12.24": {
+      "poverty": {
+        "people_thousands": "29.65",
+        "percent": "20.79",
+        "line_rupiah": 551434
+      },
+      "output_per_person_thousands": 31766,
+      "development": {
+        "index": "67.38",
+        "adjusted_spending_thousands": 7606
+      }
+    },
+    "12.25": {
+      "poverty": {
+        "people_thousands": "18.64",
+        "percent": "22.47",
+        "line_rupiah": 564416
+      },
+      "output_per_person_thousands": 26953,
+      "development": {
+        "index": "66.65",
+        "adjusted_spending_thousands": 7032
+      }
+    },
+    "12.71": {
+      "poverty": {
+        "people_thousands": "171.60",
+        "percent": "7.25",
+        "line_rupiah": 721547
+      },
+      "output_per_person_thousands": 141412,
+      "development": {
+        "index": "83.74",
+        "adjusted_spending_thousands": 16489
+      }
+    },
+    "12.72": {
+      "poverty": {
+        "people_thousands": "16.53",
+        "percent": "6.24",
+        "line_rupiah": 722851
+      },
+      "output_per_person_thousands": 66086,
+      "development": {
+        "index": "81.71",
+        "adjusted_spending_thousands": 13783
+      }
+    },
+    "12.73": {
+      "poverty": {
+        "people_thousands": "9.02",
+        "percent": "10.28",
+        "line_rupiah": 637141
+      },
+      "output_per_person_thousands": 82119,
+      "development": {
+        "index": "78.11",
+        "adjusted_spending_thousands": 13317
+      }
+    },
+    "12.74": {
+      "poverty": {
+        "people_thousands": "20.02",
+        "percent": "10.67",
+        "line_rupiah": 619558
+      },
+      "output_per_person_thousands": 69877,
+      "development": {
+        "index": "76.70",
+        "adjusted_spending_thousands": 12726
+      }
+    },
+    "12.75": {
+      "poverty": {
+        "people_thousands": "13.87",
+        "percent": "4.71",
+        "line_rupiah": 600451
+      },
+      "output_per_person_thousands": 53531,
+      "development": {
+        "index": "79.20",
+        "adjusted_spending_thousands": 12409
+      }
+    },
+    "12.76": {
+      "poverty": {
+        "people_thousands": "15.36",
+        "percent": "8.74",
+        "line_rupiah": 691270
+      },
+      "output_per_person_thousands": 45172,
+      "development": {
+        "index": "79.26",
+        "adjusted_spending_thousands": 14499
+      }
+    },
+    "12.77": {
+      "poverty": {
+        "people_thousands": "13.57",
+        "percent": "5.61",
+        "line_rupiah": 578095
+      },
+      "output_per_person_thousands": 37452,
+      "development": {
+        "index": "79.19",
+        "adjusted_spending_thousands": 12274
+      }
+    },
+    "12.78": {
+      "poverty": {
+        "people_thousands": "21.05",
+        "percent": "13.85",
+        "line_rupiah": 521961
+      },
+      "output_per_person_thousands": 51839,
+      "development": {
+        "index": "73.29",
+        "adjusted_spending_thousands": 9477
+      }
+    },
+    "13.01": {
+      "poverty": {
+        "people_thousands": "31.53",
+        "percent": "6.52",
+        "line_rupiah": 600161
+      },
+      "output_per_person_thousands": 37672,
+      "development": {
+        "index": "73.72",
+        "adjusted_spending_thousands": 10633
+      }
+    },
+    "13.02": {
+      "poverty": {
+        "people_thousands": "25.23",
+        "percent": "6.52",
+        "line_rupiah": 579500
+      },
+      "output_per_person_thousands": 46728,
+      "development": {
+        "index": "73.26",
+        "adjusted_spending_thousands": 11318
+      }
+    },
+    "13.03": {
+      "poverty": {
+        "people_thousands": "13.55",
+        "percent": "5.15",
+        "line_rupiah": 574991
+      },
+      "output_per_person_thousands": 54192,
+      "development": {
+        "index": "73.73",
+        "adjusted_spending_thousands": 11829
+      }
+    },
+    "13.04": {
+      "poverty": {
+        "people_thousands": "12.57",
+        "percent": "3.59",
+        "line_rupiah": 564372
+      },
+      "output_per_person_thousands": 47033,
+      "development": {
+        "index": "77.04",
+        "adjusted_spending_thousands": 11552
+      }
+    },
+    "13.05": {
+      "poverty": {
+        "people_thousands": "25.08",
+        "percent": "5.86",
+        "line_rupiah": 590495
+      },
+      "output_per_person_thousands": 59510,
+      "development": {
+        "index": "75.71",
+        "adjusted_spending_thousands": 12089
+      }
+    },
+    "13.06": {
+      "poverty": {
+        "people_thousands": "30.57",
+        "percent": "5.97",
+        "line_rupiah": 570317
+      },
+      "output_per_person_thousands": 52226,
+      "development": {
+        "index": "76.04",
+        "adjusted_spending_thousands": 11034
+      }
+    },
+    "13.07": {
+      "poverty": {
+        "people_thousands": "24.61",
+        "percent": "6.10",
+        "line_rupiah": 593402
+      },
+      "output_per_person_thousands": 55424,
+      "development": {
+        "index": "73.43",
+        "adjusted_spending_thousands": 10917
+      }
+    },
+    "13.08": {
+      "poverty": {
+        "people_thousands": "18.00",
+        "percent": "6.02",
+        "line_rupiah": 524533
+      },
+      "output_per_person_thousands": 39977,
+      "development": {
+        "index": "71.60",
+        "adjusted_spending_thousands": 9418
+      }
+    },
+    "13.09": {
+      "poverty": {
+        "people_thousands": "13.74",
+        "percent": "13.22",
+        "line_rupiah": 474879
+      },
+      "output_per_person_thousands": 70078,
+      "development": {
+        "index": "67.62",
+        "adjusted_spending_thousands": 7451
+      }
+    },
+    "13.10": {
+      "poverty": {
+        "people_thousands": "13.52",
+        "percent": "4.61",
+        "line_rupiah": 633451
+      },
+      "output_per_person_thousands": 62070,
+      "development": {
+        "index": "75.70",
+        "adjusted_spending_thousands": 12604
+      }
+    },
+    "13.11": {
+      "poverty": {
+        "people_thousands": "11.44",
+        "percent": "6.00",
+        "line_rupiah": 558817
+      },
+      "output_per_person_thousands": 41091,
+      "development": {
+        "index": "74.01",
+        "adjusted_spending_thousands": 11542
+      }
+    },
+    "13.12": {
+      "poverty": {
+        "people_thousands": "31.68",
+        "percent": "6.30",
+        "line_rupiah": 669360
+      },
+      "output_per_person_thousands": 49730,
+      "development": {
+        "index": "73.69",
+        "adjusted_spending_thousands": 10231
+      }
+    },
+    "13.71": {
+      "poverty": {
+        "people_thousands": "37.38",
+        "percent": "3.63",
+        "line_rupiah": 767616
+      },
+      "output_per_person_thousands": 92210,
+      "development": {
+        "index": "84.93",
+        "adjusted_spending_thousands": 15957
+      }
+    },
+    "13.72": {
+      "poverty": {
+        "people_thousands": "2.31",
+        "percent": "2.91",
+        "line_rupiah": 593520
+      },
+      "output_per_person_thousands": 72531,
+      "development": {
+        "index": "80.90",
+        "adjusted_spending_thousands": 13504
+      }
+    },
+    "13.73": {
+      "poverty": {
+        "people_thousands": "1.79",
+        "percent": "2.72",
+        "line_rupiah": 545725
+      },
+      "output_per_person_thousands": 78072,
+      "development": {
+        "index": "77.05",
+        "adjusted_spending_thousands": 11501
+      }
+    },
+    "13.74": {
+      "poverty": {
+        "people_thousands": "2.90",
+        "percent": "4.97",
+        "line_rupiah": 660705
+      },
+      "output_per_person_thousands": 84091,
+      "development": {
+        "index": "81.32",
+        "adjusted_spending_thousands": 12148
+      }
+    },
+    "13.75": {
+      "poverty": {
+        "people_thousands": "5.46",
+        "percent": "3.78",
+        "line_rupiah": 685824
+      },
+      "output_per_person_thousands": 98634,
+      "development": {
+        "index": "83.05",
+        "adjusted_spending_thousands": 14579
+      }
+    },
+    "13.76": {
+      "poverty": {
+        "people_thousands": "7.37",
+        "percent": "4.95",
+        "line_rupiah": 674813
+      },
+      "output_per_person_thousands": 66037,
+      "development": {
+        "index": "81.62",
+        "adjusted_spending_thousands": 14536
+      }
+    },
+    "13.77": {
+      "poverty": {
+        "people_thousands": "3.63",
+        "percent": "3.83",
+        "line_rupiah": 634304
+      },
+      "output_per_person_thousands": 73255,
+      "development": {
+        "index": "81.27",
+        "adjusted_spending_thousands": 14261
+      }
+    },
+    "14.01": {
+      "poverty": {
+        "people_thousands": "58.71",
+        "percent": "6.29",
+        "line_rupiah": 600385
+      },
+      "output_per_person_thousands": 139238,
+      "development": {
+        "index": "76.97",
+        "adjusted_spending_thousands": 12200
+      }
+    },
+    "14.02": {
+      "poverty": {
+        "people_thousands": "26.88",
+        "percent": "5.83",
+        "line_rupiah": 673975
+      },
+      "output_per_person_thousands": 138340,
+      "development": {
+        "index": "73.48",
+        "adjusted_spending_thousands": 11495
+      }
+    },
+    "14.03": {
+      "poverty": {
+        "people_thousands": "35.11",
+        "percent": "6.08",
+        "line_rupiah": 764542
+      },
+      "output_per_person_thousands": 292063,
+      "development": {
+        "index": "77.02",
+        "adjusted_spending_thousands": 12521
+      }
+    },
+    "14.04": {
+      "poverty": {
+        "people_thousands": "35.97",
+        "percent": "4.95",
+        "line_rupiah": 642777
+      },
+      "output_per_person_thousands": 151246,
+      "development": {
+        "index": "70.74",
+        "adjusted_spending_thousands": 11248
+      }
+    },
+    "14.05": {
+      "poverty": {
+        "people_thousands": "43.49",
+        "percent": "7.24",
+        "line_rupiah": 741594
+      },
+      "output_per_person_thousands": 201842,
+      "development": {
+        "index": "75.80",
+        "adjusted_spending_thousands": 13052
+      }
+    },
+    "14.06": {
+      "poverty": {
+        "people_thousands": "70.65",
+        "percent": "8.71",
+        "line_rupiah": 712867
+      },
+      "output_per_person_thousands": 108513,
+      "development": {
+        "index": "73.61",
+        "adjusted_spending_thousands": 10769
+      }
+    },
+    "14.07": {
+      "poverty": {
+        "people_thousands": "55.49",
+        "percent": "7.16",
+        "line_rupiah": 559703
+      },
+      "output_per_person_thousands": 158403,
+      "development": {
+        "index": "73.07",
+        "adjusted_spending_thousands": 10895
+      }
+    },
+    "14.08": {
+      "poverty": {
+        "people_thousands": "23.50",
+        "percent": "4.40",
+        "line_rupiah": 607601
+      },
+      "output_per_person_thousands": 268741,
+      "development": {
+        "index": "77.19",
+        "adjusted_spending_thousands": 13546
+      }
+    },
+    "14.09": {
+      "poverty": {
+        "people_thousands": "22.68",
+        "percent": "6.99",
+        "line_rupiah": 751174
+      },
+      "output_per_person_thousands": 165729,
+      "development": {
+        "index": "74.62",
+        "adjusted_spending_thousands": 11400
+      }
+    },
+    "14.10": {
+      "poverty": {
+        "people_thousands": "39.41",
+        "percent": "20.51",
+        "line_rupiah": 673296
+      },
+      "output_per_person_thousands": 137262,
+      "development": {
+        "index": "70.20",
+        "adjusted_spending_thousands": 9380
+      }
+    },
+    "14.71": {
+      "poverty": {
+        "people_thousands": "39.16",
+        "percent": "3.19",
+        "line_rupiah": 767408
+      },
+      "output_per_person_thousands": 178023,
+      "development": {
+        "index": "84.91",
+        "adjusted_spending_thousands": 15610
+      }
+    },
+    "14.72": {
+      "poverty": {
+        "people_thousands": "9.92",
+        "percent": "3.08",
+        "line_rupiah": 654144
+      },
+      "output_per_person_thousands": 171171,
+      "development": {
+        "index": "77.58",
+        "adjusted_spending_thousands": 13369
+      }
+    },
+    "15.01": {
+      "poverty": {
+        "people_thousands": "18.28",
+        "percent": "7.48",
+        "line_rupiah": 617362
+      },
+      "output_per_person_thousands": 61231,
+      "development": {
+        "index": "75.10",
+        "adjusted_spending_thousands": 11650
+      }
+    },
+    "15.02": {
+      "poverty": {
+        "people_thousands": "32.38",
+        "percent": "8.07",
+        "line_rupiah": 629000
+      },
+      "output_per_person_thousands": 73667,
+      "development": {
+        "index": "73.41",
+        "adjusted_spending_thousands": 11847
+      }
+    },
+    "15.03": {
+      "poverty": {
+        "people_thousands": "28.08",
+        "percent": "8.74",
+        "line_rupiah": 625401
+      },
+      "output_per_person_thousands": 79338,
+      "development": {
+        "index": "74.72",
+        "adjusted_spending_thousands": 13030
+      }
+    },
+    "15.04": {
+      "poverty": {
+        "people_thousands": "22.83",
+        "percent": "8.27",
+        "line_rupiah": 622440
+      },
+      "output_per_person_thousands": 89310,
+      "development": {
+        "index": "73.94",
+        "adjusted_spending_thousands": 11219
+      }
+    },
+    "15.05": {
+      "poverty": {
+        "people_thousands": "21.05",
+        "percent": "4.32",
+        "line_rupiah": 633575
+      },
+      "output_per_person_thousands": 102140,
+      "development": {
+        "index": "73.87",
+        "adjusted_spending_thousands": 10579
+      }
+    },
+    "15.06": {
+      "poverty": {
+        "people_thousands": "33.88",
+        "percent": "9.67",
+        "line_rupiah": 586789
+      },
+      "output_per_person_thousands": 182033,
+      "development": {
+        "index": "73.00",
+        "adjusted_spending_thousands": 11266
+      }
+    },
+    "15.07": {
+      "poverty": {
+        "people_thousands": "21.54",
+        "percent": "9.96",
+        "line_rupiah": 601104
+      },
+      "output_per_person_thousands": 127737,
+      "development": {
+        "index": "71.28",
+        "adjusted_spending_thousands": 10626
+      }
+    },
+    "15.08": {
+      "poverty": {
+        "people_thousands": "20.73",
+        "percent": "5.17",
+        "line_rupiah": 619464
+      },
+      "output_per_person_thousands": 75853,
+      "development": {
+        "index": "75.15",
+        "adjusted_spending_thousands": 13182
+      }
+    },
+    "15.09": {
+      "poverty": {
+        "people_thousands": "22.10",
+        "percent": "5.97",
+        "line_rupiah": 602105
+      },
+      "output_per_person_thousands": 69024,
+      "development": {
+        "index": "73.41",
+        "adjusted_spending_thousands": 11791
+      }
+    },
+    "15.71": {
+      "poverty": {
+        "people_thousands": "47.21",
+        "percent": "7.69",
+        "line_rupiah": 773124
+      },
+      "output_per_person_thousands": 73339,
+      "development": {
+        "index": "82.32",
+        "adjusted_spending_thousands": 13706
+      }
+    },
+    "15.72": {
+      "poverty": {
+        "people_thousands": "2.87",
+        "percent": "3.23",
+        "line_rupiah": 622995
+      },
+      "output_per_person_thousands": 108706,
+      "development": {
+        "index": "78.89",
+        "adjusted_spending_thousands": 11994
+      }
+    },
+    "16.01": {
+      "poverty": {
+        "people_thousands": "39.58",
+        "percent": "10.08",
+        "line_rupiah": 588225
+      },
+      "output_per_person_thousands": 57539,
+      "development": {
+        "index": "74.47",
+        "adjusted_spending_thousands": 11700
+      }
+    },
+    "16.02": {
+      "poverty": {
+        "people_thousands": "105.26",
+        "percent": "11.84",
+        "line_rupiah": 493783
+      },
+      "output_per_person_thousands": 62413,
+      "development": {
+        "index": "72.20",
+        "adjusted_spending_thousands": 12547
+      }
+    },
+    "16.03": {
+      "poverty": {
+        "people_thousands": "64.82",
+        "percent": "9.45",
+        "line_rupiah": 512439
+      },
+      "output_per_person_thousands": 197853,
+      "development": {
+        "index": "73.77",
+        "adjusted_spending_thousands": 12646
+      }
+    },
+    "16.04": {
+      "poverty": {
+        "people_thousands": "58.66",
+        "percent": "13.69",
+        "line_rupiah": 606881
+      },
+      "output_per_person_thousands": 71122,
+      "development": {
+        "index": "73.75",
+        "adjusted_spending_thousands": 11620
+      }
+    },
+    "16.05": {
+      "poverty": {
+        "people_thousands": "54.70",
+        "percent": "12.67",
+        "line_rupiah": 616298
+      },
+      "output_per_person_thousands": 65504,
+      "development": {
+        "index": "71.92",
+        "adjusted_spending_thousands": 11407
+      }
+    },
+    "16.06": {
+      "poverty": {
+        "people_thousands": "69.61",
+        "percent": "9.97",
+        "line_rupiah": 627094
+      },
+      "output_per_person_thousands": 150064,
+      "development": {
+        "index": "73.17",
+        "adjusted_spending_thousands": 11790
+      }
+    },
+    "16.07": {
+      "poverty": {
+        "people_thousands": "77.63",
+        "percent": "8.48",
+        "line_rupiah": 560840
+      },
+      "output_per_person_thousands": 48766,
+      "development": {
+        "index": "72.42",
+        "adjusted_spending_thousands": 11638
+      }
+    },
+    "16.08": {
+      "poverty": {
+        "people_thousands": "62.89",
+        "percent": "8.86",
+        "line_rupiah": 453488
+      },
+      "output_per_person_thousands": 33145,
+      "development": {
+        "index": "74.42",
+        "adjusted_spending_thousands": 13154
+      }
+    },
+    "16.09": {
+      "poverty": {
+        "people_thousands": "35.49",
+        "percent": "9.17",
+        "line_rupiah": 456280
+      },
+      "output_per_person_thousands": 29443,
+      "development": {
+        "index": "70.98",
+        "adjusted_spending_thousands": 10010
+      }
+    },
+    "16.10": {
+      "poverty": {
+        "people_thousands": "53.21",
+        "percent": "11.69",
+        "line_rupiah": 614656
+      },
+      "output_per_person_thousands": 37001,
+      "development": {
+        "index": "73.21",
+        "adjusted_spending_thousands": 12445
+      }
+    },
+    "16.11": {
+      "poverty": {
+        "people_thousands": "27.88",
+        "percent": "10.48",
+        "line_rupiah": 440405
+      },
+      "output_per_person_thousands": 21151,
+      "development": {
+        "index": "70.56",
+        "adjusted_spending_thousands": 11315
+      }
+    },
+    "16.12": {
+      "poverty": {
+        "people_thousands": "18.87",
+        "percent": "9.27",
+        "line_rupiah": 530583
+      },
+      "output_per_person_thousands": 49703,
+      "development": {
+        "index": "70.55",
+        "adjusted_spending_thousands": 9965
+      }
+    },
+    "16.13": {
+      "poverty": {
+        "people_thousands": "31.25",
+        "percent": "15.25",
+        "line_rupiah": 666294
+      },
+      "output_per_person_thousands": 50163,
+      "development": {
+        "index": "71.39",
+        "adjusted_spending_thousands": 11460
+      }
+    },
+    "16.71": {
+      "poverty": {
+        "people_thousands": "162.31",
+        "percent": "9.04",
+        "line_rupiah": 699920
+      },
+      "output_per_person_thousands": 130917,
+      "development": {
+        "index": "83.27",
+        "adjusted_spending_thousands": 16725
+      }
+    },
+    "16.72": {
+      "poverty": {
+        "people_thousands": "11.20",
+        "percent": "7.70",
+        "line_rupiah": 444962
+      },
+      "output_per_person_thousands": 27708,
+      "development": {
+        "index": "74.92",
+        "adjusted_spending_thousands": 10610
+      }
+    },
+    "16.73": {
+      "poverty": {
+        "people_thousands": "26.35",
+        "percent": "10.49",
+        "line_rupiah": 632783
+      },
+      "output_per_person_thousands": 37690,
+      "development": {
+        "index": "79.94",
+        "adjusted_spending_thousands": 15090
+      }
+    },
+    "16.74": {
+      "poverty": {
+        "people_thousands": "19.89",
+        "percent": "9.75",
+        "line_rupiah": 687666
+      },
+      "output_per_person_thousands": 55058,
+      "development": {
+        "index": "79.17",
+        "adjusted_spending_thousands": 14342
+      }
+    },
+    "17.01": {
+      "poverty": {
+        "people_thousands": "29.82",
+        "percent": "15.72",
+        "line_rupiah": 500588
+      },
+      "output_per_person_thousands": 48580,
+      "development": {
+        "index": "75.32",
+        "adjusted_spending_thousands": 11518
+      }
+    },
+    "17.02": {
+      "poverty": {
+        "people_thousands": "33.19",
+        "percent": "11.71",
+        "line_rupiah": 604697
+      },
+      "output_per_person_thousands": 48053,
+      "development": {
+        "index": "75.87",
+        "adjusted_spending_thousands": 11824
+      }
+    },
+    "17.03": {
+      "poverty": {
+        "people_thousands": "31.99",
+        "percent": "10.07",
+        "line_rupiah": 493892
+      },
+      "output_per_person_thousands": 43622,
+      "development": {
+        "index": "73.56",
+        "adjusted_spending_thousands": 12045
+      }
+    },
+    "17.04": {
+      "poverty": {
+        "people_thousands": "20.26",
+        "percent": "15.82",
+        "line_rupiah": 443789
+      },
+      "output_per_person_thousands": 40155,
+      "development": {
+        "index": "72.45",
+        "adjusted_spending_thousands": 10180
+      }
+    },
+    "17.05": {
+      "poverty": {
+        "people_thousands": "32.81",
+        "percent": "15.98",
+        "line_rupiah": 513037
+      },
+      "output_per_person_thousands": 31160,
+      "development": {
+        "index": "71.85",
+        "adjusted_spending_thousands": 9919
+      }
+    },
+    "17.06": {
+      "poverty": {
+        "people_thousands": "19.67",
+        "percent": "10.05",
+        "line_rupiah": 575283
+      },
+      "output_per_person_thousands": 40606,
+      "development": {
+        "index": "74.45",
+        "adjusted_spending_thousands": 12055
+      }
+    },
+    "17.07": {
+      "poverty": {
+        "people_thousands": "12.20",
+        "percent": "10.10",
+        "line_rupiah": 540904
+      },
+      "output_per_person_thousands": 43585,
+      "development": {
+        "index": "74.10",
+        "adjusted_spending_thousands": 12776
+      }
+    },
+    "17.08": {
+      "poverty": {
+        "people_thousands": "15.20",
+        "percent": "10.38",
+        "line_rupiah": 496275
+      },
+      "output_per_person_thousands": 43404,
+      "development": {
+        "index": "72.96",
+        "adjusted_spending_thousands": 11010
+      }
+    },
+    "17.09": {
+      "poverty": {
+        "people_thousands": "11.61",
+        "percent": "9.74",
+        "line_rupiah": 595054
+      },
+      "output_per_person_thousands": 57775,
+      "development": {
+        "index": "72.48",
+        "adjusted_spending_thousands": 10973
+      }
+    },
+    "17.71": {
+      "poverty": {
+        "people_thousands": "46.23",
+        "percent": "11.91",
+        "line_rupiah": 840710
+      },
+      "output_per_person_thousands": 88539,
+      "development": {
+        "index": "84.59",
+        "adjusted_spending_thousands": 15971
+      }
+    },
+    "18.01": {
+      "poverty": {
+        "people_thousands": "127.74",
+        "percent": "12.05",
+        "line_rupiah": 554969
+      },
+      "output_per_person_thousands": 57931,
+      "development": {
+        "index": "73.10",
+        "adjusted_spending_thousands": 11540
+      }
+    },
+    "18.02": {
+      "poverty": {
+        "people_thousands": "127.83",
+        "percent": "9.59",
+        "line_rupiah": 553397
+      },
+      "output_per_person_thousands": 68413,
+      "development": {
+        "index": "74.86",
+        "adjusted_spending_thousands": 12975
+      }
+    },
+    "18.03": {
+      "poverty": {
+        "people_thousands": "98.99",
+        "percent": "15.78",
+        "line_rupiah": 573039
+      },
+      "output_per_person_thousands": 51760,
+      "development": {
+        "index": "72.28",
+        "adjusted_spending_thousands": 10160
+      }
+    },
+    "18.04": {
+      "poverty": {
+        "people_thousands": "31.23",
+        "percent": "9.93",
+        "line_rupiah": 590143
+      },
+      "output_per_person_thousands": 33739,
+      "development": {
+        "index": "73.14",
+        "adjusted_spending_thousands": 11612
+      }
+    },
+    "18.05": {
+      "poverty": {
+        "people_thousands": "36.14",
+        "percent": "7.54",
+        "line_rupiah": 588734
+      },
+      "output_per_person_thousands": 72989,
+      "development": {
+        "index": "73.11",
+        "adjusted_spending_thousands": 12513
+      }
+    },
+    "18.06": {
+      "poverty": {
+        "people_thousands": "63.56",
+        "percent": "10.10",
+        "line_rupiah": 521482
+      },
+      "output_per_person_thousands": 33516,
+      "development": {
+        "index": "71.36",
+        "adjusted_spending_thousands": 10888
+      }
+    },
+    "18.07": {
+      "poverty": {
+        "people_thousands": "132.17",
+        "percent": "12.15",
+        "line_rupiah": 522287
+      },
+      "output_per_person_thousands": 52319,
+      "development": {
+        "index": "73.92",
+        "adjusted_spending_thousands": 11670
+      }
+    },
+    "18.08": {
+      "poverty": {
+        "people_thousands": "44.17",
+        "percent": "9.36",
+        "line_rupiah": 501220
+      },
+      "output_per_person_thousands": 41733,
+      "development": {
+        "index": "71.98",
+        "adjusted_spending_thousands": 10831
+      }
+    },
+    "18.09": {
+      "poverty": {
+        "people_thousands": "51.09",
+        "percent": "10.93",
+        "line_rupiah": 551469
+      },
+      "output_per_person_thousands": 46313,
+      "development": {
+        "index": "70.90",
+        "adjusted_spending_thousands": 9638
+      }
+    },
+    "18.10": {
+      "poverty": {
+        "people_thousands": "31.66",
+        "percent": "7.60",
+        "line_rupiah": 613173
+      },
+      "output_per_person_thousands": 38197,
+      "development": {
+        "index": "74.76",
+        "adjusted_spending_thousands": 11950
+      }
+    },
+    "18.11": {
+      "poverty": {
+        "people_thousands": "12.14",
+        "percent": "5.92",
+        "line_rupiah": 584306
+      },
+      "output_per_person_thousands": 62954,
+      "development": {
+        "index": "69.40",
+        "adjusted_spending_thousands": 9843
+      }
+    },
+    "18.12": {
+      "poverty": {
+        "people_thousands": "19.04",
+        "percent": "6.72",
+        "line_rupiah": 577725
+      },
+      "output_per_person_thousands": 55874,
+      "development": {
+        "index": "70.61",
+        "adjusted_spending_thousands": 10032
+      }
+    },
+    "18.13": {
+      "poverty": {
+        "people_thousands": "19.51",
+        "percent": "12.13",
+        "line_rupiah": 596941
+      },
+      "output_per_person_thousands": 38200,
+      "development": {
+        "index": "71.72",
+        "adjusted_spending_thousands": 9879
+      }
+    },
+    "18.71": {
+      "poverty": {
+        "people_thousands": "80.19",
+        "percent": "6.95",
+        "line_rupiah": 810345
+      },
+      "output_per_person_thousands": 70118,
+      "development": {
+        "index": "81.26",
+        "adjusted_spending_thousands": 14270
+      }
+    },
+    "18.72": {
+      "poverty": {
+        "people_thousands": "11.58",
+        "percent": "6.44",
+        "line_rupiah": 596139
+      },
+      "output_per_person_thousands": 51741,
+      "development": {
+        "index": "81.22",
+        "adjusted_spending_thousands": 13380
+      }
+    },
+    "19.01": {
+      "poverty": {
+        "people_thousands": "16.58",
+        "percent": "4.71",
+        "line_rupiah": 734575
+      },
+      "output_per_person_thousands": 63272,
+      "development": {
+        "index": "75.38",
+        "adjusted_spending_thousands": 13411
+      }
+    },
+    "19.02": {
+      "poverty": {
+        "people_thousands": "12.76",
+        "percent": "6.44",
+        "line_rupiah": 937759
+      },
+      "output_per_person_thousands": 78751,
+      "development": {
+        "index": "75.29",
+        "adjusted_spending_thousands": 14559
+      }
+    },
+    "19.03": {
+      "poverty": {
+        "people_thousands": "9.13",
+        "percent": "4.17",
+        "line_rupiah": 707843
+      },
+      "output_per_person_thousands": 61995,
+      "development": {
+        "index": "70.83",
+        "adjusted_spending_thousands": 12920
+      }
+    },
+    "19.04": {
+      "poverty": {
+        "people_thousands": "13.71",
+        "percent": "6.70",
+        "line_rupiah": 865464
+      },
+      "output_per_person_thousands": 60591,
+      "development": {
+        "index": "73.10",
+        "adjusted_spending_thousands": 13768
+      }
+    },
+    "19.05": {
+      "poverty": {
+        "people_thousands": "6.51",
+        "percent": "2.92",
+        "line_rupiah": 731204
+      },
+      "output_per_person_thousands": 97858,
+      "development": {
+        "index": "72.23",
+        "adjusted_spending_thousands": 13380
+      }
+    },
+    "19.06": {
+      "poverty": {
+        "people_thousands": "9.04",
+        "percent": "6.69",
+        "line_rupiah": 925729
+      },
+      "output_per_person_thousands": 89142,
+      "development": {
+        "index": "73.99",
+        "adjusted_spending_thousands": 12694
+      }
+    },
+    "19.71": {
+      "poverty": {
+        "people_thousands": "9.99",
+        "percent": "4.50",
+        "line_rupiah": 956990
+      },
+      "output_per_person_thousands": 87213,
+      "development": {
+        "index": "81.64",
+        "adjusted_spending_thousands": 16856
+      }
+    },
+    "21.01": {
+      "poverty": {
+        "people_thousands": "8.11",
+        "percent": "4.77",
+        "line_rupiah": 528549
+      },
+      "output_per_person_thousands": 193677,
+      "development": {
+        "index": "78.65",
+        "adjusted_spending_thousands": 15303
+      }
+    },
+    "21.02": {
+      "poverty": {
+        "people_thousands": "12.56",
+        "percent": "5.16",
+        "line_rupiah": 524326
+      },
+      "output_per_person_thousands": 74982,
+      "development": {
+        "index": "76.08",
+        "adjusted_spending_thousands": 13649
+      }
+    },
+    "21.03": {
+      "poverty": {
+        "people_thousands": "4.01",
+        "percent": "4.81",
+        "line_rupiah": 555293
+      },
+      "output_per_person_thousands": 281436,
+      "development": {
+        "index": "78.94",
+        "adjusted_spending_thousands": 15683
+      }
+    },
+    "21.04": {
+      "poverty": {
+        "people_thousands": "8.24",
+        "percent": "9.12",
+        "line_rupiah": 596564
+      },
+      "output_per_person_thousands": 57827,
+      "development": {
+        "index": "73.82",
+        "adjusted_spending_thousands": 13108
+      }
+    },
+    "21.05": {
+      "poverty": {
+        "people_thousands": "2.86",
+        "percent": "6.35",
+        "line_rupiah": 540795
+      },
+      "output_per_person_thousands": 399577,
+      "development": {
+        "index": "74.07",
+        "adjusted_spending_thousands": 13141
+      }
+    },
+    "21.71": {
+      "poverty": {
+        "people_thousands": "68.04",
+        "percent": "3.81",
+        "line_rupiah": 954437
+      },
+      "output_per_person_thousands": 195565,
+      "development": {
+        "index": "83.80",
+        "adjusted_spending_thousands": 19944
+      }
+    },
+    "21.72": {
+      "poverty": {
+        "people_thousands": "13.47",
+        "percent": "5.96",
+        "line_rupiah": 842147
+      },
+      "output_per_person_thousands": 111013,
+      "development": {
+        "index": "82.02",
+        "adjusted_spending_thousands": 16838
+      }
+    },
+    "31.01": {
+      "poverty": {
+        "people_thousands": "3.35",
+        "percent": "12.37",
+        "line_rupiah": 801734
+      },
+      "output_per_person_thousands": 256168,
+      "development": {
+        "index": "77.52",
+        "adjusted_spending_thousands": 14691
+      }
+    },
+    "31.71": {
+      "poverty": {
+        "people_thousands": "43.06",
+        "percent": "4.70",
+        "line_rupiah": 846307
+      },
+      "output_per_person_thousands": 949177,
+      "development": {
+        "index": "84.45",
+        "adjusted_spending_thousands": 19309
+      }
+    },
+    "31.72": {
+      "poverty": {
+        "people_thousands": "119.02",
+        "percent": "6.33",
+        "line_rupiah": 736415
+      },
+      "output_per_person_thousands": 392506,
+      "development": {
+        "index": "83.12",
+        "adjusted_spending_thousands": 20584
+      }
+    },
+    "31.73": {
+      "poverty": {
+        "people_thousands": "106.39",
+        "percent": "3.91",
+        "line_rupiah": 707669
+      },
+      "output_per_person_thousands": 269434,
+      "development": {
+        "index": "85.18",
+        "adjusted_spending_thousands": 22831
+      }
+    },
+    "31.74": {
+      "poverty": {
+        "people_thousands": "75.66",
+        "percent": "3.23",
+        "line_rupiah": 959133
+      },
+      "output_per_person_thousands": 409066,
+      "development": {
+        "index": "88.51",
+        "adjusted_spending_thousands": 26387
+      }
+    },
+    "31.75": {
+      "poverty": {
+        "people_thousands": "117.40",
+        "percent": "3.94",
+        "line_rupiah": 720813
+      },
+      "output_per_person_thousands": 218523,
+      "development": {
+        "index": "85.51",
+        "adjusted_spending_thousands": 19824
+      }
+    },
+    "32.01": {
+      "poverty": {
+        "people_thousands": "401.86",
+        "percent": "6.26",
+        "line_rupiah": 531412
+      },
+      "output_per_person_thousands": 58788,
+      "development": {
+        "index": "74.53",
+        "adjusted_spending_thousands": 11933
+      }
+    },
+    "32.02": {
+      "poverty": {
+        "people_thousands": "164.63",
+        "percent": "6.41",
+        "line_rupiah": 431785
+      },
+      "output_per_person_thousands": 33442,
+      "development": {
+        "index": "71.13",
+        "adjusted_spending_thousands": 10244
+      }
+    },
+    "32.03": {
+      "poverty": {
+        "people_thousands": "232.61",
+        "percent": "9.82",
+        "line_rupiah": 482562
+      },
+      "output_per_person_thousands": 26555,
+      "development": {
+        "index": "69.84",
+        "adjusted_spending_thousands": 9173
+      }
+    },
+    "32.04": {
+      "poverty": {
+        "people_thousands": "236.06",
+        "percent": "6.04",
+        "line_rupiah": 468974
+      },
+      "output_per_person_thousands": 47558,
+      "development": {
+        "index": "75.58",
+        "adjusted_spending_thousands": 11619
+      }
+    },
+    "32.05": {
+      "poverty": {
+        "people_thousands": "252.56",
+        "percent": "9.39",
+        "line_rupiah": 407191
+      },
+      "output_per_person_thousands": 31287,
+      "development": {
+        "index": "70.67",
+        "adjusted_spending_thousands": 9479
+      }
+    },
+    "32.06": {
+      "poverty": {
+        "people_thousands": "185.99",
+        "percent": "10.15",
+        "line_rupiah": 413178
+      },
+      "output_per_person_thousands": 28081,
+      "development": {
+        "index": "70.76",
+        "adjusted_spending_thousands": 9258
+      }
+    },
+    "32.07": {
+      "poverty": {
+        "people_thousands": "88.72",
+        "percent": "7.19",
+        "line_rupiah": 483644
+      },
+      "output_per_person_thousands": 36794,
+      "development": {
+        "index": "74.33",
+        "adjusted_spending_thousands": 10406
+      }
+    },
+    "32.08": {
+      "poverty": {
+        "people_thousands": "119.67",
+        "percent": "10.74",
+        "line_rupiah": 435184
+      },
+      "output_per_person_thousands": 34235,
+      "development": {
+        "index": "72.31",
+        "adjusted_spending_thousands": 10707
+      }
+    },
+    "32.09": {
+      "poverty": {
+        "people_thousands": "229.64",
+        "percent": "10.23",
+        "line_rupiah": 491604
+      },
+      "output_per_person_thousands": 30639,
+      "development": {
+        "index": "73.27",
+        "adjusted_spending_thousands": 11769
+      }
+    },
+    "32.10": {
+      "poverty": {
+        "people_thousands": "128.67",
+        "percent": "10.31",
+        "line_rupiah": 566574
+      },
+      "output_per_person_thousands": 37079,
+      "development": {
+        "index": "72.37",
+        "adjusted_spending_thousands": 11094
+      }
+    },
+    "32.11": {
+      "poverty": {
+        "people_thousands": "105.82",
+        "percent": "8.81",
+        "line_rupiah": 436490
+      },
+      "output_per_person_thousands": 42652,
+      "development": {
+        "index": "75.50",
+        "adjusted_spending_thousands": 11963
+      }
+    },
+    "32.12": {
+      "poverty": {
+        "people_thousands": "196.78",
+        "percent": "11.02",
+        "line_rupiah": 578169
+      },
+      "output_per_person_thousands": 59333,
+      "development": {
+        "index": "71.58",
+        "adjusted_spending_thousands": 11316
+      }
+    },
+    "32.13": {
+      "poverty": {
+        "people_thousands": "148.99",
+        "percent": "9.23",
+        "line_rupiah": 449186
+      },
+      "output_per_person_thousands": 34956,
+      "development": {
+        "index": "73.00",
+        "adjusted_spending_thousands": 12144
+      }
+    },
+    "32.14": {
+      "poverty": {
+        "people_thousands": "76.51",
+        "percent": "7.87",
+        "line_rupiah": 483968
+      },
+      "output_per_person_thousands": 89218,
+      "development": {
+        "index": "74.97",
+        "adjusted_spending_thousands": 13400
+      }
+    },
+    "32.15": {
+      "poverty": {
+        "people_thousands": "169.80",
+        "percent": "7.08",
+        "line_rupiah": 617901
+      },
+      "output_per_person_thousands": 130653,
+      "development": {
+        "index": "74.59",
+        "adjusted_spending_thousands": 13251
+      }
+    },
+    "32.16": {
+      "poverty": {
+        "people_thousands": "191.00",
+        "percent": "4.36",
+        "line_rupiah": 698154
+      },
+      "output_per_person_thousands": 136696,
+      "development": {
+        "index": "77.80",
+        "adjusted_spending_thousands": 13004
+      }
+    },
+    "32.17": {
+      "poverty": {
+        "people_thousands": "169.66",
+        "percent": "9.87",
+        "line_rupiah": 471101
+      },
+      "output_per_person_thousands": 34549,
+      "development": {
+        "index": "71.65",
+        "adjusted_spending_thousands": 9862
+      }
+    },
+    "32.18": {
+      "poverty": {
+        "people_thousands": "33.09",
+        "percent": "8.03",
+        "line_rupiah": 486285
+      },
+      "output_per_person_thousands": 38393,
+      "development": {
+        "index": "71.66",
+        "adjusted_spending_thousands": 9995
+      }
+    },
+    "32.71": {
+      "poverty": {
+        "people_thousands": "67.16",
+        "percent": "5.89",
+        "line_rupiah": 730079
+      },
+      "output_per_person_thousands": 60701,
+      "development": {
+        "index": "79.75",
+        "adjusted_spending_thousands": 13571
+      }
+    },
+    "32.72": {
+      "poverty": {
+        "people_thousands": "23.17",
+        "percent": "6.90",
+        "line_rupiah": 706415
+      },
+      "output_per_person_thousands": 47649,
+      "development": {
+        "index": "78.23",
+        "adjusted_spending_thousands": 12692
+      }
+    },
+    "32.73": {
+      "poverty": {
+        "people_thousands": "99.12",
+        "percent": "3.78",
+        "line_rupiah": 644417
+      },
+      "output_per_person_thousands": 158495,
+      "development": {
+        "index": "84.66",
+        "adjusted_spending_thousands": 19280
+      }
+    },
+    "32.74": {
+      "poverty": {
+        "people_thousands": "28.12",
+        "percent": "8.66",
+        "line_rupiah": 571809
+      },
+      "output_per_person_thousands": 95182,
+      "development": {
+        "index": "78.99",
+        "adjusted_spending_thousands": 13341
+      }
+    },
+    "32.75": {
+      "poverty": {
+        "people_thousands": "129.54",
+        "percent": "3.96",
+        "line_rupiah": 864601
+      },
+      "output_per_person_thousands": 52514,
+      "development": {
+        "index": "84.43",
+        "adjusted_spending_thousands": 17216
+      }
+    },
+    "32.76": {
+      "poverty": {
+        "people_thousands": "63.45",
+        "percent": "2.31",
+        "line_rupiah": 884633
+      },
+      "output_per_person_thousands": 46686,
+      "development": {
+        "index": "84.04",
+        "adjusted_spending_thousands": 17279
+      }
+    },
+    "32.77": {
+      "poverty": {
+        "people_thousands": "25.97",
+        "percent": "4.20",
+        "line_rupiah": 642016
+      },
+      "output_per_person_thousands": 76989,
+      "development": {
+        "index": "80.85",
+        "adjusted_spending_thousands": 13697
+      }
+    },
+    "32.78": {
+      "poverty": {
+        "people_thousands": "75.22",
+        "percent": "10.84",
+        "line_rupiah": 591600
+      },
+      "output_per_person_thousands": 42129,
+      "development": {
+        "index": "76.59",
+        "adjusted_spending_thousands": 11849
+      }
+    },
+    "32.79": {
+      "poverty": {
+        "people_thousands": "10.97",
+        "percent": "5.73",
+        "line_rupiah": 451277
+      },
+      "output_per_person_thousands": 28051,
+      "development": {
+        "index": "75.54",
+        "adjusted_spending_thousands": 12222
+      }
+    },
+    "33.01": {
+      "poverty": {
+        "people_thousands": "164.22",
+        "percent": "9.41",
+        "line_rupiah": 469174
+      },
+      "output_per_person_thousands": 69736,
+      "development": {
+        "index": "73.45",
+        "adjusted_spending_thousands": 12371
+      }
+    },
+    "33.02": {
+      "poverty": {
+        "people_thousands": "194.87",
+        "percent": "11.15",
+        "line_rupiah": 529310
+      },
+      "output_per_person_thousands": 42784,
+      "development": {
+        "index": "75.44",
+        "adjusted_spending_thousands": 13301
+      }
+    },
+    "33.03": {
+      "poverty": {
+        "people_thousands": "121.80",
+        "percent": "12.55",
+        "line_rupiah": 491091
+      },
+      "output_per_person_thousands": 34427,
+      "development": {
+        "index": "71.71",
+        "adjusted_spending_thousands": 11949
+      }
+    },
+    "33.04": {
+      "poverty": {
+        "people_thousands": "124.66",
+        "percent": "13.28",
+        "line_rupiah": 424316
+      },
+      "output_per_person_thousands": 29366,
+      "development": {
+        "index": "70.61",
+        "adjusted_spending_thousands": 10992
+      }
+    },
+    "33.05": {
+      "poverty": {
+        "people_thousands": "162.54",
+        "percent": "13.58",
+        "line_rupiah": 502841
+      },
+      "output_per_person_thousands": 28999,
+      "development": {
+        "index": "73.17",
+        "adjusted_spending_thousands": 10658
+      }
+    },
+    "33.06": {
+      "poverty": {
+        "people_thousands": "72.18",
+        "percent": "10.06",
+        "line_rupiah": 496812
+      },
+      "output_per_person_thousands": 33035,
+      "development": {
+        "index": "75.93",
+        "adjusted_spending_thousands": 12085
+      }
+    },
+    "33.07": {
+      "poverty": {
+        "people_thousands": "106.29",
+        "percent": "13.34",
+        "line_rupiah": 486105
+      },
+      "output_per_person_thousands": 28721,
+      "development": {
+        "index": "71.50",
+        "adjusted_spending_thousands": 12552
+      }
+    },
+    "33.08": {
+      "poverty": {
+        "people_thousands": "132.21",
+        "percent": "9.90",
+        "line_rupiah": 454591
+      },
+      "output_per_person_thousands": 34751,
+      "development": {
+        "index": "73.09",
+        "adjusted_spending_thousands": 11343
+      }
+    },
+    "33.09": {
+      "poverty": {
+        "people_thousands": "86.97",
+        "percent": "8.71",
+        "line_rupiah": 464627
+      },
+      "output_per_person_thousands": 44028,
+      "development": {
+        "index": "76.95",
+        "adjusted_spending_thousands": 14594
+      }
+    },
+    "33.10": {
+      "poverty": {
+        "people_thousands": "129.68",
+        "percent": "11.00",
+        "line_rupiah": 533141
+      },
+      "output_per_person_thousands": 44917,
+      "development": {
+        "index": "78.68",
+        "adjusted_spending_thousands": 13948
+      }
+    },
+    "33.11": {
+      "poverty": {
+        "people_thousands": "62.66",
+        "percent": "6.83",
+        "line_rupiah": 536779
+      },
+      "output_per_person_thousands": 56279,
+      "development": {
+        "index": "79.90",
+        "adjusted_spending_thousands": 13238
+      }
+    },
+    "33.12": {
+      "poverty": {
+        "people_thousands": "91.90",
+        "percent": "9.59",
+        "line_rupiah": 479566
+      },
+      "output_per_person_thousands": 40506,
+      "development": {
+        "index": "73.42",
+        "adjusted_spending_thousands": 10938
+      }
+    },
+    "33.13": {
+      "poverty": {
+        "people_thousands": "77.66",
+        "percent": "8.48",
+        "line_rupiah": 523407
+      },
+      "output_per_person_thousands": 56882,
+      "development": {
+        "index": "78.67",
+        "adjusted_spending_thousands": 13244
+      }
+    },
+    "33.14": {
+      "poverty": {
+        "people_thousands": "100.08",
+        "percent": "11.22",
+        "line_rupiah": 482828
+      },
+      "output_per_person_thousands": 55523,
+      "development": {
+        "index": "76.38",
+        "adjusted_spending_thousands": 14461
+      }
+    },
+    "33.15": {
+      "poverty": {
+        "people_thousands": "148.10",
+        "percent": "10.63",
+        "line_rupiah": 526238
+      },
+      "output_per_person_thousands": 26421,
+      "development": {
+        "index": "72.94",
+        "adjusted_spending_thousands": 11991
+      }
+    },
+    "33.16": {
+      "poverty": {
+        "people_thousands": "92.01",
+        "percent": "10.58",
+        "line_rupiah": 492105
+      },
+      "output_per_person_thousands": 38547,
+      "development": {
+        "index": "72.35",
+        "adjusted_spending_thousands": 11240
+      }
+    },
+    "33.17": {
+      "poverty": {
+        "people_thousands": "85.32",
+        "percent": "13.01",
+        "line_rupiah": 550265
+      },
+      "output_per_person_thousands": 41352,
+      "development": {
+        "index": "73.40",
+        "adjusted_spending_thousands": 12189
+      }
+    },
+    "33.18": {
+      "poverty": {
+        "people_thousands": "105.27",
+        "percent": "8.24",
+        "line_rupiah": 598600
+      },
+      "output_per_person_thousands": 46043,
+      "development": {
+        "index": "74.98",
+        "adjusted_spending_thousands": 12186
+      }
+    },
+    "33.19": {
+      "poverty": {
+        "people_thousands": "60.37",
+        "percent": "6.59",
+        "line_rupiah": 576195
+      },
+      "output_per_person_thousands": 148384,
+      "development": {
+        "index": "77.94",
+        "adjusted_spending_thousands": 12842
+      }
+    },
+    "33.20": {
+      "poverty": {
+        "people_thousands": "77.67",
+        "percent": "5.79",
+        "line_rupiah": 535150
+      },
+      "output_per_person_thousands": 34918,
+      "development": {
+        "index": "74.90",
+        "adjusted_spending_thousands": 12242
+      }
+    },
+    "33.21": {
+      "poverty": {
+        "people_thousands": "131.47",
+        "percent": "10.87",
+        "line_rupiah": 569035
+      },
+      "output_per_person_thousands": 30654,
+      "development": {
+        "index": "75.08",
+        "adjusted_spending_thousands": 12014
+      }
+    },
+    "33.22": {
+      "poverty": {
+        "people_thousands": "70.29",
+        "percent": "6.30",
+        "line_rupiah": 558501
+      },
+      "output_per_person_thousands": 64076,
+      "development": {
+        "index": "76.40",
+        "adjusted_spending_thousands": 13923
+      }
+    },
+    "33.23": {
+      "poverty": {
+        "people_thousands": "62.05",
+        "percent": "7.78",
+        "line_rupiah": 443089
+      },
+      "output_per_person_thousands": 38002,
+      "development": {
+        "index": "72.52",
+        "adjusted_spending_thousands": 10995
+      }
+    },
+    "33.24": {
+      "poverty": {
+        "people_thousands": "83.73",
+        "percent": "8.40",
+        "line_rupiah": 521061
+      },
+      "output_per_person_thousands": 60002,
+      "development": {
+        "index": "75.07",
+        "adjusted_spending_thousands": 13721
+      }
+    },
+    "33.25": {
+      "poverty": {
+        "people_thousands": "61.75",
+        "percent": "7.79",
+        "line_rupiah": 436936
+      },
+      "output_per_person_thousands": 39390,
+      "development": {
+        "index": "71.70",
+        "adjusted_spending_thousands": 11424
+      }
+    },
+    "33.26": {
+      "poverty": {
+        "people_thousands": "73.80",
+        "percent": "8.05",
+        "line_rupiah": 538371
+      },
+      "output_per_person_thousands": 31722,
+      "development": {
+        "index": "72.71",
+        "adjusted_spending_thousands": 12185
+      }
+    },
+    "33.27": {
+      "poverty": {
+        "people_thousands": "173.38",
+        "percent": "13.32",
+        "line_rupiah": 530254
+      },
+      "output_per_person_thousands": 24047,
+      "development": {
+        "index": "69.47",
+        "adjusted_spending_thousands": 10521
+      }
+    },
+    "33.28": {
+      "poverty": {
+        "people_thousands": "88.70",
+        "percent": "6.16",
+        "line_rupiah": 516933
+      },
+      "output_per_person_thousands": 30348,
+      "development": {
+        "index": "72.36",
+        "adjusted_spending_thousands": 11498
+      }
+    },
+    "33.29": {
+      "poverty": {
+        "people_thousands": "257.29",
+        "percent": "14.15",
+        "line_rupiah": 563762
+      },
+      "output_per_person_thousands": 31768,
+      "development": {
+        "index": "71.18",
+        "adjusted_spending_thousands": 11853
+      }
+    },
+    "33.71": {
+      "poverty": {
+        "people_thousands": "6.93",
+        "percent": "5.68",
+        "line_rupiah": 662129
+      },
+      "output_per_person_thousands": 103577,
+      "development": {
+        "index": "82.92",
+        "adjusted_spending_thousands": 14023
+      }
+    },
+    "33.72": {
+      "poverty": {
+        "people_thousands": "40.08",
+        "percent": "7.69",
+        "line_rupiah": 678315
+      },
+      "output_per_person_thousands": 130017,
+      "development": {
+        "index": "84.92",
+        "adjusted_spending_thousands": 16883
+      }
+    },
+    "33.73": {
+      "poverty": {
+        "people_thousands": "8.66",
+        "percent": "4.20",
+        "line_rupiah": 630119
+      },
+      "output_per_person_thousands": 95230,
+      "development": {
+        "index": "86.23",
+        "adjusted_spending_thousands": 17523
+      }
+    },
+    "33.74": {
+      "poverty": {
+        "people_thousands": "74.36",
+        "percent": "3.80",
+        "line_rupiah": 709785
+      },
+      "output_per_person_thousands": 167236,
+      "development": {
+        "index": "85.80",
+        "adjusted_spending_thousands": 17402
+      }
+    },
+    "33.75": {
+      "poverty": {
+        "people_thousands": "19.49",
+        "percent": "6.14",
+        "line_rupiah": 639402
+      },
+      "output_per_person_thousands": 48994,
+      "development": {
+        "index": "77.76",
+        "adjusted_spending_thousands": 14988
+      }
+    },
+    "33.76": {
+      "poverty": {
+        "people_thousands": "18.27",
+        "percent": "7.28",
+        "line_rupiah": 702113
+      },
+      "output_per_person_thousands": 77030,
+      "development": {
+        "index": "77.95",
+        "adjusted_spending_thousands": 14801
+      }
+    },
+    "34.01": {
+      "poverty": {
+        "people_thousands": "67.25",
+        "percent": "14.53",
+        "line_rupiah": 452717
+      },
+      "output_per_person_thousands": 40069,
+      "development": {
+        "index": "76.97",
+        "adjusted_spending_thousands": 11499
+      }
+    },
+    "34.02": {
+      "poverty": {
+        "people_thousands": "127.25",
+        "percent": "11.54",
+        "line_rupiah": 531456
+      },
+      "output_per_person_thousands": 38187,
+      "development": {
+        "index": "83.03",
+        "adjusted_spending_thousands": 17240
+      }
+    },
+    "34.03": {
+      "poverty": {
+        "people_thousands": "113.48",
+        "percent": "14.15",
+        "line_rupiah": 413617
+      },
+      "output_per_person_thousands": 38330,
+      "development": {
+        "index": "73.13",
+        "adjusted_spending_thousands": 11006
+      }
+    },
+    "34.04": {
+      "poverty": {
+        "people_thousands": "89.28",
+        "percent": "6.71",
+        "line_rupiah": 534300
+      },
+      "output_per_person_thousands": 58602,
+      "development": {
+        "index": "86.35",
+        "adjusted_spending_thousands": 18231
+      }
+    },
+    "34.71": {
+      "poverty": {
+        "people_thousands": "28.58",
+        "percent": "6.14",
+        "line_rupiah": 729196
+      },
+      "output_per_person_thousands": 140641,
+      "development": {
+        "index": "89.53",
+        "adjusted_spending_thousands": 21104
+      }
+    },
+    "35.01": {
+      "poverty": {
+        "people_thousands": "72.47",
+        "percent": "12.97",
+        "line_rupiah": 386174
+      },
+      "output_per_person_thousands": 38215,
+      "development": {
+        "index": "72.26",
+        "adjusted_spending_thousands": 10756
+      }
+    },
+    "35.02": {
+      "poverty": {
+        "people_thousands": "77.93",
+        "percent": "8.86",
+        "line_rupiah": 428183
+      },
+      "output_per_person_thousands": 30007,
+      "development": {
+        "index": "74.65",
+        "adjusted_spending_thousands": 11561
+      }
+    },
+    "35.03": {
+      "poverty": {
+        "people_thousands": "72.35",
+        "percent": "10.29",
+        "line_rupiah": 450334
+      },
+      "output_per_person_thousands": 35110,
+      "development": {
+        "index": "73.39",
+        "adjusted_spending_thousands": 11322
+      }
+    },
+    "35.04": {
+      "poverty": {
+        "people_thousands": "63.17",
+        "percent": "5.96",
+        "line_rupiah": 463364
+      },
+      "output_per_person_thousands": 49485,
+      "development": {
+        "index": "75.88",
+        "adjusted_spending_thousands": 12505
+      }
+    },
+    "35.05": {
+      "poverty": {
+        "people_thousands": "89.04",
+        "percent": "7.57",
+        "line_rupiah": 417158
+      },
+      "output_per_person_thousands": 40200,
+      "development": {
+        "index": "74.43",
+        "adjusted_spending_thousands": 12633
+      }
+    },
+    "35.06": {
+      "poverty": {
+        "people_thousands": "157.47",
+        "percent": "9.81",
+        "line_rupiah": 419486
+      },
+      "output_per_person_thousands": 34496,
+      "development": {
+        "index": "76.09",
+        "adjusted_spending_thousands": 12968
+      }
+    },
+    "35.07": {
+      "poverty": {
+        "people_thousands": "235.63",
+        "percent": "8.78",
+        "line_rupiah": 436153
+      },
+      "output_per_person_thousands": 54521,
+      "development": {
+        "index": "74.45",
+        "adjusted_spending_thousands": 11681
+      }
+    },
+    "35.08": {
+      "poverty": {
+        "people_thousands": "90.64",
+        "percent": "8.60",
+        "line_rupiah": 420165
+      },
+      "output_per_person_thousands": 40349,
+      "development": {
+        "index": "71.02",
+        "adjusted_spending_thousands": 10603
+      }
+    },
+    "35.09": {
+      "poverty": {
+        "people_thousands": "216.76",
+        "percent": "8.67",
+        "line_rupiah": 474903
+      },
+      "output_per_person_thousands": 42357,
+      "development": {
+        "index": "71.57",
+        "adjusted_spending_thousands": 11147
+      }
+    },
+    "35.10": {
+      "poverty": {
+        "people_thousands": "100.13",
+        "percent": "6.13",
+        "line_rupiah": 485012
+      },
+      "output_per_person_thousands": 67081,
+      "development": {
+        "index": "75.17",
+        "adjusted_spending_thousands": 13963
+      }
+    },
+    "35.11": {
+      "poverty": {
+        "people_thousands": "96.71",
+        "percent": "12.20",
+        "line_rupiah": 526325
+      },
+      "output_per_person_thousands": 35872,
+      "development": {
+        "index": "71.72",
+        "adjusted_spending_thousands": 12192
+      }
+    },
+    "35.12": {
+      "poverty": {
+        "people_thousands": "78.02",
+        "percent": "11.17",
+        "line_rupiah": 428100
+      },
+      "output_per_person_thousands": 41143,
+      "development": {
+        "index": "71.87",
+        "adjusted_spending_thousands": 11713
+      }
+    },
+    "35.13": {
+      "poverty": {
+        "people_thousands": "196.26",
+        "percent": "16.31",
+        "line_rupiah": 545221
+      },
+      "output_per_person_thousands": 41409,
+      "development": {
+        "index": "71.65",
+        "adjusted_spending_thousands": 12749
+      }
+    },
+    "35.14": {
+      "poverty": {
+        "people_thousands": "138.43",
+        "percent": "8.21",
+        "line_rupiah": 464861
+      },
+      "output_per_person_thousands": 131055,
+      "development": {
+        "index": "73.02",
+        "adjusted_spending_thousands": 12117
+      }
+    },
+    "35.15": {
+      "poverty": {
+        "people_thousands": "107.57",
+        "percent": "4.40",
+        "line_rupiah": 617911
+      },
+      "output_per_person_thousands": 145529,
+      "development": {
+        "index": "83.35",
+        "adjusted_spending_thousands": 16366
+      }
+    },
+    "35.16": {
+      "poverty": {
+        "people_thousands": "102.67",
+        "percent": "8.79",
+        "line_rupiah": 526397
+      },
+      "output_per_person_thousands": 105452,
+      "development": {
+        "index": "77.46",
+        "adjusted_spending_thousands": 14525
+      }
+    },
+    "35.17": {
+      "poverty": {
+        "people_thousands": "107.82",
+        "percent": "8.36",
+        "line_rupiah": 532053
+      },
+      "output_per_person_thousands": 42359,
+      "development": {
+        "index": "76.37",
+        "adjusted_spending_thousands": 12976
+      }
+    },
+    "35.18": {
+      "poverty": {
+        "people_thousands": "107.30",
+        "percent": "10.06",
+        "line_rupiah": 561807
+      },
+      "output_per_person_thousands": 34314,
+      "development": {
+        "index": "75.89",
+        "adjusted_spending_thousands": 14068
+      }
+    },
+    "35.19": {
+      "poverty": {
+        "people_thousands": "71.59",
+        "percent": "10.40",
+        "line_rupiah": 476506
+      },
+      "output_per_person_thousands": 36116,
+      "development": {
+        "index": "75.47",
+        "adjusted_spending_thousands": 13325
+      }
+    },
+    "35.20": {
+      "poverty": {
+        "people_thousands": "58.38",
+        "percent": "9.14",
+        "line_rupiah": 470409
+      },
+      "output_per_person_thousands": 38264,
+      "development": {
+        "index": "77.58",
+        "adjusted_spending_thousands": 13515
+      }
+    },
+    "35.21": {
+      "poverty": {
+        "people_thousands": "114.90",
+        "percent": "13.62",
+        "line_rupiah": 459551
+      },
+      "output_per_person_thousands": 31279,
+      "development": {
+        "index": "74.43",
+        "adjusted_spending_thousands": 12837
+      }
+    },
+    "35.22": {
+      "poverty": {
+        "people_thousands": "144.90",
+        "percent": "11.49",
+        "line_rupiah": 490299
+      },
+      "output_per_person_thousands": 78894,
+      "development": {
+        "index": "73.74",
+        "adjusted_spending_thousands": 11796
+      }
+    },
+    "35.23": {
+      "poverty": {
+        "people_thousands": "168.86",
+        "percent": "14.13",
+        "line_rupiah": 504823
+      },
+      "output_per_person_thousands": 75150,
+      "development": {
+        "index": "73.15",
+        "adjusted_spending_thousands": 12117
+      }
+    },
+    "35.24": {
+      "poverty": {
+        "people_thousands": "145.45",
+        "percent": "12.03",
+        "line_rupiah": 543475
+      },
+      "output_per_person_thousands": 40469,
+      "development": {
+        "index": "76.81",
+        "adjusted_spending_thousands": 12963
+      }
+    },
+    "35.25": {
+      "poverty": {
+        "people_thousands": "138.55",
+        "percent": "9.95",
+        "line_rupiah": 635154
+      },
+      "output_per_person_thousands": 146668,
+      "development": {
+        "index": "79.69",
+        "adjusted_spending_thousands": 14983
+      }
+    },
+    "35.26": {
+      "poverty": {
+        "people_thousands": "187.90",
+        "percent": "18.25",
+        "line_rupiah": 566280
+      },
+      "output_per_person_thousands": 27588,
+      "development": {
+        "index": "68.15",
+        "adjusted_spending_thousands": 10265
+      }
+    },
+    "35.27": {
+      "poverty": {
+        "people_thousands": "213.98",
+        "percent": "20.61",
+        "line_rupiah": 504557
+      },
+      "output_per_person_thousands": 25531,
+      "development": {
+        "index": "67.23",
+        "adjusted_spending_thousands": 10030
+      }
+    },
+    "35.28": {
+      "poverty": {
+        "people_thousands": "118.52",
+        "percent": "12.77",
+        "line_rupiah": 482278
+      },
+      "output_per_person_thousands": 27206,
+      "development": {
+        "index": "71.64",
+        "adjusted_spending_thousands": 10206
+      }
+    },
+    "35.29": {
+      "poverty": {
+        "people_thousands": "188.48",
+        "percent": "17.02",
+        "line_rupiah": 521366
+      },
+      "output_per_person_thousands": 42090,
+      "development": {
+        "index": "70.54",
+        "adjusted_spending_thousands": 10631
+      }
+    },
+    "35.71": {
+      "poverty": {
+        "people_thousands": "17.93",
+        "percent": "6.04",
+        "line_rupiah": 648506
+      },
+      "output_per_person_thousands": 581558,
+      "development": {
+        "index": "82.71",
+        "adjusted_spending_thousands": 14284
+      }
+    },
+    "35.72": {
+      "poverty": {
+        "people_thousands": "9.69",
+        "percent": "6.60",
+        "line_rupiah": 625337
+      },
+      "output_per_person_thousands": 63146,
+      "development": {
+        "index": "82.03",
+        "adjusted_spending_thousands": 15586
+      }
+    },
+    "35.73": {
+      "poverty": {
+        "people_thousands": "34.41",
+        "percent": "3.85",
+        "line_rupiah": 737954
+      },
+      "output_per_person_thousands": 122919,
+      "development": {
+        "index": "85.55",
+        "adjusted_spending_thousands": 18596
+      }
+    },
+    "35.74": {
+      "poverty": {
+        "people_thousands": "14.11",
+        "percent": "5.69",
+        "line_rupiah": 683244
+      },
+      "output_per_person_thousands": 65483,
+      "development": {
+        "index": "78.50",
+        "adjusted_spending_thousands": 14134
+      }
+    },
+    "35.75": {
+      "poverty": {
+        "people_thousands": "12.83",
+        "percent": "6.18",
+        "line_rupiah": 588312
+      },
+      "output_per_person_thousands": 54006,
+      "development": {
+        "index": "79.52",
+        "adjusted_spending_thousands": 15289
+      }
+    },
+    "35.76": {
+      "poverty": {
+        "people_thousands": "6.77",
+        "percent": "5.05",
+        "line_rupiah": 630959
+      },
+      "output_per_person_thousands": 66235,
+      "development": {
+        "index": "82.35",
+        "adjusted_spending_thousands": 15374
+      }
+    },
+    "35.77": {
+      "poverty": {
+        "people_thousands": "6.96",
+        "percent": "3.89",
+        "line_rupiah": 666073
+      },
+      "output_per_person_thousands": 98078,
+      "development": {
+        "index": "85.12",
+        "adjusted_spending_thousands": 18173
+      }
+    },
+    "35.78": {
+      "poverty": {
+        "people_thousands": "105.09",
+        "percent": "3.56",
+        "line_rupiah": 775597
+      },
+      "output_per_person_thousands": 283306,
+      "development": {
+        "index": "85.65",
+        "adjusted_spending_thousands": 20679
+      }
+    },
+    "35.79": {
+      "poverty": {
+        "people_thousands": "6.22",
+        "percent": "2.86",
+        "line_rupiah": 671273
+      },
+      "output_per_person_thousands": 105197,
+      "development": {
+        "index": "80.35",
+        "adjusted_spending_thousands": 14807
+      }
+    },
+    "36.01": {
+      "poverty": {
+        "people_thousands": "105.35",
+        "percent": "8.51",
+        "line_rupiah": 501772
+      },
+      "output_per_person_thousands": 28956,
+      "development": {
+        "index": "71.84",
+        "adjusted_spending_thousands": 9923
+      }
+    },
+    "36.02": {
+      "poverty": {
+        "people_thousands": "106.52",
+        "percent": "8.03",
+        "line_rupiah": 455831
+      },
+      "output_per_person_thousands": 27720,
+      "development": {
+        "index": "69.24",
+        "adjusted_spending_thousands": 10165
+      }
+    },
+    "36.03": {
+      "poverty": {
+        "people_thousands": "265.90",
+        "percent": "6.42",
+        "line_rupiah": 655324
+      },
+      "output_per_person_thousands": 58175,
+      "development": {
+        "index": "76.74",
+        "adjusted_spending_thousands": 13625
+      }
+    },
+    "36.04": {
+      "poverty": {
+        "people_thousands": "68.51",
+        "percent": "4.48",
+        "line_rupiah": 461388
+      },
+      "output_per_person_thousands": 63282,
+      "development": {
+        "index": "74.10",
+        "adjusted_spending_thousands": 12065
+      }
+    },
+    "36.71": {
+      "poverty": {
+        "people_thousands": "124.76",
+        "percent": "5.19",
+        "line_rupiah": 838535
+      },
+      "output_per_person_thousands": 122822,
+      "development": {
+        "index": "82.41",
+        "adjusted_spending_thousands": 16058
+      }
+    },
+    "36.72": {
+      "poverty": {
+        "people_thousands": "16.05",
+        "percent": "3.44",
+        "line_rupiah": 696397
+      },
+      "output_per_person_thousands": 322680,
+      "development": {
+        "index": "79.54",
+        "adjusted_spending_thousands": 14759
+      }
+    },
+    "36.73": {
+      "poverty": {
+        "people_thousands": "41.07",
+        "percent": "5.51",
+        "line_rupiah": 556702
+      },
+      "output_per_person_thousands": 61646,
+      "development": {
+        "index": "77.50",
+        "adjusted_spending_thousands": 15250
+      }
+    },
+    "36.74": {
+      "poverty": {
+        "people_thousands": "44.61",
+        "percent": "2.39",
+        "line_rupiah": 864323
+      },
+      "output_per_person_thousands": 85481,
+      "development": {
+        "index": "84.81",
+        "adjusted_spending_thousands": 17396
+      }
+    },
+    "51.01": {
+      "poverty": {
+        "people_thousands": "12.45",
+        "percent": "4.33",
+        "line_rupiah": 554136
+      },
+      "output_per_person_thousands": 55648,
+      "development": {
+        "index": "75.94",
+        "adjusted_spending_thousands": 13113
+      }
+    },
+    "51.02": {
+      "poverty": {
+        "people_thousands": "19.45",
+        "percent": "4.23",
+        "line_rupiah": 628223
+      },
+      "output_per_person_thousands": 63914,
+      "development": {
+        "index": "79.70",
+        "adjusted_spending_thousands": 15752
+      }
+    },
+    "51.03": {
+      "poverty": {
+        "people_thousands": "14.66",
+        "percent": "1.90",
+        "line_rupiah": 769560
+      },
+      "output_per_person_thousands": 142344,
+      "development": {
+        "index": "84.27",
+        "adjusted_spending_thousands": 19004
+      }
+    },
+    "51.04": {
+      "poverty": {
+        "people_thousands": "20.00",
+        "percent": "3.71",
+        "line_rupiah": 522497
+      },
+      "output_per_person_thousands": 68130,
+      "development": {
+        "index": "80.96",
+        "adjusted_spending_thousands": 16244
+      }
+    },
+    "51.05": {
+      "poverty": {
+        "people_thousands": "9.48",
+        "percent": "5.18",
+        "line_rupiah": 427844
+      },
+      "output_per_person_thousands": 57196,
+      "development": {
+        "index": "75.89",
+        "adjusted_spending_thousands": 13023
+      }
+    },
+    "51.06": {
+      "poverty": {
+        "people_thousands": "11.28",
+        "percent": "4.83",
+        "line_rupiah": 486007
+      },
+      "output_per_person_thousands": 34787,
+      "development": {
+        "index": "73.22",
+        "adjusted_spending_thousands": 12447
+      }
+    },
+    "51.07": {
+      "poverty": {
+        "people_thousands": "27.32",
+        "percent": "6.40",
+        "line_rupiah": 453685
+      },
+      "output_per_person_thousands": 43211,
+      "development": {
+        "index": "71.89",
+        "adjusted_spending_thousands": 11676
+      }
+    },
+    "51.08": {
+      "poverty": {
+        "people_thousands": "35.39",
+        "percent": "5.20",
+        "line_rupiah": 592706
+      },
+      "output_per_person_thousands": 54993,
+      "development": {
+        "index": "76.06",
+        "adjusted_spending_thousands": 14827
+      }
+    },
+    "51.71": {
+      "poverty": {
+        "people_thousands": "23.20",
+        "percent": "2.16",
+        "line_rupiah": 862522
+      },
+      "output_per_person_thousands": 93247,
+      "development": {
+        "index": "85.63",
+        "adjusted_spending_thousands": 21185
+      }
+    },
+    "52.01": {
+      "poverty": {
+        "people_thousands": "92.12",
+        "percent": "11.90",
+        "line_rupiah": 594141
+      },
+      "output_per_person_thousands": 26514,
+      "development": {
+        "index": "73.52",
+        "adjusted_spending_thousands": 12544
+      }
+    },
+    "52.02": {
+      "poverty": {
+        "people_thousands": "109.25",
+        "percent": "10.68",
+        "line_rupiah": 568910
+      },
+      "output_per_person_thousands": 21389,
+      "development": {
+        "index": "72.07",
+        "adjusted_spending_thousands": 11870
+      }
+    },
+    "52.03": {
+      "poverty": {
+        "people_thousands": "173.79",
+        "percent": "13.53",
+        "line_rupiah": 602564
+      },
+      "output_per_person_thousands": 19643,
+      "development": {
+        "index": "72.35",
+        "adjusted_spending_thousands": 10851
+      }
+    },
+    "52.04": {
+      "poverty": {
+        "people_thousands": "58.23",
+        "percent": "11.79",
+        "line_rupiah": 492991
+      },
+      "output_per_person_thousands": 36333,
+      "development": {
+        "index": "73.27",
+        "adjusted_spending_thousands": 10716
+      }
+    },
+    "52.05": {
+      "poverty": {
+        "people_thousands": "31.27",
+        "percent": "11.15",
+        "line_rupiah": 484327
+      },
+      "output_per_person_thousands": 38110,
+      "development": {
+        "index": "73.58",
+        "adjusted_spending_thousands": 10230
+      }
+    },
+    "52.06": {
+      "poverty": {
+        "people_thousands": "66.81",
+        "percent": "12.59",
+        "line_rupiah": 465479
+      },
+      "output_per_person_thousands": 28315,
+      "development": {
+        "index": "71.97",
+        "adjusted_spending_thousands": 9821
+      }
+    },
+    "52.07": {
+      "poverty": {
+        "people_thousands": "19.46",
+        "percent": "10.98",
+        "line_rupiah": 629139
+      },
+      "output_per_person_thousands": 236192,
+      "development": {
+        "index": "76.46",
+        "adjusted_spending_thousands": 12983
+      }
+    },
+    "52.08": {
+      "poverty": {
+        "people_thousands": "49.28",
+        "percent": "20.74",
+        "line_rupiah": 611125
+      },
+      "output_per_person_thousands": 24028,
+      "development": {
+        "index": "69.63",
+        "adjusted_spending_thousands": 10502
+      }
+    },
+    "52.71": {
+      "poverty": {
+        "people_thousands": "39.82",
+        "percent": "7.15",
+        "line_rupiah": 689992
+      },
+      "output_per_person_thousands": 58091,
+      "development": {
+        "index": "82.37",
+        "adjusted_spending_thousands": 16851
+      }
+    },
+    "52.72": {
+      "poverty": {
+        "people_thousands": "14.54",
+        "percent": "7.33",
+        "line_rupiah": 520143
+      },
+      "output_per_person_thousands": 34015,
+      "development": {
+        "index": "79.41",
+        "adjusted_spending_thousands": 12623
+      }
+    },
+    "53.01": {
+      "poverty": {
+        "people_thousands": "87.50",
+        "percent": "20.32",
+        "line_rupiah": 504863
+      },
+      "output_per_person_thousands": 28501,
+      "development": {
+        "index": "69.03",
+        "adjusted_spending_thousands": 8745
+      }
+    },
+    "53.02": {
+      "poverty": {
+        "people_thousands": "116.74",
+        "percent": "24.50",
+        "line_rupiah": 454423
+      },
+      "output_per_person_thousands": 22462,
+      "development": {
+        "index": "66.88",
+        "adjusted_spending_thousands": 7951
+      }
+    },
+    "53.03": {
+      "poverty": {
+        "people_thousands": "53.44",
+        "percent": "20.17",
+        "line_rupiah": 516059
+      },
+      "output_per_person_thousands": 19768,
+      "development": {
+        "index": "67.87",
+        "adjusted_spending_thousands": 7364
+      }
+    },
+    "53.04": {
+      "poverty": {
+        "people_thousands": "30.40",
+        "percent": "12.79",
+        "line_rupiah": 490904
+      },
+      "output_per_person_thousands": 26765,
+      "development": {
+        "index": "68.89",
+        "adjusted_spending_thousands": 8354
+      }
+    },
+    "53.05": {
+      "poverty": {
+        "people_thousands": "38.68",
+        "percent": "18.29",
+        "line_rupiah": 464871
+      },
+      "output_per_person_thousands": 18775,
+      "development": {
+        "index": "68.44",
+        "adjusted_spending_thousands": 8022
+      }
+    },
+    "53.06": {
+      "poverty": {
+        "people_thousands": "28.92",
+        "percent": "10.88",
+        "line_rupiah": 429094
+      },
+      "output_per_person_thousands": 23514,
+      "development": {
+        "index": "70.61",
+        "adjusted_spending_thousands": 8700
+      }
+    },
+    "53.07": {
+      "poverty": {
+        "people_thousands": "36.74",
+        "percent": "11.25",
+        "line_rupiah": 447472
+      },
+      "output_per_person_thousands": 21138,
+      "development": {
+        "index": "70.65",
+        "adjusted_spending_thousands": 9219
+      }
+    },
+    "53.08": {
+      "poverty": {
+        "people_thousands": "58.92",
+        "percent": "21.31",
+        "line_rupiah": 549363
+      },
+      "output_per_person_thousands": 30220,
+      "development": {
+        "index": "72.73",
+        "adjusted_spending_thousands": 10126
+      }
+    },
+    "53.09": {
+      "poverty": {
+        "people_thousands": "19.53",
+        "percent": "11.22",
+        "line_rupiah": 510269
+      },
+      "output_per_person_thousands": 27065,
+      "development": {
+        "index": "72.53",
+        "adjusted_spending_thousands": 9827
+      }
+    },
+    "53.10": {
+      "poverty": {
+        "people_thousands": "65.81",
+        "percent": "18.10",
+        "line_rupiah": 472888
+      },
+      "output_per_person_thousands": 18756,
+      "development": {
+        "index": "70.10",
+        "adjusted_spending_thousands": 8423
+      }
+    },
+    "53.11": {
+      "poverty": {
+        "people_thousands": "70.35",
+        "percent": "25.64",
+        "line_rupiah": 481754
+      },
+      "output_per_person_thousands": 32391,
+      "development": {
+        "index": "70.99",
+        "adjusted_spending_thousands": 10619
+      }
+    },
+    "53.12": {
+      "poverty": {
+        "people_thousands": "37.08",
+        "percent": "26.47",
+        "line_rupiah": 460702
+      },
+      "output_per_person_thousands": 20625,
+      "development": {
+        "index": "68.46",
+        "adjusted_spending_thousands": 8530
+      }
+    },
+    "53.13": {
+      "poverty": {
+        "people_thousands": "36.78",
+        "percent": "23.27",
+        "line_rupiah": 538773
+      },
+      "output_per_person_thousands": 16953,
+      "development": {
+        "index": "69.70",
+        "adjusted_spending_thousands": 8397
+      }
+    },
+    "53.14": {
+      "poverty": {
+        "people_thousands": "51.64",
+        "percent": "24.37",
+        "line_rupiah": 443901
+      },
+      "output_per_person_thousands": 27904,
+      "development": {
+        "index": "67.01",
+        "adjusted_spending_thousands": 7652
+      }
+    },
+    "53.15": {
+      "poverty": {
+        "people_thousands": "49.55",
+        "percent": "16.09",
+        "line_rupiah": 477226
+      },
+      "output_per_person_thousands": 17758,
+      "development": {
+        "index": "69.20",
+        "adjusted_spending_thousands": 8351
+      }
+    },
+    "53.16": {
+      "poverty": {
+        "people_thousands": "18.63",
+        "percent": "12.18",
+        "line_rupiah": 516140
+      },
+      "output_per_person_thousands": 17884,
+      "development": {
+        "index": "70.48",
+        "adjusted_spending_thousands": 9213
+      }
+    },
+    "53.17": {
+      "poverty": {
+        "people_thousands": "22.81",
+        "percent": "29.23",
+        "line_rupiah": 397817
+      },
+      "output_per_person_thousands": 17674,
+      "development": {
+        "index": "65.29",
+        "adjusted_spending_thousands": 6965
+      }
+    },
+    "53.18": {
+      "poverty": {
+        "people_thousands": "97.68",
+        "percent": "25.66",
+        "line_rupiah": 513816
+      },
+      "output_per_person_thousands": 15759,
+      "development": {
+        "index": "64.82",
+        "adjusted_spending_thousands": 7588
+      }
+    },
+    "53.19": {
+      "poverty": {
+        "people_thousands": "70.99",
+        "percent": "23.51",
+        "line_rupiah": 485247
+      },
+      "output_per_person_thousands": 15228,
+      "development": {
+        "index": "66.63",
+        "adjusted_spending_thousands": 6745
+      }
+    },
+    "53.20": {
+      "poverty": {
+        "people_thousands": "30.65",
+        "percent": "27.18",
+        "line_rupiah": 571961
+      },
+      "output_per_person_thousands": 19967,
+      "development": {
+        "index": "62.74",
+        "adjusted_spending_thousands": 6452
+      }
+    },
+    "53.21": {
+      "poverty": {
+        "people_thousands": "28.05",
+        "percent": "13.52",
+        "line_rupiah": 494018
+      },
+      "output_per_person_thousands": 20661,
+      "development": {
+        "index": "65.84",
+        "adjusted_spending_thousands": 7067
+      }
+    },
+    "53.71": {
+      "poverty": {
+        "people_thousands": "37.91",
+        "percent": "7.57",
+        "line_rupiah": 794609
+      },
+      "output_per_person_thousands": 69462,
+      "development": {
+        "index": "83.65",
+        "adjusted_spending_thousands": 14262
+      }
+    },
+    "61.01": {
+      "poverty": {
+        "people_thousands": "35.07",
+        "percent": "6.37",
+        "line_rupiah": 542366
+      },
+      "output_per_person_thousands": 46816,
+      "development": {
+        "index": "72.08",
+        "adjusted_spending_thousands": 11939
+      }
+    },
+    "61.02": {
+      "poverty": {
+        "people_thousands": "12.38",
+        "percent": "4.49",
+        "line_rupiah": 494531
+      },
+      "output_per_person_thousands": 43156,
+      "development": {
+        "index": "70.59",
+        "adjusted_spending_thousands": 9518
+      }
+    },
+    "61.03": {
+      "poverty": {
+        "people_thousands": "22.93",
+        "percent": "4.61",
+        "line_rupiah": 460246
+      },
+      "output_per_person_thousands": 56955,
+      "development": {
+        "index": "70.36",
+        "adjusted_spending_thousands": 9990
+      }
+    },
+    "61.04": {
+      "poverty": {
+        "people_thousands": "46.82",
+        "percent": "8.44",
+        "line_rupiah": 591623
+      },
+      "output_per_person_thousands": 73599,
+      "development": {
+        "index": "71.30",
+        "adjusted_spending_thousands": 10826
+      }
+    },
+    "61.05": {
+      "poverty": {
+        "people_thousands": "35.02",
+        "percent": "7.93",
+        "line_rupiah": 684401
+      },
+      "output_per_person_thousands": 50214,
+      "development": {
+        "index": "70.92",
+        "adjusted_spending_thousands": 9993
+      }
+    },
+    "61.06": {
+      "poverty": {
+        "people_thousands": "19.47",
+        "percent": "6.86",
+        "line_rupiah": 579450
+      },
+      "output_per_person_thousands": 57839,
+      "development": {
+        "index": "69.24",
+        "adjusted_spending_thousands": 8765
+      }
+    },
+    "61.07": {
+      "poverty": {
+        "people_thousands": "16.09",
+        "percent": "5.83",
+        "line_rupiah": 454765
+      },
+      "output_per_person_thousands": 43286,
+      "development": {
+        "index": "70.99",
+        "adjusted_spending_thousands": 10462
+      }
+    },
+    "61.08": {
+      "poverty": {
+        "people_thousands": "35.34",
+        "percent": "8.90",
+        "line_rupiah": 497262
+      },
+      "output_per_person_thousands": 38350,
+      "development": {
+        "index": "69.92",
+        "adjusted_spending_thousands": 9104
+      }
+    },
+    "61.09": {
+      "poverty": {
+        "people_thousands": "11.64",
+        "percent": "5.61",
+        "line_rupiah": 437854
+      },
+      "output_per_person_thousands": 45650,
+      "development": {
+        "index": "68.73",
+        "adjusted_spending_thousands": 8862
+      }
+    },
+    "61.10": {
+      "poverty": {
+        "people_thousands": "23.36",
+        "percent": "10.51",
+        "line_rupiah": 682632
+      },
+      "output_per_person_thousands": 31658,
+      "development": {
+        "index": "69.80",
+        "adjusted_spending_thousands": 9799
+      }
+    },
+    "61.11": {
+      "poverty": {
+        "people_thousands": "10.58",
+        "percent": "8.75",
+        "line_rupiah": 404384
+      },
+      "output_per_person_thousands": 46487,
+      "development": {
+        "index": "67.60",
+        "adjusted_spending_thousands": 9306
+      }
+    },
+    "61.12": {
+      "poverty": {
+        "people_thousands": "24.40",
+        "percent": "3.99",
+        "line_rupiah": 539656
+      },
+      "output_per_person_thousands": 67996,
+      "development": {
+        "index": "72.01",
+        "adjusted_spending_thousands": 10500
+      }
+    },
+    "61.71": {
+      "poverty": {
+        "people_thousands": "27.50",
+        "percent": "4.00",
+        "line_rupiah": 729168
+      },
+      "output_per_person_thousands": 80795,
+      "development": {
+        "index": "82.80",
+        "adjusted_spending_thousands": 16725
+      }
+    },
+    "61.72": {
+      "poverty": {
+        "people_thousands": "10.36",
+        "percent": "4.28",
+        "line_rupiah": 638961
+      },
+      "output_per_person_thousands": 59799,
+      "development": {
+        "index": "75.67",
+        "adjusted_spending_thousands": 13344
+      }
+    },
+    "62.01": {
+      "poverty": {
+        "people_thousands": "14.18",
+        "percent": "4.27",
+        "line_rupiah": 558961
+      },
+      "output_per_person_thousands": 121218,
+      "development": {
+        "index": "76.02",
+        "adjusted_spending_thousands": 14507
+      }
+    },
+    "62.02": {
+      "poverty": {
+        "people_thousands": "27.70",
+        "percent": "5.83",
+        "line_rupiah": 596118
+      },
+      "output_per_person_thousands": 92974,
+      "development": {
+        "index": "74.96",
+        "adjusted_spending_thousands": 13434
+      }
+    },
+    "62.03": {
+      "poverty": {
+        "people_thousands": "20.43",
+        "percent": "5.48",
+        "line_rupiah": 529062
+      },
+      "output_per_person_thousands": 62149,
+      "development": {
+        "index": "73.47",
+        "adjusted_spending_thousands": 12602
+      }
+    },
+    "62.04": {
+      "poverty": {
+        "people_thousands": "7.09",
+        "percent": "4.94",
+        "line_rupiah": 564336
+      },
+      "output_per_person_thousands": 68431,
+      "development": {
+        "index": "75.21",
+        "adjusted_spending_thousands": 12736
+      }
+    },
+    "62.05": {
+      "poverty": {
+        "people_thousands": "7.44",
+        "percent": "5.52",
+        "line_rupiah": 654095
+      },
+      "output_per_person_thousands": 88608,
+      "development": {
+        "index": "73.58",
+        "adjusted_spending_thousands": 11534
+      }
+    },
+    "62.06": {
+      "poverty": {
+        "people_thousands": "9.75",
+        "percent": "5.30",
+        "line_rupiah": 640905
+      },
+      "output_per_person_thousands": 73108,
+      "development": {
+        "index": "74.68",
+        "adjusted_spending_thousands": 11781
+      }
+    },
+    "62.07": {
+      "poverty": {
+        "people_thousands": "15.64",
+        "percent": "6.72",
+        "line_rupiah": 668687
+      },
+      "output_per_person_thousands": 77173,
+      "development": {
+        "index": "71.24",
+        "adjusted_spending_thousands": 10620
+      }
+    },
+    "62.08": {
+      "poverty": {
+        "people_thousands": "2.87",
+        "percent": "4.02",
+        "line_rupiah": 704449
+      },
+      "output_per_person_thousands": 102440,
+      "development": {
+        "index": "71.45",
+        "adjusted_spending_thousands": 10178
+      }
+    },
+    "62.09": {
+      "poverty": {
+        "people_thousands": "2.89",
+        "percent": "3.33",
+        "line_rupiah": 701587
+      },
+      "output_per_person_thousands": 84143,
+      "development": {
+        "index": "74.46",
+        "adjusted_spending_thousands": 12498
+      }
+    },
+    "62.10": {
+      "poverty": {
+        "people_thousands": "6.67",
+        "percent": "5.48",
+        "line_rupiah": 585476
+      },
+      "output_per_person_thousands": 72365,
+      "development": {
+        "index": "74.46",
+        "adjusted_spending_thousands": 12215
+      }
+    },
+    "62.11": {
+      "poverty": {
+        "people_thousands": "6.23",
+        "percent": "4.79",
+        "line_rupiah": 564867
+      },
+      "output_per_person_thousands": 58660,
+      "development": {
+        "index": "72.99",
+        "adjusted_spending_thousands": 11545
+      }
+    },
+    "62.12": {
+      "poverty": {
+        "people_thousands": "7.64",
+        "percent": "6.19",
+        "line_rupiah": 673423
+      },
+      "output_per_person_thousands": 102963,
+      "development": {
+        "index": "72.34",
+        "adjusted_spending_thousands": 11776
+      }
+    },
+    "62.13": {
+      "poverty": {
+        "people_thousands": "8.12",
+        "percent": "6.10",
+        "line_rupiah": 690677
+      },
+      "output_per_person_thousands": 94050,
+      "development": {
+        "index": "75.50",
+        "adjusted_spending_thousands": 13018
+      }
+    },
+    "62.71": {
+      "poverty": {
+        "people_thousands": "11.16",
+        "percent": "3.62",
+        "line_rupiah": 587075
+      },
+      "output_per_person_thousands": 89938,
+      "development": {
+        "index": "82.98",
+        "adjusted_spending_thousands": 15469
+      }
+    },
+    "63.01": {
+      "poverty": {
+        "people_thousands": "10.83",
+        "percent": "3.00",
+        "line_rupiah": 679188
+      },
+      "output_per_person_thousands": 61730,
+      "development": {
+        "index": "74.32",
+        "adjusted_spending_thousands": 12986
+      }
+    },
+    "63.02": {
+      "poverty": {
+        "people_thousands": "15.89",
+        "percent": "4.39",
+        "line_rupiah": 603599
+      },
+      "output_per_person_thousands": 115045,
+      "development": {
+        "index": "73.03",
+        "adjusted_spending_thousands": 13163
+      }
+    },
+    "63.03": {
+      "poverty": {
+        "people_thousands": "16.92",
+        "percent": "2.74",
+        "line_rupiah": 634526
+      },
+      "output_per_person_thousands": 41993,
+      "development": {
+        "index": "75.11",
+        "adjusted_spending_thousands": 14101
+      }
+    },
+    "63.04": {
+      "poverty": {
+        "people_thousands": "13.97",
+        "percent": "4.31",
+        "line_rupiah": 459547
+      },
+      "output_per_person_thousands": 36345,
+      "development": {
+        "index": "72.05",
+        "adjusted_spending_thousands": 11469
+      }
+    },
+    "63.05": {
+      "poverty": {
+        "people_thousands": "5.77",
+        "percent": "2.91",
+        "line_rupiah": 562504
+      },
+      "output_per_person_thousands": 76197,
+      "development": {
+        "index": "74.98",
+        "adjusted_spending_thousands": 13381
+      }
+    },
+    "63.06": {
+      "poverty": {
+        "people_thousands": "7.55",
+        "percent": "3.12",
+        "line_rupiah": 598545
+      },
+      "output_per_person_thousands": 43972,
+      "development": {
+        "index": "74.81",
+        "adjusted_spending_thousands": 14453
+      }
+    },
+    "63.07": {
+      "poverty": {
+        "people_thousands": "13.94",
+        "percent": "5.03",
+        "line_rupiah": 530279
+      },
+      "output_per_person_thousands": 37586,
+      "development": {
+        "index": "74.26",
+        "adjusted_spending_thousands": 13608
+      }
+    },
+    "63.08": {
+      "poverty": {
+        "people_thousands": "11.71",
+        "percent": "4.81",
+        "line_rupiah": 613161
+      },
+      "output_per_person_thousands": 29879,
+      "development": {
+        "index": "72.67",
+        "adjusted_spending_thousands": 11168
+      }
+    },
+    "63.09": {
+      "poverty": {
+        "people_thousands": "12.50",
+        "percent": "4.67",
+        "line_rupiah": 646864
+      },
+      "output_per_person_thousands": 126520,
+      "development": {
+        "index": "76.94",
+        "adjusted_spending_thousands": 13541
+      }
+    },
+    "63.10": {
+      "poverty": {
+        "people_thousands": "13.81",
+        "percent": "3.13",
+        "line_rupiah": 660029
+      },
+      "output_per_person_thousands": 110383,
+      "development": {
+        "index": "75.09",
+        "adjusted_spending_thousands": 13380
+      }
+    },
+    "63.11": {
+      "poverty": {
+        "people_thousands": "6.42",
+        "percent": "4.64",
+        "line_rupiah": 544169
+      },
+      "output_per_person_thousands": 163763,
+      "development": {
+        "index": "74.78",
+        "adjusted_spending_thousands": 12675
+      }
+    },
+    "63.71": {
+      "poverty": {
+        "people_thousands": "33.16",
+        "percent": "4.52",
+        "line_rupiah": 752092
+      },
+      "output_per_person_thousands": 73747,
+      "development": {
+        "index": "80.88",
+        "adjusted_spending_thousands": 16013
+      }
+    },
+    "63.72": {
+      "poverty": {
+        "people_thousands": "10.27",
+        "percent": "3.44",
+        "line_rupiah": 814292
+      },
+      "output_per_person_thousands": 55615,
+      "development": {
+        "index": "82.20",
+        "adjusted_spending_thousands": 15361
+      }
+    },
+    "64.01": {
+      "poverty": {
+        "people_thousands": "24.05",
+        "percent": "8.13",
+        "line_rupiah": 663239
+      },
+      "output_per_person_thousands": 196723,
+      "development": {
+        "index": "75.85",
+        "adjusted_spending_thousands": 12709
+      }
+    },
+    "64.02": {
+      "poverty": {
+        "people_thousands": "54.99",
+        "percent": "6.72",
+        "line_rupiah": 705397
+      },
+      "output_per_person_thousands": 249111,
+      "development": {
+        "index": "77.25",
+        "adjusted_spending_thousands": 13365
+      }
+    },
+    "64.03": {
+      "poverty": {
+        "people_thousands": "10.96",
+        "percent": "4.44",
+        "line_rupiah": 753416
+      },
+      "output_per_person_thousands": 193391,
+      "development": {
+        "index": "77.72",
+        "adjusted_spending_thousands": 14582
+      }
+    },
+    "64.07": {
+      "poverty": {
+        "people_thousands": "13.24",
+        "percent": "8.72",
+        "line_rupiah": 738206
+      },
+      "output_per_person_thousands": 229647,
+      "development": {
+        "index": "75.38",
+        "adjusted_spending_thousands": 12251
+      }
+    },
+    "64.08": {
+      "poverty": {
+        "people_thousands": "34.91",
+        "percent": "8.07",
+        "line_rupiah": 773239
+      },
+      "output_per_person_thousands": 325075,
+      "development": {
+        "index": "76.48",
+        "adjusted_spending_thousands": 12755
+      }
+    },
+    "64.09": {
+      "poverty": {
+        "people_thousands": "9.34",
+        "percent": "5.78",
+        "line_rupiah": 633181
+      },
+      "output_per_person_thousands": 63809,
+      "development": {
+        "index": "75.82",
+        "adjusted_spending_thousands": 13636
+      }
+    },
+    "64.11": {
+      "poverty": {
+        "people_thousands": "2.73",
+        "percent": "10.09",
+        "line_rupiah": 812492
+      },
+      "output_per_person_thousands": 118650,
+      "development": {
+        "index": "71.53",
+        "adjusted_spending_thousands": 9381
+      }
+    },
+    "64.71": {
+      "poverty": {
+        "people_thousands": "12.88",
+        "percent": "1.97",
+        "line_rupiah": 836374
+      },
+      "output_per_person_thousands": 233398,
+      "development": {
+        "index": "83.23",
+        "adjusted_spending_thousands": 17482
+      }
+    },
+    "64.72": {
+      "poverty": {
+        "people_thousands": "30.45",
+        "percent": "3.45",
+        "line_rupiah": 909746
+      },
+      "output_per_person_thousands": 123222,
+      "development": {
+        "index": "83.53",
+        "adjusted_spending_thousands": 16345
+      }
+    },
+    "64.74": {
+      "poverty": {
+        "people_thousands": "6.18",
+        "percent": "3.21",
+        "line_rupiah": 831247
+      },
+      "output_per_person_thousands": 371195,
+      "development": {
+        "index": "83.04",
+        "adjusted_spending_thousands": 18861
+      }
+    },
+    "65.01": {
+      "poverty": {
+        "people_thousands": "9.92",
+        "percent": "7.26",
+        "line_rupiah": 594190
+      },
+      "output_per_person_thousands": 169985,
+      "development": {
+        "index": "74.53",
+        "adjusted_spending_thousands": 10997
+      }
+    },
+    "65.02": {
+      "poverty": {
+        "people_thousands": "5.24",
+        "percent": "5.56",
+        "line_rupiah": 821188
+      },
+      "output_per_person_thousands": 215362,
+      "development": {
+        "index": "75.21",
+        "adjusted_spending_thousands": 11436
+      }
+    },
+    "65.03": {
+      "poverty": {
+        "people_thousands": "11.81",
+        "percent": "5.27",
+        "line_rupiah": 621290
+      },
+      "output_per_person_thousands": 199721,
+      "development": {
+        "index": "69.87",
+        "adjusted_spending_thousands": 8598
+      }
+    },
+    "65.04": {
+      "poverty": {
+        "people_thousands": "1.59",
+        "percent": "4.56",
+        "line_rupiah": 537590
+      },
+      "output_per_person_thousands": 338606,
+      "development": {
+        "index": "71.86",
+        "adjusted_spending_thousands": 9037
+      }
+    },
+    "65.71": {
+      "poverty": {
+        "people_thousands": "14.01",
+        "percent": "5.03",
+        "line_rupiah": 889483
+      },
+      "output_per_person_thousands": 233098,
+      "development": {
+        "index": "78.62",
+        "adjusted_spending_thousands": 12961
+      }
+    },
+    "71.01": {
+      "poverty": {
+        "people_thousands": "18.40",
+        "percent": "6.98",
+        "line_rupiah": 454500
+      },
+      "output_per_person_thousands": 48346,
+      "development": {
+        "index": "71.83",
+        "adjusted_spending_thousands": 11756
+      }
+    },
+    "71.02": {
+      "poverty": {
+        "people_thousands": "20.63",
+        "percent": "5.88",
+        "line_rupiah": 385934
+      },
+      "output_per_person_thousands": 73719,
+      "development": {
+        "index": "79.73",
+        "adjusted_spending_thousands": 14035
+      }
+    },
+    "71.03": {
+      "poverty": {
+        "people_thousands": "14.49",
+        "percent": "10.91",
+        "line_rupiah": 360933
+      },
+      "output_per_person_thousands": 47327,
+      "development": {
+        "index": "75.18",
+        "adjusted_spending_thousands": 12839
+      }
+    },
+    "71.04": {
+      "poverty": {
+        "people_thousands": "7.95",
+        "percent": "8.34",
+        "line_rupiah": 396995
+      },
+      "output_per_person_thousands": 34231,
+      "development": {
+        "index": "73.68",
+        "adjusted_spending_thousands": 9953
+      }
+    },
+    "71.05": {
+      "poverty": {
+        "people_thousands": "17.67",
+        "percent": "8.26",
+        "line_rupiah": 461640
+      },
+      "output_per_person_thousands": 56624,
+      "development": {
+        "index": "76.47",
+        "adjusted_spending_thousands": 12986
+      }
+    },
+    "71.06": {
+      "poverty": {
+        "people_thousands": "12.50",
+        "percent": "6.05",
+        "line_rupiah": 453321
+      },
+      "output_per_person_thousands": 94921,
+      "development": {
+        "index": "77.76",
+        "adjusted_spending_thousands": 12846
+      }
+    },
+    "71.07": {
+      "poverty": {
+        "people_thousands": "11.09",
+        "percent": "10.31",
+        "line_rupiah": 426987
+      },
+      "output_per_person_thousands": 65786,
+      "development": {
+        "index": "74.28",
+        "adjusted_spending_thousands": 11981
+      }
+    },
+    "71.08": {
+      "poverty": {
+        "people_thousands": "6.03",
+        "percent": "7.15",
+        "line_rupiah": 364581
+      },
+      "output_per_person_thousands": 43741,
+      "development": {
+        "index": "72.28",
+        "adjusted_spending_thousands": 10434
+      }
+    },
+    "71.09": {
+      "poverty": {
+        "people_thousands": "5.64",
+        "percent": "8.32",
+        "line_rupiah": 415648
+      },
+      "output_per_person_thousands": 49779,
+      "development": {
+        "index": "72.17",
+        "adjusted_spending_thousands": 9335
+      }
+    },
+    "71.10": {
+      "poverty": {
+        "people_thousands": "4.04",
+        "percent": "5.32",
+        "line_rupiah": 459824
+      },
+      "output_per_person_thousands": 49812,
+      "development": {
+        "index": "71.43",
+        "adjusted_spending_thousands": 10600
+      }
+    },
+    "71.11": {
+      "poverty": {
+        "people_thousands": "7.39",
+        "percent": "10.52",
+        "line_rupiah": 445063
+      },
+      "output_per_person_thousands": 43721,
+      "development": {
+        "index": "70.54",
+        "adjusted_spending_thousands": 10519
+      }
+    },
+    "71.71": {
+      "poverty": {
+        "people_thousands": "21.73",
+        "percent": "4.99",
+        "line_rupiah": 592668
+      },
+      "output_per_person_thousands": 124429,
+      "development": {
+        "index": "82.40",
+        "adjusted_spending_thousands": 15755
+      }
+    },
+    "71.72": {
+      "poverty": {
+        "people_thousands": "13.57",
+        "percent": "5.81",
+        "line_rupiah": 557556
+      },
+      "output_per_person_thousands": 115416,
+      "development": {
+        "index": "77.57",
+        "adjusted_spending_thousands": 13804
+      }
+    },
+    "71.73": {
+      "poverty": {
+        "people_thousands": "5.55",
+        "percent": "4.86",
+        "line_rupiah": 573165
+      },
+      "output_per_person_thousands": 60930,
+      "development": {
+        "index": "80.65",
+        "adjusted_spending_thousands": 13503
+      }
+    },
+    "71.74": {
+      "poverty": {
+        "people_thousands": "7.18",
+        "percent": "5.14",
+        "line_rupiah": 495416
+      },
+      "output_per_person_thousands": 43302,
+      "development": {
+        "index": "77.49",
+        "adjusted_spending_thousands": 12337
+      }
+    },
+    "72.01": {
+      "poverty": {
+        "people_thousands": "25.17",
+        "percent": "6.23",
+        "line_rupiah": 535425
+      },
+      "output_per_person_thousands": 116747,
+      "development": {
+        "index": "73.44",
+        "adjusted_spending_thousands": 11000
+      }
+    },
+    "72.02": {
+      "poverty": {
+        "people_thousands": "36.49",
+        "percent": "12.90",
+        "line_rupiah": 632147
+      },
+      "output_per_person_thousands": 53881,
+      "development": {
+        "index": "74.55",
+        "adjusted_spending_thousands": 10314
+      }
+    },
+    "72.03": {
+      "poverty": {
+        "people_thousands": "45.92",
+        "percent": "14.66",
+        "line_rupiah": 450811
+      },
+      "output_per_person_thousands": 58102,
+      "development": {
+        "index": "69.23",
+        "adjusted_spending_thousands": 9337
+      }
+    },
+    "72.04": {
+      "poverty": {
+        "people_thousands": "29.98",
+        "percent": "12.20",
+        "line_rupiah": 461159
+      },
+      "output_per_person_thousands": 50421,
+      "development": {
+        "index": "71.09",
+        "adjusted_spending_thousands": 9295
+      }
+    },
+    "72.05": {
+      "poverty": {
+        "people_thousands": "22.35",
+        "percent": "12.48",
+        "line_rupiah": 496424
+      },
+      "output_per_person_thousands": 56128,
+      "development": {
+        "index": "71.47",
+        "adjusted_spending_thousands": 9410
+      }
+    },
+    "72.06": {
+      "poverty": {
+        "people_thousands": "13.65",
+        "percent": "10.38",
+        "line_rupiah": 603022
+      },
+      "output_per_person_thousands": 1072574,
+      "development": {
+        "index": "74.70",
+        "adjusted_spending_thousands": 12527
+      }
+    },
+    "72.07": {
+      "poverty": {
+        "people_thousands": "13.92",
+        "percent": "11.49",
+        "line_rupiah": 471281
+      },
+      "output_per_person_thousands": 46829,
+      "development": {
+        "index": "68.44",
+        "adjusted_spending_thousands": 8723
+      }
+    },
+    "72.08": {
+      "poverty": {
+        "people_thousands": "71.88",
+        "percent": "13.51",
+        "line_rupiah": 575644
+      },
+      "output_per_person_thousands": 54892,
+      "development": {
+        "index": "69.99",
+        "adjusted_spending_thousands": 11194
+      }
+    },
+    "72.09": {
+      "poverty": {
+        "people_thousands": "23.59",
+        "percent": "14.67",
+        "line_rupiah": 636439
+      },
+      "output_per_person_thousands": 46555,
+      "development": {
+        "index": "69.76",
+        "adjusted_spending_thousands": 9200
+      }
+    },
+    "72.10": {
+      "poverty": {
+        "people_thousands": "26.03",
+        "percent": "10.47",
+        "line_rupiah": 474669
+      },
+      "output_per_person_thousands": 49733,
+      "development": {
+        "index": "71.68",
+        "adjusted_spending_thousands": 9659
+      }
+    },
+    "72.11": {
+      "poverty": {
+        "people_thousands": "10.44",
+        "percent": "12.71",
+        "line_rupiah": 453715
+      },
+      "output_per_person_thousands": 47112,
+      "development": {
+        "index": "70.46",
+        "adjusted_spending_thousands": 9184
+      }
+    },
+    "72.12": {
+      "poverty": {
+        "people_thousands": "14.78",
+        "percent": "10.38",
+        "line_rupiah": 609792
+      },
+      "output_per_person_thousands": 292019,
+      "development": {
+        "index": "72.16",
+        "adjusted_spending_thousands": 10258
+      }
+    },
+    "72.71": {
+      "poverty": {
+        "people_thousands": "21.99",
+        "percent": "5.26",
+        "line_rupiah": 685888
+      },
+      "output_per_person_thousands": 88383,
+      "development": {
+        "index": "84.53",
+        "adjusted_spending_thousands": 16269
+      }
+    },
+    "73.01": {
+      "poverty": {
+        "people_thousands": "14.77",
+        "percent": "10.61",
+        "line_rupiah": 477794
+      },
+      "output_per_person_thousands": 62113,
+      "development": {
+        "index": "72.78",
+        "adjusted_spending_thousands": 10589
+      }
+    },
+    "73.02": {
+      "poverty": {
+        "people_thousands": "25.88",
+        "percent": "6.06",
+        "line_rupiah": 444994
+      },
+      "output_per_person_thousands": 47114,
+      "development": {
+        "index": "75.26",
+        "adjusted_spending_thousands": 12456
+      }
+    },
+    "73.03": {
+      "poverty": {
+        "people_thousands": "14.74",
+        "percent": "7.68",
+        "line_rupiah": 453167
+      },
+      "output_per_person_thousands": 68614,
+      "development": {
+        "index": "73.12",
+        "adjusted_spending_thousands": 13310
+      }
+    },
+    "73.04": {
+      "poverty": {
+        "people_thousands": "42.56",
+        "percent": "11.42",
+        "line_rupiah": 435704
+      },
+      "output_per_person_thousands": 34111,
+      "development": {
+        "index": "70.25",
+        "adjusted_spending_thousands": 10691
+      }
+    },
+    "73.05": {
+      "poverty": {
+        "people_thousands": "22.17",
+        "percent": "7.27",
+        "line_rupiah": 475861
+      },
+      "output_per_person_thousands": 44810,
+      "development": {
+        "index": "72.79",
+        "adjusted_spending_thousands": 12014
+      }
+    },
+    "73.06": {
+      "poverty": {
+        "people_thousands": "54.04",
+        "percent": "6.64",
+        "line_rupiah": 496555
+      },
+      "output_per_person_thousands": 41352,
+      "development": {
+        "index": "74.22",
+        "adjusted_spending_thousands": 11103
+      }
+    },
+    "73.07": {
+      "poverty": {
+        "people_thousands": "18.44",
+        "percent": "7.41",
+        "line_rupiah": 426191
+      },
+      "output_per_person_thousands": 64462,
+      "development": {
+        "index": "72.76",
+        "adjusted_spending_thousands": 11111
+      }
+    },
+    "73.08": {
+      "poverty": {
+        "people_thousands": "69.73",
+        "percent": "9.13",
+        "line_rupiah": 452560
+      },
+      "output_per_person_thousands": 64758,
+      "development": {
+        "index": "71.63",
+        "adjusted_spending_thousands": 10538
+      }
+    },
+    "73.09": {
+      "poverty": {
+        "people_thousands": "32.67",
+        "percent": "8.90",
+        "line_rupiah": 560172
+      },
+      "output_per_person_thousands": 71360,
+      "development": {
+        "index": "74.79",
+        "adjusted_spending_thousands": 12709
+      }
+    },
+    "73.10": {
+      "poverty": {
+        "people_thousands": "40.37",
+        "percent": "11.60",
+        "line_rupiah": 471043
+      },
+      "output_per_person_thousands": 104696,
+      "development": {
+        "index": "74.62",
+        "adjusted_spending_thousands": 13209
+      }
+    },
+    "73.11": {
+      "poverty": {
+        "people_thousands": "14.13",
+        "percent": "8.00",
+        "line_rupiah": 426792
+      },
+      "output_per_person_thousands": 56391,
+      "development": {
+        "index": "75.41",
+        "adjusted_spending_thousands": 12559
+      }
+    },
+    "73.12": {
+      "poverty": {
+        "people_thousands": "15.34",
+        "percent": "6.65",
+        "line_rupiah": 441117
+      },
+      "output_per_person_thousands": 72363,
+      "development": {
+        "index": "73.69",
+        "adjusted_spending_thousands": 10929
+      }
+    },
+    "73.13": {
+      "poverty": {
+        "people_thousands": "24.15",
+        "percent": "5.86",
+        "line_rupiah": 450789
+      },
+      "output_per_person_thousands": 73458,
+      "development": {
+        "index": "74.72",
+        "adjusted_spending_thousands": 13957
+      }
+    },
+    "73.14": {
+      "poverty": {
+        "people_thousands": "15.20",
+        "percent": "4.91",
+        "line_rupiah": 472303
+      },
+      "output_per_person_thousands": 65147,
+      "development": {
+        "index": "75.49",
+        "adjusted_spending_thousands": 13604
+      }
+    },
+    "73.15": {
+      "poverty": {
+        "people_thousands": "32.52",
+        "percent": "8.38",
+        "line_rupiah": 426624
+      },
+      "output_per_person_thousands": 66894,
+      "development": {
+        "index": "75.87",
+        "adjusted_spending_thousands": 13419
+      }
+    },
+    "73.16": {
+      "poverty": {
+        "people_thousands": "23.09",
+        "percent": "10.73",
+        "line_rupiah": 451580
+      },
+      "output_per_person_thousands": 46930,
+      "development": {
+        "index": "76.50",
+        "adjusted_spending_thousands": 12571
+      }
+    },
+    "73.17": {
+      "poverty": {
+        "people_thousands": "41.76",
+        "percent": "10.97",
+        "line_rupiah": 447602
+      },
+      "output_per_person_thousands": 63453,
+      "development": {
+        "index": "74.66",
+        "adjusted_spending_thousands": 11634
+      }
+    },
+    "73.18": {
+      "poverty": {
+        "people_thousands": "25.82",
+        "percent": "10.54",
+        "line_rupiah": 435955
+      },
+      "output_per_person_thousands": 36984,
+      "development": {
+        "index": "72.77",
+        "adjusted_spending_thousands": 8595
+      }
+    },
+    "73.22": {
+      "poverty": {
+        "people_thousands": "35.03",
+        "percent": "10.74",
+        "line_rupiah": 441412
+      },
+      "output_per_person_thousands": 64542,
+      "development": {
+        "index": "74.81",
+        "adjusted_spending_thousands": 13390
+      }
+    },
+    "73.24": {
+      "poverty": {
+        "people_thousands": "18.55",
+        "percent": "5.79",
+        "line_rupiah": 469563
+      },
+      "output_per_person_thousands": 99873,
+      "development": {
+        "index": "77.28",
+        "adjusted_spending_thousands": 14381
+      }
+    },
+    "73.26": {
+      "poverty": {
+        "people_thousands": "24.48",
+        "percent": "10.05",
+        "line_rupiah": 435309
+      },
+      "output_per_person_thousands": 50626,
+      "development": {
+        "index": "73.24",
+        "adjusted_spending_thousands": 9753
+      }
+    },
+    "73.71": {
+      "poverty": {
+        "people_thousands": "71.63",
+        "percent": "4.43",
+        "line_rupiah": 610536
+      },
+      "output_per_person_thousands": 177335,
+      "development": {
+        "index": "85.66",
+        "adjusted_spending_thousands": 18878
+      }
+    },
+    "73.72": {
+      "poverty": {
+        "people_thousands": "6.73",
+        "percent": "4.44",
+        "line_rupiah": 483487
+      },
+      "output_per_person_thousands": 65017,
+      "development": {
+        "index": "81.50",
+        "adjusted_spending_thousands": 15408
+      }
+    },
+    "73.73": {
+      "poverty": {
+        "people_thousands": "14.31",
+        "percent": "7.18",
+        "line_rupiah": 481362
+      },
+      "output_per_person_thousands": 59373,
+      "development": {
+        "index": "81.74",
+        "adjusted_spending_thousands": 14837
+      }
+    },
+    "74.01": {
+      "poverty": {
+        "people_thousands": "29.45",
+        "percent": "10.19",
+        "line_rupiah": 493073
+      },
+      "output_per_person_thousands": 162543,
+      "development": {
+        "index": "76.92",
+        "adjusted_spending_thousands": 13941
+      }
+    },
+    "74.02": {
+      "poverty": {
+        "people_thousands": "33.04",
+        "percent": "12.78",
+        "line_rupiah": 462463
+      },
+      "output_per_person_thousands": 86436,
+      "development": {
+        "index": "75.09",
+        "adjusted_spending_thousands": 11763
+      }
+    },
+    "74.03": {
+      "poverty": {
+        "people_thousands": "28.81",
+        "percent": "12.40",
+        "line_rupiah": 451345
+      },
+      "output_per_person_thousands": 43630,
+      "development": {
+        "index": "72.23",
+        "adjusted_spending_thousands": 9526
+      }
+    },
+    "74.04": {
+      "poverty": {
+        "people_thousands": "13.89",
+        "percent": "13.46",
+        "line_rupiah": 372899
+      },
+      "output_per_person_thousands": 45021,
+      "development": {
+        "index": "70.22",
+        "adjusted_spending_thousands": 8607
+      }
+    },
+    "74.05": {
+      "poverty": {
+        "people_thousands": "37.40",
+        "percent": "11.18",
+        "line_rupiah": 370133
+      },
+      "output_per_person_thousands": 57453,
+      "development": {
+        "index": "72.32",
+        "adjusted_spending_thousands": 10574
+      }
+    },
+    "74.06": {
+      "poverty": {
+        "people_thousands": "20.15",
+        "percent": "10.14",
+        "line_rupiah": 441758
+      },
+      "output_per_person_thousands": 59787,
+      "development": {
+        "index": "69.54",
+        "adjusted_spending_thousands": 9957
+      }
+    },
+    "74.07": {
+      "poverty": {
+        "people_thousands": "13.98",
+        "percent": "13.40",
+        "line_rupiah": 371128
+      },
+      "output_per_person_thousands": 54105,
+      "development": {
+        "index": "72.59",
+        "adjusted_spending_thousands": 11199
+      }
+    },
+    "74.08": {
+      "poverty": {
+        "people_thousands": "21.47",
+        "percent": "12.94",
+        "line_rupiah": 552220
+      },
+      "output_per_person_thousands": 87499,
+      "development": {
+        "index": "72.37",
+        "adjusted_spending_thousands": 11941
+      }
+    },
+    "74.09": {
+      "poverty": {
+        "people_thousands": "8.19",
+        "percent": "11.89",
+        "line_rupiah": 425351
+      },
+      "output_per_person_thousands": 81765,
+      "development": {
+        "index": "73.42",
+        "adjusted_spending_thousands": 11104
+      }
+    },
+    "74.10": {
+      "poverty": {
+        "people_thousands": "8.69",
+        "percent": "13.22",
+        "line_rupiah": 442786
+      },
+      "output_per_person_thousands": 64715,
+      "development": {
+        "index": "71.29",
+        "adjusted_spending_thousands": 9119
+      }
+    },
+    "74.11": {
+      "poverty": {
+        "people_thousands": "18.99",
+        "percent": "12.57",
+        "line_rupiah": 548146
+      },
+      "output_per_person_thousands": 50590,
+      "development": {
+        "index": "71.19",
+        "adjusted_spending_thousands": 9420
+      }
+    },
+    "74.12": {
+      "poverty": {
+        "people_thousands": "5.01",
+        "percent": "14.42",
+        "line_rupiah": 432435
+      },
+      "output_per_person_thousands": 53970,
+      "development": {
+        "index": "69.39",
+        "adjusted_spending_thousands": 8286
+      }
+    },
+    "74.13": {
+      "poverty": {
+        "people_thousands": "10.97",
+        "percent": "12.83",
+        "line_rupiah": 451711
+      },
+      "output_per_person_thousands": 40657,
+      "development": {
+        "index": "69.18",
+        "adjusted_spending_thousands": 8858
+      }
+    },
+    "74.14": {
+      "poverty": {
+        "people_thousands": "12.61",
+        "percent": "13.40",
+        "line_rupiah": 358029
+      },
+      "output_per_person_thousands": 27739,
+      "development": {
+        "index": "68.39",
+        "adjusted_spending_thousands": 8825
+      }
+    },
+    "74.15": {
+      "poverty": {
+        "people_thousands": "11.00",
+        "percent": "13.64",
+        "line_rupiah": 356075
+      },
+      "output_per_person_thousands": 39990,
+      "development": {
+        "index": "68.54",
+        "adjusted_spending_thousands": 8684
+      }
+    },
+    "74.71": {
+      "poverty": {
+        "people_thousands": "18.38",
+        "percent": "4.18",
+        "line_rupiah": 554111
+      },
+      "output_per_person_thousands": 85161,
+      "development": {
+        "index": "86.36",
+        "adjusted_spending_thousands": 16002
+      }
+    },
+    "74.72": {
+      "poverty": {
+        "people_thousands": "12.41",
+        "percent": "6.83",
+        "line_rupiah": 462878
+      },
+      "output_per_person_thousands": 75897,
+      "development": {
+        "index": "80.29",
+        "adjusted_spending_thousands": 12260
+      }
+    },
+    "75.01": {
+      "poverty": {
+        "people_thousands": "56.13",
+        "percent": "14.89",
+        "line_rupiah": 635880
+      },
+      "output_per_person_thousands": 44738,
+      "development": {
+        "index": "71.54",
+        "adjusted_spending_thousands": 11110
+      }
+    },
+    "75.02": {
+      "poverty": {
+        "people_thousands": "29.40",
+        "percent": "16.37",
+        "line_rupiah": 560482
+      },
+      "output_per_person_thousands": 48364,
+      "development": {
+        "index": "69.89",
+        "adjusted_spending_thousands": 10720
+      }
+    },
+    "75.03": {
+      "poverty": {
+        "people_thousands": "21.11",
+        "percent": "13.16",
+        "line_rupiah": 555489
+      },
+      "output_per_person_thousands": 37567,
+      "development": {
+        "index": "73.30",
+        "adjusted_spending_thousands": 11935
+      }
+    },
+    "75.04": {
+      "poverty": {
+        "people_thousands": "26.10",
+        "percent": "15.24",
+        "line_rupiah": 427572
+      },
+      "output_per_person_thousands": 61035,
+      "development": {
+        "index": "70.59",
+        "adjusted_spending_thousands": 11872
+      }
+    },
+    "75.05": {
+      "poverty": {
+        "people_thousands": "17.90",
+        "percent": "15.89",
+        "line_rupiah": 424573
+      },
+      "output_per_person_thousands": 35474,
+      "development": {
+        "index": "69.62",
+        "adjusted_spending_thousands": 10678
+      }
+    },
+    "75.71": {
+      "poverty": {
+        "people_thousands": "12.12",
+        "percent": "5.31",
+        "line_rupiah": 731952
+      },
+      "output_per_person_thousands": 57693,
+      "development": {
+        "index": "79.97",
+        "adjusted_spending_thousands": 14285
+      }
+    },
+    "76.01": {
+      "poverty": {
+        "people_thousands": "9.65",
+        "percent": "4.96",
+        "line_rupiah": 477892
+      },
+      "output_per_person_thousands": 89158,
+      "development": {
+        "index": "71.62",
+        "adjusted_spending_thousands": 12644
+      }
+    },
+    "76.02": {
+      "poverty": {
+        "people_thousands": "22.48",
+        "percent": "6.99",
+        "line_rupiah": 378196
+      },
+      "output_per_person_thousands": 58093,
+      "development": {
+        "index": "72.77",
+        "adjusted_spending_thousands": 10682
+      }
+    },
+    "76.03": {
+      "poverty": {
+        "people_thousands": "22.87",
+        "percent": "13.66",
+        "line_rupiah": 367511
+      },
+      "output_per_person_thousands": 23302,
+      "development": {
+        "index": "69.56",
+        "adjusted_spending_thousands": 8779
+      }
+    },
+    "76.04": {
+      "poverty": {
+        "people_thousands": "63.29",
+        "percent": "14.02",
+        "line_rupiah": 525705
+      },
+      "output_per_person_thousands": 38064,
+      "development": {
+        "index": "70.71",
+        "adjusted_spending_thousands": 9999
+      }
+    },
+    "76.05": {
+      "poverty": {
+        "people_thousands": "23.40",
+        "percent": "12.98",
+        "line_rupiah": 511028
+      },
+      "output_per_person_thousands": 37831,
+      "development": {
+        "index": "74.15",
+        "adjusted_spending_thousands": 11299
+      }
+    },
+    "76.06": {
+      "poverty": {
+        "people_thousands": "10.62",
+        "percent": "7.22",
+        "line_rupiah": 344125
+      },
+      "output_per_person_thousands": 35120,
+      "development": {
+        "index": "69.17",
+        "adjusted_spending_thousands": 9484
+      }
+    },
+    "81.01": {
+      "poverty": {
+        "people_thousands": "63.05",
+        "percent": "16.71",
+        "line_rupiah": 643104
+      },
+      "output_per_person_thousands": 27364,
+      "development": {
+        "index": "75.87",
+        "adjusted_spending_thousands": 11532
+      }
+    },
+    "81.02": {
+      "poverty": {
+        "people_thousands": "21.42",
+        "percent": "21.16",
+        "line_rupiah": 728291
+      },
+      "output_per_person_thousands": 36623,
+      "development": {
+        "index": "71.16",
+        "adjusted_spending_thousands": 8738
+      }
+    },
+    "81.03": {
+      "poverty": {
+        "people_thousands": "26.46",
+        "percent": "23.38",
+        "line_rupiah": 682859
+      },
+      "output_per_person_thousands": 29053,
+      "development": {
+        "index": "68.47",
+        "adjusted_spending_thousands": 7342
+      }
+    },
+    "81.04": {
+      "poverty": {
+        "people_thousands": "23.95",
+        "percent": "15.11",
+        "line_rupiah": 638726
+      },
+      "output_per_person_thousands": 23232,
+      "development": {
+        "index": "73.24",
+        "adjusted_spending_thousands": 11562
+      }
+    },
+    "81.05": {
+      "poverty": {
+        "people_thousands": "24.33",
+        "percent": "20.90",
+        "line_rupiah": 524878
+      },
+      "output_per_person_thousands": 25244,
+      "development": {
+        "index": "71.10",
+        "adjusted_spending_thousands": 10204
+      }
+    },
+    "81.06": {
+      "poverty": {
+        "people_thousands": "38.01",
+        "percent": "21.85",
+        "line_rupiah": 554140
+      },
+      "output_per_person_thousands": 18857,
+      "development": {
+        "index": "72.91",
+        "adjusted_spending_thousands": 9854
+      }
+    },
+    "81.07": {
+      "poverty": {
+        "people_thousands": "22.25",
+        "percent": "23.10",
+        "line_rupiah": 673363
+      },
+      "output_per_person_thousands": 46189,
+      "development": {
+        "index": "69.73",
+        "adjusted_spending_thousands": 8650
+      }
+    },
+    "81.08": {
+      "poverty": {
+        "people_thousands": "20.43",
+        "percent": "27.65",
+        "line_rupiah": 719253
+      },
+      "output_per_person_thousands": 38809,
+      "development": {
+        "index": "68.66",
+        "adjusted_spending_thousands": 7776
+      }
+    },
+    "81.09": {
+      "poverty": {
+        "people_thousands": "9.63",
+        "percent": "14.84",
+        "line_rupiah": 789414
+      },
+      "output_per_person_thousands": 24203,
+      "development": {
+        "index": "69.36",
+        "adjusted_spending_thousands": 8664
+      }
+    },
+    "81.71": {
+      "poverty": {
+        "people_thousands": "22.30",
+        "percent": "4.34",
+        "line_rupiah": 783697
+      },
+      "output_per_person_thousands": 57375,
+      "development": {
+        "index": "83.97",
+        "adjusted_spending_thousands": 15549
+      }
+    },
+    "81.72": {
+      "poverty": {
+        "people_thousands": "15.94",
+        "percent": "19.39",
+        "line_rupiah": 777956
+      },
+      "output_per_person_thousands": 38387,
+      "development": {
+        "index": "72.88",
+        "adjusted_spending_thousands": 8401
+      }
+    },
+    "82.01": {
+      "poverty": {
+        "people_thousands": "9.69",
+        "percent": "7.90",
+        "line_rupiah": 525327
+      },
+      "output_per_person_thousands": 22782,
+      "development": {
+        "index": "69.75",
+        "adjusted_spending_thousands": 8705
+      }
+    },
+    "82.02": {
+      "poverty": {
+        "people_thousands": "5.61",
+        "percent": "9.16",
+        "line_rupiah": 647982
+      },
+      "output_per_person_thousands": 870960,
+      "development": {
+        "index": "71.57",
+        "adjusted_spending_thousands": 9361
+      }
+    },
+    "82.03": {
+      "poverty": {
+        "people_thousands": "8.84",
+        "percent": "4.35",
+        "line_rupiah": 490223
+      },
+      "output_per_person_thousands": 37306,
+      "development": {
+        "index": "71.25",
+        "adjusted_spending_thousands": 8815
+      }
+    },
+    "82.04": {
+      "poverty": {
+        "people_thousands": "11.78",
+        "percent": "4.81",
+        "line_rupiah": 512217
+      },
+      "output_per_person_thousands": 114370,
+      "development": {
+        "index": "69.05",
+        "adjusted_spending_thousands": 8515
+      }
+    },
+    "82.05": {
+      "poverty": {
+        "people_thousands": "8.05",
+        "percent": "7.65",
+        "line_rupiah": 529754
+      },
+      "output_per_person_thousands": 32723,
+      "development": {
+        "index": "68.89",
+        "adjusted_spending_thousands": 8251
+      }
+    },
+    "82.06": {
+      "poverty": {
+        "people_thousands": "11.05",
+        "percent": "10.54",
+        "line_rupiah": 705734
+      },
+      "output_per_person_thousands": 83278,
+      "development": {
+        "index": "71.11",
+        "adjusted_spending_thousands": 9227
+      }
+    },
+    "82.07": {
+      "poverty": {
+        "people_thousands": "3.29",
+        "percent": "4.49",
+        "line_rupiah": 494261
+      },
+      "output_per_person_thousands": 27112,
+      "development": {
+        "index": "67.86",
+        "adjusted_spending_thousands": 7775
+      }
+    },
+    "82.08": {
+      "poverty": {
+        "people_thousands": "3.72",
+        "percent": "6.63",
+        "line_rupiah": 574242
+      },
+      "output_per_person_thousands": 36586,
+      "development": {
+        "index": "65.61",
+        "adjusted_spending_thousands": 7503
+      }
+    },
+    "82.71": {
+      "poverty": {
+        "people_thousands": "8.51",
+        "percent": "3.34",
+        "line_rupiah": 753052
+      },
+      "output_per_person_thousands": 76451,
+      "development": {
+        "index": "83.01",
+        "adjusted_spending_thousands": 14945
+      }
+    },
+    "82.72": {
+      "poverty": {
+        "people_thousands": "6.73",
+        "percent": "6.54",
+        "line_rupiah": 643293
+      },
+      "output_per_person_thousands": 33446,
+      "development": {
+        "index": "74.63",
+        "adjusted_spending_thousands": 9539
+      }
+    },
+    "91.03": {
+      "poverty": {
+        "people_thousands": "17.18",
+        "percent": "13.03",
+        "line_rupiah": 766257
+      },
+      "output_per_person_thousands": 123134,
+      "development": {
+        "index": "76.14",
+        "adjusted_spending_thousands": 11088
+      }
+    },
+    "91.05": {
+      "poverty": {
+        "people_thousands": "28.70",
+        "percent": "28.00",
+        "line_rupiah": 821782
+      },
+      "output_per_person_thousands": 46062,
+      "development": {
+        "index": "70.93",
+        "adjusted_spending_thousands": 8752
+      }
+    },
+    "91.06": {
+      "poverty": {
+        "people_thousands": "39.74",
+        "percent": "25.73",
+        "line_rupiah": 712459
+      },
+      "output_per_person_thousands": 47999,
+      "development": {
+        "index": "75.48",
+        "adjusted_spending_thousands": 10823
+      }
+    },
+    "91.10": {
+      "poverty": {
+        "people_thousands": "6.41",
+        "percent": "15.17",
+        "line_rupiah": 686762
+      },
+      "output_per_person_thousands": 92898,
+      "development": {
+        "index": "68.78",
+        "adjusted_spending_thousands": 7713
+      }
+    },
+    "91.11": {
+      "poverty": {
+        "people_thousands": "10.79",
+        "percent": "17.76",
+        "line_rupiah": 875121
+      },
+      "output_per_person_thousands": 58532,
+      "development": {
+        "index": "70.43",
+        "adjusted_spending_thousands": 10109
+      }
+    },
+    "91.15": {
+      "poverty": {
+        "people_thousands": "11.45",
+        "percent": "32.60",
+        "line_rupiah": 878213
+      },
+      "output_per_person_thousands": 71600,
+      "development": {
+        "index": "68.91",
+        "adjusted_spending_thousands": 7960
+      }
+    },
+    "91.19": {
+      "poverty": {
+        "people_thousands": "9.47",
+        "percent": "42.56",
+        "line_rupiah": 618030
+      },
+      "output_per_person_thousands": 52420,
+      "development": {
+        "index": "67.30",
+        "adjusted_spending_thousands": 6786
+      }
+    },
+    "91.20": {
+      "poverty": {
+        "people_thousands": "9.32",
+        "percent": "35.09",
+        "line_rupiah": 905387
+      },
+      "output_per_person_thousands": 60288,
+      "development": {
+        "index": "60.48",
+        "adjusted_spending_thousands": 5568
+      }
+    },
+    "91.71": {
+      "poverty": {
+        "people_thousands": "38.33",
+        "percent": "12.03",
+        "line_rupiah": 1253343
+      },
+      "output_per_person_thousands": 99063,
+      "development": {
+        "index": "82.26",
+        "adjusted_spending_thousands": 15522
+      }
+    },
+    "92.02": {
+      "poverty": {
+        "people_thousands": "31.72",
+        "percent": "17.38",
+        "line_rupiah": 849546
+      },
+      "output_per_person_thousands": 57893,
+      "development": {
+        "index": "75.96",
+        "adjusted_spending_thousands": 13364
+      }
+    },
+    "92.03": {
+      "poverty": {
+        "people_thousands": "17.04",
+        "percent": "19.86",
+        "line_rupiah": 754624
+      },
+      "output_per_person_thousands": 71791,
+      "development": {
+        "index": "72.00",
+        "adjusted_spending_thousands": 8401
+      }
+    },
+    "92.06": {
+      "poverty": {
+        "people_thousands": "18.48",
+        "percent": "25.34",
+        "line_rupiah": 810638
+      },
+      "output_per_person_thousands": 621837,
+      "development": {
+        "index": "70.32",
+        "adjusted_spending_thousands": 10799
+      }
+    },
+    "92.07": {
+      "poverty": {
+        "people_thousands": "10.16",
+        "percent": "27.57",
+        "line_rupiah": 766187
+      },
+      "output_per_person_thousands": 41280,
+      "development": {
+        "index": "65.26",
+        "adjusted_spending_thousands": 9192
+      }
+    },
+    "92.08": {
+      "poverty": {
+        "people_thousands": "9.90",
+        "percent": "13.83",
+        "line_rupiah": 710589
+      },
+      "output_per_person_thousands": 47204,
+      "development": {
+        "index": "69.70",
+        "adjusted_spending_thousands": 9481
+      }
+    },
+    "92.11": {
+      "poverty": {
+        "people_thousands": "7.75",
+        "percent": "26.52",
+        "line_rupiah": 771161
+      },
+      "output_per_person_thousands": 26942,
+      "development": {
+        "index": "63.24",
+        "adjusted_spending_thousands": 6373
+      }
+    },
+    "92.12": {
+      "poverty": {
+        "people_thousands": "11.86",
+        "percent": "30.88",
+        "line_rupiah": 785149
+      },
+      "output_per_person_thousands": 9122,
+      "development": {
+        "index": "59.53",
+        "adjusted_spending_thousands": 6043
+      }
+    },
+    "93.01": {
+      "poverty": {
+        "people_thousands": "27.72",
+        "percent": "11.31",
+        "line_rupiah": 517764
+      },
+      "output_per_person_thousands": null,
+      "development": {
+        "index": "75.11",
+        "adjusted_spending_thousands": 11260
+      }
+    },
+    "93.02": {
+      "poverty": {
+        "people_thousands": "16.26",
+        "percent": "21.96",
+        "line_rupiah": 665009
+      },
+      "output_per_person_thousands": null,
+      "development": {
+        "index": "68.62",
+        "adjusted_spending_thousands": 8796
+      }
+    },
+    "93.03": {
+      "poverty": {
+        "people_thousands": "30.50",
+        "percent": "28.46",
+        "line_rupiah": 513706
+      },
+      "output_per_person_thousands": null,
+      "development": {
+        "index": "62.60",
+        "adjusted_spending_thousands": 7364
+      }
+    },
+    "93.04": {
+      "poverty": {
+        "people_thousands": "31.06",
+        "percent": "28.47",
+        "line_rupiah": 520641
+      },
+      "output_per_person_thousands": null,
+      "development": {
+        "index": "58.55",
+        "adjusted_spending_thousands": 6495
+      }
+    },
+    "94.01": {
+      "poverty": {
+        "people_thousands": "34.18",
+        "percent": "22.65",
+        "line_rupiah": 884601
+      },
+      "output_per_person_thousands": null,
+      "development": {
+        "index": "72.89",
+        "adjusted_spending_thousands": 10093
+      }
+    },
+    "94.02": {
+      "poverty": {
+        "people_thousands": "48.85",
+        "percent": "35.46",
+        "line_rupiah": 933545
+      },
+      "output_per_person_thousands": null,
+      "development": {
+        "index": "53.18",
+        "adjusted_spending_thousands": 6194
+      }
+    },
+    "94.03": {
+      "poverty": {
+        "people_thousands": "63.26",
+        "percent": "36.31",
+        "line_rupiah": 754356
+      },
+      "output_per_person_thousands": null,
+      "development": {
+        "index": "60.04",
+        "adjusted_spending_thousands": 7719
+      }
+    },
+    "94.04": {
+      "poverty": {
+        "people_thousands": "31.31",
+        "percent": "13.70",
+        "line_rupiah": 1166466
+      },
+      "output_per_person_thousands": null,
+      "development": {
+        "index": "77.27",
+        "adjusted_spending_thousands": 12745
+      }
+    },
+    "94.05": {
+      "poverty": {
+        "people_thousands": "43.55",
+        "percent": "36.94",
+        "line_rupiah": 943351
+      },
+      "output_per_person_thousands": null,
+      "development": {
+        "index": "45.95",
+        "adjusted_spending_thousands": 6496
+      }
+    },
+    "94.06": {
+      "poverty": {
+        "people_thousands": "29.96",
+        "percent": "29.34",
+        "line_rupiah": 752603
+      },
+      "output_per_person_thousands": null,
+      "development": {
+        "index": "57.96",
+        "adjusted_spending_thousands": 6856
+      }
+    },
+    "94.07": {
+      "poverty": {
+        "people_thousands": "21.37",
+        "percent": "39.21",
+        "line_rupiah": 980000
+      },
+      "output_per_person_thousands": null,
+      "development": {
+        "index": "51.56",
+        "adjusted_spending_thousands": 6622
+      }
+    },
+    "94.08": {
+      "poverty": {
+        "people_thousands": "29.84",
+        "percent": "37.29",
+        "line_rupiah": 817167
+      },
+      "output_per_person_thousands": null,
+      "development": {
+        "index": "52.81",
+        "adjusted_spending_thousands": 5743
+      }
+    },
+    "95.01": {
+      "poverty": {
+        "people_thousands": "61.64",
+        "percent": "29.08",
+        "line_rupiah": 913719
+      },
+      "output_per_person_thousands": null,
+      "development": {
+        "index": "66.02",
+        "adjusted_spending_thousands": 8750
+      }
+    },
+    "95.02": {
+      "poverty": {
+        "people_thousands": "20.61",
+        "percent": "25.87",
+        "line_rupiah": 1132178
+      },
+      "output_per_person_thousands": null,
+      "development": {
+        "index": "50.56",
+        "adjusted_spending_thousands": 6300
+      }
+    },
+    "95.03": {
+      "poverty": {
+        "people_thousands": "62.42",
+        "percent": "30.61",
+        "line_rupiah": 908562
+      },
+      "output_per_person_thousands": null,
+      "development": {
+        "index": "52.48",
+        "adjusted_spending_thousands": 5997
+      }
+    },
+    "95.04": {
+      "poverty": {
+        "people_thousands": "45.62",
+        "percent": "28.75",
+        "line_rupiah": 861729
+      },
+      "output_per_person_thousands": null,
+      "development": {
+        "index": "52.71",
+        "adjusted_spending_thousands": 5802
+      }
+    },
+    "95.05": {
+      "poverty": {
+        "people_thousands": "18.81",
+        "percent": "32.20",
+        "line_rupiah": 901904
+      },
+      "output_per_person_thousands": null,
+      "development": {
+        "index": "53.36",
+        "adjusted_spending_thousands": 5119
+      }
+    },
+    "95.06": {
+      "poverty": {
+        "people_thousands": "19.90",
+        "percent": "27.35",
+        "line_rupiah": 775882
+      },
+      "output_per_person_thousands": null,
+      "development": {
+        "index": "52.63",
+        "adjusted_spending_thousands": 5305
+      }
+    },
+    "95.07": {
+      "poverty": {
+        "people_thousands": "68.04",
+        "percent": "31.59",
+        "line_rupiah": 1019014
+      },
+      "output_per_person_thousands": null,
+      "development": {
+        "index": "52.47",
+        "adjusted_spending_thousands": 5102
+      }
+    },
+    "95.08": {
+      "poverty": {
+        "people_thousands": "40.29",
+        "percent": "32.89",
+        "line_rupiah": 837239
+      },
+      "output_per_person_thousands": null,
+      "development": {
+        "index": "40.35",
+        "adjusted_spending_thousands": 4773
+      }
+    },
+    "96.01": {
+      "poverty": {
+        "people_thousands": "25.61",
+        "percent": "25.10",
+        "line_rupiah": 661253
+      },
+      "output_per_person_thousands": null,
+      "development": {
+        "index": "70.60",
+        "adjusted_spending_thousands": 8617
+      }
+    },
+    "96.02": {
+      "poverty": {
+        "people_thousands": "9.49",
+        "percent": "17.66",
+        "line_rupiah": 606474
+      },
+      "output_per_person_thousands": null,
+      "development": {
+        "index": "65.45",
+        "adjusted_spending_thousands": 7227
+      }
+    },
+    "96.03": {
+      "poverty": {
+        "people_thousands": "8.60",
+        "percent": "16.57",
+        "line_rupiah": 658931
+      },
+      "output_per_person_thousands": null,
+      "development": {
+        "index": "67.36",
+        "adjusted_spending_thousands": 9109
+      }
+    },
+    "96.04": {
+      "poverty": {
+        "people_thousands": "4.96",
+        "percent": "28.94",
+        "line_rupiah": 606660
+      },
+      "output_per_person_thousands": null,
+      "development": {
+        "index": "59.28",
+        "adjusted_spending_thousands": 5827
+      }
+    },
+    "96.05": {
+      "poverty": {
+        "people_thousands": "13.53",
+        "percent": "29.00",
+        "line_rupiah": 591993
+      },
+      "output_per_person_thousands": null,
+      "development": {
+        "index": "62.68",
+        "adjusted_spending_thousands": 6074
+      }
+    },
+    "96.71": {
+      "poverty": {
+        "people_thousands": "41.39",
+        "percent": "13.55",
+        "line_rupiah": 985416
+      },
+      "output_per_person_thousands": null,
+      "development": {
+        "index": "81.03",
+        "adjusted_spending_thousands": 14664
+      }
+    }
+  }
+}

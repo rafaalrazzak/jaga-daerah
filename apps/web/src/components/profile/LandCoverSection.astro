@@ -1,0 +1,70 @@
+---
+import ExternalLink from '@/components/ui/ExternalLink.astro';
+import Section from '@/components/ui/Section.astro';
+import { table } from '@/components/ui/styles';
+import { LAND_COVER } from '@/lib/land-cover';
+
+interface Props {
+  provinceCode: string;
+  provinceName: string;
+}
+
+const { provinceCode, provinceName } = Astro.props;
+const record = LAND_COVER.provinces[provinceCode];
+
+function formatHectares(value: string): string {
+  const [whole = '0', fraction = '00'] = value.split('.');
+  const grouped = whole.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  return fraction === '00' ? `${grouped} ha` : `${grouped},${fraction} ha`;
+}
+---
+
+<Section
+  id="modul-lingkungan"
+  title="Tutupan lahan"
+  meta={`${LAND_COVER.year} · tingkat provinsi`}
+  lead={`Luas lahan Provinsi ${provinceName}. Bukan angka satu kabupaten.`}
+>
+  {record === undefined ? (
+    <p class="rounded-2xl border border-border bg-card p-5 sm:p-6">
+      Rekap KLHK tidak memuat tutupan lahan untuk Provinsi {provinceName}.
+    </p>
+  ) : (
+    <div
+      class="overflow-x-auto rounded-2xl border border-border bg-card p-5 sm:p-6"
+      tabindex="0"
+      role="region"
+      aria-label="Tabel tutupan lahan provinsi"
+    >
+      <table class:list={[table.root, 'min-w-[22rem]']}>
+        <caption class="sr-only">
+          Luas penutupan lahan Provinsi {provinceName} tahun {LAND_COVER.year}, dalam hektare. Bukan
+          data kabupaten/kota.
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">Kelas</th>
+            <th scope="col" class={table.numeric}>
+              Luas
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {record.rows.map((row) => (
+            <tr>
+              <th scope="row">{LAND_COVER.labels[row.class]}</th>
+              <td class:list={[table.numeric, 'font-semibold']}>{formatHectares(row.hectares)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  )}
+  <p slot="source" class="text-sm text-muted-foreground">
+    Sumber:{' '}
+    <ExternalLink href={LAND_COVER.source.url}>
+      rekapitulasi PKTL KLHK {LAND_COVER.year}
+    </ExternalLink>
+    . Angka ini untuk Provinsi {provinceName}, bukan untuk satu kabupaten atau kota.
+  </p>
+</Section>

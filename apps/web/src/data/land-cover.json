@@ -1,0 +1,819 @@
+{
+  "year": 2023,
+  "unit": "ha",
+  "level": "provinsi",
+  "source": {
+    "publisher": "KLHK",
+    "title": "Rekapitulasi luas penutupan lahan di dalam dan di luar kawasan hutan per provinsi tahun 2023",
+    "url": "https://statistik.menlhk.go.id/sisklhkX/data_statistik/pktl/table1_0",
+    "sha256": "8f3d2b6af5dcf11bd3ac8a63e7bf4f3ca357b26c361ab83e44c976d362149c22",
+    "retrieved_at": "2026-10-18T04:24:35.953327+00:00"
+  },
+  "note": "Luas penutupan lahan 2023 tingkat provinsi, dalam hektare, dari rekapitulasi PKTL KLHK. Angka aslinya dalam ribu hektare dan dikalikan 1.000 di sini. Empat kelas ini yang dipisah tabel nasional: hutan primer, hutan sekunder, hutan tanaman, dan bukan hutan. Mangrove, sawah, perkebunan, dan permukiman tidak dipisah, dan ini bukan daftar spesies atau data kabupaten/kota. Katalog Satu Data Indonesia 2014–2018 tidak dipakai: berkasnya menunjuk ke alamat internal dan menggabungkan Kalimantan Timur dengan Kalimantan Utara. Host statistik.menlhk.go.id sudah tidak terurai; checksum di bawah adalah tabel yang tersimpan.",
+  "labels": {
+    "hutan_primer": "Hutan primer",
+    "hutan_sekunder": "Hutan sekunder",
+    "hutan_tanaman": "Hutan tanaman",
+    "bukan_hutan": "Bukan hutan"
+  },
+  "provinces": {
+    "11": {
+      "name": "Aceh",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "1934600.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "1088900.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "127600.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "2508200.00"
+        }
+      ]
+    },
+    "12": {
+      "name": "Sumatera Utara",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "955300.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "816000.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "174800.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "5131100.00"
+        }
+      ]
+    },
+    "13": {
+      "name": "Sumatera Barat",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "600600.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "1242900.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "47800.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "2268700.00"
+        }
+      ]
+    },
+    "14": {
+      "name": "Riau",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "180300.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "1453700.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "928000.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "6289700.00"
+        }
+      ]
+    },
+    "15": {
+      "name": "Jambi",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "666100.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "505700.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "311900.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "3371600.00"
+        }
+      ]
+    },
+    "16": {
+      "name": "Sumatera Selatan",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "392600.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "415300.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "758400.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "7050400.00"
+        }
+      ]
+    },
+    "17": {
+      "name": "Bengkulu",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "474600.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "172700.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "100.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "1365000.00"
+        }
+      ]
+    },
+    "18": {
+      "name": "Lampung",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "131600.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "187600.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "12700.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "3032200.00"
+        }
+      ]
+    },
+    "19": {
+      "name": "Kepulauan Bangka Belitung",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "15400.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "222700.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "0.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "1430200.00"
+        }
+      ]
+    },
+    "21": {
+      "name": "Kepulauan Riau",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "19600.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "310700.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "0.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "482400.00"
+        }
+      ]
+    },
+    "31": {
+      "name": "Daerah Khusus Ibukota Jakarta",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "0.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "1100.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "0.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "65300.00"
+        }
+      ]
+    },
+    "32": {
+      "name": "Jawa Barat",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "11500.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "235700.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "433800.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "3042200.00"
+        }
+      ]
+    },
+    "33": {
+      "name": "Jawa Tengah",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "7600.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "109200.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "539900.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "2807100.00"
+        }
+      ]
+    },
+    "34": {
+      "name": "Daerah Istimewa Yogyakarta",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "0.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "1400.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "21000.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "299500.00"
+        }
+      ]
+    },
+    "35": {
+      "name": "Jawa Timur",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "42100.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "413200.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "789200.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "3629300.00"
+        }
+      ]
+    },
+    "36": {
+      "name": "Banten",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "7300.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "84400.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "81500.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "771800.00"
+        }
+      ]
+    },
+    "51": {
+      "name": "Bali",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "38600.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "49000.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "9900.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "470100.00"
+        }
+      ]
+    },
+    "52": {
+      "name": "Nusa Tenggara Barat",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "311100.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "564200.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "12900.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "1115700.00"
+        }
+      ]
+    },
+    "53": {
+      "name": "Nusa Tenggara Timur",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "520100.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "1175700.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "8900.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "3030900.00"
+        }
+      ]
+    },
+    "61": {
+      "name": "Kalimantan Barat",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "2283100.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "3295700.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "99900.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "8893400.00"
+        }
+      ]
+    },
+    "62": {
+      "name": "Kalimantan Tengah",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "1097700.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "6144000.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "182900.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "7768600.00"
+        }
+      ]
+    },
+    "63": {
+      "name": "Kalimantan Selatan",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "112700.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "699600.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "140700.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "2736700.00"
+        }
+      ]
+    },
+    "64": {
+      "name": "Kalimantan Timur",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "2395700.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "4843700.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "684600.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "4652500.00"
+        }
+      ]
+    },
+    "65": {
+      "name": "Kalimantan Utara",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "3870800.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "1981200.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "88900.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "1018200.00"
+        }
+      ]
+    },
+    "71": {
+      "name": "Sulawesi Utara",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "259700.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "297600.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "0.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "886400.00"
+        }
+      ]
+    },
+    "72": {
+      "name": "Sulawesi Tengah",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "2537300.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "1243600.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "9500.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "2299000.00"
+        }
+      ]
+    },
+    "73": {
+      "name": "Sulawesi Selatan",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "698800.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "784400.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "10300.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "2940500.00"
+        }
+      ]
+    },
+    "74": {
+      "name": "Sulawesi Tenggara",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "1003800.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "875700.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "800.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "1746600.00"
+        }
+      ]
+    },
+    "75": {
+      "name": "Gorontalo",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "309400.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "372800.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "23700.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "490500.00"
+        }
+      ]
+    },
+    "76": {
+      "name": "Sulawesi Barat",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "365300.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "459700.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "0.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "831200.00"
+        }
+      ]
+    },
+    "81": {
+      "name": "Maluku",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "370200.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "2733600.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "0.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "1529300.00"
+        }
+      ]
+    },
+    "82": {
+      "name": "Maluku Utara",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "259500.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "1763000.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "38100.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "1081400.00"
+        }
+      ]
+    },
+    "91": {
+      "name": "Papua",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "4587800.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "3102900.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "0.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "464600.00"
+        }
+      ]
+    },
+    "92": {
+      "name": "Papua Barat",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "3221200.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "2332300.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "0.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "388500.00"
+        }
+      ]
+    },
+    "93": {
+      "name": "Papua Selatan",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "5010300.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "2964600.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "10300.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "3828600.00"
+        }
+      ]
+    },
+    "94": {
+      "name": "Papua Tengah",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "4588400.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "709400.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "0.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "755500.00"
+        }
+      ]
+    },
+    "95": {
+      "name": "Papua Pegunungan",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "3498500.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "681100.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "0.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "942300.00"
+        }
+      ]
+    },
+    "96": {
+      "name": "Papua Barat Daya",
+      "rows": [
+        {
+          "class": "hutan_primer",
+          "hectares": "2375500.00"
+        },
+        {
+          "class": "hutan_sekunder",
+          "hectares": "1192900.00"
+        },
+        {
+          "class": "hutan_tanaman",
+          "hectares": "700.00"
+        },
+        {
+          "class": "bukan_hutan",
+          "hectares": "292400.00"
+        }
+      ]
+    }
+  }
+}

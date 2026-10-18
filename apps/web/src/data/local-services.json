@@ -1,0 +1,9790 @@
+{
+  "hospitals": {
+    "source": {
+      "publisher": "Kemenkes",
+      "title": "Daftar rumah sakit nasional (SIRS)",
+      "url": "https://sirs.kemkes.go.id/fo/home/rekap_rs_all?id=0",
+      "sha256": "7b60dfa4569b5fc2cd43535e0add564c4b0892855d2b8bdc4cf509074a3a2b03",
+      "retrieved_at": "2026-10-18T04:54:57.816560+00:00"
+    },
+    "omitted": 41,
+    "note": "Daftar SIRS tidak memakai kode Kemendagri. Baris dihitung bila nama kabupaten/kota menunjuk tepat satu daerah di provinsi itu, termasuk empat ejaan yang merujuk satu daerah resmi. Bila nama yang sama dipakai kabupaten dan kota, koordinat pada peta SIRS dipakai hanya jika titiknya berada di dalam tepat satu dari dua batas resmi itu. Baris tanpa koordinat, di luar kedua batas, atau di dalam keduanya tidak dihitung dan tidak dijadikan nol. Ini jumlah fasilitas, bukan tempat tidur dan bukan kunjungan pasien.",
+    "coordinates": {
+      "publisher": "Kemenkes",
+      "title": "Koordinat rumah sakit pada peta SIRS",
+      "url": "https://sirs.kemkes.go.id/fo/home/list_prop_noncovid?id=0",
+      "sha256": "91cd06023de4cd58dd12c57ae60058e1d0848f5c5b7574dd4d229b48660afaf0",
+      "retrieved_at": "2026-10-18T08:28:49.761000+00:00"
+    }
+  },
+  "schools": {
+    "source": {
+      "publisher": "Kemendikdasmen",
+      "title": "Jumlah satuan pendidikan per kabupaten/kota",
+      "url": "https://referensi.data.kemendikdasmen.go.id/pendidikan/dikdas",
+      "sha256": "bbb5d41025542c187dd4c614a0dfdb0cd532fa012d3dc9c78719e9e19b762ddb",
+      "retrieved_at": "2026-10-18T05:01:42.696752+00:00"
+    },
+    "note": "Jumlah satuan pendidikan pada portal referensi Kemendikdasmen saat berkas ini diambil: SD dan SMP dari halaman dikdas, SMA dan SMK dari halaman dikmen. SLB tercantum di halaman dikmen dan tidak dijumlahkan di sini. Portal itu tidak mencetak tahun ajaran. Ini jumlah sekolah, bukan jumlah murid. Nama yang tidak cocok dengan satu kabupaten/kota tidak dihitung."
+  },
+  "regions": {
+    "11.01": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 243,
+        "smp": 100,
+        "sma": 57,
+        "smk": 12
+      },
+      "population": {
+        "total": 239629,
+        "male": 120041,
+        "female": 119588
+      }
+    },
+    "11.02": {
+      "hospitals": {
+        "total": 3,
+        "umum": 2,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 226,
+        "smp": 112,
+        "sma": 59,
+        "smk": 16
+      },
+      "population": {
+        "total": 235589,
+        "male": 118140,
+        "female": 117449
+      }
+    },
+    "11.03": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 345,
+        "smp": 145,
+        "sma": 73,
+        "smk": 17
+      },
+      "population": {
+        "total": 461391,
+        "male": 232341,
+        "female": 229050
+      }
+    },
+    "11.04": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 237,
+        "smp": 86,
+        "sma": 39,
+        "smk": 6
+      },
+      "population": {
+        "total": 232606,
+        "male": 117470,
+        "female": 115136
+      }
+    },
+    "11.05": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 195,
+        "smp": 81,
+        "sma": 37,
+        "smk": 11
+      },
+      "population": {
+        "total": 209220,
+        "male": 105470,
+        "female": 103750
+      }
+    },
+    "11.06": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 273,
+        "smp": 127,
+        "sma": 83,
+        "smk": 11
+      },
+      "population": {
+        "total": 442987,
+        "male": 221967,
+        "female": 221020
+      }
+    },
+    "11.07": {
+      "hospitals": {
+        "total": 6,
+        "umum": 6,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 346,
+        "smp": 122,
+        "sma": 57,
+        "smk": 15
+      },
+      "population": {
+        "total": 451076,
+        "male": 222253,
+        "female": 228823
+      }
+    },
+    "11.08": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 415,
+        "smp": 221,
+        "sma": 107,
+        "smk": 28
+      },
+      "population": {
+        "total": 641007,
+        "male": 319278,
+        "female": 321729
+      }
+    },
+    "11.09": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 128,
+        "smp": 60,
+        "sma": 33,
+        "smk": 8
+      },
+      "population": {
+        "total": 96812,
+        "male": 49595,
+        "female": 47217
+      }
+    },
+    "11.10": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 123,
+        "smp": 67,
+        "sma": 24,
+        "smk": 9
+      },
+      "population": {
+        "total": 140461,
+        "male": 70857,
+        "female": 69604
+      }
+    },
+    "11.11": {
+      "hospitals": {
+        "total": 6,
+        "umum": 6,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 295,
+        "smp": 163,
+        "sma": 85,
+        "smk": 15
+      },
+      "population": {
+        "total": 468696,
+        "male": 230892,
+        "female": 237804
+      }
+    },
+    "11.12": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 132,
+        "smp": 41,
+        "sma": 20,
+        "smk": 5
+      },
+      "population": {
+        "total": 156128,
+        "male": 78693,
+        "female": 77435
+      }
+    },
+    "11.13": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 108,
+        "smp": 63,
+        "sma": 25,
+        "smk": 3
+      },
+      "population": {
+        "total": 107506,
+        "male": 54118,
+        "female": 53388
+      }
+    },
+    "11.14": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 118,
+        "smp": 49,
+        "sma": 22,
+        "smk": 7
+      },
+      "population": {
+        "total": 101407,
+        "male": 51377,
+        "female": 50030
+      }
+    },
+    "11.15": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 157,
+        "smp": 56,
+        "sma": 23,
+        "smk": 4
+      },
+      "population": {
+        "total": 181103,
+        "male": 91321,
+        "female": 89782
+      }
+    },
+    "11.16": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 195,
+        "smp": 91,
+        "sma": 43,
+        "smk": 9
+      },
+      "population": {
+        "total": 312061,
+        "male": 157740,
+        "female": 154321
+      }
+    },
+    "11.17": {
+      "hospitals": {
+        "total": 2,
+        "umum": 1,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 159,
+        "smp": 84,
+        "sma": 37,
+        "smk": 6
+      },
+      "population": {
+        "total": 181376,
+        "male": 91798,
+        "female": 89578
+      }
+    },
+    "11.18": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 120,
+        "smp": 63,
+        "sma": 36,
+        "smk": 9
+      },
+      "population": {
+        "total": 166517,
+        "male": 82520,
+        "female": 83997
+      }
+    },
+    "11.71": {
+      "hospitals": {
+        "total": 16,
+        "umum": 10,
+        "ibu_anak": 2,
+        "khusus": 4
+      },
+      "schools": {
+        "sd": 115,
+        "smp": 56,
+        "sma": 44,
+        "smk": 9
+      },
+      "population": {
+        "total": 265310,
+        "male": 132249,
+        "female": 133061
+      }
+    },
+    "11.72": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 32,
+        "smp": 12,
+        "sma": 4,
+        "smk": 1
+      },
+      "population": {
+        "total": 42793,
+        "male": 21508,
+        "female": 21285
+      }
+    },
+    "11.73": {
+      "hospitals": {
+        "total": 11,
+        "umum": 10,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 84,
+        "smp": 58,
+        "sma": 26,
+        "smk": 13
+      },
+      "population": {
+        "total": 198705,
+        "male": 98717,
+        "female": 99988
+      }
+    },
+    "11.74": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 79,
+        "smp": 43,
+        "sma": 22,
+        "smk": 9
+      },
+      "population": {
+        "total": 183914,
+        "male": 92245,
+        "female": 91669
+      }
+    },
+    "11.75": {
+      "hospitals": {
+        "total": 2,
+        "umum": 1,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 94,
+        "smp": 55,
+        "sma": 26,
+        "smk": 6
+      },
+      "population": {
+        "total": 107185,
+        "male": 54470,
+        "female": 52715
+      }
+    },
+    "12.01": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 355,
+        "smp": 111,
+        "sma": 44,
+        "smk": 19
+      },
+      "population": {
+        "total": 369482,
+        "male": 185732,
+        "female": 183750
+      }
+    },
+    "12.02": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 391,
+        "smp": 84,
+        "sma": 28,
+        "smk": 21
+      },
+      "population": {
+        "total": 331475,
+        "male": 164338,
+        "female": 167137
+      }
+    },
+    "12.03": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 300,
+        "smp": 92,
+        "sma": 42,
+        "smk": 15
+      },
+      "population": {
+        "total": 324565,
+        "male": 163327,
+        "female": 161238
+      }
+    },
+    "12.04": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 163,
+        "smp": 54,
+        "sma": 14,
+        "smk": 17
+      },
+      "population": {
+        "total": 147989,
+        "male": 72364,
+        "female": 75625
+      }
+    },
+    "12.05": {
+      "hospitals": {
+        "total": 7,
+        "umum": 7,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 830,
+        "smp": 327,
+        "sma": 142,
+        "smk": 73
+      },
+      "population": {
+        "total": 1120709,
+        "male": 564266,
+        "female": 556443
+      }
+    },
+    "12.06": {
+      "hospitals": {
+        "total": 5,
+        "umum": 4,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 298,
+        "smp": 81,
+        "sma": 30,
+        "smk": 11
+      },
+      "population": {
+        "total": 422495,
+        "male": 207909,
+        "female": 214586
+      }
+    },
+    "12.07": {
+      "hospitals": {
+        "total": 26,
+        "umum": 23,
+        "ibu_anak": 2,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 1173,
+        "smp": 548,
+        "sma": 235,
+        "smk": 126
+      },
+      "population": {
+        "total": 2080408,
+        "male": 1044298,
+        "female": 1036110
+      }
+    },
+    "12.08": {
+      "hospitals": {
+        "total": 6,
+        "umum": 6,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 813,
+        "smp": 230,
+        "sma": 76,
+        "smk": 44
+      },
+      "population": {
+        "total": 1004303,
+        "male": 502885,
+        "female": 501418
+      }
+    },
+    "12.09": {
+      "hospitals": {
+        "total": 9,
+        "umum": 9,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 551,
+        "smp": 217,
+        "sma": 101,
+        "smk": 38
+      },
+      "population": {
+        "total": 799451,
+        "male": 403875,
+        "female": 395576
+      }
+    },
+    "12.10": {
+      "hospitals": {
+        "total": 5,
+        "umum": 5,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 338,
+        "smp": 141,
+        "sma": 70,
+        "smk": 30
+      },
+      "population": {
+        "total": 513010,
+        "male": 259760,
+        "female": 253250
+      }
+    },
+    "12.11": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 274,
+        "smp": 67,
+        "sma": 30,
+        "smk": 16
+      },
+      "population": {
+        "total": 333335,
+        "male": 166297,
+        "female": 167038
+      }
+    },
+    "12.12": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 224,
+        "smp": 53,
+        "sma": 18,
+        "smk": 15
+      },
+      "population": {
+        "total": 220508,
+        "male": 109370,
+        "female": 111138
+      }
+    },
+    "12.13": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 420,
+        "smp": 134,
+        "sma": 59,
+        "smk": 22
+      },
+      "population": {
+        "total": 501618,
+        "male": 250699,
+        "female": 250919
+      }
+    },
+    "12.14": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 367,
+        "smp": 152,
+        "sma": 67,
+        "smk": 48
+      },
+      "population": {
+        "total": 369817,
+        "male": 185317,
+        "female": 184500
+      }
+    },
+    "12.15": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 70,
+        "smp": 32,
+        "sma": 8,
+        "smk": 4
+      },
+      "population": {
+        "total": 57280,
+        "male": 28977,
+        "female": 28303
+      }
+    },
+    "12.16": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 221,
+        "smp": 52,
+        "sma": 19,
+        "smk": 12
+      },
+      "population": {
+        "total": 211022,
+        "male": 105199,
+        "female": 105823
+      }
+    },
+    "12.17": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 196,
+        "smp": 34,
+        "sma": 16,
+        "smk": 5
+      },
+      "population": {
+        "total": 149875,
+        "male": 74432,
+        "female": 75443
+      }
+    },
+    "12.18": {
+      "hospitals": {
+        "total": 5,
+        "umum": 5,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 498,
+        "smp": 176,
+        "sma": 78,
+        "smk": 37
+      },
+      "population": {
+        "total": 696845,
+        "male": 349969,
+        "female": 346876
+      }
+    },
+    "12.19": {
+      "hospitals": {
+        "total": 5,
+        "umum": 5,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 299,
+        "smp": 121,
+        "sma": 44,
+        "smk": 23
+      },
+      "population": {
+        "total": 474832,
+        "male": 239864,
+        "female": 234968
+      }
+    },
+    "12.20": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 256,
+        "smp": 97,
+        "sma": 54,
+        "smk": 10
+      },
+      "population": {
+        "total": 273586,
+        "male": 138480,
+        "female": 135106
+      }
+    },
+    "12.21": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 214,
+        "smp": 95,
+        "sma": 51,
+        "smk": 19
+      },
+      "population": {
+        "total": 271274,
+        "male": 136098,
+        "female": 135176
+      }
+    },
+    "12.22": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 233,
+        "smp": 109,
+        "sma": 53,
+        "smk": 24
+      },
+      "population": {
+        "total": 332459,
+        "male": 169625,
+        "female": 162834
+      }
+    },
+    "12.23": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 327,
+        "smp": 114,
+        "sma": 44,
+        "smk": 23
+      },
+      "population": {
+        "total": 399306,
+        "male": 202100,
+        "female": 197206
+      }
+    },
+    "12.24": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 169,
+        "smp": 61,
+        "sma": 17,
+        "smk": 23
+      },
+      "population": {
+        "total": 153338,
+        "male": 76180,
+        "female": 77158
+      }
+    },
+    "12.25": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 108,
+        "smp": 40,
+        "sma": 18,
+        "smk": 13
+      },
+      "population": {
+        "total": 97526,
+        "male": 47472,
+        "female": 50054
+      }
+    },
+    "12.71": {
+      "hospitals": {
+        "total": 66,
+        "umum": 49,
+        "ibu_anak": 4,
+        "khusus": 13
+      },
+      "schools": {
+        "sd": 936,
+        "smp": 516,
+        "sma": 265,
+        "smk": 137
+      },
+      "population": {
+        "total": 2546452,
+        "male": 1263569,
+        "female": 1282883
+      }
+    },
+    "12.72": {
+      "hospitals": {
+        "total": 10,
+        "umum": 9,
+        "ibu_anak": 0,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 129,
+        "smp": 52,
+        "sma": 31,
+        "smk": 29
+      },
+      "population": {
+        "total": 279772,
+        "male": 137836,
+        "female": 141936
+      }
+    },
+    "12.73": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 42,
+        "smp": 20,
+        "sma": 12,
+        "smk": 8
+      },
+      "population": {
+        "total": 100282,
+        "male": 50556,
+        "female": 49726
+      }
+    },
+    "12.74": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 94,
+        "smp": 38,
+        "sma": 21,
+        "smk": 9
+      },
+      "population": {
+        "total": 187939,
+        "male": 95289,
+        "female": 92650
+      }
+    },
+    "12.75": {
+      "hospitals": {
+        "total": 10,
+        "umum": 9,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 189,
+        "smp": 80,
+        "sma": 42,
+        "smk": 23
+      },
+      "population": {
+        "total": 315609,
+        "male": 157385,
+        "female": 158224
+      }
+    },
+    "12.76": {
+      "hospitals": {
+        "total": 6,
+        "umum": 6,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 120,
+        "smp": 38,
+        "sma": 21,
+        "smk": 14
+      },
+      "population": {
+        "total": 184064,
+        "male": 91715,
+        "female": 92349
+      }
+    },
+    "12.77": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 109,
+        "smp": 47,
+        "sma": 31,
+        "smk": 17
+      },
+      "population": {
+        "total": 231982,
+        "male": 115723,
+        "female": 116259
+      }
+    },
+    "12.78": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 113,
+        "smp": 39,
+        "sma": 15,
+        "smk": 12
+      },
+      "population": {
+        "total": 138297,
+        "male": 67192,
+        "female": 71105
+      }
+    },
+    "13.01": {
+      "hospitals": {
+        "total": 4,
+        "umum": 3,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 436,
+        "smp": 115,
+        "sma": 42,
+        "smk": 17
+      },
+      "population": {
+        "total": 533786,
+        "male": 267507,
+        "female": 266279
+      }
+    },
+    "13.02": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 386,
+        "smp": 112,
+        "sma": 43,
+        "smk": 11
+      },
+      "population": {
+        "total": 413075,
+        "male": 207180,
+        "female": 205895
+      }
+    },
+    "13.03": {
+      "hospitals": {
+        "total": 3,
+        "umum": 2,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 224,
+        "smp": 75,
+        "sma": 19,
+        "smk": 11
+      },
+      "population": {
+        "total": 247323,
+        "male": 124672,
+        "female": 122651
+      }
+    },
+    "13.04": {
+      "hospitals": {
+        "total": 4,
+        "umum": 2,
+        "ibu_anak": 2,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 318,
+        "smp": 106,
+        "sma": 46,
+        "smk": 11
+      },
+      "population": {
+        "total": 382674,
+        "male": 191513,
+        "female": 191161
+      }
+    },
+    "13.05": {
+      "hospitals": {
+        "total": 2,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 429,
+        "smp": 91,
+        "sma": 38,
+        "smk": 14
+      },
+      "population": {
+        "total": 458310,
+        "male": 230615,
+        "female": 227695
+      }
+    },
+    "13.06": {
+      "hospitals": {
+        "total": 3,
+        "umum": 2,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 456,
+        "smp": 135,
+        "sma": 63,
+        "smk": 16
+      },
+      "population": {
+        "total": 533254,
+        "male": 267450,
+        "female": 265804
+      }
+    },
+    "13.07": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 387,
+        "smp": 94,
+        "sma": 32,
+        "smk": 11
+      },
+      "population": {
+        "total": 402788,
+        "male": 200980,
+        "female": 201808
+      }
+    },
+    "13.08": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 261,
+        "smp": 59,
+        "sma": 28,
+        "smk": 8
+      },
+      "population": {
+        "total": 313837,
+        "male": 157676,
+        "female": 156161
+      }
+    },
+    "13.09": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 137,
+        "smp": 39,
+        "sma": 17,
+        "smk": 3
+      },
+      "population": {
+        "total": 97837,
+        "male": 50832,
+        "female": 47005
+      }
+    },
+    "13.10": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 184,
+        "smp": 63,
+        "sma": 32,
+        "smk": 10
+      },
+      "population": {
+        "total": 242192,
+        "male": 122982,
+        "female": 119210
+      }
+    },
+    "13.11": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 159,
+        "smp": 57,
+        "sma": 21,
+        "smk": 6
+      },
+      "population": {
+        "total": 181525,
+        "male": 92075,
+        "female": 89450
+      }
+    },
+    "13.12": {
+      "hospitals": {
+        "total": 4,
+        "umum": 3,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 289,
+        "smp": 133,
+        "sma": 62,
+        "smk": 21
+      },
+      "population": {
+        "total": 454053,
+        "male": 228552,
+        "female": 225501
+      }
+    },
+    "13.71": {
+      "hospitals": {
+        "total": 28,
+        "umum": 14,
+        "ibu_anak": 5,
+        "khusus": 9
+      },
+      "schools": {
+        "sd": 368,
+        "smp": 126,
+        "sma": 71,
+        "smk": 41
+      },
+      "population": {
+        "total": 946982,
+        "male": 472670,
+        "female": 474312
+      }
+    },
+    "13.72": {
+      "hospitals": {
+        "total": 5,
+        "umum": 3,
+        "ibu_anak": 2,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 51,
+        "smp": 14,
+        "sma": 9,
+        "smk": 6
+      },
+      "population": {
+        "total": 85553,
+        "male": 42982,
+        "female": 42571
+      }
+    },
+    "13.73": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 69,
+        "smp": 15,
+        "sma": 6,
+        "smk": 3
+      },
+      "population": {
+        "total": 68559,
+        "male": 34500,
+        "female": 34059
+      }
+    },
+    "13.74": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 42,
+        "smp": 19,
+        "sma": 16,
+        "smk": 4
+      },
+      "population": {
+        "total": 63895,
+        "male": 32189,
+        "female": 31706
+      }
+    },
+    "13.75": {
+      "hospitals": {
+        "total": 6,
+        "umum": 5,
+        "ibu_anak": 0,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 69,
+        "smp": 27,
+        "sma": 18,
+        "smk": 12
+      },
+      "population": {
+        "total": 141804,
+        "male": 71136,
+        "female": 70668
+      }
+    },
+    "13.76": {
+      "hospitals": {
+        "total": 4,
+        "umum": 2,
+        "ibu_anak": 2,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 88,
+        "smp": 28,
+        "sma": 20,
+        "smk": 8
+      },
+      "population": {
+        "total": 149077,
+        "male": 75097,
+        "female": 73980
+      }
+    },
+    "13.77": {
+      "hospitals": {
+        "total": 5,
+        "umum": 4,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 87,
+        "smp": 21,
+        "sma": 13,
+        "smk": 7
+      },
+      "population": {
+        "total": 103835,
+        "male": 52524,
+        "female": 51311
+      }
+    },
+    "14.01": {
+      "hospitals": {
+        "total": 9,
+        "umum": 7,
+        "ibu_anak": 2,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 595,
+        "smp": 290,
+        "sma": 141,
+        "smk": 34
+      },
+      "population": {
+        "total": 898973,
+        "male": 459172,
+        "female": 439801
+      }
+    },
+    "14.02": {
+      "hospitals": {
+        "total": 4,
+        "umum": 3,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 346,
+        "smp": 120,
+        "sma": 60,
+        "smk": 18
+      },
+      "population": {
+        "total": 487039,
+        "male": 249632,
+        "female": 237407
+      }
+    },
+    "14.03": {
+      "hospitals": {
+        "total": 7,
+        "umum": 7,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 395,
+        "smp": 189,
+        "sma": 94,
+        "smk": 30
+      },
+      "population": {
+        "total": 681884,
+        "male": 348949,
+        "female": 332935
+      }
+    },
+    "14.04": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 719,
+        "smp": 309,
+        "sma": 121,
+        "smk": 20
+      },
+      "population": {
+        "total": 713294,
+        "male": 367777,
+        "female": 345517
+      }
+    },
+    "14.05": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 253,
+        "smp": 123,
+        "sma": 41,
+        "smk": 21
+      },
+      "population": {
+        "total": 446439,
+        "male": 229892,
+        "female": 216547
+      }
+    },
+    "14.06": {
+      "hospitals": {
+        "total": 5,
+        "umum": 4,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 413,
+        "smp": 203,
+        "sma": 78,
+        "smk": 40
+      },
+      "population": {
+        "total": 586994,
+        "male": 298478,
+        "female": 288516
+      }
+    },
+    "14.07": {
+      "hospitals": {
+        "total": 6,
+        "umum": 5,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 469,
+        "smp": 218,
+        "sma": 103,
+        "smk": 28
+      },
+      "population": {
+        "total": 688073,
+        "male": 352235,
+        "female": 335838
+      }
+    },
+    "14.08": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 288,
+        "smp": 172,
+        "sma": 79,
+        "smk": 29
+      },
+      "population": {
+        "total": 495760,
+        "male": 254501,
+        "female": 241259
+      }
+    },
+    "14.09": {
+      "hospitals": {
+        "total": 3,
+        "umum": 2,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 291,
+        "smp": 115,
+        "sma": 41,
+        "smk": 14
+      },
+      "population": {
+        "total": 365989,
+        "male": 186061,
+        "female": 179928
+      }
+    },
+    "14.10": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 185,
+        "smp": 88,
+        "sma": 46,
+        "smk": 7
+      },
+      "population": {
+        "total": 211997,
+        "male": 109205,
+        "female": 102792
+      }
+    },
+    "14.71": {
+      "hospitals": {
+        "total": 32,
+        "umum": 25,
+        "ibu_anak": 4,
+        "khusus": 3
+      },
+      "schools": {
+        "sd": 377,
+        "smp": 222,
+        "sma": 106,
+        "smk": 65
+      },
+      "population": {
+        "total": 1167599,
+        "male": 586917,
+        "female": 580682
+      }
+    },
+    "14.72": {
+      "hospitals": {
+        "total": 6,
+        "umum": 6,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 122,
+        "smp": 67,
+        "sma": 29,
+        "smk": 19
+      },
+      "population": {
+        "total": 355256,
+        "male": 182560,
+        "female": 172696
+      }
+    },
+    "15.01": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 272,
+        "smp": 79,
+        "sma": 29,
+        "smk": 8
+      },
+      "population": {
+        "total": 268951,
+        "male": 135055,
+        "female": 133896
+      }
+    },
+    "15.02": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 361,
+        "smp": 140,
+        "sma": 55,
+        "smk": 21
+      },
+      "population": {
+        "total": 397461,
+        "male": 202407,
+        "female": 195054
+      }
+    },
+    "15.03": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 273,
+        "smp": 129,
+        "sma": 54,
+        "smk": 24
+      },
+      "population": {
+        "total": 313097,
+        "male": 159668,
+        "female": 153429
+      }
+    },
+    "15.04": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 232,
+        "smp": 101,
+        "sma": 43,
+        "smk": 12
+      },
+      "population": {
+        "total": 307361,
+        "male": 157571,
+        "female": 149790
+      }
+    },
+    "15.05": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 297,
+        "smp": 145,
+        "sma": 70,
+        "smk": 19
+      },
+      "population": {
+        "total": 457238,
+        "male": 235136,
+        "female": 222102
+      }
+    },
+    "15.06": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 242,
+        "smp": 117,
+        "sma": 59,
+        "smk": 12
+      },
+      "population": {
+        "total": 336978,
+        "male": 173688,
+        "female": 163290
+      }
+    },
+    "15.07": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 227,
+        "smp": 89,
+        "sma": 45,
+        "smk": 7
+      },
+      "population": {
+        "total": 244905,
+        "male": 124922,
+        "female": 119983
+      }
+    },
+    "15.08": {
+      "hospitals": {
+        "total": 6,
+        "umum": 5,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 270,
+        "smp": 110,
+        "sma": 49,
+        "smk": 19
+      },
+      "population": {
+        "total": 380027,
+        "male": 193358,
+        "female": 186669
+      }
+    },
+    "15.09": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 295,
+        "smp": 131,
+        "sma": 58,
+        "smk": 25
+      },
+      "population": {
+        "total": 376541,
+        "male": 193428,
+        "female": 183113
+      }
+    },
+    "15.71": {
+      "hospitals": {
+        "total": 15,
+        "umum": 13,
+        "ibu_anak": 1,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 261,
+        "smp": 113,
+        "sma": 76,
+        "smk": 32
+      },
+      "population": {
+        "total": 649656,
+        "male": 326268,
+        "female": 323388
+      }
+    },
+    "15.72": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 86,
+        "smp": 21,
+        "sma": 10,
+        "smk": 5
+      },
+      "population": {
+        "total": 102224,
+        "male": 51371,
+        "female": 50853
+      }
+    },
+    "16.01": {
+      "hospitals": {
+        "total": 8,
+        "umum": 3,
+        "ibu_anak": 4,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 243,
+        "smp": 99,
+        "sma": 49,
+        "smk": 15
+      },
+      "population": {
+        "total": 390048,
+        "male": 199719,
+        "female": 190329
+      }
+    },
+    "16.02": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 554,
+        "smp": 231,
+        "sma": 82,
+        "smk": 30
+      },
+      "population": {
+        "total": 801059,
+        "male": 411305,
+        "female": 389754
+      }
+    },
+    "16.03": {
+      "hospitals": {
+        "total": 7,
+        "umum": 7,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 413,
+        "smp": 152,
+        "sma": 71,
+        "smk": 19
+      },
+      "population": {
+        "total": 653731,
+        "male": 333560,
+        "female": 320171
+      }
+    },
+    "16.04": {
+      "hospitals": {
+        "total": 5,
+        "umum": 4,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 327,
+        "smp": 95,
+        "sma": 47,
+        "smk": 13
+      },
+      "population": {
+        "total": 448141,
+        "male": 229204,
+        "female": 218937
+      }
+    },
+    "16.05": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 341,
+        "smp": 112,
+        "sma": 45,
+        "smk": 9
+      },
+      "population": {
+        "total": 427723,
+        "male": 218376,
+        "female": 209347
+      }
+    },
+    "16.06": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 527,
+        "smp": 223,
+        "sma": 79,
+        "smk": 25
+      },
+      "population": {
+        "total": 736897,
+        "male": 378473,
+        "female": 358424
+      }
+    },
+    "16.07": {
+      "hospitals": {
+        "total": 6,
+        "umum": 6,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 586,
+        "smp": 221,
+        "sma": 112,
+        "smk": 23
+      },
+      "population": {
+        "total": 888324,
+        "male": 454414,
+        "female": 433910
+      }
+    },
+    "16.08": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 489,
+        "smp": 176,
+        "sma": 80,
+        "smk": 44
+      },
+      "population": {
+        "total": 694832,
+        "male": 355275,
+        "female": 339557
+      }
+    },
+    "16.09": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 297,
+        "smp": 88,
+        "sma": 40,
+        "smk": 7
+      },
+      "population": {
+        "total": 406938,
+        "male": 211134,
+        "female": 195804
+      }
+    },
+    "16.10": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 292,
+        "smp": 130,
+        "sma": 56,
+        "smk": 18
+      },
+      "population": {
+        "total": 446020,
+        "male": 225871,
+        "female": 220149
+      }
+    },
+    "16.11": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 195,
+        "smp": 47,
+        "sma": 21,
+        "smk": 4
+      },
+      "population": {
+        "total": 336783,
+        "male": 173894,
+        "female": 162889
+      }
+    },
+    "16.12": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 144,
+        "smp": 67,
+        "sma": 31,
+        "smk": 14
+      },
+      "population": {
+        "total": 214795,
+        "male": 108942,
+        "female": 105853
+      }
+    },
+    "16.13": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 147,
+        "smp": 55,
+        "sma": 27,
+        "smk": 2
+      },
+      "population": {
+        "total": 203688,
+        "male": 103582,
+        "female": 100106
+      }
+    },
+    "16.71": {
+      "hospitals": {
+        "total": 33,
+        "umum": 24,
+        "ibu_anak": 6,
+        "khusus": 3
+      },
+      "schools": {
+        "sd": 513,
+        "smp": 270,
+        "sma": 151,
+        "smk": 81
+      },
+      "population": {
+        "total": 1801367,
+        "male": 901923,
+        "female": 899444
+      }
+    },
+    "16.72": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 93,
+        "smp": 41,
+        "sma": 20,
+        "smk": 5
+      },
+      "population": {
+        "total": 153271,
+        "male": 78395,
+        "female": 74876
+      }
+    },
+    "16.73": {
+      "hospitals": {
+        "total": 6,
+        "umum": 4,
+        "ibu_anak": 2,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 118,
+        "smp": 52,
+        "sma": 37,
+        "smk": 8
+      },
+      "population": {
+        "total": 247550,
+        "male": 124846,
+        "female": 122704
+      }
+    },
+    "16.74": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 113,
+        "smp": 37,
+        "sma": 23,
+        "smk": 13
+      },
+      "population": {
+        "total": 213523,
+        "male": 107532,
+        "female": 105991
+      }
+    },
+    "17.01": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 136,
+        "smp": 41,
+        "sma": 23,
+        "smk": 7
+      },
+      "population": {
+        "total": 177137,
+        "male": 90004,
+        "female": 87133
+      }
+    },
+    "17.02": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 195,
+        "smp": 69,
+        "sma": 28,
+        "smk": 15
+      },
+      "population": {
+        "total": 288582,
+        "male": 147374,
+        "female": 141208
+      }
+    },
+    "17.03": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 258,
+        "smp": 96,
+        "sma": 30,
+        "smk": 13
+      },
+      "population": {
+        "total": 309773,
+        "male": 158297,
+        "female": 151476
+      }
+    },
+    "17.04": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 149,
+        "smp": 52,
+        "sma": 17,
+        "smk": 11
+      },
+      "population": {
+        "total": 136533,
+        "male": 70220,
+        "female": 66313
+      }
+    },
+    "17.05": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 208,
+        "smp": 62,
+        "sma": 19,
+        "smk": 6
+      },
+      "population": {
+        "total": 216028,
+        "male": 111327,
+        "female": 104701
+      }
+    },
+    "17.06": {
+      "hospitals": {
+        "total": 3,
+        "umum": 2,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 165,
+        "smp": 78,
+        "sma": 30,
+        "smk": 10
+      },
+      "population": {
+        "total": 205602,
+        "male": 105858,
+        "female": 99744
+      }
+    },
+    "17.07": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 101,
+        "smp": 33,
+        "sma": 9,
+        "smk": 6
+      },
+      "population": {
+        "total": 115520,
+        "male": 59153,
+        "female": 56367
+      }
+    },
+    "17.08": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 116,
+        "smp": 42,
+        "sma": 16,
+        "smk": 6
+      },
+      "population": {
+        "total": 151910,
+        "male": 78369,
+        "female": 73541
+      }
+    },
+    "17.09": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 112,
+        "smp": 45,
+        "sma": 18,
+        "smk": 6
+      },
+      "population": {
+        "total": 126339,
+        "male": 64656,
+        "female": 61683
+      }
+    },
+    "17.71": {
+      "hospitals": {
+        "total": 11,
+        "umum": 9,
+        "ibu_anak": 1,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 139,
+        "smp": 66,
+        "sma": 39,
+        "smk": 24
+      },
+      "population": {
+        "total": 400533,
+        "male": 201457,
+        "female": 199076
+      }
+    },
+    "18.01": {
+      "hospitals": {
+        "total": 7,
+        "umum": 6,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 637,
+        "smp": 285,
+        "sma": 110,
+        "smk": 57
+      },
+      "population": {
+        "total": 1124683,
+        "male": 571874,
+        "female": 552809
+      }
+    },
+    "18.02": {
+      "hospitals": {
+        "total": 10,
+        "umum": 8,
+        "ibu_anak": 2,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 853,
+        "smp": 328,
+        "sma": 134,
+        "smk": 76
+      },
+      "population": {
+        "total": 1394395,
+        "male": 711099,
+        "female": 683296
+      }
+    },
+    "18.03": {
+      "hospitals": {
+        "total": 6,
+        "umum": 6,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 487,
+        "smp": 188,
+        "sma": 92,
+        "smk": 29
+      },
+      "population": {
+        "total": 675626,
+        "male": 343702,
+        "female": 331924
+      }
+    },
+    "18.04": {
+      "hospitals": {
+        "total": 2,
+        "umum": 1,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 249,
+        "smp": 91,
+        "sma": 38,
+        "smk": 12
+      },
+      "population": {
+        "total": 313756,
+        "male": 162740,
+        "female": 151016
+      }
+    },
+    "18.05": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 259,
+        "smp": 137,
+        "sma": 42,
+        "smk": 29
+      },
+      "population": {
+        "total": 440040,
+        "male": 227534,
+        "female": 212506
+      }
+    },
+    "18.06": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 462,
+        "smp": 138,
+        "sma": 48,
+        "smk": 29
+      },
+      "population": {
+        "total": 641036,
+        "male": 331215,
+        "female": 309821
+      }
+    },
+    "18.07": {
+      "hospitals": {
+        "total": 5,
+        "umum": 3,
+        "ibu_anak": 2,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 714,
+        "smp": 290,
+        "sma": 95,
+        "smk": 70
+      },
+      "population": {
+        "total": 1122605,
+        "male": 570974,
+        "female": 551631
+      }
+    },
+    "18.08": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 362,
+        "smp": 135,
+        "sma": 61,
+        "smk": 26
+      },
+      "population": {
+        "total": 495058,
+        "male": 253309,
+        "female": 241749
+      }
+    },
+    "18.09": {
+      "hospitals": {
+        "total": 3,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 385,
+        "smp": 134,
+        "sma": 48,
+        "smk": 15
+      },
+      "population": {
+        "total": 501047,
+        "male": 257325,
+        "female": 243722
+      }
+    },
+    "18.10": {
+      "hospitals": {
+        "total": 6,
+        "umum": 4,
+        "ibu_anak": 2,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 305,
+        "smp": 96,
+        "sma": 33,
+        "smk": 34
+      },
+      "population": {
+        "total": 444834,
+        "male": 227681,
+        "female": 217153
+      }
+    },
+    "18.11": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 151,
+        "smp": 76,
+        "sma": 21,
+        "smk": 19
+      },
+      "population": {
+        "total": 241280,
+        "male": 124285,
+        "female": 116995
+      }
+    },
+    "18.12": {
+      "hospitals": {
+        "total": 3,
+        "umum": 2,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 197,
+        "smp": 84,
+        "sma": 32,
+        "smk": 17
+      },
+      "population": {
+        "total": 312516,
+        "male": 159586,
+        "female": 152930
+      }
+    },
+    "18.13": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 143,
+        "smp": 61,
+        "sma": 19,
+        "smk": 4
+      },
+      "population": {
+        "total": 177430,
+        "male": 91926,
+        "female": 85504
+      }
+    },
+    "18.71": {
+      "hospitals": {
+        "total": 19,
+        "umum": 14,
+        "ibu_anak": 4,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 315,
+        "smp": 177,
+        "sma": 89,
+        "smk": 58
+      },
+      "population": {
+        "total": 1077664,
+        "male": 543865,
+        "female": 533799
+      }
+    },
+    "18.72": {
+      "hospitals": {
+        "total": 9,
+        "umum": 7,
+        "ibu_anak": 2,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 75,
+        "smp": 45,
+        "sma": 31,
+        "smk": 20
+      },
+      "population": {
+        "total": 182293,
+        "male": 91701,
+        "female": 90592
+      }
+    },
+    "19.01": {
+      "hospitals": {
+        "total": 7,
+        "umum": 6,
+        "ibu_anak": 0,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 195,
+        "smp": 73,
+        "sma": 35,
+        "smk": 12
+      },
+      "population": {
+        "total": 337755,
+        "male": 173294,
+        "female": 164461
+      }
+    },
+    "19.02": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 122,
+        "smp": 33,
+        "sma": 11,
+        "smk": 7
+      },
+      "population": {
+        "total": 192405,
+        "male": 97923,
+        "female": 94482
+      }
+    },
+    "19.03": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 103,
+        "smp": 46,
+        "sma": 20,
+        "smk": 7
+      },
+      "population": {
+        "total": 216079,
+        "male": 111561,
+        "female": 104518
+      }
+    },
+    "19.04": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 109,
+        "smp": 41,
+        "sma": 19,
+        "smk": 6
+      },
+      "population": {
+        "total": 210684,
+        "male": 108922,
+        "female": 101762
+      }
+    },
+    "19.05": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 144,
+        "smp": 49,
+        "sma": 16,
+        "smk": 9
+      },
+      "population": {
+        "total": 217859,
+        "male": 112511,
+        "female": 105348
+      }
+    },
+    "19.06": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 105,
+        "smp": 25,
+        "sma": 7,
+        "smk": 8
+      },
+      "population": {
+        "total": 132495,
+        "male": 68071,
+        "female": 64424
+      }
+    },
+    "19.71": {
+      "hospitals": {
+        "total": 9,
+        "umum": 6,
+        "ibu_anak": 3,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 101,
+        "smp": 37,
+        "sma": 20,
+        "smk": 10
+      },
+      "population": {
+        "total": 242285,
+        "male": 122579,
+        "female": 119706
+      }
+    },
+    "21.01": {
+      "hospitals": {
+        "total": 2,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 109,
+        "smp": 51,
+        "sma": 24,
+        "smk": 7
+      },
+      "population": {
+        "total": 180404,
+        "male": 92601,
+        "female": 87803
+      }
+    },
+    "21.02": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 153,
+        "smp": 68,
+        "sma": 32,
+        "smk": 9
+      },
+      "population": {
+        "total": 273946,
+        "male": 139992,
+        "female": 133954
+      }
+    },
+    "21.03": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 88,
+        "smp": 45,
+        "sma": 23,
+        "smk": 5
+      },
+      "population": {
+        "total": 84325,
+        "male": 43041,
+        "female": 41284
+      }
+    },
+    "21.04": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 140,
+        "smp": 44,
+        "sma": 26,
+        "smk": 6
+      },
+      "population": {
+        "total": 101039,
+        "male": 52075,
+        "female": 48964
+      }
+    },
+    "21.05": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 71,
+        "smp": 31,
+        "sma": 11,
+        "smk": 4
+      },
+      "population": {
+        "total": 50922,
+        "male": 26187,
+        "female": 24735
+      }
+    },
+    "21.71": {
+      "hospitals": {
+        "total": 24,
+        "umum": 21,
+        "ibu_anak": 3,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 439,
+        "smp": 243,
+        "sma": 111,
+        "smk": 70
+      },
+      "population": {
+        "total": 1342038,
+        "male": 680759,
+        "female": 661279
+      }
+    },
+    "21.72": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 80,
+        "smp": 36,
+        "sma": 19,
+        "smk": 9
+      },
+      "population": {
+        "total": 239216,
+        "male": 120445,
+        "female": 118771
+      }
+    },
+    "31.01": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 15,
+        "smp": 8,
+        "sma": 2,
+        "smk": 1
+      },
+      "population": {
+        "total": 30334,
+        "male": 15350,
+        "female": 14984
+      }
+    },
+    "31.71": {
+      "hospitals": {
+        "total": 38,
+        "umum": 28,
+        "ibu_anak": 2,
+        "khusus": 8
+      },
+      "schools": {
+        "sd": 272,
+        "smp": 121,
+        "sma": 65,
+        "smk": 56
+      },
+      "population": {
+        "total": 1057270,
+        "male": 530678,
+        "female": 526592
+      }
+    },
+    "31.72": {
+      "hospitals": {
+        "total": 28,
+        "umum": 23,
+        "ibu_anak": 3,
+        "khusus": 2
+      },
+      "schools": {
+        "sd": 409,
+        "smp": 231,
+        "sma": 112,
+        "smk": 76
+      },
+      "population": {
+        "total": 1832032,
+        "male": 921931,
+        "female": 910101
+      }
+    },
+    "31.73": {
+      "hospitals": {
+        "total": 29,
+        "umum": 20,
+        "ibu_anak": 1,
+        "khusus": 8
+      },
+      "schools": {
+        "sd": 679,
+        "smp": 328,
+        "sma": 143,
+        "smk": 122
+      },
+      "population": {
+        "total": 2556752,
+        "male": 1285376,
+        "female": 1271376
+      }
+    },
+    "31.74": {
+      "hospitals": {
+        "total": 59,
+        "umum": 41,
+        "ibu_anak": 6,
+        "khusus": 12
+      },
+      "schools": {
+        "sd": 601,
+        "smp": 293,
+        "sma": 142,
+        "smk": 122
+      },
+      "population": {
+        "total": 2331411,
+        "male": 1163740,
+        "female": 1167671
+      }
+    },
+    "31.75": {
+      "hospitals": {
+        "total": 46,
+        "umum": 33,
+        "ibu_anak": 4,
+        "khusus": 9
+      },
+      "schools": {
+        "sd": 738,
+        "smp": 371,
+        "sma": 170,
+        "smk": 183
+      },
+      "population": {
+        "total": 3230417,
+        "male": 1620260,
+        "female": 1610157
+      }
+    },
+    "32.01": {
+      "hospitals": {
+        "total": 31,
+        "umum": 30,
+        "ibu_anak": 0,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 2532,
+        "smp": 1172,
+        "sma": 408,
+        "smk": 380
+      },
+      "population": {
+        "total": 5809790,
+        "male": 2974061,
+        "female": 2835729
+      }
+    },
+    "32.02": {
+      "hospitals": {
+        "total": 9,
+        "umum": 9,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 1581,
+        "smp": 737,
+        "sma": 261,
+        "smk": 165
+      },
+      "population": {
+        "total": 2868943,
+        "male": 1458705,
+        "female": 1410238
+      }
+    },
+    "32.03": {
+      "hospitals": {
+        "total": 7,
+        "umum": 7,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 1483,
+        "smp": 642,
+        "sma": 196,
+        "smk": 187
+      },
+      "population": {
+        "total": 2638825,
+        "male": 1350395,
+        "female": 1288430
+      }
+    },
+    "32.04": {
+      "hospitals": {
+        "total": 15,
+        "umum": 15,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 1612,
+        "smp": 645,
+        "sma": 278,
+        "smk": 141
+      },
+      "population": {
+        "total": 3839721,
+        "male": 1953971,
+        "female": 1885750
+      }
+    },
+    "32.05": {
+      "hospitals": {
+        "total": 9,
+        "umum": 9,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 1878,
+        "smp": 750,
+        "sma": 295,
+        "smk": 167
+      },
+      "population": {
+        "total": 2851877,
+        "male": 1458601,
+        "female": 1393276
+      }
+    },
+    "32.06": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 1293,
+        "smp": 537,
+        "sma": 183,
+        "smk": 135
+      },
+      "population": {
+        "total": 1996059,
+        "male": 1016563,
+        "female": 979496
+      }
+    },
+    "32.07": {
+      "hospitals": {
+        "total": 6,
+        "umum": 5,
+        "ibu_anak": 0,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 920,
+        "smp": 263,
+        "sma": 97,
+        "smk": 65
+      },
+      "population": {
+        "total": 1297783,
+        "male": 651625,
+        "female": 646158
+      }
+    },
+    "32.08": {
+      "hospitals": {
+        "total": 12,
+        "umum": 11,
+        "ibu_anak": 0,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 756,
+        "smp": 195,
+        "sma": 75,
+        "smk": 44
+      },
+      "population": {
+        "total": 1239999,
+        "male": 629774,
+        "female": 610225
+      }
+    },
+    "32.09": {
+      "hospitals": {
+        "total": 14,
+        "umum": 13,
+        "ibu_anak": 0,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 1030,
+        "smp": 377,
+        "sma": 133,
+        "smk": 110
+      },
+      "population": {
+        "total": 2489046,
+        "male": 1263071,
+        "female": 1225975
+      }
+    },
+    "32.10": {
+      "hospitals": {
+        "total": 6,
+        "umum": 6,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 760,
+        "smp": 224,
+        "sma": 70,
+        "smk": 51
+      },
+      "population": {
+        "total": 1369569,
+        "male": 689351,
+        "female": 680218
+      }
+    },
+    "32.11": {
+      "hospitals": {
+        "total": 5,
+        "umum": 5,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 684,
+        "smp": 223,
+        "sma": 61,
+        "smk": 90
+      },
+      "population": {
+        "total": 1226660,
+        "male": 619513,
+        "female": 607147
+      }
+    },
+    "32.12": {
+      "hospitals": {
+        "total": 12,
+        "umum": 11,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 1024,
+        "smp": 317,
+        "sma": 86,
+        "smk": 139
+      },
+      "population": {
+        "total": 1980080,
+        "male": 997493,
+        "female": 982587
+      }
+    },
+    "32.13": {
+      "hospitals": {
+        "total": 12,
+        "umum": 11,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 997,
+        "smp": 259,
+        "sma": 99,
+        "smk": 111
+      },
+      "population": {
+        "total": 1677628,
+        "male": 838911,
+        "female": 838717
+      }
+    },
+    "32.14": {
+      "hospitals": {
+        "total": 11,
+        "umum": 10,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 492,
+        "smp": 190,
+        "sma": 75,
+        "smk": 61
+      },
+      "population": {
+        "total": 1063932,
+        "male": 539514,
+        "female": 524418
+      }
+    },
+    "32.15": {
+      "hospitals": {
+        "total": 30,
+        "umum": 28,
+        "ibu_anak": 2,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 1159,
+        "smp": 310,
+        "sma": 93,
+        "smk": 118
+      },
+      "population": {
+        "total": 2612065,
+        "male": 1321284,
+        "female": 1290781
+      }
+    },
+    "32.16": {
+      "hospitals": {
+        "total": 43,
+        "umum": 40,
+        "ibu_anak": 3,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 1361,
+        "smp": 600,
+        "sma": 191,
+        "smk": 193
+      },
+      "population": {
+        "total": 3387601,
+        "male": 1711222,
+        "female": 1676379
+      }
+    },
+    "32.17": {
+      "hospitals": {
+        "total": 12,
+        "umum": 6,
+        "ibu_anak": 5,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 927,
+        "smp": 378,
+        "sma": 157,
+        "smk": 98
+      },
+      "population": {
+        "total": 1911661,
+        "male": 974016,
+        "female": 937645
+      }
+    },
+    "32.18": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 350,
+        "smp": 93,
+        "sma": 30,
+        "smk": 30
+      },
+      "population": {
+        "total": 447272,
+        "male": 224519,
+        "female": 222753
+      }
+    },
+    "32.71": {
+      "hospitals": {
+        "total": 22,
+        "umum": 18,
+        "ibu_anak": 3,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 336,
+        "smp": 186,
+        "sma": 81,
+        "smk": 102
+      },
+      "population": {
+        "total": 1144108,
+        "male": 578674,
+        "female": 565434
+      }
+    },
+    "32.72": {
+      "hospitals": {
+        "total": 6,
+        "umum": 6,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 156,
+        "smp": 76,
+        "sma": 43,
+        "smk": 29
+      },
+      "population": {
+        "total": 370096,
+        "male": 186135,
+        "female": 183961
+      }
+    },
+    "32.73": {
+      "hospitals": {
+        "total": 42,
+        "umum": 27,
+        "ibu_anak": 5,
+        "khusus": 10
+      },
+      "schools": {
+        "sd": 569,
+        "smp": 321,
+        "sma": 180,
+        "smk": 107
+      },
+      "population": {
+        "total": 2591763,
+        "male": 1298551,
+        "female": 1293212
+      }
+    },
+    "32.74": {
+      "hospitals": {
+        "total": 10,
+        "umum": 9,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 187,
+        "smp": 69,
+        "sma": 37,
+        "smk": 28
+      },
+      "population": {
+        "total": 356629,
+        "male": 178969,
+        "female": 177660
+      }
+    },
+    "32.75": {
+      "hospitals": {
+        "total": 54,
+        "umum": 51,
+        "ibu_anak": 3,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 790,
+        "smp": 397,
+        "sma": 153,
+        "smk": 136
+      },
+      "population": {
+        "total": 2572209,
+        "male": 1285093,
+        "female": 1287116
+      }
+    },
+    "32.76": {
+      "hospitals": {
+        "total": 27,
+        "umum": 23,
+        "ibu_anak": 3,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 589,
+        "smp": 362,
+        "sma": 120,
+        "smk": 125
+      },
+      "population": {
+        "total": 2010912,
+        "male": 1008092,
+        "female": 1002820
+      }
+    },
+    "32.77": {
+      "hospitals": {
+        "total": 8,
+        "umum": 7,
+        "ibu_anak": 0,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 143,
+        "smp": 72,
+        "sma": 29,
+        "smk": 22
+      },
+      "population": {
+        "total": 581994,
+        "male": 292434,
+        "female": 289560
+      }
+    },
+    "32.78": {
+      "hospitals": {
+        "total": 15,
+        "umum": 9,
+        "ibu_anak": 5,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 284,
+        "smp": 152,
+        "sma": 70,
+        "smk": 49
+      },
+      "population": {
+        "total": 770839,
+        "male": 391746,
+        "female": 379093
+      }
+    },
+    "32.79": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 116,
+        "smp": 45,
+        "sma": 16,
+        "smk": 16
+      },
+      "population": {
+        "total": 209317,
+        "male": 105511,
+        "female": 103806
+      }
+    },
+    "33.01": {
+      "hospitals": {
+        "total": 14,
+        "umum": 13,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 1235,
+        "smp": 277,
+        "sma": 87,
+        "smk": 67
+      },
+      "population": {
+        "total": 2059748,
+        "male": 1043157,
+        "female": 1016591
+      }
+    },
+    "33.02": {
+      "hospitals": {
+        "total": 25,
+        "umum": 18,
+        "ibu_anak": 2,
+        "khusus": 5
+      },
+      "schools": {
+        "sd": 1005,
+        "smp": 248,
+        "sma": 76,
+        "smk": 81
+      },
+      "population": {
+        "total": 1868446,
+        "male": 942169,
+        "female": 926277
+      }
+    },
+    "33.03": {
+      "hospitals": {
+        "total": 9,
+        "umum": 7,
+        "ibu_anak": 2,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 656,
+        "smp": 120,
+        "sma": 28,
+        "smk": 34
+      },
+      "population": {
+        "total": 1057750,
+        "male": 536866,
+        "female": 520884
+      }
+    },
+    "33.04": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 826,
+        "smp": 143,
+        "sma": 32,
+        "smk": 27
+      },
+      "population": {
+        "total": 1071977,
+        "male": 545513,
+        "female": 526464
+      }
+    },
+    "33.05": {
+      "hospitals": {
+        "total": 12,
+        "umum": 11,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 865,
+        "smp": 208,
+        "sma": 54,
+        "smk": 66
+      },
+      "population": {
+        "total": 1446833,
+        "male": 734040,
+        "female": 712793
+      }
+    },
+    "33.06": {
+      "hospitals": {
+        "total": 13,
+        "umum": 12,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 539,
+        "smp": 105,
+        "sma": 34,
+        "smk": 41
+      },
+      "population": {
+        "total": 809651,
+        "male": 406024,
+        "female": 403627
+      }
+    },
+    "33.07": {
+      "hospitals": {
+        "total": 5,
+        "umum": 4,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 562,
+        "smp": 176,
+        "sma": 51,
+        "smk": 30
+      },
+      "population": {
+        "total": 945955,
+        "male": 482688,
+        "female": 463267
+      }
+    },
+    "33.08": {
+      "hospitals": {
+        "total": 7,
+        "umum": 7,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 910,
+        "smp": 219,
+        "sma": 74,
+        "smk": 45
+      },
+      "population": {
+        "total": 1345662,
+        "male": 677734,
+        "female": 667928
+      }
+    },
+    "33.09": {
+      "hospitals": {
+        "total": 13,
+        "umum": 13,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 796,
+        "smp": 154,
+        "sma": 55,
+        "smk": 42
+      },
+      "population": {
+        "total": 1114070,
+        "male": 557020,
+        "female": 557050
+      }
+    },
+    "33.10": {
+      "hospitals": {
+        "total": 13,
+        "umum": 12,
+        "ibu_anak": 0,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 799,
+        "smp": 144,
+        "sma": 43,
+        "smk": 49
+      },
+      "population": {
+        "total": 1302648,
+        "male": 647853,
+        "female": 654795
+      }
+    },
+    "33.11": {
+      "hospitals": {
+        "total": 11,
+        "umum": 9,
+        "ibu_anak": 0,
+        "khusus": 2
+      },
+      "schools": {
+        "sd": 540,
+        "smp": 108,
+        "sma": 41,
+        "smk": 32
+      },
+      "population": {
+        "total": 916472,
+        "male": 458337,
+        "female": 458135
+      }
+    },
+    "33.12": {
+      "hospitals": {
+        "total": 9,
+        "umum": 9,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 810,
+        "smp": 144,
+        "sma": 33,
+        "smk": 45
+      },
+      "population": {
+        "total": 1057495,
+        "male": 528932,
+        "female": 528563
+      }
+    },
+    "33.13": {
+      "hospitals": {
+        "total": 8,
+        "umum": 7,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 565,
+        "smp": 116,
+        "sma": 32,
+        "smk": 33
+      },
+      "population": {
+        "total": 953696,
+        "male": 475381,
+        "female": 478315
+      }
+    },
+    "33.14": {
+      "hospitals": {
+        "total": 13,
+        "umum": 13,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 641,
+        "smp": 131,
+        "sma": 39,
+        "smk": 55
+      },
+      "population": {
+        "total": 1023538,
+        "male": 510418,
+        "female": 513120
+      }
+    },
+    "33.15": {
+      "hospitals": {
+        "total": 13,
+        "umum": 12,
+        "ibu_anak": 0,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 932,
+        "smp": 248,
+        "sma": 89,
+        "smk": 57
+      },
+      "population": {
+        "total": 1520974,
+        "male": 765275,
+        "female": 755699
+      }
+    },
+    "33.16": {
+      "hospitals": {
+        "total": 10,
+        "umum": 8,
+        "ibu_anak": 2,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 660,
+        "smp": 162,
+        "sma": 41,
+        "smk": 55
+      },
+      "population": {
+        "total": 927961,
+        "male": 464464,
+        "female": 463497
+      }
+    },
+    "33.17": {
+      "hospitals": {
+        "total": 5,
+        "umum": 5,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 433,
+        "smp": 116,
+        "sma": 45,
+        "smk": 27
+      },
+      "population": {
+        "total": 665501,
+        "male": 334294,
+        "female": 331207
+      }
+    },
+    "33.18": {
+      "hospitals": {
+        "total": 11,
+        "umum": 10,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 824,
+        "smp": 240,
+        "sma": 106,
+        "smk": 48
+      },
+      "population": {
+        "total": 1385904,
+        "male": 687717,
+        "female": 698187
+      }
+    },
+    "33.19": {
+      "hospitals": {
+        "total": 11,
+        "umum": 8,
+        "ibu_anak": 3,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 570,
+        "smp": 131,
+        "sma": 64,
+        "smk": 29
+      },
+      "population": {
+        "total": 877821,
+        "male": 438626,
+        "female": 439195
+      }
+    },
+    "33.20": {
+      "hospitals": {
+        "total": 7,
+        "umum": 7,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 772,
+        "smp": 230,
+        "sma": 101,
+        "smk": 50
+      },
+      "population": {
+        "total": 1283687,
+        "male": 645757,
+        "female": 637930
+      }
+    },
+    "33.21": {
+      "hospitals": {
+        "total": 6,
+        "umum": 6,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 633,
+        "smp": 226,
+        "sma": 117,
+        "smk": 58
+      },
+      "population": {
+        "total": 1254204,
+        "male": 634249,
+        "female": 619955
+      }
+    },
+    "33.22": {
+      "hospitals": {
+        "total": 5,
+        "umum": 5,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 669,
+        "smp": 156,
+        "sma": 54,
+        "smk": 43
+      },
+      "population": {
+        "total": 1088729,
+        "male": 543176,
+        "female": 545553
+      }
+    },
+    "33.23": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 582,
+        "smp": 130,
+        "sma": 42,
+        "smk": 21
+      },
+      "population": {
+        "total": 822880,
+        "male": 414995,
+        "female": 407885
+      }
+    },
+    "33.24": {
+      "hospitals": {
+        "total": 8,
+        "umum": 8,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 670,
+        "smp": 160,
+        "sma": 61,
+        "smk": 49
+      },
+      "population": {
+        "total": 1094214,
+        "male": 551157,
+        "female": 543057
+      }
+    },
+    "33.25": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 580,
+        "smp": 120,
+        "sma": 43,
+        "smk": 29
+      },
+      "population": {
+        "total": 855878,
+        "male": 431380,
+        "female": 424498
+      }
+    },
+    "33.26": {
+      "hospitals": {
+        "total": 5,
+        "umum": 4,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 632,
+        "smp": 129,
+        "sma": 38,
+        "smk": 35
+      },
+      "population": {
+        "total": 1034241,
+        "male": 525912,
+        "female": 508329
+      }
+    },
+    "33.27": {
+      "hospitals": {
+        "total": 9,
+        "umum": 9,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 848,
+        "smp": 176,
+        "sma": 46,
+        "smk": 51
+      },
+      "population": {
+        "total": 1601007,
+        "male": 814263,
+        "female": 786744
+      }
+    },
+    "33.28": {
+      "hospitals": {
+        "total": 11,
+        "umum": 10,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 868,
+        "smp": 200,
+        "sma": 52,
+        "smk": 64
+      },
+      "population": {
+        "total": 1745278,
+        "male": 888045,
+        "female": 857233
+      }
+    },
+    "33.29": {
+      "hospitals": {
+        "total": 17,
+        "umum": 15,
+        "ibu_anak": 2,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 1108,
+        "smp": 288,
+        "sma": 74,
+        "smk": 92
+      },
+      "population": {
+        "total": 2066426,
+        "male": 1049539,
+        "female": 1016887
+      }
+    },
+    "33.71": {
+      "hospitals": {
+        "total": 9,
+        "umum": 7,
+        "ibu_anak": 1,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 77,
+        "smp": 23,
+        "sma": 15,
+        "smk": 19
+      },
+      "population": {
+        "total": 128709,
+        "male": 63612,
+        "female": 65097
+      }
+    },
+    "33.72": {
+      "hospitals": {
+        "total": 22,
+        "umum": 17,
+        "ibu_anak": 0,
+        "khusus": 5
+      },
+      "schools": {
+        "sd": 218,
+        "smp": 82,
+        "sma": 42,
+        "smk": 48
+      },
+      "population": {
+        "total": 589242,
+        "male": 290512,
+        "female": 298730
+      }
+    },
+    "33.73": {
+      "hospitals": {
+        "total": 7,
+        "umum": 5,
+        "ibu_anak": 1,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 93,
+        "smp": 37,
+        "sma": 14,
+        "smk": 19
+      },
+      "population": {
+        "total": 198971,
+        "male": 98571,
+        "female": 100400
+      }
+    },
+    "33.74": {
+      "hospitals": {
+        "total": 40,
+        "umum": 29,
+        "ibu_anak": 5,
+        "khusus": 6
+      },
+      "schools": {
+        "sd": 616,
+        "smp": 245,
+        "sma": 110,
+        "smk": 87
+      },
+      "population": {
+        "total": 1702379,
+        "male": 842737,
+        "female": 859642
+      }
+    },
+    "33.75": {
+      "hospitals": {
+        "total": 9,
+        "umum": 9,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 147,
+        "smp": 42,
+        "sma": 21,
+        "smk": 13
+      },
+      "population": {
+        "total": 318221,
+        "male": 161308,
+        "female": 156913
+      }
+    },
+    "33.76": {
+      "hospitals": {
+        "total": 5,
+        "umum": 4,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 158,
+        "smp": 40,
+        "sma": 12,
+        "smk": 20
+      },
+      "population": {
+        "total": 294477,
+        "male": 148668,
+        "female": 145809
+      }
+    },
+    "34.01": {
+      "hospitals": {
+        "total": 9,
+        "umum": 9,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 366,
+        "smp": 87,
+        "sma": 26,
+        "smk": 30
+      },
+      "population": {
+        "total": 444994,
+        "male": 220557,
+        "female": 224437
+      }
+    },
+    "34.02": {
+      "hospitals": {
+        "total": 14,
+        "umum": 11,
+        "ibu_anak": 0,
+        "khusus": 3
+      },
+      "schools": {
+        "sd": 413,
+        "smp": 134,
+        "sma": 63,
+        "smk": 46
+      },
+      "population": {
+        "total": 980269,
+        "male": 488162,
+        "female": 492107
+      }
+    },
+    "34.03": {
+      "hospitals": {
+        "total": 8,
+        "umum": 8,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 548,
+        "smp": 140,
+        "sma": 39,
+        "smk": 45
+      },
+      "population": {
+        "total": 776926,
+        "male": 384854,
+        "female": 392072
+      }
+    },
+    "34.04": {
+      "hospitals": {
+        "total": 28,
+        "umum": 24,
+        "ibu_anak": 1,
+        "khusus": 3
+      },
+      "schools": {
+        "sd": 563,
+        "smp": 176,
+        "sma": 97,
+        "smk": 57
+      },
+      "population": {
+        "total": 1125571,
+        "male": 557436,
+        "female": 568135
+      }
+    },
+    "34.71": {
+      "hospitals": {
+        "total": 18,
+        "umum": 12,
+        "ibu_anak": 3,
+        "khusus": 3
+      },
+      "schools": {
+        "sd": 163,
+        "smp": 67,
+        "sma": 51,
+        "smk": 27
+      },
+      "population": {
+        "total": 415605,
+        "male": 202478,
+        "female": 213127
+      }
+    },
+    "35.01": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 524,
+        "smp": 127,
+        "sma": 40,
+        "smk": 31
+      },
+      "population": {
+        "total": 588718,
+        "male": 294808,
+        "female": 293910
+      }
+    },
+    "35.02": {
+      "hospitals": {
+        "total": 7,
+        "umum": 7,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 697,
+        "smp": 189,
+        "sma": 100,
+        "smk": 41
+      },
+      "population": {
+        "total": 979008,
+        "male": 486147,
+        "female": 492861
+      }
+    },
+    "35.03": {
+      "hospitals": {
+        "total": 4,
+        "umum": 3,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 563,
+        "smp": 113,
+        "sma": 40,
+        "smk": 36
+      },
+      "population": {
+        "total": 753810,
+        "male": 378680,
+        "female": 375130
+      }
+    },
+    "35.04": {
+      "hospitals": {
+        "total": 13,
+        "umum": 10,
+        "ibu_anak": 3,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 761,
+        "smp": 156,
+        "sma": 51,
+        "smk": 35
+      },
+      "population": {
+        "total": 1139224,
+        "male": 570819,
+        "female": 568405
+      }
+    },
+    "35.05": {
+      "hospitals": {
+        "total": 8,
+        "umum": 8,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 881,
+        "smp": 180,
+        "sma": 53,
+        "smk": 33
+      },
+      "population": {
+        "total": 1261699,
+        "male": 633732,
+        "female": 627967
+      }
+    },
+    "35.06": {
+      "hospitals": {
+        "total": 10,
+        "umum": 8,
+        "ibu_anak": 2,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 920,
+        "smp": 253,
+        "sma": 87,
+        "smk": 54
+      },
+      "population": {
+        "total": 1691976,
+        "male": 853689,
+        "female": 838287
+      }
+    },
+    "35.07": {
+      "hospitals": {
+        "total": 22,
+        "umum": 20,
+        "ibu_anak": 0,
+        "khusus": 2
+      },
+      "schools": {
+        "sd": 1513,
+        "smp": 594,
+        "sma": 175,
+        "smk": 143
+      },
+      "population": {
+        "total": 2734623,
+        "male": 1376937,
+        "female": 1357686
+      }
+    },
+    "35.08": {
+      "hospitals": {
+        "total": 8,
+        "umum": 8,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 766,
+        "smp": 289,
+        "sma": 120,
+        "smk": 41
+      },
+      "population": {
+        "total": 1116231,
+        "male": 554003,
+        "female": 562228
+      }
+    },
+    "35.09": {
+      "hospitals": {
+        "total": 14,
+        "umum": 12,
+        "ibu_anak": 0,
+        "khusus": 2
+      },
+      "schools": {
+        "sd": 1488,
+        "smp": 604,
+        "sma": 203,
+        "smk": 183
+      },
+      "population": {
+        "total": 2615874,
+        "male": 1306216,
+        "female": 1309658
+      }
+    },
+    "35.10": {
+      "hospitals": {
+        "total": 13,
+        "umum": 13,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 1071,
+        "smp": 368,
+        "sma": 146,
+        "smk": 89
+      },
+      "population": {
+        "total": 1791789,
+        "male": 894056,
+        "female": 897733
+      }
+    },
+    "35.11": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 590,
+        "smp": 257,
+        "sma": 100,
+        "smk": 60
+      },
+      "population": {
+        "total": 788007,
+        "male": 385405,
+        "female": 402602
+      }
+    },
+    "35.12": {
+      "hospitals": {
+        "total": 8,
+        "umum": 6,
+        "ibu_anak": 1,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 522,
+        "smp": 209,
+        "sma": 97,
+        "smk": 49
+      },
+      "population": {
+        "total": 691635,
+        "male": 338331,
+        "female": 353304
+      }
+    },
+    "35.13": {
+      "hospitals": {
+        "total": 5,
+        "umum": 4,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 1033,
+        "smp": 438,
+        "sma": 215,
+        "smk": 55
+      },
+      "population": {
+        "total": 1200931,
+        "male": 592531,
+        "female": 608400
+      }
+    },
+    "35.14": {
+      "hospitals": {
+        "total": 8,
+        "umum": 8,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 1033,
+        "smp": 360,
+        "sma": 143,
+        "smk": 69
+      },
+      "population": {
+        "total": 1665922,
+        "male": 831105,
+        "female": 834817
+      }
+    },
+    "35.15": {
+      "hospitals": {
+        "total": 33,
+        "umum": 26,
+        "ibu_anak": 6,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 848,
+        "smp": 269,
+        "sma": 119,
+        "smk": 87
+      },
+      "population": {
+        "total": 2027874,
+        "male": 1015862,
+        "female": 1012012
+      }
+    },
+    "35.16": {
+      "hospitals": {
+        "total": 11,
+        "umum": 11,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 629,
+        "smp": 227,
+        "sma": 100,
+        "smk": 64
+      },
+      "population": {
+        "total": 1156144,
+        "male": 581967,
+        "female": 574177
+      }
+    },
+    "35.17": {
+      "hospitals": {
+        "total": 17,
+        "umum": 14,
+        "ibu_anak": 2,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 803,
+        "smp": 286,
+        "sma": 150,
+        "smk": 72
+      },
+      "population": {
+        "total": 1378005,
+        "male": 694052,
+        "female": 683953
+      }
+    },
+    "35.18": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 748,
+        "smp": 177,
+        "sma": 71,
+        "smk": 60
+      },
+      "population": {
+        "total": 1152575,
+        "male": 579531,
+        "female": 573044
+      }
+    },
+    "35.19": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 486,
+        "smp": 95,
+        "sma": 38,
+        "smk": 25
+      },
+      "population": {
+        "total": 737875,
+        "male": 365305,
+        "female": 372570
+      }
+    },
+    "35.20": {
+      "hospitals": {
+        "total": 6,
+        "umum": 3,
+        "ibu_anak": 3,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 493,
+        "smp": 105,
+        "sma": 40,
+        "smk": 31
+      },
+      "population": {
+        "total": 692800,
+        "male": 340213,
+        "female": 352587
+      }
+    },
+    "35.21": {
+      "hospitals": {
+        "total": 5,
+        "umum": 5,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 631,
+        "smp": 136,
+        "sma": 46,
+        "smk": 41
+      },
+      "population": {
+        "total": 907002,
+        "male": 450288,
+        "female": 456714
+      }
+    },
+    "35.22": {
+      "hospitals": {
+        "total": 12,
+        "umum": 11,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 1006,
+        "smp": 263,
+        "sma": 122,
+        "smk": 61
+      },
+      "population": {
+        "total": 1366227,
+        "male": 686426,
+        "female": 679801
+      }
+    },
+    "35.23": {
+      "hospitals": {
+        "total": 6,
+        "umum": 6,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 814,
+        "smp": 221,
+        "sma": 92,
+        "smk": 44
+      },
+      "population": {
+        "total": 1266396,
+        "male": 634173,
+        "female": 632223
+      }
+    },
+    "35.24": {
+      "hospitals": {
+        "total": 20,
+        "umum": 19,
+        "ibu_anak": 0,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 1178,
+        "smp": 353,
+        "sma": 162,
+        "smk": 79
+      },
+      "population": {
+        "total": 1367503,
+        "male": 684425,
+        "female": 683078
+      }
+    },
+    "35.25": {
+      "hospitals": {
+        "total": 21,
+        "umum": 20,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 847,
+        "smp": 291,
+        "sma": 139,
+        "smk": 62
+      },
+      "population": {
+        "total": 1327497,
+        "male": 667540,
+        "female": 659957
+      }
+    },
+    "35.26": {
+      "hospitals": {
+        "total": 8,
+        "umum": 3,
+        "ibu_anak": 3,
+        "khusus": 2
+      },
+      "schools": {
+        "sd": 829,
+        "smp": 413,
+        "sma": 146,
+        "smk": 71
+      },
+      "population": {
+        "total": 1042031,
+        "male": 513154,
+        "female": 528877
+      }
+    },
+    "35.27": {
+      "hospitals": {
+        "total": 5,
+        "umum": 5,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 1117,
+        "smp": 575,
+        "sma": 197,
+        "smk": 93
+      },
+      "population": {
+        "total": 1033926,
+        "male": 512140,
+        "female": 521786
+      }
+    },
+    "35.28": {
+      "hospitals": {
+        "total": 9,
+        "umum": 7,
+        "ibu_anak": 2,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 813,
+        "smp": 416,
+        "sma": 206,
+        "smk": 109
+      },
+      "population": {
+        "total": 904965,
+        "male": 442986,
+        "female": 461979
+      }
+    },
+    "35.29": {
+      "hospitals": {
+        "total": 6,
+        "umum": 6,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 1202,
+        "smp": 544,
+        "sma": 257,
+        "smk": 75
+      },
+      "population": {
+        "total": 1143002,
+        "male": 552127,
+        "female": 590875
+      }
+    },
+    "35.71": {
+      "hospitals": {
+        "total": 14,
+        "umum": 10,
+        "ibu_anak": 3,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 167,
+        "smp": 52,
+        "sma": 32,
+        "smk": 24
+      },
+      "population": {
+        "total": 301424,
+        "male": 149683,
+        "female": 151741
+      }
+    },
+    "35.72": {
+      "hospitals": {
+        "total": 5,
+        "umum": 5,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 75,
+        "smp": 28,
+        "sma": 14,
+        "smk": 15
+      },
+      "population": {
+        "total": 161204,
+        "male": 80376,
+        "female": 80828
+      }
+    },
+    "35.73": {
+      "hospitals": {
+        "total": 31,
+        "umum": 19,
+        "ibu_anak": 11,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 348,
+        "smp": 158,
+        "sma": 74,
+        "smk": 51
+      },
+      "population": {
+        "total": 889359,
+        "male": 442076,
+        "female": 447283
+      }
+    },
+    "35.74": {
+      "hospitals": {
+        "total": 5,
+        "umum": 4,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 115,
+        "smp": 52,
+        "sma": 27,
+        "smk": 20
+      },
+      "population": {
+        "total": 243746,
+        "male": 121121,
+        "female": 122625
+      }
+    },
+    "35.75": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 94,
+        "smp": 44,
+        "sma": 19,
+        "smk": 13
+      },
+      "population": {
+        "total": 213469,
+        "male": 106811,
+        "female": 106658
+      }
+    },
+    "35.76": {
+      "hospitals": {
+        "total": 6,
+        "umum": 6,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 65,
+        "smp": 23,
+        "sma": 15,
+        "smk": 9
+      },
+      "population": {
+        "total": 142272,
+        "male": 70647,
+        "female": 71625
+      }
+    },
+    "35.77": {
+      "hospitals": {
+        "total": 10,
+        "umum": 8,
+        "ibu_anak": 1,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 85,
+        "smp": 29,
+        "sma": 17,
+        "smk": 28
+      },
+      "population": {
+        "total": 201733,
+        "male": 99077,
+        "female": 102656
+      }
+    },
+    "35.78": {
+      "hospitals": {
+        "total": 69,
+        "umum": 45,
+        "ibu_anak": 15,
+        "khusus": 9
+      },
+      "schools": {
+        "sd": 830,
+        "smp": 395,
+        "sma": 177,
+        "smk": 106
+      },
+      "population": {
+        "total": 3018022,
+        "male": 1494734,
+        "female": 1523288
+      }
+    },
+    "35.79": {
+      "hospitals": {
+        "total": 6,
+        "umum": 5,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 95,
+        "smp": 38,
+        "sma": 15,
+        "smk": 13
+      },
+      "population": {
+        "total": 225408,
+        "male": 113186,
+        "female": 112222
+      }
+    },
+    "36.01": {
+      "hospitals": {
+        "total": 6,
+        "umum": 5,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 1065,
+        "smp": 405,
+        "sma": 148,
+        "smk": 105
+      },
+      "population": {
+        "total": 1437046,
+        "male": 738650,
+        "female": 698396
+      }
+    },
+    "36.02": {
+      "hospitals": {
+        "total": 5,
+        "umum": 5,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 1035,
+        "smp": 506,
+        "sma": 189,
+        "smk": 76
+      },
+      "population": {
+        "total": 1531564,
+        "male": 786683,
+        "female": 744881
+      }
+    },
+    "36.03": {
+      "hospitals": {
+        "total": 22,
+        "umum": 18,
+        "ibu_anak": 4,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 1394,
+        "smp": 731,
+        "sma": 291,
+        "smk": 213
+      },
+      "population": {
+        "total": 3459706,
+        "male": 1761008,
+        "female": 1698698
+      }
+    },
+    "36.04": {
+      "hospitals": {
+        "total": 7,
+        "umum": 7,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 902,
+        "smp": 429,
+        "sma": 190,
+        "smk": 96
+      },
+      "population": {
+        "total": 1791795,
+        "male": 913981,
+        "female": 877814
+      }
+    },
+    "36.71": {
+      "hospitals": {
+        "total": 39,
+        "umum": 34,
+        "ibu_anak": 5,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 537,
+        "smp": 265,
+        "sma": 127,
+        "smk": 121
+      },
+      "population": {
+        "total": 1957349,
+        "male": 983453,
+        "female": 973896
+      }
+    },
+    "36.72": {
+      "hospitals": {
+        "total": 7,
+        "umum": 6,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 200,
+        "smp": 98,
+        "sma": 46,
+        "smk": 26
+      },
+      "population": {
+        "total": 480378,
+        "male": 243024,
+        "female": 237354
+      }
+    },
+    "36.73": {
+      "hospitals": {
+        "total": 14,
+        "umum": 13,
+        "ibu_anak": 0,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 306,
+        "smp": 151,
+        "sma": 73,
+        "smk": 41
+      },
+      "population": {
+        "total": 759929,
+        "male": 387152,
+        "female": 372777
+      }
+    },
+    "36.74": {
+      "hospitals": {
+        "total": 31,
+        "umum": 21,
+        "ibu_anak": 7,
+        "khusus": 3
+      },
+      "schools": {
+        "sd": 447,
+        "smp": 272,
+        "sma": 124,
+        "smk": 77
+      },
+      "population": {
+        "total": 1463607,
+        "male": 729068,
+        "female": 734539
+      }
+    },
+    "51.01": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 206,
+        "smp": 37,
+        "sma": 23,
+        "smk": 7
+      },
+      "population": {
+        "total": 330221,
+        "male": 165808,
+        "female": 164413
+      }
+    },
+    "51.02": {
+      "hospitals": {
+        "total": 10,
+        "umum": 8,
+        "ibu_anak": 2,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 295,
+        "smp": 50,
+        "sma": 15,
+        "smk": 12
+      },
+      "population": {
+        "total": 478393,
+        "male": 238355,
+        "female": 240038
+      }
+    },
+    "51.03": {
+      "hospitals": {
+        "total": 16,
+        "umum": 13,
+        "ibu_anak": 0,
+        "khusus": 3
+      },
+      "schools": {
+        "sd": 302,
+        "smp": 72,
+        "sma": 34,
+        "smk": 28
+      },
+      "population": {
+        "total": 537739,
+        "male": 267478,
+        "female": 270261
+      }
+    },
+    "51.04": {
+      "hospitals": {
+        "total": 10,
+        "umum": 9,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 298,
+        "smp": 34,
+        "sma": 12,
+        "smk": 25
+      },
+      "population": {
+        "total": 504845,
+        "male": 253020,
+        "female": 251825
+      }
+    },
+    "51.05": {
+      "hospitals": {
+        "total": 5,
+        "umum": 5,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 136,
+        "smp": 23,
+        "sma": 12,
+        "smk": 6
+      },
+      "population": {
+        "total": 223723,
+        "male": 111918,
+        "female": 111805
+      }
+    },
+    "51.06": {
+      "hospitals": {
+        "total": 3,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 166,
+        "smp": 29,
+        "sma": 7,
+        "smk": 12
+      },
+      "population": {
+        "total": 260526,
+        "male": 131868,
+        "female": 128658
+      }
+    },
+    "51.07": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 366,
+        "smp": 54,
+        "sma": 20,
+        "smk": 12
+      },
+      "population": {
+        "total": 538390,
+        "male": 272181,
+        "female": 266209
+      }
+    },
+    "51.08": {
+      "hospitals": {
+        "total": 10,
+        "umum": 9,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 489,
+        "smp": 84,
+        "sma": 34,
+        "smk": 30
+      },
+      "population": {
+        "total": 828156,
+        "male": 417978,
+        "female": 410178
+      }
+    },
+    "51.71": {
+      "hospitals": {
+        "total": 26,
+        "umum": 18,
+        "ibu_anak": 4,
+        "khusus": 4
+      },
+      "schools": {
+        "sd": 269,
+        "smp": 98,
+        "sma": 47,
+        "smk": 34
+      },
+      "population": {
+        "total": 673270,
+        "male": 335225,
+        "female": 338045
+      }
+    },
+    "52.01": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 494,
+        "smp": 252,
+        "sma": 140,
+        "smk": 47
+      },
+      "population": {
+        "total": 762757,
+        "male": 380974,
+        "female": 381783
+      }
+    },
+    "52.02": {
+      "hospitals": {
+        "total": 6,
+        "umum": 5,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 952,
+        "smp": 531,
+        "sma": 300,
+        "smk": 83
+      },
+      "population": {
+        "total": 1128716,
+        "male": 560768,
+        "female": 567948
+      }
+    },
+    "52.03": {
+      "hospitals": {
+        "total": 9,
+        "umum": 7,
+        "ibu_anak": 2,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 1048,
+        "smp": 582,
+        "sma": 290,
+        "smk": 108
+      },
+      "population": {
+        "total": 1457591,
+        "male": 726950,
+        "female": 730641
+      }
+    },
+    "52.04": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 410,
+        "smp": 155,
+        "sma": 49,
+        "smk": 22
+      },
+      "population": {
+        "total": 527715,
+        "male": 263993,
+        "female": 263722
+      }
+    },
+    "52.05": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 285,
+        "smp": 127,
+        "sma": 58,
+        "smk": 25
+      },
+      "population": {
+        "total": 277837,
+        "male": 139345,
+        "female": 138492
+      }
+    },
+    "52.06": {
+      "hospitals": null,
+      "schools": {
+        "sd": 499,
+        "smp": 195,
+        "sma": 92,
+        "smk": 33
+      },
+      "population": {
+        "total": 543582,
+        "male": 272459,
+        "female": 271123
+      }
+    },
+    "52.07": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 126,
+        "smp": 61,
+        "sma": 19,
+        "smk": 7
+      },
+      "population": {
+        "total": 156059,
+        "male": 78434,
+        "female": 77625
+      }
+    },
+    "52.08": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 204,
+        "smp": 107,
+        "sma": 46,
+        "smk": 15
+      },
+      "population": {
+        "total": 269989,
+        "male": 135503,
+        "female": 134486
+      }
+    },
+    "52.71": {
+      "hospitals": {
+        "total": 16,
+        "umum": 12,
+        "ibu_anak": 2,
+        "khusus": 2
+      },
+      "schools": {
+        "sd": 206,
+        "smp": 80,
+        "sma": 53,
+        "smk": 20
+      },
+      "population": {
+        "total": 461936,
+        "male": 230016,
+        "female": 231920
+      }
+    },
+    "52.72": {
+      "hospitals": {
+        "total": 5,
+        "umum": 5,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 93,
+        "smp": 39,
+        "sma": 27,
+        "smk": 11
+      },
+      "population": {
+        "total": 165113,
+        "male": 82338,
+        "female": 82775
+      }
+    },
+    "53.01": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 377,
+        "smp": 181,
+        "sma": 72,
+        "smk": 31
+      },
+      "population": {
+        "total": 391539,
+        "male": 198513,
+        "female": 193026
+      }
+    },
+    "53.02": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 551,
+        "smp": 214,
+        "sma": 80,
+        "smk": 38
+      },
+      "population": {
+        "total": 490642,
+        "male": 243758,
+        "female": 246884
+      }
+    },
+    "53.03": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 275,
+        "smp": 99,
+        "sma": 32,
+        "smk": 29
+      },
+      "population": {
+        "total": 276032,
+        "male": 137887,
+        "female": 138145
+      }
+    },
+    "53.04": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 151,
+        "smp": 57,
+        "sma": 30,
+        "smk": 10
+      },
+      "population": {
+        "total": 232788,
+        "male": 116041,
+        "female": 116747
+      }
+    },
+    "53.05": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 314,
+        "smp": 139,
+        "sma": 53,
+        "smk": 14
+      },
+      "population": {
+        "total": 229730,
+        "male": 113431,
+        "female": 116299
+      }
+    },
+    "53.06": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 299,
+        "smp": 75,
+        "sma": 35,
+        "smk": 16
+      },
+      "population": {
+        "total": 289881,
+        "male": 142457,
+        "female": 147424
+      }
+    },
+    "53.07": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 346,
+        "smp": 97,
+        "sma": 32,
+        "smk": 22
+      },
+      "population": {
+        "total": 346614,
+        "male": 168616,
+        "female": 177998
+      }
+    },
+    "53.08": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 346,
+        "smp": 101,
+        "sma": 31,
+        "smk": 21
+      },
+      "population": {
+        "total": 283806,
+        "male": 138303,
+        "female": 145503
+      }
+    },
+    "53.09": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 186,
+        "smp": 67,
+        "sma": 26,
+        "smk": 14
+      },
+      "population": {
+        "total": 169445,
+        "male": 83666,
+        "female": 85779
+      }
+    },
+    "53.10": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 262,
+        "smp": 88,
+        "sma": 30,
+        "smk": 21
+      },
+      "population": {
+        "total": 349836,
+        "male": 175131,
+        "female": 174705
+      }
+    },
+    "53.11": {
+      "hospitals": {
+        "total": 5,
+        "umum": 4,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 276,
+        "smp": 91,
+        "sma": 31,
+        "smk": 12
+      },
+      "population": {
+        "total": 277290,
+        "male": 142097,
+        "female": 135193
+      }
+    },
+    "53.12": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 99,
+        "smp": 42,
+        "sma": 21,
+        "smk": 7
+      },
+      "population": {
+        "total": 141760,
+        "male": 72474,
+        "female": 69286
+      }
+    },
+    "53.13": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 184,
+        "smp": 61,
+        "sma": 19,
+        "smk": 13
+      },
+      "population": {
+        "total": 149921,
+        "male": 72994,
+        "female": 76927
+      }
+    },
+    "53.14": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 153,
+        "smp": 47,
+        "sma": 19,
+        "smk": 5
+      },
+      "population": {
+        "total": 154027,
+        "male": 77526,
+        "female": 76501
+      }
+    },
+    "53.15": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 294,
+        "smp": 111,
+        "sma": 37,
+        "smk": 19
+      },
+      "population": {
+        "total": 290688,
+        "male": 146223,
+        "female": 144465
+      }
+    },
+    "53.16": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 181,
+        "smp": 65,
+        "sma": 18,
+        "smk": 8
+      },
+      "population": {
+        "total": 164457,
+        "male": 81399,
+        "female": 83058
+      }
+    },
+    "53.17": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 95,
+        "smp": 36,
+        "sma": 11,
+        "smk": 5
+      },
+      "population": {
+        "total": 92138,
+        "male": 47189,
+        "female": 44949
+      }
+    },
+    "53.18": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 288,
+        "smp": 144,
+        "sma": 51,
+        "smk": 43
+      },
+      "population": {
+        "total": 355022,
+        "male": 181632,
+        "female": 173390
+      }
+    },
+    "53.19": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 347,
+        "smp": 157,
+        "sma": 51,
+        "smk": 14
+      },
+      "population": {
+        "total": 305268,
+        "male": 154948,
+        "female": 150320
+      }
+    },
+    "53.20": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 81,
+        "smp": 26,
+        "sma": 13,
+        "smk": 3
+      },
+      "population": {
+        "total": 94860,
+        "male": 48349,
+        "female": 46511
+      }
+    },
+    "53.21": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 211,
+        "smp": 75,
+        "sma": 37,
+        "smk": 7
+      },
+      "population": {
+        "total": 210908,
+        "male": 104472,
+        "female": 106436
+      }
+    },
+    "53.71": {
+      "hospitals": {
+        "total": 15,
+        "umum": 13,
+        "ibu_anak": 1,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 160,
+        "smp": 73,
+        "sma": 49,
+        "smk": 21
+      },
+      "population": {
+        "total": 404120,
+        "male": 202986,
+        "female": 201134
+      }
+    },
+    "61.01": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 463,
+        "smp": 169,
+        "sma": 51,
+        "smk": 24
+      },
+      "population": {
+        "total": 651246,
+        "male": 333805,
+        "female": 317441
+      }
+    },
+    "61.02": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 244,
+        "smp": 102,
+        "sma": 46,
+        "smk": 12
+      },
+      "population": {
+        "total": 314148,
+        "male": 160730,
+        "female": 153418
+      }
+    },
+    "61.03": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 486,
+        "smp": 135,
+        "sma": 41,
+        "smk": 18
+      },
+      "population": {
+        "total": 499074,
+        "male": 259316,
+        "female": 239758
+      }
+    },
+    "61.04": {
+      "hospitals": {
+        "total": 4,
+        "umum": 3,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 575,
+        "smp": 191,
+        "sma": 60,
+        "smk": 25
+      },
+      "population": {
+        "total": 583541,
+        "male": 302644,
+        "female": 280897
+      }
+    },
+    "61.05": {
+      "hospitals": {
+        "total": 7,
+        "umum": 5,
+        "ibu_anak": 1,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 483,
+        "smp": 151,
+        "sma": 52,
+        "smk": 22
+      },
+      "population": {
+        "total": 457204,
+        "male": 236285,
+        "female": 220919
+      }
+    },
+    "61.06": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 428,
+        "smp": 121,
+        "sma": 38,
+        "smk": 7
+      },
+      "population": {
+        "total": 276988,
+        "male": 142348,
+        "female": 134640
+      }
+    },
+    "61.07": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 290,
+        "smp": 97,
+        "sma": 35,
+        "smk": 11
+      },
+      "population": {
+        "total": 295966,
+        "male": 153717,
+        "female": 142249
+      }
+    },
+    "61.08": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 472,
+        "smp": 122,
+        "sma": 54,
+        "smk": 11
+      },
+      "population": {
+        "total": 415033,
+        "male": 218633,
+        "female": 196400
+      }
+    },
+    "61.09": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 242,
+        "smp": 69,
+        "sma": 23,
+        "smk": 7
+      },
+      "population": {
+        "total": 225494,
+        "male": 116971,
+        "female": 108523
+      }
+    },
+    "61.10": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 266,
+        "smp": 123,
+        "sma": 34,
+        "smk": 12
+      },
+      "population": {
+        "total": 217600,
+        "male": 112311,
+        "female": 105289
+      }
+    },
+    "61.11": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 119,
+        "smp": 51,
+        "sma": 18,
+        "smk": 5
+      },
+      "population": {
+        "total": 126898,
+        "male": 65223,
+        "female": 61675
+      }
+    },
+    "61.12": {
+      "hospitals": {
+        "total": 4,
+        "umum": 3,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 542,
+        "smp": 272,
+        "sma": 128,
+        "smk": 44
+      },
+      "population": {
+        "total": 646091,
+        "male": 329708,
+        "female": 316383
+      }
+    },
+    "61.71": {
+      "hospitals": {
+        "total": 16,
+        "umum": 12,
+        "ibu_anak": 2,
+        "khusus": 2
+      },
+      "schools": {
+        "sd": 215,
+        "smp": 125,
+        "sma": 82,
+        "smk": 27
+      },
+      "population": {
+        "total": 687031,
+        "male": 343257,
+        "female": 343774
+      }
+    },
+    "61.72": {
+      "hospitals": {
+        "total": 7,
+        "umum": 5,
+        "ibu_anak": 1,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 113,
+        "smp": 52,
+        "sma": 30,
+        "smk": 11
+      },
+      "population": {
+        "total": 249954,
+        "male": 127751,
+        "female": 122203
+      }
+    },
+    "62.01": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 216,
+        "smp": 91,
+        "sma": 28,
+        "smk": 18
+      },
+      "population": {
+        "total": 294602,
+        "male": 151332,
+        "female": 143270
+      }
+    },
+    "62.02": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 410,
+        "smp": 138,
+        "sma": 37,
+        "smk": 27
+      },
+      "population": {
+        "total": 454515,
+        "male": 235087,
+        "female": 219428
+      }
+    },
+    "62.03": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 504,
+        "smp": 173,
+        "sma": 48,
+        "smk": 19
+      },
+      "population": {
+        "total": 417854,
+        "male": 215852,
+        "female": 202002
+      }
+    },
+    "62.04": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 184,
+        "smp": 77,
+        "sma": 35,
+        "smk": 6
+      },
+      "population": {
+        "total": 137914,
+        "male": 70622,
+        "female": 67292
+      }
+    },
+    "62.05": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 192,
+        "smp": 49,
+        "sma": 18,
+        "smk": 8
+      },
+      "population": {
+        "total": 159848,
+        "male": 83033,
+        "female": 76815
+      }
+    },
+    "62.06": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 223,
+        "smp": 95,
+        "sma": 30,
+        "smk": 9
+      },
+      "population": {
+        "total": 181963,
+        "male": 94401,
+        "female": 87562
+      }
+    },
+    "62.07": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 176,
+        "smp": 79,
+        "sma": 18,
+        "smk": 8
+      },
+      "population": {
+        "total": 159849,
+        "male": 83322,
+        "female": 76527
+      }
+    },
+    "62.08": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 52,
+        "smp": 23,
+        "sma": 9,
+        "smk": 3
+      },
+      "population": {
+        "total": 67234,
+        "male": 35146,
+        "female": 32088
+      }
+    },
+    "62.09": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 120,
+        "smp": 52,
+        "sma": 12,
+        "smk": 10
+      },
+      "population": {
+        "total": 114257,
+        "male": 60380,
+        "female": 53877
+      }
+    },
+    "62.10": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 183,
+        "smp": 62,
+        "sma": 15,
+        "smk": 4
+      },
+      "population": {
+        "total": 134482,
+        "male": 70582,
+        "female": 63900
+      }
+    },
+    "62.11": {
+      "hospitals": {
+        "total": 2,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 208,
+        "smp": 58,
+        "sma": 27,
+        "smk": 8
+      },
+      "population": {
+        "total": 144663,
+        "male": 74870,
+        "female": 69793
+      }
+    },
+    "62.12": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 187,
+        "smp": 75,
+        "sma": 27,
+        "smk": 1
+      },
+      "population": {
+        "total": 124291,
+        "male": 64673,
+        "female": 59618
+      }
+    },
+    "62.13": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 157,
+        "smp": 40,
+        "sma": 14,
+        "smk": 6
+      },
+      "population": {
+        "total": 118665,
+        "male": 60804,
+        "female": 57861
+      }
+    },
+    "62.71": {
+      "hospitals": {
+        "total": 11,
+        "umum": 9,
+        "ibu_anak": 2,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 159,
+        "smp": 72,
+        "sma": 43,
+        "smk": 16
+      },
+      "population": {
+        "total": 315153,
+        "male": 159809,
+        "female": 155344
+      }
+    },
+    "63.01": {
+      "hospitals": {
+        "total": 5,
+        "umum": 4,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 277,
+        "smp": 89,
+        "sma": 35,
+        "smk": 10
+      },
+      "population": {
+        "total": 369818,
+        "male": 187908,
+        "female": 181910
+      }
+    },
+    "63.02": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 270,
+        "smp": 88,
+        "sma": 39,
+        "smk": 9
+      },
+      "population": {
+        "total": 332787,
+        "male": 171691,
+        "female": 161096
+      }
+    },
+    "63.03": {
+      "hospitals": {
+        "total": 5,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 477,
+        "smp": 152,
+        "sma": 66,
+        "smk": 13
+      },
+      "population": {
+        "total": 590393,
+        "male": 298174,
+        "female": 292219
+      }
+    },
+    "63.04": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 331,
+        "smp": 106,
+        "sma": 47,
+        "smk": 5
+      },
+      "population": {
+        "total": 329799,
+        "male": 167086,
+        "female": 162713
+      }
+    },
+    "63.05": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 196,
+        "smp": 45,
+        "sma": 18,
+        "smk": 4
+      },
+      "population": {
+        "total": 202061,
+        "male": 101669,
+        "female": 100392
+      }
+    },
+    "63.06": {
+      "hospitals": {
+        "total": 5,
+        "umum": 4,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 257,
+        "smp": 65,
+        "sma": 27,
+        "smk": 5
+      },
+      "population": {
+        "total": 239471,
+        "male": 120554,
+        "female": 118917
+      }
+    },
+    "63.07": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 299,
+        "smp": 59,
+        "sma": 24,
+        "smk": 8
+      },
+      "population": {
+        "total": 271505,
+        "male": 136840,
+        "female": 134665
+      }
+    },
+    "63.08": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 267,
+        "smp": 70,
+        "sma": 30,
+        "smk": 7
+      },
+      "population": {
+        "total": 238250,
+        "male": 119428,
+        "female": 118822
+      }
+    },
+    "63.09": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 261,
+        "smp": 90,
+        "sma": 26,
+        "smk": 10
+      },
+      "population": {
+        "total": 267787,
+        "male": 135361,
+        "female": 132426
+      }
+    },
+    "63.10": {
+      "hospitals": {
+        "total": 3,
+        "umum": 2,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 218,
+        "smp": 99,
+        "sma": 31,
+        "smk": 19
+      },
+      "population": {
+        "total": 357221,
+        "male": 183226,
+        "female": 173995
+      }
+    },
+    "63.11": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 213,
+        "smp": 44,
+        "sma": 21,
+        "smk": 3
+      },
+      "population": {
+        "total": 138950,
+        "male": 70475,
+        "female": 68475
+      }
+    },
+    "63.71": {
+      "hospitals": {
+        "total": 14,
+        "umum": 10,
+        "ibu_anak": 2,
+        "khusus": 2
+      },
+      "schools": {
+        "sd": 325,
+        "smp": 98,
+        "sma": 42,
+        "smk": 21
+      },
+      "population": {
+        "total": 681693,
+        "male": 341066,
+        "female": 340627
+      }
+    },
+    "63.72": {
+      "hospitals": {
+        "total": 10,
+        "umum": 10,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 112,
+        "smp": 50,
+        "sma": 31,
+        "smk": 14
+      },
+      "population": {
+        "total": 285546,
+        "male": 143255,
+        "female": 142291
+      }
+    },
+    "64.01": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 241,
+        "smp": 103,
+        "sma": 37,
+        "smk": 10
+      },
+      "population": {
+        "total": 309667,
+        "male": 160276,
+        "female": 149391
+      }
+    },
+    "64.02": {
+      "hospitals": {
+        "total": 5,
+        "umum": 5,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 534,
+        "smp": 223,
+        "sma": 79,
+        "smk": 46
+      },
+      "population": {
+        "total": 806964,
+        "male": 420744,
+        "female": 386220
+      }
+    },
+    "64.03": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 182,
+        "smp": 74,
+        "sma": 27,
+        "smk": 14
+      },
+      "population": {
+        "total": 299005,
+        "male": 158927,
+        "female": 140078
+      }
+    },
+    "64.07": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 218,
+        "smp": 70,
+        "sma": 29,
+        "smk": 14
+      },
+      "population": {
+        "total": 186581,
+        "male": 98069,
+        "female": 88512
+      }
+    },
+    "64.08": {
+      "hospitals": {
+        "total": 10,
+        "umum": 8,
+        "ibu_anak": 2,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 256,
+        "smp": 113,
+        "sma": 37,
+        "smk": 22
+      },
+      "population": {
+        "total": 448850,
+        "male": 240268,
+        "female": 208582
+      }
+    },
+    "64.09": {
+      "hospitals": {
+        "total": 5,
+        "umum": 5,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 116,
+        "smp": 48,
+        "sma": 19,
+        "smk": 11
+      },
+      "population": {
+        "total": 202067,
+        "male": 104765,
+        "female": 97302
+      }
+    },
+    "64.11": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 40,
+        "smp": 17,
+        "sma": 7,
+        "smk": 2
+      },
+      "population": {
+        "total": 39715,
+        "male": 21192,
+        "female": 18523
+      }
+    },
+    "64.71": {
+      "hospitals": {
+        "total": 16,
+        "umum": 13,
+        "ibu_anak": 2,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 226,
+        "smp": 97,
+        "sma": 42,
+        "smk": 35
+      },
+      "population": {
+        "total": 757418,
+        "male": 387112,
+        "female": 370306
+      }
+    },
+    "64.72": {
+      "hospitals": {
+        "total": 16,
+        "umum": 10,
+        "ibu_anak": 3,
+        "khusus": 3
+      },
+      "schools": {
+        "sd": 266,
+        "smp": 147,
+        "sma": 66,
+        "smk": 50
+      },
+      "population": {
+        "total": 881225,
+        "male": 448161,
+        "female": 433064
+      }
+    },
+    "64.74": {
+      "hospitals": {
+        "total": 5,
+        "umum": 5,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 61,
+        "smp": 36,
+        "sma": 13,
+        "smk": 14
+      },
+      "population": {
+        "total": 191811,
+        "male": 99151,
+        "female": 92660
+      }
+    },
+    "65.01": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 149,
+        "smp": 73,
+        "sma": 27,
+        "smk": 10
+      },
+      "population": {
+        "total": 170239,
+        "male": 89856,
+        "female": 80383
+      }
+    },
+    "65.02": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 111,
+        "smp": 42,
+        "sma": 22,
+        "smk": 3
+      },
+      "population": {
+        "total": 87582,
+        "male": 46163,
+        "female": 41419
+      }
+    },
+    "65.03": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 160,
+        "smp": 69,
+        "sma": 29,
+        "smk": 11
+      },
+      "population": {
+        "total": 227460,
+        "male": 119672,
+        "female": 107788
+      }
+    },
+    "65.04": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 32,
+        "smp": 12,
+        "sma": 5,
+        "smk": 1
+      },
+      "population": {
+        "total": 30036,
+        "male": 15762,
+        "female": 14274
+      }
+    },
+    "65.71": {
+      "hospitals": {
+        "total": 6,
+        "umum": 6,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 80,
+        "smp": 39,
+        "sma": 23,
+        "smk": 9
+      },
+      "population": {
+        "total": 255310,
+        "male": 132175,
+        "female": 123135
+      }
+    },
+    "71.01": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 237,
+        "smp": 84,
+        "sma": 23,
+        "smk": 18
+      },
+      "population": {
+        "total": 257378,
+        "male": 133940,
+        "female": 123438
+      }
+    },
+    "71.02": {
+      "hospitals": {
+        "total": 6,
+        "umum": 5,
+        "ibu_anak": 0,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 346,
+        "smp": 109,
+        "sma": 40,
+        "smk": 20
+      },
+      "population": {
+        "total": 330843,
+        "male": 168503,
+        "female": 162340
+      }
+    },
+    "71.03": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 220,
+        "smp": 68,
+        "sma": 24,
+        "smk": 9
+      },
+      "population": {
+        "total": 135860,
+        "male": 69187,
+        "female": 66673
+      }
+    },
+    "71.04": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 117,
+        "smp": 43,
+        "sma": 24,
+        "smk": 10
+      },
+      "population": {
+        "total": 100376,
+        "male": 51713,
+        "female": 48663
+      }
+    },
+    "71.05": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 237,
+        "smp": 87,
+        "sma": 20,
+        "smk": 18
+      },
+      "population": {
+        "total": 243297,
+        "male": 125878,
+        "female": 117419
+      }
+    },
+    "71.06": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 198,
+        "smp": 78,
+        "sma": 27,
+        "smk": 18
+      },
+      "population": {
+        "total": 229231,
+        "male": 116001,
+        "female": 113230
+      }
+    },
+    "71.07": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 98,
+        "smp": 44,
+        "sma": 12,
+        "smk": 6
+      },
+      "population": {
+        "total": 121554,
+        "male": 62974,
+        "female": 58580
+      }
+    },
+    "71.08": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 104,
+        "smp": 30,
+        "sma": 9,
+        "smk": 6
+      },
+      "population": {
+        "total": 88002,
+        "male": 45175,
+        "female": 42827
+      }
+    },
+    "71.09": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 104,
+        "smp": 26,
+        "sma": 6,
+        "smk": 6
+      },
+      "population": {
+        "total": 70528,
+        "male": 35553,
+        "female": 34975
+      }
+    },
+    "71.10": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 64,
+        "smp": 30,
+        "sma": 7,
+        "smk": 12
+      },
+      "population": {
+        "total": 91344,
+        "male": 47657,
+        "female": 43687
+      }
+    },
+    "71.11": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 83,
+        "smp": 29,
+        "sma": 7,
+        "smk": 5
+      },
+      "population": {
+        "total": 76105,
+        "male": 39368,
+        "female": 36737
+      }
+    },
+    "71.71": {
+      "hospitals": {
+        "total": 21,
+        "umum": 15,
+        "ibu_anak": 2,
+        "khusus": 4
+      },
+      "schools": {
+        "sd": 244,
+        "smp": 109,
+        "sma": 53,
+        "smk": 35
+      },
+      "population": {
+        "total": 459409,
+        "male": 230999,
+        "female": 228410
+      }
+    },
+    "71.72": {
+      "hospitals": {
+        "total": 5,
+        "umum": 5,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 116,
+        "smp": 40,
+        "sma": 18,
+        "smk": 14
+      },
+      "population": {
+        "total": 216026,
+        "male": 109932,
+        "female": 106094
+      }
+    },
+    "71.73": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 68,
+        "smp": 24,
+        "sma": 13,
+        "smk": 6
+      },
+      "population": {
+        "total": 103812,
+        "male": 52524,
+        "female": 51288
+      }
+    },
+    "71.74": {
+      "hospitals": {
+        "total": 4,
+        "umum": 3,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 79,
+        "smp": 22,
+        "sma": 10,
+        "smk": 10
+      },
+      "population": {
+        "total": 121526,
+        "male": 62330,
+        "female": 59196
+      }
+    },
+    "72.01": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 397,
+        "smp": 165,
+        "sma": 67,
+        "smk": 26
+      },
+      "population": {
+        "total": 377804,
+        "male": 191889,
+        "female": 185915
+      }
+    },
+    "72.02": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 249,
+        "smp": 87,
+        "sma": 28,
+        "smk": 17
+      },
+      "population": {
+        "total": 253350,
+        "male": 130653,
+        "female": 122697
+      }
+    },
+    "72.03": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 377,
+        "smp": 127,
+        "sma": 38,
+        "smk": 14
+      },
+      "population": {
+        "total": 318613,
+        "male": 163846,
+        "female": 154767
+      }
+    },
+    "72.04": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 252,
+        "smp": 100,
+        "sma": 34,
+        "smk": 14
+      },
+      "population": {
+        "total": 242783,
+        "male": 124099,
+        "female": 118684
+      }
+    },
+    "72.05": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 173,
+        "smp": 78,
+        "sma": 18,
+        "smk": 9
+      },
+      "population": {
+        "total": 162273,
+        "male": 83257,
+        "female": 79016
+      }
+    },
+    "72.06": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 169,
+        "smp": 56,
+        "sma": 17,
+        "smk": 10
+      },
+      "population": {
+        "total": 198968,
+        "male": 106590,
+        "female": 92378
+      }
+    },
+    "72.07": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 170,
+        "smp": 75,
+        "sma": 27,
+        "smk": 16
+      },
+      "population": {
+        "total": 130008,
+        "male": 65973,
+        "female": 64035
+      }
+    },
+    "72.08": {
+      "hospitals": {
+        "total": 4,
+        "umum": 3,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 464,
+        "smp": 165,
+        "sma": 60,
+        "smk": 22
+      },
+      "population": {
+        "total": 461576,
+        "male": 235958,
+        "female": 225618
+      }
+    },
+    "72.09": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 197,
+        "smp": 71,
+        "sma": 24,
+        "smk": 7
+      },
+      "population": {
+        "total": 173534,
+        "male": 89092,
+        "female": 84442
+      }
+    },
+    "72.10": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 282,
+        "smp": 104,
+        "sma": 39,
+        "smk": 10
+      },
+      "population": {
+        "total": 273460,
+        "male": 140141,
+        "female": 133319
+      }
+    },
+    "72.11": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 87,
+        "smp": 48,
+        "sma": 15,
+        "smk": 8
+      },
+      "population": {
+        "total": 77830,
+        "male": 39279,
+        "female": 38551
+      }
+    },
+    "72.12": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 161,
+        "smp": 60,
+        "sma": 17,
+        "smk": 9
+      },
+      "population": {
+        "total": 154004,
+        "male": 83888,
+        "female": 70116
+      }
+    },
+    "72.71": {
+      "hospitals": {
+        "total": 13,
+        "umum": 10,
+        "ibu_anak": 3,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 204,
+        "smp": 83,
+        "sma": 51,
+        "smk": 24
+      },
+      "population": {
+        "total": 395291,
+        "male": 198226,
+        "female": 197065
+      }
+    },
+    "73.01": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 156,
+        "smp": 68,
+        "sma": 13,
+        "smk": 8
+      },
+      "population": {
+        "total": 143096,
+        "male": 70405,
+        "female": 72691
+      }
+    },
+    "73.02": {
+      "hospitals": {
+        "total": 3,
+        "umum": 2,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 390,
+        "smp": 115,
+        "sma": 40,
+        "smk": 17
+      },
+      "population": {
+        "total": 480672,
+        "male": 235138,
+        "female": 245534
+      }
+    },
+    "73.03": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 172,
+        "smp": 83,
+        "sma": 34,
+        "smk": 12
+      },
+      "population": {
+        "total": 217267,
+        "male": 107585,
+        "female": 109682
+      }
+    },
+    "73.04": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 336,
+        "smp": 135,
+        "sma": 62,
+        "smk": 16
+      },
+      "population": {
+        "total": 423005,
+        "male": 208893,
+        "female": 214112
+      }
+    },
+    "73.05": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 258,
+        "smp": 80,
+        "sma": 47,
+        "smk": 8
+      },
+      "population": {
+        "total": 332863,
+        "male": 162897,
+        "female": 169966
+      }
+    },
+    "73.06": {
+      "hospitals": {
+        "total": 5,
+        "umum": 5,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 518,
+        "smp": 208,
+        "sma": 101,
+        "smk": 22
+      },
+      "population": {
+        "total": 825369,
+        "male": 408960,
+        "female": 416409
+      }
+    },
+    "73.07": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 279,
+        "smp": 88,
+        "sma": 48,
+        "smk": 9
+      },
+      "population": {
+        "total": 276269,
+        "male": 136939,
+        "female": 139330
+      }
+    },
+    "73.08": {
+      "hospitals": {
+        "total": 6,
+        "umum": 6,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 778,
+        "smp": 239,
+        "sma": 95,
+        "smk": 22
+      },
+      "population": {
+        "total": 827372,
+        "male": 404150,
+        "female": 423222
+      }
+    },
+    "73.09": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 281,
+        "smp": 131,
+        "sma": 74,
+        "smk": 17
+      },
+      "population": {
+        "total": 414406,
+        "male": 206548,
+        "female": 207858
+      }
+    },
+    "73.10": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 317,
+        "smp": 120,
+        "sma": 52,
+        "smk": 14
+      },
+      "population": {
+        "total": 361791,
+        "male": 177856,
+        "female": 183935
+      }
+    },
+    "73.11": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 228,
+        "smp": 57,
+        "sma": 24,
+        "smk": 8
+      },
+      "population": {
+        "total": 196001,
+        "male": 96277,
+        "female": 99724
+      }
+    },
+    "73.12": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 276,
+        "smp": 72,
+        "sma": 19,
+        "smk": 11
+      },
+      "population": {
+        "total": 241333,
+        "male": 116800,
+        "female": 124533
+      }
+    },
+    "73.13": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 434,
+        "smp": 118,
+        "sma": 47,
+        "smk": 12
+      },
+      "population": {
+        "total": 400699,
+        "male": 195841,
+        "female": 204858
+      }
+    },
+    "73.14": {
+      "hospitals": {
+        "total": 5,
+        "umum": 5,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 254,
+        "smp": 81,
+        "sma": 42,
+        "smk": 12
+      },
+      "population": {
+        "total": 332560,
+        "male": 164571,
+        "female": 167989
+      }
+    },
+    "73.15": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 338,
+        "smp": 84,
+        "sma": 27,
+        "smk": 16
+      },
+      "population": {
+        "total": 423146,
+        "male": 208789,
+        "female": 214357
+      }
+    },
+    "73.16": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 247,
+        "smp": 71,
+        "sma": 29,
+        "smk": 11
+      },
+      "population": {
+        "total": 234470,
+        "male": 119217,
+        "female": 115253
+      }
+    },
+    "73.17": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 326,
+        "smp": 155,
+        "sma": 49,
+        "smk": 26
+      },
+      "population": {
+        "total": 385361,
+        "male": 194269,
+        "female": 191092
+      }
+    },
+    "73.18": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 232,
+        "smp": 88,
+        "sma": 25,
+        "smk": 26
+      },
+      "population": {
+        "total": 258934,
+        "male": 133053,
+        "female": 125881
+      }
+    },
+    "73.22": {
+      "hospitals": {
+        "total": 4,
+        "umum": 3,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 275,
+        "smp": 119,
+        "sma": 41,
+        "smk": 16
+      },
+      "population": {
+        "total": 335161,
+        "male": 169309,
+        "female": 165852
+      }
+    },
+    "73.24": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 204,
+        "smp": 77,
+        "sma": 33,
+        "smk": 4
+      },
+      "population": {
+        "total": 323422,
+        "male": 166934,
+        "female": 156488
+      }
+    },
+    "73.26": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 195,
+        "smp": 80,
+        "sma": 17,
+        "smk": 17
+      },
+      "population": {
+        "total": 266513,
+        "male": 135991,
+        "female": 130522
+      }
+    },
+    "73.71": {
+      "hospitals": {
+        "total": 51,
+        "umum": 30,
+        "ibu_anak": 13,
+        "khusus": 8
+      },
+      "schools": {
+        "sd": 558,
+        "smp": 284,
+        "sma": 182,
+        "smk": 79
+      },
+      "population": {
+        "total": 1482354,
+        "male": 736111,
+        "female": 746243
+      }
+    },
+    "73.72": {
+      "hospitals": {
+        "total": 5,
+        "umum": 4,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 109,
+        "smp": 38,
+        "sma": 19,
+        "smk": 10
+      },
+      "population": {
+        "total": 163314,
+        "male": 81252,
+        "female": 82062
+      }
+    },
+    "73.73": {
+      "hospitals": {
+        "total": 7,
+        "umum": 7,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 88,
+        "smp": 33,
+        "sma": 17,
+        "smk": 15
+      },
+      "population": {
+        "total": 182898,
+        "male": 91590,
+        "female": 91308
+      }
+    },
+    "74.01": {
+      "hospitals": {
+        "total": 6,
+        "umum": 4,
+        "ibu_anak": 1,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 204,
+        "smp": 81,
+        "sma": 33,
+        "smk": 15
+      },
+      "population": {
+        "total": 257733,
+        "male": 132053,
+        "female": 125680
+      }
+    },
+    "74.02": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 295,
+        "smp": 91,
+        "sma": 42,
+        "smk": 11
+      },
+      "population": {
+        "total": 269128,
+        "male": 138997,
+        "female": 130131
+      }
+    },
+    "74.03": {
+      "hospitals": {
+        "total": 2,
+        "umum": 1,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 236,
+        "smp": 101,
+        "sma": 50,
+        "smk": 27
+      },
+      "population": {
+        "total": 233470,
+        "male": 115311,
+        "female": 118159
+      }
+    },
+    "74.04": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 126,
+        "smp": 62,
+        "sma": 29,
+        "smk": 11
+      },
+      "population": {
+        "total": 122024,
+        "male": 60874,
+        "female": 61150
+      }
+    },
+    "74.05": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 345,
+        "smp": 120,
+        "sma": 50,
+        "smk": 11
+      },
+      "population": {
+        "total": 332389,
+        "male": 170499,
+        "female": 161890
+      }
+    },
+    "74.06": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 184,
+        "smp": 80,
+        "sma": 39,
+        "smk": 11
+      },
+      "population": {
+        "total": 168055,
+        "male": 84868,
+        "female": 83187
+      }
+    },
+    "74.07": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 119,
+        "smp": 54,
+        "sma": 26,
+        "smk": 6
+      },
+      "population": {
+        "total": 118793,
+        "male": 59167,
+        "female": 59626
+      }
+    },
+    "74.08": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 123,
+        "smp": 54,
+        "sma": 24,
+        "smk": 5
+      },
+      "population": {
+        "total": 143604,
+        "male": 73626,
+        "female": 69978
+      }
+    },
+    "74.09": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 104,
+        "smp": 40,
+        "sma": 14,
+        "smk": 5
+      },
+      "population": {
+        "total": 83449,
+        "male": 42935,
+        "female": 40514
+      }
+    },
+    "74.10": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 80,
+        "smp": 43,
+        "sma": 16,
+        "smk": 6
+      },
+      "population": {
+        "total": 74718,
+        "male": 38045,
+        "female": 36673
+      }
+    },
+    "74.11": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 152,
+        "smp": 59,
+        "sma": 20,
+        "smk": 9
+      },
+      "population": {
+        "total": 130691,
+        "male": 67438,
+        "female": 63253
+      }
+    },
+    "74.12": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 51,
+        "smp": 20,
+        "sma": 7,
+        "smk": 4
+      },
+      "population": {
+        "total": 44091,
+        "male": 22328,
+        "female": 21763
+      }
+    },
+    "74.13": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 103,
+        "smp": 51,
+        "sma": 17,
+        "smk": 8
+      },
+      "population": {
+        "total": 91571,
+        "male": 45338,
+        "female": 46233
+      }
+    },
+    "74.14": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 110,
+        "smp": 55,
+        "sma": 27,
+        "smk": 11
+      },
+      "population": {
+        "total": 121745,
+        "male": 59704,
+        "female": 62041
+      }
+    },
+    "74.15": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 81,
+        "smp": 43,
+        "sma": 24,
+        "smk": 5
+      },
+      "population": {
+        "total": 102881,
+        "male": 50888,
+        "female": 51993
+      }
+    },
+    "74.71": {
+      "hospitals": {
+        "total": 16,
+        "umum": 14,
+        "ibu_anak": 0,
+        "khusus": 2
+      },
+      "schools": {
+        "sd": 163,
+        "smp": 69,
+        "sma": 41,
+        "smk": 23
+      },
+      "population": {
+        "total": 366454,
+        "male": 184274,
+        "female": 182180
+      }
+    },
+    "74.72": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 80,
+        "smp": 40,
+        "sma": 18,
+        "smk": 9
+      },
+      "population": {
+        "total": 163793,
+        "male": 81033,
+        "female": 82760
+      }
+    },
+    "75.01": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 323,
+        "smp": 157,
+        "sma": 40,
+        "smk": 15
+      },
+      "population": {
+        "total": 423981,
+        "male": 213513,
+        "female": 210468
+      }
+    },
+    "75.02": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 149,
+        "smp": 67,
+        "sma": 16,
+        "smk": 12
+      },
+      "population": {
+        "total": 152851,
+        "male": 77920,
+        "female": 74931
+      }
+    },
+    "75.03": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 146,
+        "smp": 56,
+        "sma": 16,
+        "smk": 7
+      },
+      "population": {
+        "total": 174788,
+        "male": 88055,
+        "female": 86733
+      }
+    },
+    "75.04": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 143,
+        "smp": 61,
+        "sma": 16,
+        "smk": 12
+      },
+      "population": {
+        "total": 162989,
+        "male": 83050,
+        "female": 79939
+      }
+    },
+    "75.05": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 151,
+        "smp": 54,
+        "sma": 14,
+        "smk": 6
+      },
+      "population": {
+        "total": 131991,
+        "male": 67267,
+        "female": 64724
+      }
+    },
+    "75.71": {
+      "hospitals": {
+        "total": 7,
+        "umum": 6,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 124,
+        "smp": 33,
+        "sma": 18,
+        "smk": 9
+      },
+      "population": {
+        "total": 204360,
+        "male": 101690,
+        "female": 102670
+      }
+    },
+    "76.01": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 154,
+        "smp": 71,
+        "sma": 25,
+        "smk": 15
+      },
+      "population": {
+        "total": 183376,
+        "male": 94161,
+        "female": 89215
+      }
+    },
+    "76.02": {
+      "hospitals": {
+        "total": 6,
+        "umum": 5,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 335,
+        "smp": 111,
+        "sma": 51,
+        "smk": 22
+      },
+      "population": {
+        "total": 288382,
+        "male": 147755,
+        "female": 140627
+      }
+    },
+    "76.03": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 274,
+        "smp": 109,
+        "sma": 28,
+        "smk": 33
+      },
+      "population": {
+        "total": 167611,
+        "male": 86407,
+        "female": 81204
+      }
+    },
+    "76.04": {
+      "hospitals": {
+        "total": 4,
+        "umum": 3,
+        "ibu_anak": 1,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 421,
+        "smp": 157,
+        "sma": 53,
+        "smk": 28
+      },
+      "population": {
+        "total": 492339,
+        "male": 246600,
+        "female": 245739
+      }
+    },
+    "76.05": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 193,
+        "smp": 66,
+        "sma": 22,
+        "smk": 16
+      },
+      "population": {
+        "total": 190223,
+        "male": 95207,
+        "female": 95016
+      }
+    },
+    "76.06": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 128,
+        "smp": 60,
+        "sma": 27,
+        "smk": 12
+      },
+      "population": {
+        "total": 144810,
+        "male": 74403,
+        "female": 70407
+      }
+    },
+    "81.01": {
+      "hospitals": {
+        "total": 4,
+        "umum": 4,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 436,
+        "smp": 198,
+        "sma": 111,
+        "smk": 15
+      },
+      "population": {
+        "total": 432361,
+        "male": 215458,
+        "female": 216903
+      }
+    },
+    "81.02": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 158,
+        "smp": 60,
+        "sma": 25,
+        "smk": 11
+      },
+      "population": {
+        "total": 129169,
+        "male": 63992,
+        "female": 65177
+      }
+    },
+    "81.03": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 120,
+        "smp": 70,
+        "sma": 29,
+        "smk": 9
+      },
+      "population": {
+        "total": 132337,
+        "male": 66317,
+        "female": 66020
+      }
+    },
+    "81.04": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 159,
+        "smp": 78,
+        "sma": 23,
+        "smk": 9
+      },
+      "population": {
+        "total": 142347,
+        "male": 71951,
+        "female": 70396
+      }
+    },
+    "81.05": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 173,
+        "smp": 81,
+        "sma": 34,
+        "smk": 9
+      },
+      "population": {
+        "total": 140972,
+        "male": 71186,
+        "female": 69786
+      }
+    },
+    "81.06": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 237,
+        "smp": 127,
+        "sma": 60,
+        "smk": 17
+      },
+      "population": {
+        "total": 217389,
+        "male": 109295,
+        "female": 108094
+      }
+    },
+    "81.07": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 175,
+        "smp": 62,
+        "sma": 16,
+        "smk": 6
+      },
+      "population": {
+        "total": 112531,
+        "male": 57767,
+        "female": 54764
+      }
+    },
+    "81.08": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 156,
+        "smp": 61,
+        "sma": 21,
+        "smk": 12
+      },
+      "population": {
+        "total": 97020,
+        "male": 49454,
+        "female": 47566
+      }
+    },
+    "81.09": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 111,
+        "smp": 59,
+        "sma": 21,
+        "smk": 10
+      },
+      "population": {
+        "total": 81329,
+        "male": 40969,
+        "female": 40360
+      }
+    },
+    "81.71": {
+      "hospitals": {
+        "total": 12,
+        "umum": 11,
+        "ibu_anak": 0,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 208,
+        "smp": 64,
+        "sma": 45,
+        "smk": 20
+      },
+      "population": {
+        "total": 359661,
+        "male": 177887,
+        "female": 181774
+      }
+    },
+    "81.72": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 66,
+        "smp": 35,
+        "sma": 17,
+        "smk": 8
+      },
+      "population": {
+        "total": 90470,
+        "male": 44736,
+        "female": 45734
+      }
+    },
+    "82.01": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 183,
+        "smp": 77,
+        "sma": 33,
+        "smk": 17
+      },
+      "population": {
+        "total": 139764,
+        "male": 71695,
+        "female": 68069
+      }
+    },
+    "82.02": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 73,
+        "smp": 40,
+        "sma": 19,
+        "smk": 11
+      },
+      "population": {
+        "total": 106500,
+        "male": 67500,
+        "female": 39000
+      }
+    },
+    "82.03": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 238,
+        "smp": 110,
+        "sma": 43,
+        "smk": 39
+      },
+      "population": {
+        "total": 206233,
+        "male": 105804,
+        "female": 100429
+      }
+    },
+    "82.04": {
+      "hospitals": {
+        "total": 3,
+        "umum": 3,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 325,
+        "smp": 172,
+        "sma": 82,
+        "smk": 25
+      },
+      "population": {
+        "total": 258564,
+        "male": 133453,
+        "female": 125111
+      }
+    },
+    "82.05": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 117,
+        "smp": 77,
+        "sma": 31,
+        "smk": 16
+      },
+      "population": {
+        "total": 100635,
+        "male": 50397,
+        "female": 50238
+      }
+    },
+    "82.06": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 111,
+        "smp": 61,
+        "sma": 24,
+        "smk": 9
+      },
+      "population": {
+        "total": 100473,
+        "male": 51953,
+        "female": 48520
+      }
+    },
+    "82.07": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 97,
+        "smp": 52,
+        "sma": 26,
+        "smk": 13
+      },
+      "population": {
+        "total": 82913,
+        "male": 42749,
+        "female": 40164
+      }
+    },
+    "82.08": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 95,
+        "smp": 51,
+        "sma": 17,
+        "smk": 7
+      },
+      "population": {
+        "total": 66361,
+        "male": 33930,
+        "female": 32431
+      }
+    },
+    "82.71": {
+      "hospitals": {
+        "total": 7,
+        "umum": 7,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 131,
+        "smp": 48,
+        "sma": 26,
+        "smk": 9
+      },
+      "population": {
+        "total": 210836,
+        "male": 109668,
+        "female": 101168
+      }
+    },
+    "82.72": {
+      "hospitals": {
+        "total": 3,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 118,
+        "smp": 52,
+        "sma": 36,
+        "smk": 7
+      },
+      "population": {
+        "total": 121952,
+        "male": 62631,
+        "female": 59321
+      }
+    },
+    "91.03": {
+      "hospitals": null,
+      "schools": {
+        "sd": 151,
+        "smp": 58,
+        "sma": 36,
+        "smk": 8
+      },
+      "population": {
+        "total": 203772,
+        "male": 105242,
+        "female": 98530
+      }
+    },
+    "91.05": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 125,
+        "smp": 40,
+        "sma": 19,
+        "smk": 5
+      },
+      "population": {
+        "total": 116214,
+        "male": 59587,
+        "female": 56627
+      }
+    },
+    "91.06": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 168,
+        "smp": 57,
+        "sma": 24,
+        "smk": 8
+      },
+      "population": {
+        "total": 150318,
+        "male": 76234,
+        "female": 74084
+      }
+    },
+    "91.10": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 73,
+        "smp": 24,
+        "sma": 7,
+        "smk": 5
+      },
+      "population": {
+        "total": 45084,
+        "male": 23842,
+        "female": 21242
+      }
+    },
+    "91.11": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 87,
+        "smp": 22,
+        "sma": 13,
+        "smk": 3
+      },
+      "population": {
+        "total": 74332,
+        "male": 39105,
+        "female": 35227
+      }
+    },
+    "91.15": {
+      "hospitals": null,
+      "schools": {
+        "sd": 54,
+        "smp": 21,
+        "sma": 8,
+        "smk": 3
+      },
+      "population": {
+        "total": 38840,
+        "male": 20370,
+        "female": 18470
+      }
+    },
+    "91.19": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 40,
+        "smp": 14,
+        "sma": 8,
+        "smk": 1
+      },
+      "population": {
+        "total": 27965,
+        "male": 14454,
+        "female": 13511
+      }
+    },
+    "91.20": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 87,
+        "smp": 26,
+        "sma": 6,
+        "smk": 1
+      },
+      "population": {
+        "total": 41036,
+        "male": 21313,
+        "female": 19723
+      }
+    },
+    "91.71": {
+      "hospitals": {
+        "total": 10,
+        "umum": 9,
+        "ibu_anak": 0,
+        "khusus": 1
+      },
+      "schools": {
+        "sd": 111,
+        "smp": 57,
+        "sma": 40,
+        "smk": 15
+      },
+      "population": {
+        "total": 404799,
+        "male": 214026,
+        "female": 190773
+      }
+    },
+    "92.02": {
+      "hospitals": {
+        "total": 7,
+        "umum": 7,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 138,
+        "smp": 47,
+        "sma": 28,
+        "smk": 8
+      },
+      "population": {
+        "total": 205212,
+        "male": 105983,
+        "female": 99229
+      }
+    },
+    "92.03": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 123,
+        "smp": 29,
+        "sma": 11,
+        "smk": 3
+      },
+      "population": {
+        "total": 93997,
+        "male": 48104,
+        "female": 45893
+      }
+    },
+    "92.06": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 94,
+        "smp": 40,
+        "sma": 19,
+        "smk": 1
+      },
+      "population": {
+        "total": 84205,
+        "male": 44299,
+        "female": 39906
+      }
+    },
+    "92.07": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 59,
+        "smp": 19,
+        "sma": 5,
+        "smk": 2
+      },
+      "population": {
+        "total": 47494,
+        "male": 24806,
+        "female": 22688
+      }
+    },
+    "92.08": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 98,
+        "smp": 19,
+        "sma": 8,
+        "smk": 5
+      },
+      "population": {
+        "total": 64938,
+        "male": 33311,
+        "female": 31627
+      }
+    },
+    "92.11": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 43,
+        "smp": 14,
+        "sma": 7,
+        "smk": 2
+      },
+      "population": {
+        "total": 39026,
+        "male": 19863,
+        "female": 19163
+      }
+    },
+    "92.12": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 71,
+        "smp": 16,
+        "sma": 9,
+        "smk": 2
+      },
+      "population": {
+        "total": 41383,
+        "male": 20651,
+        "female": 20732
+      }
+    },
+    "93.01": {
+      "hospitals": {
+        "total": 5,
+        "umum": 5,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 219,
+        "smp": 69,
+        "sma": 34,
+        "smk": 16
+      },
+      "population": {
+        "total": 255168,
+        "male": 132601,
+        "female": 122567
+      }
+    },
+    "93.02": {
+      "hospitals": {
+        "total": 2,
+        "umum": 2,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 110,
+        "smp": 22,
+        "sma": 8,
+        "smk": 5
+      },
+      "population": {
+        "total": 71997,
+        "male": 38130,
+        "female": 33867
+      }
+    },
+    "93.03": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 172,
+        "smp": 35,
+        "sma": 10,
+        "smk": 5
+      },
+      "population": {
+        "total": 114153,
+        "male": 58942,
+        "female": 55211
+      }
+    },
+    "93.04": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 142,
+        "smp": 27,
+        "sma": 8,
+        "smk": 1
+      },
+      "population": {
+        "total": 120902,
+        "male": 62879,
+        "female": 58023
+      }
+    },
+    "94.01": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 136,
+        "smp": 60,
+        "sma": 27,
+        "smk": 20
+      },
+      "population": {
+        "total": 179174,
+        "male": 93211,
+        "female": 85963
+      }
+    },
+    "94.02": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 34,
+        "smp": 7,
+        "sma": 3,
+        "smk": 2
+      },
+      "population": {
+        "total": 220393,
+        "male": 117954,
+        "female": 102439
+      }
+    },
+    "94.03": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 86,
+        "smp": 19,
+        "sma": 6,
+        "smk": 4
+      },
+      "population": {
+        "total": 125763,
+        "male": 69021,
+        "female": 56742
+      }
+    },
+    "94.04": {
+      "hospitals": {
+        "total": 7,
+        "umum": 7,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 148,
+        "smp": 67,
+        "sma": 27,
+        "smk": 24
+      },
+      "population": {
+        "total": 318679,
+        "male": 167756,
+        "female": 150923
+      }
+    },
+    "94.05": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 36,
+        "smp": 10,
+        "sma": 5,
+        "smk": 1
+      },
+      "population": {
+        "total": 178072,
+        "male": 93973,
+        "female": 84099
+      }
+    },
+    "94.06": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 67,
+        "smp": 14,
+        "sma": 3,
+        "smk": 2
+      },
+      "population": {
+        "total": 116706,
+        "male": 60839,
+        "female": 55867
+      }
+    },
+    "94.07": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 39,
+        "smp": 8,
+        "sma": 1,
+        "smk": 0
+      },
+      "population": {
+        "total": 137696,
+        "male": 71863,
+        "female": 65833
+      }
+    },
+    "94.08": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 57,
+        "smp": 13,
+        "sma": 6,
+        "smk": 3
+      },
+      "population": {
+        "total": 92629,
+        "male": 48894,
+        "female": 43735
+      }
+    },
+    "95.01": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 139,
+        "smp": 52,
+        "sma": 22,
+        "smk": 13
+      },
+      "population": {
+        "total": 276288,
+        "male": 142968,
+        "female": 133320
+      }
+    },
+    "95.02": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 101,
+        "smp": 29,
+        "sma": 14,
+        "smk": 2
+      },
+      "population": {
+        "total": 114581,
+        "male": 61112,
+        "female": 53469
+      }
+    },
+    "95.03": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 186,
+        "smp": 53,
+        "sma": 14,
+        "smk": 4
+      },
+      "population": {
+        "total": 356021,
+        "male": 192939,
+        "female": 163082
+      }
+    },
+    "95.04": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 79,
+        "smp": 27,
+        "sma": 6,
+        "smk": 1
+      },
+      "population": {
+        "total": 252031,
+        "male": 136195,
+        "female": 115836
+      }
+    },
+    "95.05": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 35,
+        "smp": 9,
+        "sma": 5,
+        "smk": 0
+      },
+      "population": {
+        "total": 50128,
+        "male": 26375,
+        "female": 23753
+      }
+    },
+    "95.06": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 55,
+        "smp": 23,
+        "sma": 9,
+        "smk": 2
+      },
+      "population": {
+        "total": 105374,
+        "male": 55886,
+        "female": 49488
+      }
+    },
+    "95.07": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 76,
+        "smp": 30,
+        "sma": 17,
+        "smk": 2
+      },
+      "population": {
+        "total": 203922,
+        "male": 110979,
+        "female": 92943
+      }
+    },
+    "95.08": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 32,
+        "smp": 9,
+        "sma": 4,
+        "smk": 1
+      },
+      "population": {
+        "total": 112173,
+        "male": 60280,
+        "female": 51893
+      }
+    },
+    "96.01": {
+      "hospitals": null,
+      "schools": {
+        "sd": 149,
+        "smp": 63,
+        "sma": 28,
+        "smk": 9
+      },
+      "population": {
+        "total": 129669,
+        "male": 67118,
+        "female": 62551
+      }
+    },
+    "96.02": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 111,
+        "smp": 38,
+        "sma": 14,
+        "smk": 5
+      },
+      "population": {
+        "total": 56979,
+        "male": 29200,
+        "female": 27779
+      }
+    },
+    "96.03": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 116,
+        "smp": 45,
+        "sma": 18,
+        "smk": 6
+      },
+      "population": {
+        "total": 72865,
+        "male": 37942,
+        "female": 34923
+      }
+    },
+    "96.04": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 61,
+        "smp": 18,
+        "sma": 5,
+        "smk": 5
+      },
+      "population": {
+        "total": 31041,
+        "male": 16122,
+        "female": 14919
+      }
+    },
+    "96.05": {
+      "hospitals": {
+        "total": 1,
+        "umum": 1,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 67,
+        "smp": 13,
+        "sma": 4,
+        "smk": 1
+      },
+      "population": {
+        "total": 46604,
+        "male": 23387,
+        "female": 23217
+      }
+    },
+    "96.71": {
+      "hospitals": {
+        "total": 7,
+        "umum": 7,
+        "ibu_anak": 0,
+        "khusus": 0
+      },
+      "schools": {
+        "sd": 96,
+        "smp": 49,
+        "sma": 30,
+        "smk": 14
+      },
+      "population": {
+        "total": 286028,
+        "male": 150236,
+        "female": 135792
+      }
+    }
+  },
+  "population": {
+    "source": {
+      "publisher": "Ditjen Dukcapil, Kementerian Dalam Negeri",
+      "title": "Data Kependudukan Semester II Tahun 2024 (31 Desember 2024)",
+      "url": "https://github.com/cahyadsn/wilayah/blob/master/db/wilayah_penduduk.sql",
+      "sha256": "b0b6b9dc70fa6a4fdb9e05bf00ec549ed8f6cf0bb82f6407281dfac674b10447",
+      "retrieved_at": "2026-10-18T07:57:30.160630+00:00"
+    },
+    "as_of": "2024-12-31",
+    "national_total": 284973643,
+    "note": "Jumlah jiwa pada Data Konsolidasi Bersih Ditjen Dukcapil per 31 Desember 2024. Ini catatan administrasi kependudukan, bukan hasil Sensus atau proyeksi BPS. BPS menerbitkan penduduk kabupaten/kota sebagai tabel terpisah tiap provinsi, dan katalog data.go.id tidak menyediakan berkas unduhan. Angka di sini berasal dari satu tabel nasional berkode wilayah (cahyadsn/wilayah, berkas db/wilayah_penduduk.sql). Jumlah nasionalnya 284.973.643 jiwa, sama dengan rilis Dukcapil untuk semester itu. Kabupaten atau kota yang tidak ada di tabel dikosongkan, tidak diisi nol."
+  }
+}
