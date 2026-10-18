@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { QueryClientProvider, useQuery } from '@tanstack/react-query';
 import type { QueryClient } from '@tanstack/react-query';
 
@@ -14,15 +15,13 @@ export interface CoverageStatsProps {
   queryClient?: QueryClient;
 }
 
-function Figure({ value, label }: { value: string; label: string }) {
+function Figure({ value, label }: { value: string; label: ReactNode }) {
   return (
-    <div className="flex min-w-0 flex-col items-center justify-center px-2 py-3 text-center sm:px-3 sm:py-1">
-      <dd className="order-1 whitespace-nowrap text-2xl leading-none font-semibold tracking-tight tabular-nums sm:text-3xl">
+    <div className="flex min-w-0 flex-col justify-center rounded-2xl bg-background px-3 py-4 text-center">
+      <dd className="text-2xl leading-none font-semibold tracking-tight whitespace-nowrap tabular-nums sm:text-3xl">
         {value}
       </dd>
-      <dt className="order-2 mt-1 min-h-8 text-xs leading-tight text-muted-foreground sm:text-sm">
-        {label}
-      </dt>
+      <dt className="mt-2 text-xs leading-snug text-muted-foreground sm:text-sm">{label}</dt>
     </div>
   );
 }
@@ -43,19 +42,22 @@ function Stats({ provinces, regions, client }: Required<Omit<CoverageStatsProps,
 
   return (
     <div>
-      <dl className="grid grid-cols-2 divide-x divide-y divide-border sm:grid-cols-4 sm:divide-y-0">
+      <dl className="grid grid-cols-2 gap-2 sm:grid-cols-4">
         <Figure value={formatCount(live?.coverage.provinces ?? provinces)} label="provinsi" />
         <Figure value={formatCount(live?.coverage.regions ?? regions)} label="kabupaten/kota" />
         <Figure
           value={live === undefined ? '—' : formatCount(live.coverage.regions_with_budget)}
-          label="daerah dengan data APBD"
+          label={
+            <>
+              daerah dengan
+              <br />
+              data APBD
+            </>
+          }
         />
         <Figure value={yearRange} label="tahun anggaran" />
       </dl>
-      <p
-        className="mt-2 border-t border-border pt-2 text-xs text-muted-foreground"
-        aria-live="polite"
-      >
+      <p className="mt-3 text-xs text-muted-foreground" aria-live="polite">
         {live?.published_at
           ? `Diperbarui ${formatDate(live.published_at)}.`
           : status.isError

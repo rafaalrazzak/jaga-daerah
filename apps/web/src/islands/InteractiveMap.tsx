@@ -318,54 +318,62 @@ function MapContent({
 
   return (
     <div className="space-y-5">
-      <div className="flex flex-wrap items-end gap-3 rounded-xl bg-background p-3 sm:p-4">
-        {layer === 'realisasi' ? (
-          <div>
-            <label htmlFor={yearId} className="mb-1 block text-sm font-semibold">
-              Tahun
+      <div className="space-y-3 rounded-xl bg-background p-3 sm:p-4">
+        <div
+          className={`grid grid-cols-1 gap-3 ${layer === 'realisasi' ? 'sm:grid-cols-2' : 'sm:max-w-sm'}`}
+        >
+          {layer === 'realisasi' ? (
+            <div className="min-w-0">
+              <label htmlFor={yearId} className="mb-1 block text-sm font-semibold">
+                Tahun
+              </label>
+              <select
+                id={yearId}
+                value={data.year}
+                onChange={(event) => setYear(Number(event.target.value))}
+                className="min-h-11 w-full rounded-lg border border-input bg-card px-3 font-semibold"
+              >
+                {data.available_years.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
+            </div>
+          ) : null}
+          <div className="min-w-0">
+            <label htmlFor={provinceId} className="mb-1 block text-sm font-semibold">
+              Wilayah
             </label>
             <select
-              id={yearId}
-              value={data.year}
-              onChange={(event) => setYear(Number(event.target.value))}
-              className="min-h-11 rounded-lg border border-input bg-card px-3 font-semibold"
+              id={provinceId}
+              value={provinceCode}
+              onChange={(event) => chooseProvince(event.target.value)}
+              className="min-h-11 w-full rounded-lg border border-input bg-card px-3 font-semibold"
             >
-              {data.available_years.map((option) => (
-                <option key={option} value={option}>
-                  {option}
+              <option value={NATIONAL}>Seluruh Indonesia</option>
+              {PROVINCES.map((province) => (
+                <option key={province.code} value={province.code}>
+                  {province.name}
                 </option>
               ))}
             </select>
           </div>
-        ) : null}
-        <div className="min-w-0 flex-1 sm:flex-none">
-          <label htmlFor={provinceId} className="mb-1 block text-sm font-semibold">
-            Wilayah
-          </label>
-          <select
-            id={provinceId}
-            value={provinceCode}
-            onChange={(event) => chooseProvince(event.target.value)}
-            className="min-h-11 w-full rounded-lg border border-input bg-card px-3 font-semibold sm:w-72"
-          >
-            <option value={NATIONAL}>Seluruh Indonesia</option>
-            {PROVINCES.map((province) => (
-              <option key={province.code} value={province.code}>
-                {province.name}
-              </option>
-            ))}
-          </select>
         </div>
-        {provinceCode === NATIONAL ? null : (
-          <Button variant="ghost" className="min-h-11" onPress={() => chooseProvince(NATIONAL)}>
-            ← Seluruh Indonesia
-          </Button>
+        {provinceCode === NATIONAL && !realization.isFetching ? null : (
+          <div className="flex flex-wrap items-center gap-3">
+            {provinceCode === NATIONAL ? null : (
+              <Button variant="ghost" className="min-h-11" onPress={() => chooseProvince(NATIONAL)}>
+                ← Seluruh Indonesia
+              </Button>
+            )}
+            {realization.isFetching ? (
+              <span className="text-sm text-muted-foreground" role="status">
+                Memperbarui data…
+              </span>
+            ) : null}
+          </div>
         )}
-        {realization.isFetching ? (
-          <span className="pb-3 text-sm text-muted-foreground" role="status">
-            Memperbarui data…
-          </span>
-        ) : null}
       </div>
 
       <div role="radiogroup" aria-label="Data pada peta" className="flex flex-wrap gap-2">
