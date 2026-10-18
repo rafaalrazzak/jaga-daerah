@@ -813,7 +813,8 @@ test.describe('region profile accessibility without JavaScript', () => {
         .toBeGreaterThan(80);
 
       // The JavaScript-dependent modules say what they need instead of rendering nothing.
-      expect(await page.locator('noscript').last().textContent()).toContain('Aktifkan JavaScript');
+      const notes = await page.locator('noscript').allTextContents();
+      expect(notes.some((note) => note.includes('dimuat dengan JavaScript'))).toBe(true);
     });
   }
 });

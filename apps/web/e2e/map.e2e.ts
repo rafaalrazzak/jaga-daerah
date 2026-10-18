@@ -63,16 +63,19 @@ test.describe('realisation map', () => {
 
     await expect(page.locator('[data-code="63.03"]')).toHaveAttribute('data-class', 'above');
     await expect(page.locator('[data-code="32.04"]')).toHaveAttribute('data-class', 'none');
-    await expect(page.getByText('daerah dengan data APBD')).toBeVisible();
+    await expect(page.locator('#cakupan-data')).toContainText(/daerah dengan\s*data APBD/);
     await expect(page.getByText('508', { exact: true })).toBeVisible();
   });
 
-  test('opens a profile from the map', async ({ page, isMobile }) => {
-    test.skip(isMobile, 'Touch flow covered by the component test');
+  test('opens a profile from the map', async ({ page }) => {
     await openMap(page);
     await page.getByLabel('Wilayah', { exact: true }).selectOption('63');
 
-    await page.locator('[data-code="63.03"]').click({ force: true });
+    // The region hooks are visually hidden; the painted map is the canvas. A pointer click
+    // cannot reach a clipped node, so activate the same click handler the canvas uses.
+    await page.locator('[data-code="63.03"]').evaluate((element) => {
+      element.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    });
 
     await expect(page).toHaveURL(/\/daerah\/kabupaten-banjar$/);
   });
@@ -81,6 +84,17 @@ test.describe('realisation map', () => {
     await openMap(page);
     const map = page.getByRole('region', { name: /Peta realisasi belanja/ });
     await expect(map).toHaveAttribute('data-map-status', /live|fallback/);
+    // Status flips to live before the first fitBounds settles, so wait until zoom stops moving.
+    let previousZoom = '';
+    let stableReads = 0;
+    await expect
+      .poll(async () => {
+        const zoom = (await map.getAttribute('data-zoom')) ?? '';
+        stableReads = zoom === previousZoom ? stableReads + 1 : 0;
+        previousZoom = zoom;
+        return stableReads >= 2 ? zoom : '';
+      })
+      .not.toBe('');
     const initialZoom = await map.getAttribute('data-zoom');
 
     await page.getByRole('button', { name: 'Perbesar peta' }).click();

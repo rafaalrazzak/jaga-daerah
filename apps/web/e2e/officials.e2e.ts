@@ -379,11 +379,14 @@ test.describe('current officials section', () => {
 
     const controls = pilkada.locator('button[data-copy], a[href^="https://elhkpn"], summary');
     const heights = await controls.evaluateAll((elements) =>
-      elements.map((element) => ({
-        tag: element.tagName.toLowerCase(),
-        label: (element.textContent ?? '').replace(/\s+/g, ' ').trim().slice(0, 40),
-        height: Math.round(element.getBoundingClientRect().height),
-      })),
+      elements
+        // Governor pairs sit in a closed disclosure, so they are not touch targets yet.
+        .filter((element) => element.getClientRects().length > 0)
+        .map((element) => ({
+          tag: element.tagName.toLowerCase(),
+          label: (element.textContent ?? '').replace(/\s+/g, ' ').trim().slice(0, 40),
+          height: Math.round(element.getBoundingClientRect().height),
+        })),
     );
     // The section renders multiple pairs, each with a copy button, a link and a vision summary.
     expect(heights.length).toBeGreaterThanOrEqual(6);

@@ -1,4 +1,4 @@
-import { existsSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { mkdtemp, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
@@ -62,10 +62,19 @@ function run(command: string[]): void {
 
 // The server inherits pg_ctl's stdio; piping it would keep spawnSync waiting for EOF forever.
 // Diagnostics go to the cluster's server.log instead.
+function serverLog(logPath: string): string {
+  if (!existsSync(logPath)) {
+    return '';
+  }
+  return readFileSync(logPath, 'utf8');
+}
+
 function runDetached(command: string[], logPath: string): void {
   const result = Bun.spawnSync(command, { stdout: 'ignore', stderr: 'ignore' });
   if (result.exitCode !== 0) {
-    throw new Error(`${command[0]} failed with exit code ${result.exitCode}; see ${logPath}`);
+    throw new Error(
+      `${command[0]} failed with exit code ${result.exitCode}\n${serverLog(logPath)}`,
+    );
   }
 }
 

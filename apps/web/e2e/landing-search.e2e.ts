@@ -155,16 +155,16 @@ test.describe('without JavaScript', () => {
     await page.goto('/');
 
     await expect(page.getByRole('heading', { level: 1 })).toHaveText(
-      'Kenali daerahmu lebih dekat.',
+      'Lebih tahu tentang daerahmu.',
     );
     // Playwright text locators skip <noscript>; assert its markup directly.
     expect(await page.locator('noscript').first().textContent()).toContain(
-      'Pencarian membutuhkan JavaScript',
+      'Pencarian memerlukan JavaScript',
     );
     // The hero callout links to the same region, so scope to the static shortcut list.
     await page
       .getByRole('navigation', { name: 'Contoh daerah' })
-      .getByRole('link', { name: 'Kota Bandung', exact: true })
+      .getByRole('link', { name: 'Bandung', exact: true })
       .click();
     await expect(page).toHaveURL(/\/daerah\/kota-bandung$/);
   });

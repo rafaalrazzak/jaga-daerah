@@ -191,7 +191,7 @@ test.describe('region profile', () => {
     await select.selectOption('2024');
 
     await expect(page).toHaveURL(/tahun=2024/);
-    await expect(page.getByText('APBD 2024 · tingkat kabupaten/kota')).toBeVisible();
+    await expect(page.getByText('APBD 2024 · tingkat kabupaten/kota').first()).toBeVisible();
   });
 
   test('has no automatically detectable WCAG 2.1 A/AA violations and no horizontal scroll', async ({
@@ -218,24 +218,25 @@ test.describe('region profile', () => {
   });
 
   test('explains a failure and recovers on retry', async ({ page }) => {
-    let calls = 0;
-    await page.route(`${API}/daerah/kota-bandung**`, (route) => {
-      calls += 1;
-      return calls === 1
-        ? fulfill(route, 500, {
+    let recover = false;
+    await page.route(`${API}/daerah/kota-bandung**`, (route) =>
+      recover
+        ? fulfill(route, 200, profileBody('kota-bandung', 'Kota Bandung', 2025, COMPLETE_BUDGET))
+        : fulfill(route, 500, {
             error: {
               code: 'INTERNAL_ERROR',
               message: 'Terjadi kesalahan pada server.',
               details: null,
               request_id: 'e2e-500',
             },
-          })
-        : fulfill(route, 200, profileBody('kota-bandung', 'Kota Bandung', 2025, COMPLETE_BUDGET));
-    });
+          }),
+    );
     await page.goto('/daerah/kota-bandung');
 
-    await expect(page.getByText('e2e-500')).toBeVisible();
-    await page.getByRole('button', { name: 'Coba lagi' }).click();
+    const finance = page.locator('section').filter({ has: page.locator('#kelompok-keuangan') });
+    await expect(finance.getByText('e2e-500')).toBeVisible();
+    recover = true;
+    await finance.getByRole('button', { name: 'Coba lagi' }).click();
     await expect(page.getByText(/Rp89,8 ribu/)).toBeVisible();
   });
 });
@@ -250,6 +251,7 @@ test.describe('region profile without JavaScript', () => {
     // Both the breadcrumb list item and the page subtitle read "Provinsi Jawa Barat"; assert the
     // subtitle paragraph itself.
     await expect(page.locator('p').filter({ hasText: /^Provinsi Jawa Barat$/ })).toBeVisible();
-    expect(await page.locator('noscript').last().textContent()).toContain('Aktifkan JavaScript');
+    const notes = await page.locator('noscript').allTextContents();
+    expect(notes.some((note) => note.includes('dimuat dengan JavaScript'))).toBe(true);
   });
 });

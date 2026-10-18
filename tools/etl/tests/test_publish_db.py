@@ -54,13 +54,16 @@ def database(tmp_path_factory: pytest.TempPathFactory) -> Iterator[dict[str, str
         check=True,
         capture_output=True,
     )
-    subprocess.run(
+    started = subprocess.run(
         [str(bin_directory / "pg_ctl"), "start", "-D", str(data), "-w", "-l", str(data / "server.log"),
          "-o", f"-p {port} -c listen_addresses=127.0.0.1 -c fsync=off"],
-        check=True,
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
     )
+    if started.returncode != 0:
+        log_path = data / "server.log"
+        log = log_path.read_text(encoding="utf-8", errors="replace") if log_path.exists() else ""
+        raise RuntimeError(f"pg_ctl start failed with exit code {started.returncode}\n{log}")
     def url(role: str) -> str:
         return f"postgresql://{role}:unused@127.0.0.1:{port}/jaga_daerah"
 

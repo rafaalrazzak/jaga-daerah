@@ -203,7 +203,16 @@ export function CartoRegionMap({
           attributionControl: false,
         });
         mapRef.current = map;
-        map.getCanvas().setAttribute('aria-hidden', 'true');
+        // MapLibre's canvas is focusable. The region wrapper is the keyboard target, so the
+        // canvas stays out of the tab order; otherwise axe reports aria-hidden-focus.
+        const concealCanvas = () => {
+          const canvas = map?.getCanvas();
+          if (canvas == null) return;
+          canvas.setAttribute('aria-hidden', 'true');
+          canvas.tabIndex = -1;
+        };
+        concealCanvas();
+        map.on('load', concealCanvas);
         map.on('error', () => undefined);
         map.on('moveend', () => {
           if (map === null) return;

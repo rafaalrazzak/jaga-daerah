@@ -22,7 +22,7 @@
     "test": "bun test --path-ignore-patterns='test/{integration,db}/**'",
     "test:db": "bun test ./test/db",
     "test:integration": "bun test ./test/integration",
-    "typecheck": "wrangler types --check && tsc --project tsconfig.json --noEmit && tsc --project tsconfig.test.json --noEmit"
+    "typecheck": "wrangler types --env-file worker-bindings.env --check && tsc --project tsconfig.json --noEmit && tsc --project tsconfig.test.json --noEmit"
   },
   "dependencies": {
     "@elysiajs/cors": "1.4.2",

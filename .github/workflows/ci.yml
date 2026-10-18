@@ -83,6 +83,14 @@ jobs:
             sudo apt-get install --yes postgresql libpq-dev
             bin_dir="$(pg_config --bindir)"
           fi
+          # Ubuntu 24.04 confines the packaged postgres binary to the system data
+          # directory, so a throwaway cluster under /tmp exits before it can listen.
+          if [ -d /etc/apparmor.d ]; then
+            for profile in /etc/apparmor.d/usr.lib.postgresql.*.bin.postgres; do
+              [ -f "$profile" ] || continue
+              sudo apparmor_parser -R "$profile" || true
+            done
+          fi
           echo "POSTGRES_BIN_DIR=$bin_dir" >> "$GITHUB_ENV"
       - name: ${{ matrix.name }}
         run: ${{ matrix.command }}
@@ -118,6 +126,14 @@ jobs:
             sudo apt-get update
             sudo apt-get install --yes postgresql libpq-dev
             bin_dir="$(pg_config --bindir)"
+          fi
+          # Ubuntu 24.04 confines the packaged postgres binary to the system data
+          # directory, so a throwaway cluster under /tmp exits before it can listen.
+          if [ -d /etc/apparmor.d ]; then
+            for profile in /etc/apparmor.d/usr.lib.postgresql.*.bin.postgres; do
+              [ -f "$profile" ] || continue
+              sudo apparmor_parser -R "$profile" || true
+            done
           fi
           echo "POSTGRES_BIN_DIR=$bin_dir" >> "$GITHUB_ENV"
       - name: ETL tests
