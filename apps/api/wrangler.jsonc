@@ -14,6 +14,10 @@
   // Hyperdrive id is not sent to Cloudflare.
   "env": {
     "local": {
+      // Named environments do not inherit top-level vars.
+      "vars": {
+        "CORS_ALLOWED_ORIGINS": "http://localhost:4321,https://jaga-daerah.pages.dev",
+      },
       "hyperdrive": [
         {
           "binding": "HYPERDRIVE",
