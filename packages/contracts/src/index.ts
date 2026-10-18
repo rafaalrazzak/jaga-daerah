@@ -119,6 +119,8 @@ export type { RevenueFile, RevenueLine } from './revenue';
 export { HospitalCountSchema, LocalServicesFileSchema, SchoolCountSchema } from './local-services';
 export { WelfareFileSchema } from './welfare';
 export type { WelfareFile } from './welfare';
+export { SanitationFileSchema } from './sanitation';
+export type { SanitationFile } from './sanitation';
 export type { HospitalCount, LocalServicesFile, SchoolCount } from './local-services';
 export {
   NatureAreaSchema,

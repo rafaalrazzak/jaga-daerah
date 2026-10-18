@@ -1,5 +1,6 @@
 import { ELECTRIFICATION_NATIONAL, ELECTRIFICATION_SOURCE } from '@/lib/map-layers';
 import { LOCAL_SERVICES } from '@/lib/local-services';
+import { SANITATION } from '@/lib/sanitation';
 import { WELFARE } from '@/lib/welfare';
 
 export interface CatalogLink {
@@ -94,6 +95,15 @@ export const SOURCE_CATALOG: CatalogGroup[] = [
         caveat:
           'Indeks pembangunan manusia dan pengeluaran riil per kapita yang disesuaikan. Pengeluaran riil bukan upah.',
         links: [{ label: 'Buku BPS', href: WELFARE.development.source.url }],
+      },
+      {
+        id: 'sanitasi',
+        publisher: SANITATION.source.publisher,
+        title: SANITATION.source.title,
+        period: 'Susenas KOR 2025',
+        caveat:
+          'Persentase rumah tangga dengan jamban leher angsa sendiri atau bersama dan tangki septik atau pengolahan air limbah, dari Susenas KOR. Bukan status desa stop buang air besar sembarangan, dan bukan sanitasi aman. Kabupaten Puncak tidak punya angka 2025; kosong bukan nol. Nama BPS dicocokkan ke kode Kemendagri. Mamuju Utara dibaca sebagai Pasangkayu.',
+        links: [{ label: 'Tabel BPS', href: SANITATION.source.url }],
       },
     ],
   },

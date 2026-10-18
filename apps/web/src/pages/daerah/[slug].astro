@@ -6,6 +6,7 @@ import AuditOpinionSection from '@/components/profile/AuditOpinionSection.astro'
 import CurrentOfficials from '@/components/profile/CurrentOfficials.astro';
 import LandCoverSection from '@/components/profile/LandCoverSection.astro';
 import LocalServicesSection from '@/components/profile/LocalServicesSection.astro';
+import SanitationSection from '@/components/profile/SanitationSection.astro';
 import WelfareSection from '@/components/profile/WelfareSection.astro';
 import NatureConditions from '@/components/profile/NatureConditions.astro';
 import OfficialWealth from '@/components/profile/OfficialWealth.astro';
@@ -76,10 +77,11 @@ const GROUPS = [
   {
     id: 'kelompok-layanan',
     label: 'Layanan',
-    lead: 'Penduduk, fasilitas, dan taraf hidup.',
+    lead: 'Penduduk, fasilitas, taraf hidup, dan sanitasi.',
     sections: [
       ['#modul-layanan', 'Penduduk dan fasilitas'],
       ['#modul-kesejahteraan', 'Kemiskinan dan penghidupan'],
+      ['#modul-sanitasi', 'Sanitasi layak'],
       ['#modul-persebaran', 'Persebaran'],
     ],
   },
@@ -243,6 +245,7 @@ const GROUPS = [
       <ProfileGroup id="kelompok-layanan" title="Layanan" lead={GROUPS[2].lead}>
         <LocalServicesSection regionCode={region.code} regionName={region.name} />
         <WelfareSection regionCode={region.code} regionName={region.name} />
+        <SanitationSection regionCode={region.code} regionName={region.name} />
         <ProvinceSpreadSection
           regionCode={region.code}
           regionName={region.name}

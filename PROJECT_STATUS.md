@@ -45,6 +45,8 @@ Not a milestone close. Profile pages now also show:
 
 - Population is the Dukcapil administrative count for 31 December 2024 (`local-services.json`), 514 kabupaten/kota, national total 284.973.643. Not a BPS census figure. Province rows in the source add up to that total, and three kabupaten/kota books that cite the same release match (Dairi, Gresik, Cimahi).
 - Welfare (`welfare.json`) is the latest BPS kabupaten/kota books: poverty from Susenas March 2025 (514 regions), HDI 2025 (514), and 2025 per-capita GRDP at current prices (488). The 2025 GRDP figure is preliminary. Papua Selatan, Papua Tengah, Papua Pegunungan, and Papua Barat Daya have no readable 2025 column, so those cells stay empty. Per-capita GRDP is regional output per person, not a wage.
+- Proper sanitation (`sanitation.json`) is BPS table 6.2.1*, Susenas KOR 2025: 513 kabupaten/kota with a household percent. Kabupaten Puncak is the one blank cell and stays off the file. BPS still prints Mamuju Utara; that row is Kabupaten Pasangkayu (PP No. 61/2017). BPS codes are not used. It is not safely managed sanitation and not an ODF or village figure.
+- Decent sanitation (`sanitation.json`) is BPS SDG indicator 6.2.1* for 2025: the share of households with their own or shared goose-neck toilet and a septic tank or sewer, from Susenas KOR. 513 kabupaten/kota. Kabupaten Puncak is listed with a blank 2025 cell, so it stays empty rather than zero. BPS codes are not copied; names are matched, and Mamuju Utara is read as Pasangkayu (PP 61/2017). This is not an ODF flag and not safely managed sanitation.
 
 Not published, because there is no single national kabupaten/kota file: mangrove/sawah/permukiman splits, belanja per program/dinas, and a kabupaten/kota electrification ratio.
 

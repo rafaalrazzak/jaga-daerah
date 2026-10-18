@@ -1,6 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 
 import { LOCAL_SERVICES } from './local-services';
+import { SANITATION } from './sanitation';
 import { SOURCE_CATALOG } from './source-catalog';
 import { WELFARE } from './welfare';
 
@@ -35,6 +36,8 @@ describe('source catalog', () => {
     expect(source('pdrb').links[0]?.href).toBe(WELFARE.output.source.url);
     expect(source('ipm').links[0]?.href).toBe(WELFARE.development.source.url);
     expect(source('pdrb').caveat).toContain('bukan gaji');
+    expect(source('sanitasi').links[0]?.href).toBe(SANITATION.source.url);
+    expect(source('sanitasi').caveat).toContain('bukan sanitasi aman');
   });
 
   test('finance and opinion links are the ones stored with those files', async () => {

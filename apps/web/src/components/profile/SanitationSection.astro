@@ -1,0 +1,39 @@
+---
+import ExternalLink from '@/components/ui/ExternalLink.astro';
+import Section from '@/components/ui/Section.astro';
+import { SANITATION } from '@/lib/sanitation';
+
+interface Props {
+  regionCode: string;
+  regionName: string;
+}
+
+const { regionCode, regionName } = Astro.props;
+const raw = SANITATION.regions[regionCode]?.percent ?? null;
+const shown = raw === null ? null : raw.replace('.', ',');
+---
+
+<Section id="modul-sanitasi" title="Sanitasi layak" meta="kabupaten/kota · 2025">
+  <article class="rounded-2xl border border-border bg-card p-5 sm:p-6">
+    <h3 class="text-lg font-semibold">Rumah tangga dengan jamban layak</h3>
+    {shown === null ? (
+      <p class="mt-4">
+        Data belum tersedia untuk {regionName}. Tabel BPS tidak memuat angka 2025 untuk daerah ini.
+      </p>
+    ) : (
+      <p class="mt-4 font-extrabold text-3xl tracking-tight tabular-nums">
+        {shown}
+        <span class="ml-1 font-semibold text-base text-muted-foreground">%</span>
+      </p>
+    )}
+    <p class="mt-4 max-w-3xl text-sm text-muted-foreground">
+      Bagian rumah tangga yang punya jamban leher angsa sendiri atau bersama, dan tinjanya masuk
+      tangki septik atau saluran pengolahan. Susenas KOR 2025. Bukan status desa bebas buang air
+      besar sembarangan, dan bukan sanitasi aman.
+    </p>
+  </article>
+  <p slot="source" class="text-sm text-muted-foreground">
+    <ExternalLink href={SANITATION.source.url}>Tabel BPS 6.2.1*</ExternalLink>. Kosong berarti tabel
+    tidak memuat angkanya, bukan nol.
+  </p>
+</Section>

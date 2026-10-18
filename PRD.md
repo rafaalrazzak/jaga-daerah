@@ -180,6 +180,7 @@ Home (Landing Page)
 - **Pendapatan daerah**: realisasi 2024 menurut jenis (pajak, retribusi, hasil kekayaan, PAD lain, transfer, hibah, dan lain-lain). Labelnya kas daerah, bukan penghasilan warga.
 - **Penduduk, rumah sakit, dan sekolah**: jumlah jiwa pada Data Konsolidasi Bersih Ditjen Dukcapil per 31 Desember 2024 (bukan Sensus BPS), plus jumlah fasilitas rumah sakit serta jumlah SD, SMP, SMA, dan SMK.
 - **Kemiskinan dan penghidupan**: persentase dan jumlah penduduk miskin Susenas Maret 2025, garis kemiskinan, PDRB per kapita 2025 (hasil ekonomi per orang, bukan gaji), dan Indeks Pembangunan Manusia 2025 beserta pengeluaran riil per kapita yang disesuaikan.
+- **Sanitasi layak**: persentase rumah tangga kabupaten/kota tahun 2025 (BPS, indikator 6.2.1*, Susenas KOR). Artinya jamban leher angsa sendiri atau bersama dengan tangki septik atau pengolahan air limbah. Bukan status desa bebas buang air besar sembarangan, dan bukan sanitasi aman. Sel kosong bukan nol.
 - **Tutupan lahan**: empat kelas tahun 2023 untuk provinsi induk, dengan label tingkat provinsi.
 - **Modul Bencana**:
   - Jumlah kejadian bencana tahun terakhir, per jenis, di level provinsi.
@@ -302,6 +303,12 @@ Home (Landing Page)
 - Hasil ekonomi per orang: PDRB per kapita atas dasar harga berlaku 2025 dari buku Produk Domestik Regional Bruto Kabupaten/Kota di Indonesia 2021–2025. Halaman menyebutnya hasil ekonomi daerah dibagi jumlah penduduk, bukan gaji. BPS menandai 2025 sebagai angka sangat sementara. Empat provinsi hasil pemekaran Papua tidak memuat angka 2025 yang bisa dibaca, jadi selnya kosong.
 - IPM: Lampiran 2 buku Indeks Pembangunan Manusia 2025, plus pengeluaran riil per kapita yang disesuaikan. Itu komponen IPM, bukan gaji.
 - Nama BPS dicocokkan ke kode Kemendagri di dalam provinsi yang sama. Nama yang tidak cocok satu-satu dikosongkan, tidak ditebak.
+
+### 8.11 Sanitasi layak (sumber: BPS)
+
+- Tabel statistik 6.2.1*, persentase rumah tangga menurut kabupaten/kota, tahun 2025. BPS menghitungnya dari Susenas KOR.
+- Definisi pada tabel: jamban leher angsa milik sendiri atau bersama, dan pembuangan akhir tinja berupa tangki septik atau sistem pengolahan air limbah. Halaman menyebut itu sanitasi layak, bukan sanitasi aman dan bukan status desa stop buang air besar sembarangan.
+- Kode BPS tidak disalin menjadi kode Kemendagri. Nama dicocokkan. Mamuju Utara dibaca sebagai Kabupaten Pasangkayu (PP Nomor 61 Tahun 2017). Sel tanpa angka, termasuk Kabupaten Puncak pada tabel 29 Agustus 2026, dikosongkan dan tidak diisi nol.
 
 ## 9. Alur Pengolahan Data (ETL)
 

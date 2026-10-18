@@ -125,6 +125,10 @@ uv run python -m jaga_etl.places build \
 uv run python -m jaga_etl.opinions build \
   --csv data/raw/bpk-opini.csv \
   --output ../../apps/web/src/data/audit-opinions.json
+uv run python -m jaga_etl.sanitation fetch --snapshot-root data/raw
+uv run python -m jaga_etl.sanitation build \
+  --page data/raw/sanitation/<id>/page.html \
+  --output ../../apps/web/src/data/sanitation.json
 ```
 
 - Fungsi: realization only. Kesehatan Tagging and Pendidikan Tagging fold into the parent function. Unmatched pemda names block the build. One missing pemda is left empty.
@@ -134,6 +138,7 @@ uv run python -m jaga_etl.opinions build \
 - Sekolah: dikdas columns are SD then SMP; dikmen columns are SMA, SMK, then SLB. SLB is not published. The pages print no school year. "Luar Negeri" is skipped. `Adm.`, `Kep.`, and "Padang Sidempuan" are expanded to the reviewed official forms before the shared name key.
 - Penduduk and rasio elektrifikasi are not built: there is no single national kabupaten/kota file with Kemendagri codes.
 - Opini BPK: the Portal Data BPK CSV, one row per pemda, years 2016–2024. Codes `WTP`, `WDP`, `TW`, and `TMP` only. A blank year is omitted. An unknown code, a duplicate, a missing 2024 opinion, or a kabupaten/kota that is not in the Kemendagri list blocks the build. The six DKI administrative regions have no statement of their own; the page shows the Provinsi DKI Jakarta opinion and says so. The opinion is BPK's view of the financial statements, not a judgement of the official.
+- Sanitasi layak: BPS statistics table 6.2.1* (variable 2748), the 2025 kabupaten/kota column, embedded in the public page and sealed under `data/raw/sanitation/`. The figure is the Susenas KOR share of households with their own or shared goose-neck toilet and a septic tank or sewer. It is not an ODF status and not safely managed sanitation. BPS codes are ignored; the printed name is matched to Kemendagri, with Mamuju Utara read as Pasangkayu (PP 61/2017). A blank cell is omitted, not stored as zero. An unmatched name or a Kemendagri region missing from the table blocks the build.
 
 ## Map outlines (`jaga_etl.boundaries`)
 

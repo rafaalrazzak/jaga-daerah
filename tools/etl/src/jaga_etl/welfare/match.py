@@ -22,6 +22,8 @@ SOURCE_ALIASES = {
     "kepulauan sitaro": "kep siau tagulandang biaro",
     "makasar": "makassar",
     "maluku tenggara barat": "kepulauan tanimbar",
+    # Kabupaten Mamuju Utara was renamed Kabupaten Pasangkayu; BPS still prints the old name.
+    "mamuju utara": "pasangkayu",
 }
 
 
