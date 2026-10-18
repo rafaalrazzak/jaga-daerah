@@ -50,6 +50,20 @@ export const ExpenditureTypeSchema = z.enum([
   'belanja_tidak_terduga',
 ]);
 
+// DJPK "Realisasi Belanja Daerah menurut fungsi". Nine standard functions. "Kesehatan Tagging"
+// and "Pendidikan Tagging" are folded into kesehatan and pendidikan before storage.
+export const ExpenditureFunctionSchema = z.enum([
+  'pelayanan_umum',
+  'ketertiban_dan_keamanan',
+  'ekonomi',
+  'perlindungan_lingkungan_hidup',
+  'perumahan_dan_fasilitas_umum',
+  'kesehatan',
+  'pariwisata',
+  'pendidikan',
+  'perlindungan_sosial',
+]);
+
 export const DataStatusSchema = z.enum(['complete', 'partial', 'unavailable']);
 export const MedianComparisonSchema = z.enum(['above', 'below', 'equal']);
 
@@ -139,6 +153,25 @@ export const ExpenditureBreakdownModuleSchema = z.object({
   narrative: z.array(z.string().min(1)),
 });
 
+export const ExpenditureFunctionRowSchema = z.object({
+  type: ExpenditureFunctionSchema,
+  label: z.string().min(1),
+  // NULL = the workbook has no pagu for this vintage. Realisation-only files stay NULL, never 0.
+  budget_amount: RupiahSchema.nullable(),
+  realization_amount: RupiahSchema.nullable(),
+  budget_share_percent: PercentSchema.nullable(),
+  realization_share_percent: PercentSchema.nullable(),
+});
+
+export const ExpenditureFunctionModuleSchema = z.object({
+  year: z.number().int().min(YEAR_MIN).max(YEAR_MAX),
+  status: DataStatusSchema,
+  total_budget_amount: RupiahSchema.nullable(),
+  total_realization_amount: RupiahSchema.nullable(),
+  by_function: z.array(ExpenditureFunctionRowSchema),
+  narrative: z.array(z.string().min(1)),
+});
+
 export const SourceSchema = z.object({
   publisher: z.string().min(1),
   title: z.string().min(1),
@@ -154,6 +187,7 @@ export const RegionProfileResponseSchema = successEnvelope(
     available_years: z.array(z.number().int().min(YEAR_MIN).max(YEAR_MAX)),
     budget: BudgetModuleSchema,
     expenditure_breakdown: ExpenditureBreakdownModuleSchema,
+    expenditure_by_function: ExpenditureFunctionModuleSchema,
     natural_resources: NaturalResourceModuleSchema,
     disaster: DisasterModuleSchema,
     sources: z.array(SourceSchema),
@@ -178,8 +212,11 @@ export const MetaStatusResponseSchema = successEnvelope(
 export type DisasterType = z.infer<typeof DisasterTypeSchema>;
 export type DataStatus = z.infer<typeof DataStatusSchema>;
 export type ExpenditureType = z.infer<typeof ExpenditureTypeSchema>;
+export type ExpenditureFunction = z.infer<typeof ExpenditureFunctionSchema>;
 export type ExpenditureRow = z.infer<typeof ExpenditureRowSchema>;
+export type ExpenditureFunctionRow = z.infer<typeof ExpenditureFunctionRowSchema>;
 export type ExpenditureBreakdownModule = z.infer<typeof ExpenditureBreakdownModuleSchema>;
+export type ExpenditureFunctionModule = z.infer<typeof ExpenditureFunctionModuleSchema>;
 export type NaturalResourceType = z.infer<typeof NaturalResourceTypeSchema>;
 export type NaturalResourceModule = z.infer<typeof NaturalResourceModuleSchema>;
 export type NaturalResourceRow = z.infer<typeof NaturalResourceRowSchema>;

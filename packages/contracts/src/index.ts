@@ -45,6 +45,9 @@ export {
   DisasterTypeRowSchema,
   DisasterTypeSchema,
   ExpenditureBreakdownModuleSchema,
+  ExpenditureFunctionModuleSchema,
+  ExpenditureFunctionRowSchema,
+  ExpenditureFunctionSchema,
   ExpenditureRowSchema,
   ExpenditureTypeSchema,
   MapRealizationItemSchema,
@@ -71,6 +74,9 @@ export type {
   DisasterType,
   DisasterTypeRow,
   ExpenditureBreakdownModule,
+  ExpenditureFunction,
+  ExpenditureFunctionModule,
+  ExpenditureFunctionRow,
   ExpenditureRow,
   ExpenditureType,
   MapRealization,
@@ -99,10 +105,27 @@ export type {
 export { LhkpnFileSchema, LhkpnReportSchema } from './lhkpn';
 export type { LhkpnFile, LhkpnRegion, LhkpnReport } from './lhkpn';
 export {
+  EXPENDITURE_FUNCTION_LABELS,
+  ExpenditureFunctionFileSchema,
+  buildExpenditureFunctionModule,
+} from './expenditure-functions';
+export type { ExpenditureFunctionFile, ExpenditureFunctionRecord } from './expenditure-functions';
+export { LandCoverClassSchema, LandCoverFileSchema } from './land-cover';
+export type { LandCoverClass, LandCoverFile } from './land-cover';
+export { AuditOpinionCodeSchema, AuditOpinionFileSchema } from './audit-opinions';
+export type { AuditOpinionCode, AuditOpinionFile } from './audit-opinions';
+export { RevenueFileSchema, RevenueLineSchema } from './revenue';
+export type { RevenueFile, RevenueLine } from './revenue';
+export { HospitalCountSchema, LocalServicesFileSchema, SchoolCountSchema } from './local-services';
+export { WelfareFileSchema } from './welfare';
+export type { WelfareFile } from './welfare';
+export type { HospitalCount, LocalServicesFile, SchoolCount } from './local-services';
+export {
   NatureAreaSchema,
   NatureCoverageSchema,
   NatureFileSchema,
   NatureHazardSchema,
+  NatureImpactSchema,
   NatureSourceSchema,
   RegionNatureSchema,
 } from './nature';
@@ -124,3 +147,58 @@ export {
   WeatherSourceSchema,
 } from './weather';
 export type { RegionWeather, WeatherFile, WeatherSamplePoint, WeatherSource } from './weather';
+export {
+  AirCategorySchema,
+  AirStationSchema,
+  EarthquakeSchema,
+  EarthquakesSchema,
+  ForecastSchema,
+  ForecastSlotSchema,
+  HotspotConfidenceSchema,
+  HotspotSchema,
+  HotspotsSchema,
+  IndonesianTimeZoneSchema,
+  KecamatanCodeSchema,
+  KecamatanMapSchema,
+  LiveConditionsResponseSchema,
+  NationalBriefResponseSchema,
+  NationalAirSchema,
+  NationalBriefSchema,
+  NationalEarthquakeSchema,
+  NationalWarningSchema,
+  LiveFeedStatusSchema,
+  LiveParamsSchema,
+  LivePointSchema,
+  LivePointsFileSchema,
+  LiveQuerySchema,
+  LiveSourceSchema,
+  WarningSeveritySchema,
+  WeatherWarningSchema,
+  WeatherWarningsSchema,
+} from './live';
+export type {
+  AirCategory,
+  AirStation,
+  Earthquake,
+  Earthquakes,
+  Forecast,
+  ForecastSlot,
+  Hotspot,
+  HotspotConfidence,
+  Hotspots,
+  IndonesianTimeZone,
+  KecamatanMap,
+  LiveConditions,
+  LiveConditionsResponse,
+  NationalAir,
+  NationalBrief,
+  NationalBriefResponse,
+  NationalEarthquake,
+  NationalWarning,
+  LiveFeedStatus,
+  LivePoint,
+  LiveSource,
+  WarningSeverity,
+  WeatherWarning,
+  WeatherWarnings,
+} from './live';
