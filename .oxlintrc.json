@@ -17,7 +17,9 @@
     "**/coverage/**",
     "**/node_modules/**",
     "**/.venv/**",
-    "apps/api/worker-configuration.d.ts"
+    "apps/api/worker-configuration.d.ts",
+    "apps/web/public/data/**",
+    "apps/web/public/maplibre-gl-worker.mjs"
   ],
   "rules": {
     "react/react-in-jsx-scope": "off"

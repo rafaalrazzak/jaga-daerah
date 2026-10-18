@@ -18,6 +18,8 @@ test-results/
 
 # Environment and secrets
 .env
+.dev.vars
+.dev.vars.*
 .env.*
 !.env.example
 *.pem

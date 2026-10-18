@@ -22,6 +22,8 @@
     "**/.pytest_cache/**",
     "tools/etl/data/raw/**",
     "tools/etl/data/staging/**",
-    "tools/etl/reports/**"
+    "tools/etl/reports/**",
+    "apps/web/public/data/**",
+    "apps/web/public/maplibre-gl-worker.mjs"
   ]
 }
