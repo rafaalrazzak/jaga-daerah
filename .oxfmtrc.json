@@ -1,0 +1,27 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 100,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "insertFinalNewline": true,
+  "endOfLine": "lf",
+  "astro": true,
+  "ignorePatterns": [
+    ".agents/skills/**",
+    "**/dist/**",
+    "**/.astro/**",
+    "**/.wrangler/**",
+    "**/coverage/**",
+    "**/node_modules/**",
+    "**/.venv/**",
+    ".local/**",
+    "apps/api/worker-configuration.d.ts",
+    "**/.pytest_cache/**",
+    "tools/etl/data/raw/**",
+    "tools/etl/data/staging/**",
+    "tools/etl/reports/**"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "perf": "warn"
+  },
+  "plugins": ["oxc", "typescript", "unicorn", "react"],
+  "options": {
+    "maxWarnings": 0
+  },
+  "ignorePatterns": [
+    ".agents/skills/**",
+    "**/dist/**",
+    "**/.astro/**",
+    "**/.wrangler/**",
+    "**/coverage/**",
+    "**/node_modules/**",
+    "**/.venv/**",
+    "apps/api/worker-configuration.d.ts"
+  ],
+  "rules": {
+    "react/react-in-jsx-scope": "off"
+  }
+}

@@ -1,0 +1,95 @@
+---
+// Regional head election (KPU Pilkada 2024) and LHKPN lookup. Static HTML: no data is fetched at
+// runtime and no wealth figures are copied; KPK's e-LHKPN is the only source for those numbers.
+import type { Election } from '@jaga-daerah/contracts';
+
+import ElectionPairs from '@/components/profile/ElectionPairs.astro';
+
+import { CANDIDATES } from '@/lib/candidates';
+import { formatDate } from '@/lib/format';
+
+interface Props {
+  regionCode: string;
+  regionName: string;
+  provinceCode: string;
+  provinceName: string;
+}
+
+const { regionCode, regionName, provinceCode, provinceName } = Astro.props;
+const local: Election | undefined = CANDIDATES.regions[regionCode];
+const governor: Election | undefined = CANDIDATES.provinces[provinceCode];
+const administrative = provinceCode === '31';
+const source = CANDIDATES.source;
+---
+
+<section aria-labelledby="pilkada" class="scroll-mt-24 space-y-6">
+  <div class="flex flex-wrap items-end justify-between gap-x-4 gap-y-1">
+    <h2 id="pilkada" class="text-2xl font-extrabold tracking-[-0.03em] sm:text-3xl">
+      Pasangan calon Pilkada 2024
+    </h2>
+    <p class="rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-muted-foreground">
+      KPU Info Pemilu
+    </p>
+  </div>
+
+  <div class="rounded-2xl border border-border bg-accent/60 p-5 text-sm leading-relaxed">
+    {administrative ? (
+      <p>
+        <strong>{regionName}</strong> adalah kota/kabupaten administrasi: wali kota atau bupatinya
+        diangkat oleh Gubernur DKI Jakarta, bukan dipilih lewat Pilkada. Di bawah ini pasangan calon
+        Pemilihan Gubernur {provinceName} 2024.
+      </p>
+    ) : (
+      <p>
+        Semua pasangan calon resmi yang ikut Pilkada 2024 di {regionName}, lengkap dengan partai
+        pengusung, visi, dan riwayat yang mereka nyatakan ke KPU.
+      </p>
+    )}
+    <p class="mt-2">
+      Harta kekayaan (LHKPN) diumumkan KPK. Salin nama, lalu cari di menu{' '}
+      <strong>e-Announcement</strong>
+      situs e-LHKPN. JagaDaerah tidak menyalin angka harta.
+    </p>
+  </div>
+
+  {administrative ? (
+    governor === undefined ? null : (
+      <ElectionPairs election={governor} placeName={provinceName} />
+    )
+  ) : (
+    <>
+      {local === undefined ? null : <ElectionPairs election={local} placeName={regionName} />}
+      {governor === undefined ? null : (
+        <details class="group rounded-2xl border border-border bg-card">
+          <summary class="flex min-h-11 cursor-pointer items-center justify-between gap-3 px-5 py-4 font-bold">
+            Pemilihan Gubernur {provinceName} 2024 · {governor.pairs.length} pasangan calon
+            <span aria-hidden="true" class="transition-transform group-open:rotate-180">
+              ▾
+            </span>
+          </summary>
+          <div class="border-t border-border p-5">
+            <ElectionPairs election={governor} placeName={provinceName} showTitle={false} />
+          </div>
+        </details>
+      )}
+    </>
+  )}
+
+  {local === undefined && governor === undefined ? (
+    <p class="text-muted-foreground">Data pasangan calon untuk daerah ini tidak tersedia di KPU.</p>
+  ) : null}
+
+  <p class="text-xs text-muted-foreground">
+    Sumber:{' '}
+    <a
+      href={source.url}
+      class="underline underline-offset-4"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {source.publisher}, {source.title}
+    </a>
+    , diunduh {formatDate(source.downloaded_at)}. Foto dan profil lengkap calon tersedia di situs
+    KPU.
+  </p>
+</section>

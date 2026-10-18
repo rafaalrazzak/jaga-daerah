@@ -1,0 +1,41 @@
+{
+  "name": "@jaga-daerah/api",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "imports": {
+    "#api/*": "./src/*.ts"
+  },
+  "exports": {
+    "./client": {
+      "types": "./src/client.ts",
+      "default": "./src/client.ts"
+    }
+  },
+  "scripts": {
+    "build": "wrangler deploy --dry-run --outdir dist",
+    "cf-typegen": "wrangler types",
+    "db:check": "drizzle-kit check",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "bun run scripts/migrate.ts",
+    "dev": "bun --env-file=../../.local/api.env run wrangler dev",
+    "test": "bun test --path-ignore-patterns='test/{integration,db}/**'",
+    "test:db": "bun test ./test/db",
+    "test:integration": "bun test ./test/integration",
+    "typecheck": "wrangler types --check && tsc --project tsconfig.json --noEmit && tsc --project tsconfig.test.json --noEmit"
+  },
+  "dependencies": {
+    "@elysiajs/cors": "1.4.2",
+    "@elysiajs/eden": "1.4.9",
+    "@jaga-daerah/contracts": "workspace:*",
+    "drizzle-orm": "0.45.4",
+    "elysia": "1.4.30",
+    "pg": "8.23.1"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.2",
+    "@types/pg": "8.23.1",
+    "drizzle-kit": "0.31.11",
+    "wrangler": "4.151.1"
+  }
+}

@@ -1,0 +1,123 @@
+---
+import '@/styles/global.css';
+
+import Logo from '@/components/Logo.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+// `Astro.site` is undefined unless astro.config sets `site` from PUBLIC_SITE_URL (no domain is final
+// yet, PRD §16). Absolute URLs are emitted only when it is present, so a site-less build ships no
+// canonical or og:url pointing at a guessed host.
+const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : undefined;
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-dvh bg-background antialiased">
+    <a
+      href="#konten"
+      class="sr-only z-50 rounded-full bg-foreground px-4 py-3 font-semibold text-background focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+    >
+      Lewati ke konten utama
+    </a>
+
+    <div class="bg-primary text-primary-foreground">
+      <p class="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-3 gap-y-1 px-4 py-2 text-center text-sm">
+        <span>
+          Data APBD dan dana bagi hasil SDA <strong>2025</strong> sudah tersedia.
+        </span>
+        <a
+          href="/#peta"
+          class="inline-flex min-h-11 items-center rounded-full border border-current px-4 font-semibold hover:bg-black/15"
+        >
+          Lihat peta
+        </a>
+      </p>
+    </div>
+
+    <header class="sticky top-0 z-40 border-b border-border bg-card/95 backdrop-blur">
+      <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+        <a href="/" class="inline-flex min-h-11 items-center" aria-label="JagaDaerah, beranda">
+          <Logo />
+        </a>
+        <nav aria-label="Utama">
+          <ul class="flex items-center gap-1 text-sm font-semibold sm:gap-2">
+            <li class="hidden sm:block">
+              <a
+                href="/#peta"
+                class="inline-flex min-h-11 items-center rounded-full px-4 hover:bg-secondary"
+              >
+                Peta
+              </a>
+            </li>
+            <li class="hidden sm:block">
+              <a
+                href="/#panduan"
+                class="inline-flex min-h-11 items-center rounded-full px-4 hover:bg-secondary"
+              >
+                Panduan
+              </a>
+            </li>
+            <li>
+              <a
+                href="/#cari"
+                class="inline-flex min-h-11 items-center rounded-full bg-primary px-5 text-primary-foreground hover:bg-primary/90"
+              >
+                Cari daerah
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="konten" tabindex="-1">
+      <slot />
+    </main>
+
+    <footer class="mt-24 border-t border-border bg-card">
+      <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 text-sm text-muted-foreground sm:px-6 md:grid-cols-[auto_minmax(0,1fr)]">
+        <a href="/" class="text-foreground" aria-label="JagaDaerah, beranda">
+          <Logo />
+        </a>
+        <div class="space-y-2 md:max-w-3xl">
+          <p>
+            JagaDaerah menyajikan data resmi apa adanya dan tidak menilai kinerja pemerintah daerah.
+          </p>
+          <p>
+            Sumber: kode wilayah Kepmendagri No. 300.2.2-2138 jo. 300.2.2-2430 Tahun 2025; APBD dan
+            TKDD dari DJPK Kemenkeu; kebencanaan dari BNPB; pasangan calon Pilkada 2024 dari KPU;
+            batas wilayah peta dari
+            <a
+              href="https://github.com/cahyadsn/wilayah_boundaries"
+              class="underline underline-offset-4"
+              rel="noopener noreferrer"
+            >
+              cahyadsn/wilayah_boundaries
+            </a>{' '}
+            (MIT), disederhanakan untuk tampilan.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

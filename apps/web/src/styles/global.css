@@ -1,0 +1,131 @@
+@import '@almach/ui/styles';
+@import '@fontsource-variable/plus-jakarta-sans';
+
+/* JagaDaerah theme on top of @almach/ui semantic tokens: neutral paper, near-black ink, one
+   emerald brand green for actions and data, amber for highlights, terracotta reserved for focus.
+   One typeface (Plus Jakarta Sans, OFL). Contrast on the page background: foreground 17.4:1,
+   muted-foreground 7.0:1, primary 4.9:1 (white on primary 5.1:1), ink on highlight 11.9:1,
+   ring 4.8:1, input border 3.9:1 (non-text minimum 3:1). */
+:root {
+  --background: 60 9% 98%;
+  --foreground: 160 12% 8%;
+  --card: 0 0% 100%;
+  --card-foreground: 160 12% 8%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 160 12% 8%;
+  --primary: 158 90% 26%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 60 6% 94%;
+  --secondary-foreground: 160 12% 8%;
+  --muted: 60 6% 93%;
+  --muted-foreground: 160 6% 33%;
+  --accent: 156 45% 94%;
+  --accent-foreground: 160 12% 8%;
+  --destructive: 4 60% 41.2%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 60 5% 87%;
+  --input: 160 6% 48%;
+  --ring: 18 62% 43.5%;
+  /* Map scale (ordered, single direction light → dark): neutral ochre to civic green. Meaning is
+     always repeated in text (legend, tooltip, table), never carried by colour alone. */
+  --map-1: 42 70% 84%;
+  --map-2: 70 38% 70%;
+  --map-3: 130 24% 55%;
+  --map-4: 163 45% 34%;
+  --map-5: 170 75% 17%;
+  --map-sea: 200 18% 95%;
+  --radius: 0.625rem;
+}
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans Variable', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: ui-monospace, 'Cascadia Mono', 'SF Mono', Menlo, monospace;
+  --color-highlight: hsl(45 95% 62%);
+}
+
+@layer base {
+  html {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-ring);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .map-frame {
+    background: hsl(var(--map-sea));
+  }
+  .map-region {
+    stroke: hsl(var(--card));
+    stroke-width: 0.5px;
+    vector-effect: non-scaling-stroke;
+    cursor: pointer;
+    transition: opacity 200ms ease;
+  }
+  .map-region.map-dimmed {
+    opacity: 0.22;
+  }
+  .map-far-below {
+    fill: hsl(var(--map-1));
+  }
+  .map-below {
+    fill: hsl(var(--map-2));
+  }
+  .map-near {
+    fill: hsl(var(--map-3));
+  }
+  .map-above {
+    fill: hsl(var(--map-4));
+  }
+  .map-far-above {
+    fill: hsl(var(--map-5));
+  }
+  .map-none-bg {
+    fill: hsl(var(--card));
+  }
+  .map-none-line {
+    stroke: hsl(var(--muted-foreground) / 0.55);
+    stroke-width: 2;
+  }
+  .map-swatch {
+    stroke: hsl(var(--foreground) / 0.4);
+    stroke-width: 1;
+  }
+  .map-provinces path {
+    fill: none;
+    stroke: hsl(var(--foreground) / 0.55);
+    stroke-width: 0.9px;
+    vector-effect: non-scaling-stroke;
+    pointer-events: none;
+  }
+  .map-highlight {
+    fill: none;
+    stroke: hsl(var(--ring));
+    stroke-width: 2.5px;
+    vector-effect: non-scaling-stroke;
+    pointer-events: none;
+  }
+  .map-current {
+    fill: hsl(var(--ring));
+  }
+  .map-context {
+    fill: hsl(var(--muted));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

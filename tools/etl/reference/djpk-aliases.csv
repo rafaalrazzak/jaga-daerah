@@ -1,0 +1,12 @@
+kind,djpk_province_code,djpk_name,kemendagri_code,note
+province,09,Provinsi DKI Jakarta,31,DJPK abbreviates Daerah Khusus Ibukota
+province,12,Provinsi DI Yogyakarta,34,DJPK abbreviates Daerah Istimewa
+province,29,Provinsi Bangka Belitung,19,DJPK omits Kepulauan
+region,02,Kab. Toba Samosir,12.12,Former name; Kemendagri 2025 lists Kabupaten Toba (12.12)
+region,02,Kota Padang Sidempuan,12.77,Spelling: Kemendagri writes Padangsidimpuan
+region,06,Kab. OKU Timur,16.08,DJPK abbreviates Ogan Komering Ulu
+region,06,Kab. OKU Selatan,16.09,DJPK abbreviates Ogan Komering Ulu
+region,14,Kab. Pontianak,61.02,Former name; Kemendagri 2025 lists Kabupaten Mempawah (61.02)
+region,18,Kab. Sangihe,71.03,DJPK omits Kepulauan
+region,20,Kab. Pangkajene Kepulauan,73.10,DJPK omits dan
+region,25,Kab. Maluku Tenggara Barat,81.03,Former name; Kemendagri 2025 lists Kabupaten Kepulauan Tanimbar (81.03)

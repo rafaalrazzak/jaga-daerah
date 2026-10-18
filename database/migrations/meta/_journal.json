@@ -1,0 +1,48 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1792207154552,
+      "tag": "0000_reference_and_datasets",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1792208845966,
+      "tag": "0001_region_prefix_search",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1792220622151,
+      "tag": "0002_budget_disaster_facts",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1792226182208,
+      "tag": "0003_data_notes",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1792230284474,
+      "tag": "0004_natural_resource_revenue",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1792241575609,
+      "tag": "0005_expenditure_breakdown_facts",
+      "breakpoints": true
+    }
+  ]
+}

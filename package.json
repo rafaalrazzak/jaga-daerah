@@ -1,0 +1,40 @@
+{
+  "name": "jaga-daerah",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "bun run --parallel --filter '*' --if-present build",
+    "check": "bun run format:check && bun run lint && bun run typecheck && bun run test",
+    "clean": "bun run tools/clean.ts",
+    "db:check": "bun run --filter @jaga-daerah/api db:check",
+    "db:generate": "bun run --filter @jaga-daerah/api db:generate",
+    "db:migrate": "bun run --filter @jaga-daerah/api db:migrate",
+    "dev": "bun run tools/dev-db.ts start && bun run --parallel --filter './apps/*' dev",
+    "dev:db": "bun run tools/dev-db.ts",
+    "etl:fetch": "uv --directory tools/etl run python -m jaga_etl.facts fetch",
+    "etl:publish": "uv --directory tools/etl run python -m jaga_etl.facts publish",
+    "etl:regions": "uv --directory tools/etl run python -m jaga_etl.regions",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check .",
+    "lint": "oxlint . --report-unused-disable-directives",
+    "test": "bun test --check --isolate --path-ignore-patterns='**/test/{integration,db}/**'",
+    "test:coverage": "bun test --check --isolate --coverage --path-ignore-patterns='**/test/{integration,db}/**'",
+    "test:db": "bun run --filter @jaga-daerah/api test:db",
+    "test:e2e": "bun run --filter @jaga-daerah/web test:e2e",
+    "test:etl": "uv --directory tools/etl run pytest",
+    "test:integration": "bun run --filter @jaga-daerah/api test:integration",
+    "typecheck": "tsc --project tsconfig.base.json --noEmit && bun run --workspaces typecheck"
+  },
+  "devDependencies": {
+    "@astrojs/compiler-rs": "0.5.2",
+    "@types/bun": "1.4.3",
+    "oxfmt": "0.73.0",
+    "oxlint": "1.88.0",
+    "typescript": "7.0.2"
+  },
+  "packageManager": "bun@1.4.2"
+}

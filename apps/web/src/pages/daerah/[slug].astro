@@ -1,0 +1,145 @@
+---
+import type { RegionSummary } from '@jaga-daerah/contracts';
+
+import CopyNameScript from '@/components/profile/CopyNameScript.astro';
+import CurrentOfficials from '@/components/profile/CurrentOfficials.astro';
+import NatureConditions from '@/components/profile/NatureConditions.astro';
+import OfficialWealth from '@/components/profile/OfficialWealth.astro';
+import Officials from '@/components/profile/Officials.astro';
+import Weather from '@/components/profile/Weather.astro';
+import Container from '@/components/ui/Container.astro';
+import ProvinceLocator from '@/islands/ProvinceLocator';
+import RegionProfile from '@/islands/RegionProfile';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { REGIONS } from '@/lib/regions';
+
+export function getStaticPaths() {
+  return REGIONS.map((region) => ({ params: { slug: region.slug }, props: { region } }));
+}
+
+interface Props {
+  region: RegionSummary;
+}
+
+const { region } = Astro.props;
+const typeLabel = region.type === 'kota' ? 'Kota' : 'Kabupaten';
+// DKI Jakarta's kabupaten/kota are administrative: heads are appointed, there is no APBD of their own.
+const administrative = region.province.code === '31';
+const SECTIONS = [
+  ['#pejabat-menjabat', 'Pejabat'],
+  ['#harta-kekayaan', 'Harta kekayaan'],
+  ['#kondisi-alam', 'Kondisi alam'],
+  ['#modul-cuaca', 'Cuaca'],
+  ['#ringkasan', 'Ringkasan'],
+  ['#modul-anggaran', 'Anggaran'],
+  ['#modul-sda', 'Dana SDA'],
+  ['#modul-bencana', 'Bencana'],
+  ['#pilkada', 'Pilkada 2024'],
+  ['#sumber-data', 'Sumber'],
+] as const;
+---
+
+<BaseLayout
+  title={`${region.name}, ${region.province.name} — Anggaran, pejabat, dan risiko bencana | JagaDaerah`}
+  description={`Ringkasan anggaran belanja ${region.name}, pejabat yang menjabat, dana bagi hasil sumber daya alam, dan kejadian bencana di Provinsi ${region.province.name}, dari data resmi.`}
+>
+  <div class="border-b border-border bg-card">
+    <Container class="py-8 sm:py-12">
+      <nav aria-label="Lokasi halaman" class="text-sm text-muted-foreground">
+        <ol class="flex flex-wrap items-center gap-1.5">
+          <li>
+            <a
+              href="/"
+              class="inline-flex min-h-11 items-center underline-offset-4 hover:text-foreground hover:underline"
+            >
+              Beranda
+            </a>
+          </li>
+          <li aria-hidden="true">/</li>
+          <li>Provinsi {region.province.name}</li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page" class="font-semibold text-foreground">
+            {region.name}
+          </li>
+        </ol>
+      </nav>
+
+      <div class="mt-6 grid items-center gap-8 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] md:gap-12">
+        <div>
+          <div class="flex flex-wrap gap-2 text-xs font-semibold">
+            <span class="rounded-full bg-accent px-3 py-1 text-primary">{typeLabel}</span>
+            <span class="rounded-full bg-secondary px-3 py-1">Kode Kemendagri {region.code}</span>
+            {administrative ? (
+              <span class="rounded-full bg-highlight px-3 py-1">Daerah administrasi</span>
+            ) : null}
+          </div>
+          <h1 class="mt-4 text-[clamp(2.25rem,7vw,4rem)] leading-[1.02] font-extrabold tracking-[-0.04em] text-balance">
+            {region.name}
+          </h1>
+          <p class="mt-2 text-lg text-muted-foreground">Provinsi {region.province.name}</p>
+        </div>
+        <div class="w-full max-w-sm md:justify-self-end">
+          <ProvinceLocator
+            client:visible
+            regionCode={region.code}
+            regionName={region.name}
+            provinceName={region.province.name}
+          />
+        </div>
+      </div>
+    </Container>
+  </div>
+
+  <nav
+    aria-label="Bagian profil"
+    class="sticky top-[61px] z-30 border-b border-border bg-background/95 backdrop-blur"
+  >
+    <Container>
+      <ul class="-mx-1 flex gap-1 overflow-x-auto py-2 text-sm font-semibold">
+        {SECTIONS.map(([href, label]) => (
+          <li class="shrink-0">
+            <a
+              href={href}
+              class="inline-flex min-h-11 items-center rounded-full px-3 hover:bg-secondary"
+            >
+              {label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </Container>
+  </nav>
+
+  <Container class="mt-10 space-y-16 sm:mt-12">
+    <CurrentOfficials
+      regionCode={region.code}
+      regionType={region.type}
+      administrative={administrative}
+    />
+
+    <OfficialWealth regionCode={region.code} regionName={region.name} />
+
+    <NatureConditions regionCode={region.code} regionName={region.name} />
+
+    <Weather regionCode={region.code} regionName={region.name} />
+
+    <div class="min-h-[40rem]">
+      <RegionProfile client:load slug={region.slug} regionName={region.name} />
+      <noscript>
+        <p class="text-lg">
+          Data anggaran dan bencana dimuat dengan JavaScript. Aktifkan JavaScript untuk melihat
+          profil
+          {region.name}.
+        </p>
+      </noscript>
+    </div>
+
+    <Officials
+      regionCode={region.code}
+      regionName={region.name}
+      provinceCode={region.province.code}
+      provinceName={region.province.name}
+    />
+  </Container>
+  <CopyNameScript />
+</BaseLayout>

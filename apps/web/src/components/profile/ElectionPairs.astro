@@ -1,0 +1,139 @@
+---
+// One election's candidate pairs: names, education, occupations, parties, vision, LHKPN actions.
+import type { CandidatePair, CandidatePerson, Election } from '@jaga-daerah/contracts';
+
+interface Props {
+  election: Election;
+  placeName: string;
+  showTitle?: boolean;
+}
+
+const { election, placeName, showTitle = true } = Astro.props;
+const ELHKPN_URL = 'https://elhkpn.kpk.go.id/';
+
+function initials(name: string): string {
+  const words = name
+    .replace(/^(dr|drs|ir|hj?|prof)\.?\s+/i, '')
+    .split(/[\s,.]+/)
+    .filter((word) => /^[a-z]/i.test(word));
+  return words
+    .slice(0, 2)
+    .map((word) => word[0]?.toUpperCase() ?? '')
+    .join('');
+}
+
+const roles = (electionData: Election) =>
+  electionData.election === 'Pemilihan Gubernur'
+    ? (['Calon gubernur', 'Calon wakil gubernur'] as const)
+    : electionData.election === 'Pemilihan Wali Kota'
+      ? (['Calon wali kota', 'Calon wakil wali kota'] as const)
+      : (['Calon bupati', 'Calon wakil bupati'] as const);
+
+const people = (pair: CandidatePair, electionData: Election): [CandidatePerson, string][] => {
+  const [headRole, deputyRole] = roles(electionData);
+  return [
+    [pair.head, headRole],
+    [pair.deputy, deputyRole],
+  ];
+};
+---
+
+<div class="space-y-4">
+  {showTitle ? (
+    <h3 class="text-lg font-bold tracking-tight">
+      {election.election} {placeName}
+      <span class="font-normal text-muted-foreground">
+        {' '}
+        · {election.pairs.length} pasangan calon
+      </span>
+    </h3>
+  ) : null}
+  <ul class="grid gap-4 lg:grid-cols-2">
+    {election.pairs.map((pair) => (
+      <li class="flex flex-col rounded-2xl border border-border bg-card p-5 sm:p-6">
+        <div class="flex items-center justify-between gap-3">
+          <span class="rounded-full bg-secondary px-3 py-1 text-xs font-bold">
+            {pair.number === null ? 'Tanpa nomor urut' : `Nomor urut ${pair.number}`}
+          </span>
+          {pair.elected_source === null ? null : (
+            <a
+              href={pair.elected_source}
+              rel="noopener noreferrer"
+              target="_blank"
+              class="inline-flex min-h-11 items-center rounded-full bg-primary px-3 text-xs font-bold text-primary-foreground"
+            >
+              Terpilih · sumber
+            </a>
+          )}
+        </div>
+
+        <div class="mt-4 space-y-4">
+          {people(pair, election).map(([person, role]) => (
+            <div class="flex gap-4">
+              <span
+                aria-hidden="true"
+                class="grid size-12 shrink-0 place-items-center rounded-full bg-accent text-sm font-bold text-primary"
+              >
+                {initials(person.name)}
+              </span>
+              <div class="min-w-0 flex-1">
+                <p class="text-xs text-muted-foreground">{role}</p>
+                <p class="font-bold break-words">{person.name}</p>
+                <p class="mt-1 text-sm text-muted-foreground">
+                  {[
+                    person.last_education === null
+                      ? null
+                      : `Pendidikan terakhir ${person.last_education}`,
+                    person.occupations.length === 0 ? null : person.occupations.join('; '),
+                  ]
+                    .filter(Boolean)
+                    .join(' · ') || 'Riwayat tidak dicantumkan di KPU'}
+                </p>
+                <div class="mt-2 flex flex-wrap gap-2">
+                  <button
+                    type="button"
+                    data-copy={person.name}
+                    class="inline-flex min-h-11 items-center rounded-full border border-border px-3 text-xs font-semibold hover:border-foreground"
+                  >
+                    Salin nama
+                  </button>
+                  <a
+                    href={ELHKPN_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex min-h-11 items-center rounded-full bg-secondary px-3 text-xs font-semibold hover:bg-accent hover:text-primary"
+                  >
+                    Cek LHKPN di KPK ↗<span class="sr-only"> (membuka tab baru)</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {pair.parties.length === 0 ? null : (
+          <div class="mt-5 border-t border-border pt-4">
+            <p class="text-xs text-muted-foreground">Partai pengusung</p>
+            <ul class="mt-2 flex flex-wrap gap-1.5">
+              {pair.parties.map((party) => (
+                <li class="rounded-full bg-secondary px-2.5 py-1 text-xs font-semibold">{party}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {pair.vision === null ? null : (
+          <details class="group mt-4 text-sm">
+            <summary class="flex min-h-11 cursor-pointer items-center gap-2 font-semibold text-primary">
+              Visi pasangan calon
+              <span aria-hidden="true" class="transition-transform group-open:rotate-180">
+                ▾
+              </span>
+            </summary>
+            <p class="leading-relaxed text-muted-foreground">“{pair.vision}”</p>
+          </details>
+        )}
+      </li>
+    ))}
+  </ul>
+</div>

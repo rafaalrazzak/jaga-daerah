@@ -1,0 +1,42 @@
+---
+// One page-level handler for every "Salin nama" button (data-copy) plus its live status message.
+---
+
+<p role="status" aria-live="polite" class="sr-only" data-copy-status></p>
+
+<script>
+  // Copy a candidate's name for the KPK search box. Progressive enhancement only: without the
+  // Clipboard API (insecure origin) or with a rejected write, the name stays visible on the page and
+  // the status line says so instead of showing a success state that never happened.
+  document.addEventListener('click', (event) => {
+    const button = (event.target as Element | null)?.closest<HTMLButtonElement>('[data-copy]');
+    if (button === null || button === undefined) return;
+    const name = button.dataset['copy'] ?? '';
+    const status = document.querySelector<HTMLElement>('[data-copy-status]');
+    // The button keeps its accessible name (label plus the person's name) while only the visible
+    // label swaps, so the announced name never changes mid-interaction.
+    const label = button.querySelector<HTMLElement>('[data-copy-label]') ?? button;
+    const copy = navigator.clipboard?.writeText(name);
+    if (copy === undefined) {
+      if (status !== null) {
+        status.textContent =
+          'Penyalinan otomatis tidak tersedia. Salin nama langsung dari halaman ini.';
+      }
+      return;
+    }
+    void copy.then(
+      () => {
+        label.textContent = 'Tersalin';
+        if (status !== null) status.textContent = `Nama ${name} disalin.`;
+        window.setTimeout(() => {
+          label.textContent = 'Salin nama';
+        }, 2000);
+      },
+      () => {
+        if (status !== null) {
+          status.textContent = `Nama ${name} gagal disalin. Salin nama langsung dari halaman ini.`;
+        }
+      },
+    );
+  });
+</script>

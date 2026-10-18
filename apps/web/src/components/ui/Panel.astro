@@ -1,0 +1,19 @@
+---
+// Large rounded surface: `card` (white, bordered) or `tint` (grey band behind featured content).
+interface Props {
+  tone?: 'card' | 'tint';
+  class?: string;
+}
+
+const { tone = 'card', class: className } = Astro.props;
+---
+
+<div
+  class:list={[
+    'rounded-[1.75rem] p-6 sm:p-10',
+    tone === 'card' ? 'border border-border bg-card' : 'bg-secondary',
+    className,
+  ]}
+>
+  <slot />
+</div>

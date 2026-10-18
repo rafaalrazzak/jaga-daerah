@@ -1,0 +1,4 @@
+year,metric,disaster_type,province_sum,national_total,note
+2024,event_count,gempabumi,18,15,"BNPB province rows and INDONESIA row disagree in the same resource; province rows published as-is (owner decision, 17 Oct 2026)"
+2024,event_count,tanah_longsor,207,27,"BNPB province rows and INDONESIA row disagree in the same resource; province rows published as-is (owner decision, 17 Oct 2026)"
+2025,event_count,gempabumi,29,28,"BNPB province rows and INDONESIA row (also the 2025 national recap) disagree; province rows published as-is (owner decision, 17 Oct 2026)"

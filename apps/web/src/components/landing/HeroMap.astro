@@ -1,0 +1,185 @@
+---
+// Hero graphic: Indonesia drawn from the project's own boundary file (coarsened at build time to
+// ~37 KB of path data), with three example regions annotated with real 2025 figures from the
+// dataset published 17 Oct 2026 (20261017-djpk52da2088). The outline is decorative; each
+// annotation is a real link to the region's profile.
+import mapData from '../../../public/data/map-regions.json';
+
+const WIDTH = 420;
+const scale = WIDTH / mapData.width;
+const height = Math.round(mapData.height * scale);
+
+function coarse(path: string): string {
+  return path
+    .split('Z')
+    .filter((ring) => ring.length > 0)
+    .map((ring) => {
+      const points = [...ring.matchAll(/(-?[\d.]+),(-?[\d.]+)/g)].map(
+        (match) =>
+          `${Math.round(Number(match[1]) * scale)},${Math.round(Number(match[2]) * scale)}`,
+      );
+      const unique = points.filter((point, index) => index === 0 || point !== points[index - 1]);
+      return unique.length < 3 ? '' : `M${unique.join('L')}Z`;
+    })
+    .join('');
+}
+
+const outline = mapData.provinces.map((province) => coarse(province.path)).join('');
+const centre = new Map(mapData.regions.map((region) => [region.code, region]));
+
+const ANNOTATIONS = [
+  {
+    code: '11.71',
+    slug: 'kota-banda-aceh',
+    name: 'Kota Banda Aceh',
+    figure: '97,0%',
+    label: 'anggaran 2025 terpakai',
+    placement: 'right-below',
+  },
+  {
+    code: '96.01',
+    slug: 'kabupaten-sorong',
+    name: 'Kabupaten Sorong',
+    figure: 'Rp69,56 miliar',
+    label: 'dana bagi hasil SDA 2025',
+    placement: 'left-below',
+  },
+  {
+    code: '32.73',
+    slug: 'kota-bandung',
+    name: 'Kota Bandung',
+    figure: '89,8%',
+    label: 'anggaran 2025 terpakai',
+    placement: 'right-below',
+  },
+] as const;
+
+const PLACEMENT = {
+  'right-below': 'translate-x-4 translate-y-4',
+  'left-below': '-translate-x-[calc(100%+1rem)] translate-y-4',
+} as const;
+
+const pins = ANNOTATIONS.flatMap((annotation) => {
+  const region = centre.get(annotation.code);
+  return region === undefined
+    ? []
+    : [
+        {
+          ...annotation,
+          left: ((region.cx * scale + 6) / (WIDTH + 12)) * 100,
+          top: ((region.cy * scale + 6) / (height + 12)) * 100,
+        },
+      ];
+});
+---
+
+<figure class="relative">
+  <div class="relative">
+    <svg
+      viewBox={`-6 -6 ${WIDTH + 12} ${height + 12}`}
+      class="hero-map block h-auto w-full"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path
+        d={outline}
+        class="fill-[hsl(var(--primary)/0.16)] stroke-[hsl(var(--background))]"
+        stroke-width="0.5"
+      ></path>
+    </svg>
+
+    {pins.map((pin, index) => (
+      <div class="absolute" style={`left:${pin.left}%;top:${pin.top}%`}>
+        <span class="hero-pin" aria-hidden="true" />
+        <a
+          href={`/daerah/${pin.slug}`}
+          class:list={[
+            'hero-callout absolute top-0 left-0 hidden w-52 rounded-2xl border border-border bg-card px-4 py-3 transition-colors hover:border-primary md:block',
+            PLACEMENT[pin.placement],
+          ]}
+          style={`animation-delay:${200 + index * 180}ms`}
+        >
+          <span class="block text-xs text-muted-foreground">{pin.name}</span>
+          <span class="mt-0.5 block text-2xl leading-tight font-extrabold tracking-tight">
+            {pin.figure}
+          </span>
+          <span class="block text-xs text-muted-foreground">{pin.label}</span>
+        </a>
+      </div>
+    ))}
+  </div>
+  <!-- Small screens: the same annotations as a list, since callouts would cover the map. -->
+  <ul class="mt-4 grid gap-2 md:hidden">
+    {pins.map((pin) => (
+      <li>
+        <a
+          href={`/daerah/${pin.slug}`}
+          class="flex min-h-11 items-center justify-between gap-3 rounded-2xl border border-border bg-card px-4 py-3"
+        >
+          <span>
+            <span class="block text-xs text-muted-foreground">{pin.name}</span>
+            <span class="block text-xs text-muted-foreground">{pin.label}</span>
+          </span>
+          <span class="text-lg font-extrabold tracking-tight">{pin.figure}</span>
+        </a>
+      </li>
+    ))}
+  </ul>
+  <figcaption class="mt-4 text-center text-xs text-muted-foreground md:text-left">
+    Contoh angka 2025 dari DJPK Kemenkeu. Ketuk kartu untuk membuka profil lengkap.
+  </figcaption>
+</figure>
+
+<style>
+  .hero-map {
+    animation: hero-fade 900ms ease-out both;
+  }
+
+  .hero-pin {
+    position: absolute;
+    left: -6px;
+    top: -6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 9999px;
+    background: hsl(var(--primary));
+    box-shadow: 0 0 0 3px hsl(var(--card));
+  }
+
+  .hero-pin::after {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 9999px;
+    border: 2px solid hsl(var(--primary) / 0.5);
+    animation: hero-pulse 2.4s ease-out infinite;
+  }
+
+  .hero-callout {
+    animation: hero-rise 600ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  @keyframes hero-fade {
+    from {
+      opacity: 0;
+    }
+  }
+
+  @keyframes hero-pulse {
+    from {
+      transform: scale(0.6);
+      opacity: 1;
+    }
+    to {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+  }
+
+  @keyframes hero-rise {
+    from {
+      opacity: 0;
+      margin-top: 8px;
+    }
+  }
+</style>

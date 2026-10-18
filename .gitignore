@@ -1,0 +1,59 @@
+# Dependencies
+node_modules/
+
+# Bun
+.bun/
+
+# Builds and framework caches
+dist/
+.astro/
+.wrangler/
+.cache/
+
+# Tests and reports
+coverage/
+playwright-report/
+test-results/
+*.xml
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Local databases and dumps
+*.db
+*.sqlite
+*.sqlite3
+*.dump
+*.sql.gz
+
+# ETL inputs/outputs that may be large or sensitive
+tools/etl/data/raw/
+tools/etl/data/staging/
+tools/etl/reports/
+# LHKPN results pages a human saved by hand: real figures and third-party personal data.
+tools/etl/data/captures/*
+!tools/etl/data/captures/README.md
+
+# Editors and operating systems
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+
+# Python (ETL)
+.venv/
+__pycache__/
+.pytest_cache/
+
+# Local development database (tools/dev-db.ts)
+.local/

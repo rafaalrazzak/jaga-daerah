@@ -1,0 +1,300 @@
+---
+// Regional head and deputy in office, with photo credit, party, term, KPU cross-check, the KPU
+// track record of the matching candidate, and LHKPN lookup actions. Static HTML.
+import type { CandidatePerson, Officeholder } from '@jaga-daerah/contracts';
+
+import { CANDIDATES } from '@/lib/candidates';
+import { formatDate } from '@/lib/format';
+import { OFFICIALS } from '@/lib/officials';
+
+interface Props {
+  regionCode: string;
+  regionType: 'kabupaten' | 'kota';
+  administrative: boolean;
+}
+
+const { regionCode, regionType, administrative } = Astro.props;
+const office = OFFICIALS.regions[regionCode];
+const election = CANDIDATES.regions[regionCode];
+const ELHKPN_URL = 'https://elhkpn.kpk.go.id/';
+const titles =
+  regionType === 'kota'
+    ? (['Wali kota', 'Wakil wali kota'] as const)
+    : (['Bupati', 'Wakil bupati'] as const);
+
+interface CandidateRecord {
+  candidate: CandidatePerson;
+  parties: string[];
+}
+
+// The KPU candidate record this seat was matched to. A missing region, a pair_index the candidates
+// file does not contain, or a null match all resolve to null: the badge below must never claim a
+// KPU match whose record it cannot show.
+function record(person: Officeholder): CandidateRecord | null {
+  if (person.kpu === null || election === undefined) return null;
+  const pair = election.pairs[person.kpu.pair_index];
+  return pair === undefined ? null : { candidate: pair[person.kpu.role], parties: pair.parties };
+}
+
+interface Seat {
+  title: (typeof titles)[number];
+  person: Officeholder | null;
+  track: CandidateRecord | null;
+}
+
+const seats: Seat[] = office
+  ? (
+      [
+        [office.head, titles[0]],
+        [office.deputy, titles[1]],
+      ] as const
+    ).map(([person, title]) => ({ title, person, track: person === null ? null : record(person) }))
+  : [];
+// The cited Wikipedia revision can leave a stale end date on the current officeholder; the repo's
+// officials.json test treats "until before since" as invalid data. Rendering both dates would state a
+// term that ended before it began, so an inconsistent end date is dropped instead of shown.
+const until =
+  office?.until !== null &&
+  office?.until !== undefined &&
+  (office.since === null || office.until >= office.since)
+    ? office.until
+    : null;
+const updated = OFFICIALS.source.pages.find((page) => page.url === office?.page)?.timestamp;
+
+// Indonesian names for the fields a reviewed override may replace (`incumbent-overrides.csv`). An
+// unknown field is printed verbatim: the contract only demands a non-empty name, and dropping it
+// would hide part of why the official source is cited.
+const FIELD_LABELS: Record<string, string> = {
+  head_name: 'nama kepala daerah',
+  head_party: 'partai kepala daerah',
+  deputy_name: 'nama wakil kepala daerah',
+  deputy_party: 'partai wakil kepala daerah',
+  since: 'tanggal mulai menjabat',
+  until: 'tanggal berakhir jabatan',
+};
+
+// The official sources that corrected this region's row, grouped in first-seen order, so the footer
+// names where the replaced values came from instead of attributing them to the Wikipedia revision
+// `page` points at.
+const correctedBy: { url: string; fields: string[] }[] = [];
+for (const correction of office?.corrections ?? []) {
+  const label = FIELD_LABELS[correction.field] ?? correction.field;
+  const group = correctedBy.find((entry) => entry.url === correction.source_url);
+  if (group === undefined) correctedBy.push({ url: correction.source_url, fields: [label] });
+  else group.fields.push(label);
+}
+---
+
+<section aria-labelledby="pejabat-menjabat" class="scroll-mt-24 space-y-5">
+  <div class="flex flex-wrap items-end justify-between gap-x-4 gap-y-1">
+    <h2 id="pejabat-menjabat" class="text-2xl font-extrabold tracking-[-0.03em] sm:text-3xl">
+      Pejabat yang menjabat
+    </h2>
+    {office ? (
+      <p class="rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-muted-foreground">
+        {office.since ? `Sejak ${formatDate(`${office.since}T00:00:00+07:00`)}` : 'Masa jabatan'}
+        {until ? ` · berakhir ${formatDate(`${until}T00:00:00+07:00`)}` : ''}
+      </p>
+    ) : null}
+  </div>
+
+  {office === undefined ? (
+    <p class="rounded-2xl border border-border bg-card p-6 text-muted-foreground">
+      Data pejabat untuk daerah ini belum tersedia.
+    </p>
+  ) : (
+    <ul class="grid gap-4 md:grid-cols-2">
+      {seats.map(({ person, title, track }) =>
+        person === null ? (
+          <li class="flex items-center rounded-2xl border border-dashed border-border bg-card p-6 text-muted-foreground">
+            {title}: tidak ada / kosong saat data diperbarui.
+          </li>
+        ) : (
+          <li class="flex flex-col rounded-2xl border border-border bg-card p-5 sm:p-6">
+            <div class="flex gap-4">
+              {person.photo ? (
+                <img
+                  src={person.photo.url}
+                  alt={`Foto ${person.name}`}
+                  width="96"
+                  height="120"
+                  loading="lazy"
+                  decoding="async"
+                  referrerpolicy="no-referrer"
+                  class="h-30 w-24 shrink-0 rounded-xl bg-secondary object-cover object-top"
+                />
+              ) : (
+                <span
+                  aria-hidden="true"
+                  class="grid h-30 w-24 shrink-0 place-items-center rounded-xl bg-accent"
+                >
+                  {/* The brand mark inlined, not <Logo />: that component always renders the stacked
+                        "Jaga Daerah" wordmark and only accepts sm/lg, so it cannot fit this 96x120
+                        avatar box. Same path data as Logo.astro and favicon.svg, so no new asset. */}
+                  <svg viewBox="0 0 32 32" class="size-14 text-primary" aria-hidden="true">
+                    <path
+                      fill="currentColor"
+                      d="M16 1.5C8.8 1.5 3 7.1 3 14c0 9.1 13 16.5 13 16.5S29 23.1 29 14c0-6.9-5.8-12.5-13-12.5Z"
+                    ></path>
+                    <rect x="9.5" y="13" width="3.4" height="7" rx="1.2" fill="#fff"></rect>
+                    <rect x="14.3" y="8.5" width="3.4" height="11.5" rx="1.2" fill="#fff"></rect>
+                    <rect x="19.1" y="11" width="3.4" height="9" rx="1.2" fill="#fff"></rect>
+                  </svg>
+                </span>
+              )}
+              <div class="min-w-0 flex-1">
+                <p class="text-sm text-muted-foreground">
+                  {person.acting ? `Pelaksana tugas ${title.toLowerCase()}` : title}
+                </p>
+                <p class="text-xl leading-tight font-extrabold tracking-tight break-words">
+                  {person.name}
+                </p>
+                <div class="mt-2 flex flex-wrap gap-1.5">
+                  {person.party ? (
+                    <span class="rounded-full bg-secondary px-2.5 py-1 text-xs font-semibold">
+                      {person.party}
+                    </span>
+                  ) : null}
+                  {person.acting ? (
+                    <span class="rounded-full bg-highlight px-2.5 py-1 text-xs font-semibold">
+                      Plt<span class="sr-only"> (pelaksana tugas)</span>
+                    </span>
+                  ) : null}
+                  {track !== null ? (
+                    <span class="rounded-full bg-accent px-2.5 py-1 text-xs font-semibold text-primary">
+                      Cocok dengan daftar calon KPU
+                    </span>
+                  ) : administrative ? (
+                    <span class="rounded-full border border-border px-2.5 py-1 text-xs font-semibold text-muted-foreground">
+                      Diangkat, bukan lewat Pilkada
+                    </span>
+                  ) : person.kpu !== null ? (
+                    <span class="rounded-full border border-border px-2.5 py-1 text-xs font-semibold text-muted-foreground">
+                      Data pasangan calon KPU tidak ditemukan
+                    </span>
+                  ) : (
+                    <span class="rounded-full border border-border px-2.5 py-1 text-xs font-semibold text-muted-foreground">
+                      Belum cocok dengan data KPU
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {track === null ? null : (
+              <dl class="mt-5 grid gap-3 border-t border-border pt-4 text-sm">
+                <div>
+                  <dt class="text-xs text-muted-foreground">
+                    Rekam jejak (pernyataan saat mendaftar Pilkada 2024)
+                  </dt>
+                  <dd class="mt-0.5">
+                    {[
+                      track.candidate.last_education
+                        ? `Pendidikan terakhir ${track.candidate.last_education}`
+                        : null,
+                      track.candidate.occupations.length > 0
+                        ? track.candidate.occupations.join('; ')
+                        : null,
+                    ]
+                      .filter(Boolean)
+                      .join(' · ') || 'Tidak dicantumkan'}
+                  </dd>
+                </div>
+                {track.parties.length > 0 ? (
+                  <div>
+                    <dt class="text-xs text-muted-foreground">Partai pengusung saat Pilkada</dt>
+                    <dd class="mt-0.5">{track.parties.join(', ')}</dd>
+                  </div>
+                ) : null}
+              </dl>
+            )}
+
+            <div class="mt-5 flex flex-wrap items-center gap-2 border-t border-border pt-4">
+              <span class="mr-1 text-xs font-semibold">Harta kekayaan (LHKPN):</span>
+              <button
+                type="button"
+                data-copy={person.name}
+                class="inline-flex min-h-11 items-center rounded-full border border-border px-3 text-xs font-semibold hover:border-foreground"
+              >
+                <span data-copy-label>Salin nama</span>
+                <span class="sr-only"> {person.name}</span>
+              </button>
+              <a
+                href={ELHKPN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex min-h-11 items-center rounded-full bg-primary px-3 text-xs font-semibold text-primary-foreground hover:bg-primary/90"
+              >
+                Cek di e-LHKPN KPK ↗<span class="sr-only"> (membuka tab baru)</span>
+              </a>
+            </div>
+
+            {person.photo ? (
+              <p class="mt-3 text-[11px] text-muted-foreground">
+                Foto:{' '}
+                <a
+                  href={person.photo.page}
+                  class="underline underline-offset-2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {person.photo.artist}, {person.photo.license}
+                </a>{' '}
+                via Wikimedia Commons
+              </p>
+            ) : null}
+          </li>
+        ),
+      )}
+    </ul>
+  )}
+
+  {office === undefined ? (
+    <p class="text-xs text-muted-foreground">
+      Sumber pejabat: tidak ada data pejabat yang tercatat untuk daerah ini, jadi tidak ada yang
+      dapat dicocokkan dengan daftar calon resmi KPU.
+    </p>
+  ) : (
+    <>
+      <p class="text-xs text-muted-foreground">
+        Sumber pejabat:{' '}
+        <a
+          href={office.page}
+          class="underline underline-offset-2"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Wikipedia
+        </a>
+        {updated ? ` (revisi ${formatDate(updated)})` : ''}, dicocokkan dengan daftar calon resmi
+        KPU. Rekam jejak dari pernyataan calon di KPU Info Pemilu. Angka harta kekayaan hanya
+        diumumkan oleh KPK.
+      </p>
+      {correctedBy.length === 0 ? null : (
+        <div class="text-xs text-muted-foreground">
+          <p>Nilai berikut dikoreksi dari sumber resmi, bukan dari revisi Wikipedia di atas:</p>
+          <ul class="mt-1 space-y-0.5">
+            {correctedBy.map((group) => (
+              <li>
+                {group.fields.join(', ')} dari{' '}
+                <a
+                  href={group.url}
+                  class="underline underline-offset-2"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {new URL(group.url).hostname}
+                  {/* Two corrections can share a hostname and differ only by path, so the visible
+                        host alone is not a distinguishable link name for screen-reader users. */}
+                  <span class="sr-only">
+                    {` · sumber koreksi untuk ${group.fields.join(', ')} (membuka tab baru)`}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </>
+  )}
+</section>

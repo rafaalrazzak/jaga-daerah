@@ -1,0 +1,153 @@
+name: CI
+
+# Quality gate from docs/TESTING.md and AGENTS.md. `verify` is the only job a branch protection
+# rule needs to require; the heavier suites are separate jobs so a browser or PostgreSQL failure
+# never hides a formatting, lint, type, test, or build failure.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  # Format, lint, typecheck, unit/contract tests, build, migration consistency. No service, no
+  # credentials, and no network beyond the package registries.
+  verify:
+    name: Format, lint, typecheck, tests, build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+      # Reads `packageManager: bun@1.4.2` from the root package.json, so CI runs the pinned Bun.
+      - uses: oven-sh/setup-bun@v2
+      - name: Cache the Bun install cache
+        uses: actions/cache@v6
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('bun.lock') }}
+          restore-keys: ${{ runner.os }}-bun-
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+      - name: Oxfmt check
+        run: bun run format:check
+      - name: Oxlint
+        run: bun run lint
+      - name: Typecheck
+        run: bun run typecheck
+      - name: Unit and contract tests
+        run: bun run test
+      - name: Build Astro and the Worker dry-run
+        run: bun run build
+      - name: Drizzle migration consistency
+        run: bun run db:check
+
+  # Both suites create their own throwaway PostgreSQL cluster with initdb/pg_ctl in a temporary
+  # directory (apps/api/test/db/support/disposable-postgres.ts), so no service container and no
+  # connection variable is configured: POSTGRES_BIN_DIR is the only input they need.
+  postgres:
+    name: ${{ matrix.name }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      # A database failure must not cancel the Worker runtime result.
+      fail-fast: false
+      matrix:
+        include:
+          - name: Worker integration tests (workerd)
+            command: bun run test:integration
+          - name: Database integration tests (PostgreSQL)
+            command: bun run test:db
+    steps:
+      - uses: actions/checkout@v7
+      - uses: oven-sh/setup-bun@v2
+      - name: Cache the Bun install cache
+        uses: actions/cache@v6
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('bun.lock') }}
+          restore-keys: ${{ runner.os }}-bun-
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+      - name: Point POSTGRES_BIN_DIR at the PostgreSQL binaries
+        run: |
+          bin_dir="$(pg_config --bindir 2>/dev/null || true)"
+          if [ ! -x "$bin_dir/initdb" ]; then
+            sudo apt-get update
+            sudo apt-get install --yes postgresql libpq-dev
+            bin_dir="$(pg_config --bindir)"
+          fi
+          echo "POSTGRES_BIN_DIR=$bin_dir" >> "$GITHUB_ENV"
+      - name: ${{ matrix.name }}
+        run: ${{ matrix.command }}
+
+  # Offline ETL tests plus the publication tests. The latter start their own cluster and pass
+  # MIGRATION_DATABASE_URL to `bun run db:migrate` themselves.
+  etl:
+    name: ETL tests (Python 3.13, uv)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      # Fails when tools/etl/uv.lock no longer matches tools/etl/pyproject.toml.
+      UV_LOCKED: '1'
+    steps:
+      - uses: actions/checkout@v7
+      - uses: oven-sh/setup-bun@v2
+      # tools/etl/pyproject.toml requires Python >=3.13.
+      - uses: astral-sh/setup-uv@v7
+        with:
+          python-version: '3.13'
+      - name: Cache the Bun install cache
+        uses: actions/cache@v6
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('bun.lock') }}
+          restore-keys: ${{ runner.os }}-bun-
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+      - name: Point POSTGRES_BIN_DIR at the PostgreSQL binaries
+        run: |
+          bin_dir="$(pg_config --bindir 2>/dev/null || true)"
+          if [ ! -x "$bin_dir/initdb" ]; then
+            sudo apt-get update
+            sudo apt-get install --yes postgresql libpq-dev
+            bin_dir="$(pg_config --bindir)"
+          fi
+          echo "POSTGRES_BIN_DIR=$bin_dir" >> "$GITHUB_ENV"
+      - name: ETL tests
+        run: bun run test:etl
+
+  # Builds the site, serves `astro preview` on port 4329, and answers API calls with Playwright
+  # route fixtures at 320 px and desktop widths.
+  e2e:
+    name: Browser E2E (Playwright, Chromium)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - uses: oven-sh/setup-bun@v2
+      - name: Cache the Bun install cache
+        uses: actions/cache@v6
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('bun.lock') }}
+          restore-keys: ${{ runner.os }}-bun-
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+      - name: Cache Playwright browsers
+        uses: actions/cache@v6
+        with:
+          # bun.lock pins the @playwright/test version that selects the browser build.
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('bun.lock') }}
+          restore-keys: ${{ runner.os }}-playwright-
+      - name: Install Chromium
+        run: bun run --cwd apps/web playwright install --with-deps --only-shell chromium
+      - name: Browser E2E
+        run: bun run test:e2e

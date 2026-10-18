@@ -1,0 +1,192 @@
+---
+// Weather/climate context for one kabupaten/kota: BMKG's monthly normal rainfall for 1981-2010,
+// read at one reviewed sample point inside the region. Static HTML, no island, no chart library,
+// and no client JavaScript required: the figures are a climatological normal, which is exactly what
+// the page must not present as current weather, a forecast, or a warning.
+import type { RegionWeather } from '@jaga-daerah/contracts';
+import { MONTH_NAMES } from '@jaga-daerah/contracts';
+
+import { formatDate } from '@/lib/format';
+import { WEATHER } from '@/lib/weather';
+
+interface Props {
+  regionCode: string;
+  regionName: string;
+}
+
+const { regionCode, regionName } = Astro.props;
+const record: RegionWeather | undefined = WEATHER.regions[regionCode];
+const unavailableReason = WEATHER.unavailable[regionCode];
+const { source } = WEATHER;
+const period = `${source.period_start}–${source.period_end}`;
+const MONTHS_PER_YEAR = MONTH_NAMES.length;
+const UNAVAILABLE = 'Data belum tersedia';
+
+// Months in calendar order with their value, so the summary text and the table are built from the
+// same read of the published record and can never disagree.
+const monthRows = record
+  ? MONTH_NAMES.map((name) => ({ name, value: record.monthly_mm[name] }))
+  : [];
+// A tie keeps the earlier month, which is the calendar order BMKG publishes.
+const ranked = monthRows
+  .filter(
+    (row): row is { name: (typeof MONTH_NAMES)[number]; value: number } => row.value !== undefined,
+  )
+  .toSorted((left, right) => right.value - left.value);
+const wettest = ranked[0];
+const driest = ranked[ranked.length - 1];
+const average = record ? record.annual_mm / MONTHS_PER_YEAR : null;
+
+function millimetres(value: number): string {
+  return value.toLocaleString('id-ID', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+}
+---
+
+<section aria-labelledby="modul-cuaca" class="scroll-mt-24 space-y-5">
+  <div class="flex flex-wrap items-end justify-between gap-x-4 gap-y-1">
+    <h2 id="modul-cuaca" class="text-2xl font-extrabold tracking-[-0.03em] sm:text-3xl">
+      Kondisi cuaca umum
+    </h2>
+    <p class="rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-muted-foreground">
+      BMKG · normal {period} · tingkat kabupaten/kota
+    </p>
+  </div>
+
+  <div role="note" class="rounded-xl border border-border bg-accent/60 p-4 text-sm leading-relaxed">
+    <p>
+      Angka di bagian ini adalah <strong>rata-rata curah hujan jangka panjang BMKG</strong> untuk
+      periode {period} di {regionName}, bukan cuaca hari ini dan bukan prakiraan.
+    </p>
+    <p class="mt-1">
+      Halaman ini tidak memuat peringatan dini, prediksi, atau penilaian bahaya. Untuk cuaca terkini
+      dan peringatan resmi, buka{' '}
+      <a
+        href="https://www.bmkg.go.id/cuaca"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-semibold text-primary underline underline-offset-4"
+      >
+        bmkg.go.id<span class="sr-only"> (membuka tab baru)</span>
+      </a>
+      .
+    </p>
+  </div>
+
+  {record ? (
+    <div class="rounded-2xl border border-border bg-card p-5 sm:p-6">
+      <dl class="grid gap-x-6 gap-y-4 sm:grid-cols-3">
+        <div>
+          <dt class="text-xs font-semibold text-muted-foreground">Rata-rata setahun</dt>
+          <dd class="mt-1 text-xl font-extrabold">
+            {millimetres(record.annual_mm)} <span class="text-sm font-semibold">mm/tahun</span>
+          </dd>
+        </div>
+        <div>
+          <dt class="text-xs font-semibold text-muted-foreground">Bulan terbasah</dt>
+          <dd class="mt-1 text-xl font-extrabold">
+            {wettest?.name}{' '}
+            <span class="text-sm font-semibold">{millimetres(wettest?.value ?? 0)} mm</span>
+          </dd>
+        </div>
+        <div>
+          <dt class="text-xs font-semibold text-muted-foreground">Bulan terkering</dt>
+          <dd class="mt-1 text-xl font-extrabold">
+            {driest?.name}{' '}
+            <span class="text-sm font-semibold">{millimetres(driest?.value ?? 0)} mm</span>
+          </dd>
+        </div>
+      </dl>
+
+      <table class="mt-5 w-full border-collapse text-sm">
+        <caption class="sr-only">
+          Normal curah hujan bulanan {regionName}, periode {period}, dalam milimeter. Diambil dari
+          satu titik sampel di dalam wilayah dan bersifat perkiraan untuk seluruh kabupaten/kota.
+        </caption>
+        <thead>
+          <tr class="border-b border-border text-left">
+            <th scope="col" class="py-2 pr-2 font-semibold">
+              Bulan
+            </th>
+            <th scope="col" class="py-2 text-right font-semibold">
+              Normal hujan (mm/bulan)
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {monthRows.map((row) => (
+            <tr class="border-b border-border/60">
+              <th scope="row" class="py-2 pr-2 font-normal">
+                {row.name}
+              </th>
+              <td class="py-2 text-right tabular-nums">
+                {row.value === undefined ? UNAVAILABLE : millimetres(row.value)}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+        <tfoot>
+          <tr class="font-semibold">
+            <th scope="row" class="py-2 pr-2">
+              Total satu tahun
+            </th>
+            <td class="py-2 text-right tabular-nums">{millimetres(record.annual_mm)}</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  ) : (
+    <div class="rounded-2xl border border-border bg-card p-5 text-sm leading-relaxed sm:p-6">
+      <p class="text-lg">{UNAVAILABLE}.</p>
+      <p class="mt-2 text-muted-foreground">
+        {unavailableReason ??
+          `Untuk ${regionName} pada periode ${period}, BMKG tidak menerbitkan angka yang dapat kami kutip.`}
+      </p>
+      <p class="mt-2 text-muted-foreground">
+        Angka disajikan apa adanya, tidak diperkirakan sendiri dan tidak diisi nol.
+      </p>
+    </div>
+  )}
+
+  <div class="space-y-2 border-t border-border pt-4 text-xs leading-relaxed text-muted-foreground">
+    <p>
+      <strong>Metode.</strong> Angka dibaca dari satu titik sampel di dalam wilayah (
+      {record
+        ? `${record.sample_point.latitude.toFixed(4)}, ${record.sample_point.longitude.toFixed(4)}`
+        : 'tidak ada'}
+      ) pada produk raster normal curah hujan BMKG. Satu titik mewakili seluruh kabupaten/kota
+      secara <em>perkiraan</em>: daerah yang mencakup pesisir dan pegunungan dapat memiliki curah
+      hujan yang berbeda dari angka ini. Angka ini bukan hasil pengukuran di setiap kecamatan.
+    </p>
+    {average === null ? null : (
+      <p>Rata-rata bulanan {millimetres(average)} mm/bulan, dihitung dari total setahun.</p>
+    )}
+    <p>
+      Sumber: {source.publisher} — {source.title}. Atribusi wajib: {source.attribution}. Diambil{' '}
+      <time datetime={source.captured_at}>{formatDate(source.captured_at)}</time> dari snapshot
+      dengan sidik jari SHA-256 <span class="font-mono break-all">{source.snapshot_checksum}</span>.
+    </p>
+    <p>
+      <a
+        href={source.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-semibold text-primary underline underline-offset-4"
+      >
+        Produk sumber di Satu Peta MKG BMKG<span class="sr-only"> (membuka tab baru)</span>
+      </a>
+      {' · '}
+      <a
+        href={source.license_url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-semibold text-primary underline underline-offset-4"
+      >
+        Ketentuan penggunaan BMKG<span class="sr-only"> (membuka tab baru)</span>
+      </a>
+    </p>
+    <p>
+      Status penggunaan ulang: {source.license} Itu sebabnya bagian ini hanya menampilkan angka yang
+      sudah dipublikasikan BMKG, dengan atribusi dan tanpa perubahan makna.
+    </p>
+  </div>
+</section>

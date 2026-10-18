@@ -1,0 +1,68 @@
+---
+import Container from '@/components/ui/Container.astro';
+import SectionHeading from '@/components/ui/SectionHeading.astro';
+
+// Icon paths: simple 24px strokes (wallet, scale, leaf, alert) drawn for this page.
+const ITEMS = [
+  {
+    title: 'Anggaran dan realisasi',
+    body: 'Anggaran adalah rencana belanja dalam APBD. Realisasi adalah yang sudah dibayarkan. Persentase realisasi = realisasi ÷ anggaran.',
+    icon: 'M3 7h15a3 3 0 0 1 3 3v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Zm0 0 2-3h11l2 3M16 14h2',
+  },
+  {
+    title: 'Median nasional',
+    body: 'Nilai tengah persentase realisasi semua kabupaten/kota yang datanya lengkap. Separuh daerah di atasnya, separuh di bawahnya.',
+    icon: 'M12 3v18M5 21h14M6 8l-3 6a3 3 0 0 0 6 0L6 8Zm12 0-3 6a3 3 0 0 0 6 0l-3-6ZM6 8h12',
+  },
+  {
+    title: 'Dana bagi hasil SDA',
+    body: 'Bagian penerimaan negara dari minyak, gas, tambang, hutan, ikan, panas bumi, dan sawit yang ditransfer ke daerah. Bukan ukuran kekayaan alam.',
+    icon: 'M5 19c0-8 6-14 15-14 0 9-6 15-14 15H5v-1Zm0 0 7-7',
+  },
+  {
+    title: 'Bencana tingkat provinsi',
+    body: 'Data BNPB dirangkum per provinsi, jadi profil kabupaten/kota menampilkan kejadian bencana di provinsinya.',
+    icon: 'M12 4 2.5 20h19L12 4Zm0 6v4m0 3v.01',
+  },
+] as const;
+---
+
+<Container
+  as="section"
+  id="panduan"
+  aria-labelledby="panduan-judul"
+  class="mt-16 scroll-mt-24 sm:mt-24"
+>
+  <SectionHeading id="panduan-judul" eyebrow="Panduan" title="Cara membaca data" align="center">
+    Empat hal yang perlu diketahui sebelum membandingkan angka.
+  </SectionHeading>
+
+  <ol class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    {ITEMS.map((item) => (
+      <li class="rounded-2xl border border-border bg-card p-6">
+        <span
+          class="grid size-11 place-items-center rounded-xl bg-accent text-primary"
+          aria-hidden="true"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            class="size-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d={item.icon} />
+          </svg>
+        </span>
+        <h3 class="mt-5 text-lg font-bold tracking-tight">{item.title}</h3>
+        <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
+      </li>
+    ))}
+  </ol>
+  <p class="mt-6 text-center text-sm text-muted-foreground">
+    Jika sumber belum melaporkan angka, JagaDaerah menulis “data belum tersedia”, tidak mengisinya
+    dengan nol atau perkiraan.
+  </p>
+</Container>

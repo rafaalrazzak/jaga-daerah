@@ -1,0 +1,190 @@
+---
+// Expenditure by jenis belanja (the standard APBD classification DJPK publishes below the Belanja
+// Daerah total). Static HTML, no island: the caller already has the profile payload. Every figure is
+// labelled with its year, a blank source cell stays "Data belum tersedia" and is never shown as 0.
+import type { ExpenditureBreakdownModule } from '@jaga-daerah/contracts';
+
+import { formatPercent, formatRupiahFull, formatRupiahShort } from '@/lib/format';
+
+interface Props {
+  breakdown: ExpenditureBreakdownModule;
+  regionName: string;
+  year: number;
+  /** Publisher, title, and canonical link for the breakdown's source. */
+  source: { publisher: string; title: string; url: string };
+  /** Published dataset version the figures came from. */
+  datasetVersion: string | null;
+}
+
+const { breakdown, regionName, year, source, datasetVersion } = Astro.props;
+
+const UNAVAILABLE = 'Data belum tersedia';
+const hasRows = breakdown.by_type.length > 0;
+const isComplete = breakdown.status === 'complete';
+---
+
+<section aria-labelledby="modul-rincian-belanja" class="scroll-mt-6 space-y-4">
+  <div class="flex flex-wrap items-end justify-between gap-x-4 gap-y-1">
+    <h2 id="modul-rincian-belanja" class="text-2xl font-extrabold tracking-[-0.03em] sm:text-3xl">
+      Rincian belanja daerah menurut jenis
+    </h2>
+    <p class="rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-muted-foreground">
+      APBD {year} · tingkat kabupaten/kota
+    </p>
+  </div>
+
+  <div role="note" class="rounded-xl border border-border bg-accent/60 p-4 text-sm leading-relaxed">
+    <p class="font-semibold">Ini bukan belanja per program atau per dinas.</p>
+    <p class="mt-1">
+      Angka di bawah memakai klasifikasi baku APBD menurut <em>jenis belanja</em> — misalnya belanja
+      pegawai, belanja barang dan jasa, dan belanja modal. Rincian ini tidak menunjukkan kegiatan
+      atau program tertentu, sehingga tidak dapat dipakai untuk menilai satu kegiatan di{' '}
+      {regionName}.
+    </p>
+  </div>
+
+  <div class="rounded-2xl border border-border bg-card p-4 sm:p-6">
+    <div class="space-y-2 text-base leading-relaxed">
+      {breakdown.narrative.map((sentence) => (
+        <p>{sentence}</p>
+      ))}
+    </div>
+
+    {hasRows ? null : (
+      <p class="mt-4 text-base text-muted-foreground">
+        {regionName} belum memiliki rincian belanja menurut jenis untuk tahun {year}. {UNAVAILABLE}.
+      </p>
+    )}
+
+    {hasRows ? (
+      <>
+        <dl class="mt-6 grid gap-4 sm:grid-cols-2">
+          <div>
+            <dt class="text-sm text-muted-foreground">Anggaran tahun {year}</dt>
+            <dd class="mt-1 text-2xl font-extrabold tracking-tight tabular-nums">
+              {breakdown.total_budget_amount === null
+                ? UNAVAILABLE
+                : formatRupiahShort(breakdown.total_budget_amount)}
+            </dd>
+          </div>
+          <div>
+            <dt class="text-sm text-muted-foreground">Realisasi tahun {year}</dt>
+            <dd class="mt-1 text-2xl font-extrabold tracking-tight tabular-nums">
+              {breakdown.total_realization_amount === null
+                ? UNAVAILABLE
+                : formatRupiahShort(breakdown.total_realization_amount)}
+            </dd>
+          </div>
+        </dl>
+
+        {isComplete ? null : (
+          <p class="mt-4 rounded-lg bg-secondary px-3 py-2 text-sm">
+            Tidak semua jenis belanja dilaporkan sumber untuk tahun {year}; baris yang kosong
+            ditampilkan sebagai &ldquo;{UNAVAILABLE}&rdquo;, bukan nol.
+          </p>
+        )}
+
+        <div class="mt-6">
+          <table class="w-full table-fixed text-left text-sm">
+            <caption class="sr-only">
+              Rincian belanja daerah {regionName} tahun {year} menurut jenis belanja: anggaran dan
+              realisasi dalam rupiah. Sumber DJPK.
+            </caption>
+            <colgroup>
+              <col class="w-[38%]" />
+              <col class="w-[31%]" />
+              <col class="w-[31%]" />
+            </colgroup>
+            <thead>
+              <tr class="border-b border-border">
+                <th scope="col" class="py-2 pr-2 font-semibold">
+                  Jenis belanja
+                </th>
+                <th scope="col" class="py-2 pr-2 text-right font-semibold">
+                  Anggaran <span class="block font-normal text-muted-foreground">{year}</span>
+                </th>
+                <th scope="col" class="py-2 text-right font-semibold">
+                  Realisasi <span class="block font-normal text-muted-foreground">{year}</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="tabular-nums">
+              {breakdown.by_type.map((row) => (
+                <tr class="border-b border-border last:border-0">
+                  <th scope="row" class="py-3 pr-2 align-top font-semibold">
+                    {row.label}
+                    {row.budget_share_percent === null ? null : (
+                      <span class="mt-1 block text-xs font-normal text-muted-foreground">
+                        {formatPercent(row.budget_share_percent)} dari total anggaran
+                      </span>
+                    )}
+                  </th>
+                  <td class="py-3 pr-2 text-right align-top break-words">
+                    {row.budget_amount === null ? (
+                      <span class="text-muted-foreground">{UNAVAILABLE}</span>
+                    ) : (
+                      <>
+                        <span class="block font-semibold">
+                          {formatRupiahShort(row.budget_amount)}
+                        </span>
+                        <span
+                          aria-hidden="true"
+                          class="block text-xs break-all text-muted-foreground"
+                        >
+                          {formatRupiahFull(row.budget_amount)}
+                        </span>
+                        <span class="sr-only">{formatRupiahFull(row.budget_amount)}</span>
+                      </>
+                    )}
+                  </td>
+                  <td class="py-3 text-right align-top break-words">
+                    {row.realization_amount === null ? (
+                      <span class="text-muted-foreground">{UNAVAILABLE}</span>
+                    ) : (
+                      <>
+                        <span class="block font-semibold">
+                          {formatRupiahShort(row.realization_amount)}
+                        </span>
+                        <span
+                          aria-hidden="true"
+                          class="block text-xs break-all text-muted-foreground"
+                        >
+                          {formatRupiahFull(row.realization_amount)}
+                        </span>
+                        <span class="sr-only">{formatRupiahFull(row.realization_amount)}</span>
+                      </>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <p class="mt-4 text-sm text-muted-foreground">
+          Jumlah seluruh jenis belanja di atas setara dengan total Belanja Daerah {regionName} tahun{' '}
+          {year} yang ditampilkan di modul anggaran; selisih hanya berasal dari pembulatan angka
+          yang dipublikasikan DJPK.
+        </p>
+      </>
+    ) : null}
+
+    <div class="mt-6 border-t border-border pt-4 text-sm">
+      <p>
+        Sumber:{' '}
+        <a
+          href={source.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex min-h-11 items-center font-semibold text-primary underline underline-offset-4"
+        >
+          {source.publisher} — {source.title}
+          <span class="sr-only"> (membuka tab baru)</span>
+        </a>
+      </p>
+      <p class="text-muted-foreground">
+        Tahun data {year} · versi dataset <span class="font-mono">{datasetVersion ?? '—'}</span>
+      </p>
+    </div>
+  </div>
+</section>

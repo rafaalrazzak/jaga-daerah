@@ -1,0 +1,418 @@
+---
+// Natural conditions ("kondisi alam") for one kabupaten/kota, from two official publishers whose
+// payloads already carry the Kemendagri region code:
+//   - BIG: the statutory area of the region.
+//   - BNPB: recorded disaster events and recorded impact, per hazard type.
+// Static Astro, no island: the whole section is readable with JavaScript disabled.
+//
+// What this section is careful about:
+// - Every figure is labelled with what it measures, its unit, its period/year and its publisher.
+// - An absent value renders "Data belum tersedia", never 0. A published 0 stays 0.
+// - Coverage is stated per sub-topic, so the page never implies national coverage it lacks.
+// - Nothing here is re-derived, re-weighted, interpolated or scored, and no figure is a prediction
+//   or a warning: these are historical records of what was reported.
+import { formatCount } from '@/lib/format';
+import { NATURE } from '@/lib/nature';
+
+interface Props {
+  regionCode: string;
+  regionName: string;
+}
+
+const { regionCode, regionName } = Astro.props;
+const record = NATURE.regions[regionCode];
+const { big, bnpb, coverage } = NATURE.source;
+
+const UNAVAILABLE = 'Data belum tersedia';
+const FIRST_YEAR = 2010;
+const LAST_YEAR = 2024;
+
+// The published categories, in the order the artifact's label record declares. Reading the order
+// from the data keeps the component in step with the contract without importing a schema the
+// package entrypoint does not re-export, and the literal keys stay type-safe for indexing.
+type Hazard = keyof typeof bnpb.hazard_labels;
+type Impact = keyof typeof bnpb.impact_labels;
+const HAZARD_ORDER = Object.keys(bnpb.hazard_labels) as Hazard[];
+const IMPACT_ORDER = Object.keys(bnpb.impact_labels) as Impact[];
+
+// Published hazard counts, largest first, ties keeping the publisher's own order. A hazard the
+// source states as zero is still shown; one it omits is still absent.
+const hazards = HAZARD_ORDER.flatMap((hazard) => {
+  const value = record?.events_by_hazard?.[hazard];
+  return value === undefined ? [] : [[hazard, value] as const];
+}).toSorted(([, left], [, right]) => right - left);
+
+// Published impact totals for 2024, in the publisher's own metric order.
+const impacts = IMPACT_ORDER.flatMap((metric) => {
+  const value = record?.impacts_2024?.[metric];
+  return value === undefined ? [] : [[metric, value] as const];
+});
+
+// Recorded earthquakes get their own block: the owner asked for gempa specifically, and a single
+// row inside a nine-row table buries it. Same published figures, shown whole.
+const earthquakeEvents = record?.events_by_hazard?.gempabumi;
+const earthquakeImpacts = IMPACT_ORDER.flatMap((metric) => {
+  const value = record?.impacts_2024_by_hazard?.[`${metric}.gempabumi`];
+  return value === undefined ? [] : [[metric, value] as const];
+});
+
+const years = Object.entries(record?.events_by_year ?? {}).toSorted(
+  ([left], [right]) => Number(left) - Number(right),
+);
+const hazardTotal = hazards.reduce((sum, [, value]) => sum + value, 0);
+const largestHazard = hazards[0]?.[1] ?? 0;
+---
+
+<section aria-labelledby="kondisi-alam" class="scroll-mt-6 space-y-4">
+  <div class="flex flex-wrap items-end justify-between gap-x-4 gap-y-1">
+    <h2 id="kondisi-alam" class="text-2xl font-extrabold tracking-[-0.03em] sm:text-3xl">
+      Kondisi alam
+    </h2>
+    <p class="rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-muted-foreground">
+      Tingkat kabupaten/kota · BIG &amp; BNPB
+    </p>
+  </div>
+
+  <p class="text-sm text-muted-foreground">
+    Fakta resmi tentang kondisi alam {regionName}, disalin apa adanya dari publikasi resmi: luas
+    wilayah menurut peraturan dari Badan Informasi Geospasial (BIG), lalu catatan kejadian dan
+    dampak bencana dari Badan Nasional Penanggulangan Bencana (BNPB). Tidak ada angka yang dihitung
+    ulang, diperkirakan, atau diramalkan di sini.
+  </p>
+
+  <div>
+    <h3 class="text-lg font-bold tracking-[-0.02em]">Keadaan wilayah</h3>
+    <p class="text-xs text-muted-foreground">Gambaran tetap tentang daerahnya, bukan kejadian.</p>
+  </div>
+
+  <div class="rounded-2xl border border-border bg-card p-5 sm:p-6">
+    <h4 class="text-sm font-semibold text-muted-foreground">
+      Luas wilayah menurut peraturan
+      <span class="font-normal"> · BIG · {big.unit}</span>
+    </h4>
+    {record?.area ? (
+      <>
+        <p class="mt-2 text-3xl font-extrabold tracking-[-0.03em] tabular-nums">
+          {formatCount(record.area.value)} <span class="text-lg font-bold">{record.area.unit}</span>
+        </p>
+        <dl class="mt-4 space-y-1 text-sm">
+          <div class="flex flex-wrap gap-x-2">
+            <dt class="text-muted-foreground">Satuan</dt>
+            <dd>{record.area.unit} (kilometer persegi)</dd>
+          </div>
+          <div class="flex flex-wrap gap-x-2">
+            <dt class="text-muted-foreground">Edisi basis data</dt>
+            <dd class="font-mono text-xs break-all">{record.area.edition}</dd>
+          </div>
+        </dl>
+        <p class="mt-3 text-xs text-muted-foreground">
+          Luas menurut peraturan, bukan hasil pengukuran garis pantai. {big.unit_note}
+        </p>
+      </>
+    ) : (
+      <p class="mt-2 text-lg text-muted-foreground" data-missing="area">
+        {UNAVAILABLE}
+      </p>
+    )}
+    <p class="mt-3 text-xs text-muted-foreground">
+      Cakupan BIG: {coverage.area.covered} dari {coverage.area.total} kabupaten/kota.
+      {big.license === null
+        ? ' BIG tidak mencantumkan lisensi penggunaan ulang untuk layanan ini.'
+        : ` Lisensi: ${big.license}.`}
+    </p>
+  </div>
+
+  <div>
+    <h3 class="text-lg font-bold tracking-[-0.02em]">Riwayat bencana</h3>
+    <p class="text-xs text-muted-foreground">
+      Catatan kejadian yang dilaporkan, bukan ramalan dan bukan peringatan.
+    </p>
+  </div>
+
+  <div class="rounded-2xl border border-border bg-card p-5 sm:p-6">
+    <h4 class="text-sm font-semibold text-muted-foreground">
+      Gempa bumi tercatat
+      <span class="font-normal"> · BNPB · {LAST_YEAR}</span>
+    </h4>
+    {earthquakeEvents === undefined ? (
+      <p class="mt-2 text-lg text-muted-foreground" data-missing="earthquake">
+        {UNAVAILABLE} — sumber tidak memuat angka gempa bumi untuk daerah ini.
+      </p>
+    ) : (
+      <>
+        <p class="mt-2 text-3xl font-extrabold tracking-[-0.03em] tabular-nums">
+          {formatCount(earthquakeEvents)}
+        </p>
+        <p class="text-sm text-muted-foreground">
+          kejadian gempa bumi tercatat sepanjang {LAST_YEAR} di {regionName}.
+        </p>
+        {earthquakeImpacts.length === 0 ? (
+          <p class="mt-3 text-sm text-muted-foreground">
+            Sumber tidak mencatat korban atau kerusakan rumah akibat gempa bumi di daerah ini pada{' '}
+            {LAST_YEAR}.
+          </p>
+        ) : (
+          <table class="mt-3 w-full text-sm">
+            <caption class="sr-only">
+              Dampak gempa bumi yang tercatat di {regionName} tahun {LAST_YEAR}, dari BNPB.
+            </caption>
+            <thead>
+              <tr class="text-left text-xs text-muted-foreground">
+                <th scope="col" class="pb-1 font-semibold">
+                  Dampak tercatat
+                </th>
+                <th scope="col" class="pb-1 text-right font-semibold">
+                  Jumlah
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {earthquakeImpacts.map(([metric, value]) => (
+                <tr class="border-t border-border">
+                  <th scope="row" class="py-1.5 pr-2 text-left font-normal">
+                    {bnpb.impact_labels[metric]}
+                  </th>
+                  <td class="py-1.5 text-right tabular-nums">
+                    {formatCount(value)} <span class="text-xs">{bnpb.impact_units[metric]}</span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </>
+    )}
+    <p class="mt-3 text-xs text-muted-foreground">
+      Ini catatan historis kejadian yang dilaporkan, bukan perkiraan peluang gempa, bukan prediksi,
+      dan bukan peringatan dini. Informasi peringatan resmi hanya dari kanal BNPB atau BMKG.
+    </p>
+  </div>
+
+  <div class="grid gap-4 md:grid-cols-2">
+    <div class="rounded-2xl border border-border bg-card p-5 sm:p-6">
+      <h4 class="text-sm font-semibold text-muted-foreground">
+        Seluruh kejadian bencana
+        <span class="font-normal"> · BNPB · {LAST_YEAR}</span>
+      </h4>
+      {hazards.length > 0 ? (
+        <>
+          <p class="mt-2 text-3xl font-extrabold tracking-[-0.03em] tabular-nums">
+            {formatCount(hazardTotal)}
+          </p>
+          <p class="text-sm text-muted-foreground">
+            kejadian tercatat sepanjang {LAST_YEAR}, semua jenis bencana.
+          </p>
+          <table class="mt-4 w-full text-sm">
+            <caption class="sr-only">
+              Jumlah kejadian bencana yang tercatat di {regionName} tahun {LAST_YEAR}, per jenis
+              bencana, dari BNPB.
+            </caption>
+            <thead>
+              <tr class="text-left text-xs text-muted-foreground">
+                <th scope="col" class="pb-1 font-semibold">
+                  Jenis bencana
+                </th>
+                <th scope="col" class="pb-1 text-right font-semibold">
+                  Kejadian
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {hazards.map(([hazard, value]) => (
+                <tr class="border-t border-border">
+                  <th scope="row" class="py-1.5 pr-2 text-left font-normal">
+                    {bnpb.hazard_labels[hazard] ?? hazard}
+                  </th>
+                  <td class="py-1.5 text-right tabular-nums">{formatCount(value)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          {/* The bar is decoration for the table above and carries no meaning on its own: every
+              value and its label are already in the table, and the widths are hidden from assistive
+              technology, so nothing is conveyed by shape or colour alone. */}
+          <ul class="mt-3 space-y-1" aria-hidden="true">
+            {hazards.map(([, value]) => (
+              <li class="h-2 w-full rounded-full bg-secondary">
+                <span
+                  class="block h-2 rounded-full bg-primary"
+                  style={`width: ${largestHazard === 0 ? 0 : Math.round((value / largestHazard) * 100)}%`}
+                ></span>
+              </li>
+            ))}
+          </ul>
+        </>
+      ) : (
+        <p class="mt-2 text-lg text-muted-foreground" data-missing="events">
+          {UNAVAILABLE}
+        </p>
+      )}
+      <p class="mt-3 text-xs text-muted-foreground">
+        Cakupan BNPB {LAST_YEAR}: {coverage.events_by_hazard_2024.covered} dari{' '}
+        {coverage.events_by_hazard_2024.total} kabupaten/kota. Daerah yang tidak ada di tabel sumber
+        berarti sumber tidak menyatakan angkanya, bukan berarti nol kejadian.
+      </p>
+    </div>
+
+    <div class="rounded-2xl border border-border bg-card p-5 sm:p-6">
+      <h4 class="text-sm font-semibold text-muted-foreground">
+        Dampak bencana tercatat
+        <span class="font-normal"> · BNPB · {LAST_YEAR}</span>
+      </h4>
+      {impacts.length > 0 ? (
+        <>
+          <p class="text-sm text-muted-foreground">
+            Semua jenis bencana, sepanjang {LAST_YEAR}. Jawaban “0” berarti sumber menyatakan nol,
+            sedangkan “{UNAVAILABLE}” berarti sumber tidak menyatakannya.
+          </p>
+          <table class="mt-3 w-full text-sm">
+            <caption class="sr-only">
+              Jumlah dampak bencana yang tercatat di {regionName} tahun {LAST_YEAR}, per jenis
+              dampak, dari BNPB.
+            </caption>
+            <thead>
+              <tr class="text-left text-xs text-muted-foreground">
+                <th scope="col" class="pb-1 font-semibold">
+                  Jenis dampak
+                </th>
+                <th scope="col" class="pb-1 text-right font-semibold">
+                  Jumlah
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {impacts.map(([metric, value]) => (
+                <tr class="border-t border-border">
+                  <th scope="row" class="py-1.5 pr-2 text-left font-normal">
+                    {bnpb.impact_labels[metric]}
+                    <span class="text-xs text-muted-foreground">
+                      {' '}
+                      · {bnpb.impact_units[metric]}
+                    </span>
+                  </th>
+                  <td class="py-1.5 text-right tabular-nums">{formatCount(value)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </>
+      ) : (
+        <p class="mt-2 text-lg text-muted-foreground" data-missing="impacts">
+          {UNAVAILABLE}
+        </p>
+      )}
+      <p class="mt-3 text-xs text-muted-foreground">
+        Cakupan BNPB {LAST_YEAR}: {coverage.impacts_2024.covered} dari {coverage.impacts_2024.total}{' '}
+        kabupaten/kota. Angka dampak hanya ditampilkan bila sumber memuat seluruh kolom jenis
+        bencana, supaya tidak menjadi jumlah yang tidak lengkap.
+      </p>
+    </div>
+  </div>
+
+  <div class="rounded-2xl border border-border bg-card p-5 sm:p-6">
+    <h4 class="text-sm font-semibold text-muted-foreground">
+      Riwayat kejadian tercatat {FIRST_YEAR}–{LAST_YEAR}
+      <span class="font-normal"> · BNPB · semua jenis bencana</span>
+    </h4>
+    {years.length > 0 ? (
+      <table class="mt-3 w-full text-sm">
+        <caption class="sr-only">
+          Jumlah kejadian bencana yang tercatat di {regionName} per tahun, {FIRST_YEAR} sampai{' '}
+          {LAST_YEAR}, semua jenis bencana, dari BNPB.
+        </caption>
+        <thead>
+          <tr class="text-left text-xs text-muted-foreground">
+            <th scope="col" class="pb-1 font-semibold">
+              Tahun
+            </th>
+            <th scope="col" class="pb-1 text-right font-semibold">
+              Kejadian
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {years.map(([year, value]) => (
+            <tr class="border-t border-border">
+              <th scope="row" class="py-1.5 pr-2 text-left font-normal tabular-nums">
+                {year}
+              </th>
+              <td class="py-1.5 text-right tabular-nums">{formatCount(value)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    ) : (
+      <p class="mt-2 text-lg text-muted-foreground" data-missing="years">
+        {UNAVAILABLE}
+      </p>
+    )}
+    <p class="mt-3 text-xs text-muted-foreground">
+      Cakupan BNPB {FIRST_YEAR}–{LAST_YEAR}: {coverage.events_by_year.covered} dari{' '}
+      {coverage.events_by_year.total} kabupaten/kota. Tahun yang tidak tercantum berarti sumber
+      tidak menyatakan angkanya.
+    </p>
+  </div>
+
+  <div class="rounded-2xl border border-border bg-accent/40 p-5 text-sm sm:p-6">
+    <h3 class="text-sm font-semibold">Cara membaca angka ini</h3>
+    <ul class="mt-2 list-disc space-y-1 pl-5 text-muted-foreground">
+      <li>
+        Semua angka di bagian ini adalah <strong>catatan historis</strong> dari publikasi resmi:
+        jumlah kejadian dan jumlah dampak yang dilaporkan. Bukan indeks risiko, bukan peluang, bukan
+        prediksi, dan bukan peringatan dini bencana.
+      </li>
+      <li>
+        Banyaknya kejadian dan dampak yang tercatat ikut ditentukan cara pencatatan dan pelaporan
+        tiap daerah. Karena itu angka yang lebih tinggi tidak dengan sendirinya berarti daerah itu
+        lebih berbahaya, dan angka yang lebih rendah atau nol tidak berarti daerah itu aman.
+      </li>
+      <li>
+        “{UNAVAILABLE}” dipakai bila sumber tidak menyatakan angkanya; angka 0 tetap ditulis 0.
+      </li>
+      <li>
+        Tidak setiap daerah tercakup sumber, sehingga cakupan per sub-bagian dinyatakan apa adanya
+        dan halaman ini tidak mengklaim mencakup seluruh Indonesia untuk setiap angka.
+      </li>
+      <li>
+        Daerah ini memiliki luas wilayah menurut peraturan dari BIG; bukan hasil pengukuran ulang,
+        dan sebagian daerah memakai edisi basis data yang berbeda.
+      </li>
+      <li>
+        Halaman ini tidak menampilkan indeks risiko bencana resmi BNPB (InaRISK/IRBI) karena
+        ketentuan penggunaan InaRISK tidak mengizinkan penggunaan ulang tanpa izin tertulis dari
+        BNPB.
+      </li>
+    </ul>
+  </div>
+
+  <div class="space-y-1 text-xs text-muted-foreground">
+    <p>
+      Sumber luas wilayah:{' '}
+      <a
+        href={big.url}
+        class="underline underline-offset-2"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {big.publisher}
+      </a>{' '}
+      — {big.title}. Satuan {big.unit}.<span class="sr-only"> (membuka tab baru)</span>
+    </p>
+    <p>
+      Sumber kejadian dan dampak bencana:{' '}
+      <a
+        href={bnpb.url}
+        class="underline underline-offset-2"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {bnpb.publisher}
+      </a>{' '}
+      — {bnpb.title}. Lisensi {bnpb.license}.<span class="sr-only"> (membuka tab baru)</span>
+    </p>
+    <p>
+      Seri kejadian: {FIRST_YEAR}–{LAST_YEAR}; dampak: {LAST_YEAR}. Data diproses{' '}
+      {NATURE.source.downloaded_at.slice(0, 10)}.
+    </p>
+  </div>
+</section>

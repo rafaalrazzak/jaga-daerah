@@ -1,0 +1,4 @@
+# The production domain is not decided yet (PRD §16), so no absolute Sitemap URL is written here.
+# After the domain is verified, add: Sitemap: https://<domain>/sitemap-index.xml
+User-agent: *
+Allow: /

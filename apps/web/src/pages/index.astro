@@ -1,0 +1,128 @@
+---
+import Logo from '@/components/Logo.astro';
+import HowToRead from '@/components/landing/HowToRead.astro';
+import HeroMap from '@/components/landing/HeroMap.astro';
+import Container from '@/components/ui/Container.astro';
+import Panel from '@/components/ui/Panel.astro';
+import SectionHeading from '@/components/ui/SectionHeading.astro';
+import CoverageStats from '@/islands/CoverageStats';
+import InteractiveMap from '@/islands/InteractiveMap';
+import RegionSearch from '@/islands/RegionSearch';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { REGIONS } from '@/lib/regions';
+
+const provinceCount = new Set(REGIONS.map((region) => region.province.code)).size;
+// Static shortcuts so the journey starts without typing or JavaScript (Kemendagri 2025 slugs).
+const EXAMPLES = [
+  { name: 'Kota Bandung', slug: 'kota-bandung' },
+  { name: 'Kota Banda Aceh', slug: 'kota-banda-aceh' },
+  { name: 'Kabupaten Sorong', slug: 'kabupaten-sorong' },
+] as const;
+---
+
+<BaseLayout
+  title="JagaDaerah — Anggaran, pejabat, dan risiko daerah, dibuat mudah dipahami"
+  description="Cari kabupaten atau kota untuk melihat pejabat yang menjabat, ringkasan anggaran daerah, dan risiko bencana provinsinya, lengkap dengan sumber resmi."
+>
+  <Container as="section" class="pt-12 pb-16 sm:pt-20 sm:pb-24">
+    <div class="grid items-end gap-10 lg:grid-cols-2 lg:gap-16">
+      <div>
+        <p class="text-[clamp(4.5rem,16vw,8rem)] leading-[0.85] font-extrabold tracking-[-0.06em]">
+          {REGIONS.length}
+        </p>
+        <h1 class="mt-3 text-[clamp(2rem,5.5vw,3.25rem)] leading-[1.05] font-extrabold tracking-[-0.04em] text-balance">
+          kabupaten/kota, satu tempat untuk cek <span class="text-primary">uang daerahmu</span>.
+        </h1>
+      </div>
+
+      <div>
+        <p class="max-w-xl text-lg leading-relaxed text-muted-foreground">
+          Lihat pejabat yang menjabat, anggarannya, yang sudah dibelanjakan, dana dari sumber daya
+          alam, dan bencana di provinsinya. Dari sumber resmi, dalam bahasa sederhana.
+        </p>
+
+        <div id="cari" class="mt-8 max-w-xl scroll-mt-28">
+          <RegionSearch client:load />
+          <noscript>
+            <p class="mt-3 text-sm text-foreground">
+              Pencarian membutuhkan JavaScript. Anda tetap dapat membuka contoh daerah di bawah.
+            </p>
+          </noscript>
+        </div>
+
+        <nav aria-label="Contoh daerah" class="mt-4">
+          <ul class="flex flex-wrap items-center gap-2 text-sm">
+            <li class="mr-1 text-muted-foreground">Coba:</li>
+            {EXAMPLES.map((region) => (
+              <li>
+                <a
+                  href={`/daerah/${region.slug}`}
+                  class="inline-flex min-h-11 items-center rounded-full bg-secondary px-4 font-semibold transition-colors hover:bg-accent hover:text-primary"
+                >
+                  {region.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="mt-12 sm:mt-16">
+      <HeroMap />
+    </div>
+  </Container>
+
+  <Container class="space-y-4">
+    <Panel class="grid items-center gap-6 md:grid-cols-[auto_minmax(0,1fr)] md:gap-12">
+      <Logo size="lg" />
+      <div>
+        <p class="text-xl font-bold tracking-tight text-balance sm:text-2xl">
+          Uang daerah adalah uang warga. Kita berhak tahu ke mana perginya.
+        </p>
+        <p class="mt-2 leading-relaxed text-muted-foreground">
+          JagaDaerah merangkum data resmi per kabupaten/kota: APBD dan TKDD dari DJPK Kemenkeu,
+          kebencanaan dari BNPB, dan pasangan calon Pilkada 2024 dari KPU. Pejabat yang menjabat
+          dari Wikipedia, fotonya dari Wikimedia Commons, dicocokkan dengan daftar calon KPU.
+          Lengkap dengan sumber dan tahunnya, tanpa menilai kinerja pemerintah daerah.
+        </p>
+      </div>
+    </Panel>
+
+    <section aria-labelledby="cakupan-data">
+      <h2 id="cakupan-data" class="sr-only">
+        Cakupan data
+      </h2>
+      <Panel class="!py-6">
+        <CoverageStats client:idle provinces={provinceCount} regions={REGIONS.length} />
+      </Panel>
+    </section>
+  </Container>
+
+  <Container
+    as="section"
+    id="peta"
+    aria-labelledby="peta-judul"
+    class="mt-16 scroll-mt-24 sm:mt-24"
+  >
+    <Panel tone="tint" class="!px-4 sm:!px-10">
+      <SectionHeading
+        id="peta-judul"
+        eyebrow="Peta kabupaten/kota"
+        title="Seberapa banyak anggaran sudah dibelanjakan?"
+        align="center"
+      >
+        Makin gelap warnanya, makin besar bagian anggaran yang sudah dibelanjakan dibanding daerah
+        lain. Arahkan kursor atau ketuk daerah untuk melihat angkanya.
+      </SectionHeading>
+      <div class="mt-10 min-h-[24rem] rounded-2xl border border-border bg-card p-4 sm:p-6">
+        <InteractiveMap client:visible />
+        <noscript>
+          <p class="text-lg">Peta interaktif membutuhkan JavaScript. Gunakan pencarian di atas.</p>
+        </noscript>
+      </div>
+    </Panel>
+  </Container>
+
+  <HowToRead />
+</BaseLayout>

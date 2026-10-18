@@ -1,0 +1,26 @@
+---
+// Eyebrow + title + optional lead, used by every landing and profile section.
+interface Props {
+  id: string;
+  eyebrow?: string;
+  title: string;
+  align?: 'start' | 'center';
+}
+
+const { id, eyebrow, title, align = 'start' } = Astro.props;
+const centered = align === 'center';
+---
+
+<div class:list={['max-w-2xl', centered && 'mx-auto text-center']}>
+  {eyebrow === undefined ? null : (
+    <p class="text-sm font-bold tracking-[0.12em] text-primary uppercase">{eyebrow}</p>
+  )}
+  <h2 id={id} class="mt-3 text-3xl font-extrabold tracking-[-0.03em] text-balance sm:text-4xl">
+    {title}
+  </h2>
+  {Astro.slots.has('default') ? (
+    <p class="mt-4 text-lg leading-relaxed text-muted-foreground">
+      <slot />
+    </p>
+  ) : null}
+</div>

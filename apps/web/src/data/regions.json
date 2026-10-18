@@ -1,0 +1,5656 @@
+[
+  {
+    "code": "11.01",
+    "name": "Kabupaten Aceh Selatan",
+    "slug": "kabupaten-aceh-selatan",
+    "type": "kabupaten",
+    "province": {
+      "code": "11",
+      "name": "Aceh",
+      "slug": "aceh"
+    }
+  },
+  {
+    "code": "11.02",
+    "name": "Kabupaten Aceh Tenggara",
+    "slug": "kabupaten-aceh-tenggara",
+    "type": "kabupaten",
+    "province": {
+      "code": "11",
+      "name": "Aceh",
+      "slug": "aceh"
+    }
+  },
+  {
+    "code": "11.03",
+    "name": "Kabupaten Aceh Timur",
+    "slug": "kabupaten-aceh-timur",
+    "type": "kabupaten",
+    "province": {
+      "code": "11",
+      "name": "Aceh",
+      "slug": "aceh"
+    }
+  },
+  {
+    "code": "11.04",
+    "name": "Kabupaten Aceh Tengah",
+    "slug": "kabupaten-aceh-tengah",
+    "type": "kabupaten",
+    "province": {
+      "code": "11",
+      "name": "Aceh",
+      "slug": "aceh"
+    }
+  },
+  {
+    "code": "11.05",
+    "name": "Kabupaten Aceh Barat",
+    "slug": "kabupaten-aceh-barat",
+    "type": "kabupaten",
+    "province": {
+      "code": "11",
+      "name": "Aceh",
+      "slug": "aceh"
+    }
+  },
+  {
+    "code": "11.06",
+    "name": "Kabupaten Aceh Besar",
+    "slug": "kabupaten-aceh-besar",
+    "type": "kabupaten",
+    "province": {
+      "code": "11",
+      "name": "Aceh",
+      "slug": "aceh"
+    }
+  },
+  {
+    "code": "11.07",
+    "name": "Kabupaten Pidie",
+    "slug": "kabupaten-pidie",
+    "type": "kabupaten",
+    "province": {
+      "code": "11",
+      "name": "Aceh",
+      "slug": "aceh"
+    }
+  },
+  {
+    "code": "11.08",
+    "name": "Kabupaten Aceh Utara",
+    "slug": "kabupaten-aceh-utara",
+    "type": "kabupaten",
+    "province": {
+      "code": "11",
+      "name": "Aceh",
+      "slug": "aceh"
+    }
+  },
+  {
+    "code": "11.09",
+    "name": "Kabupaten Simeulue",
+    "slug": "kabupaten-simeulue",
+    "type": "kabupaten",
+    "province": {
+      "code": "11",
+      "name": "Aceh",
+      "slug": "aceh"
+    }
+  },
+  {
+    "code": "11.10",
+    "name": "Kabupaten Aceh Singkil",
+    "slug": "kabupaten-aceh-singkil",
+    "type": "kabupaten",
+    "province": {
+      "code": "11",
+      "name": "Aceh",
+      "slug": "aceh"
+    }
+  },
+  {
+    "code": "11.11",
+    "name": "Kabupaten Bireuen",
+    "slug": "kabupaten-bireuen",
+    "type": "kabupaten",
+    "province": {
+      "code": "11",
+      "name": "Aceh",
+      "slug": "aceh"
+    }
+  },
+  {
+    "code": "11.12",
+    "name": "Kabupaten Aceh Barat Daya",
+    "slug": "kabupaten-aceh-barat-daya",
+    "type": "kabupaten",
+    "province": {
+      "code": "11",
+      "name": "Aceh",
+      "slug": "aceh"
+    }
+  },
+  {
+    "code": "11.13",
+    "name": "Kabupaten Gayo Lues",
+    "slug": "kabupaten-gayo-lues",
+    "type": "kabupaten",
+    "province": {
+      "code": "11",
+      "name": "Aceh",
+      "slug": "aceh"
+    }
+  },
+  {
+    "code": "11.14",
+    "name": "Kabupaten Aceh Jaya",
+    "slug": "kabupaten-aceh-jaya",
+    "type": "kabupaten",
+    "province": {
+      "code": "11",
+      "name": "Aceh",
+      "slug": "aceh"
+    }
+  },
+  {
+    "code": "11.15",
+    "name": "Kabupaten Nagan Raya",
+    "slug": "kabupaten-nagan-raya",
+    "type": "kabupaten",
+    "province": {
+      "code": "11",
+      "name": "Aceh",
+      "slug": "aceh"
+    }
+  },
+  {
+    "code": "11.16",
+    "name": "Kabupaten Aceh Tamiang",
+    "slug": "kabupaten-aceh-tamiang",
+    "type": "kabupaten",
+    "province": {
+      "code": "11",
+      "name": "Aceh",
+      "slug": "aceh"
+    }
+  },
+  {
+    "code": "11.17",
+    "name": "Kabupaten Bener Meriah",
+    "slug": "kabupaten-bener-meriah",
+    "type": "kabupaten",
+    "province": {
+      "code": "11",
+      "name": "Aceh",
+      "slug": "aceh"
+    }
+  },
+  {
+    "code": "11.18",
+    "name": "Kabupaten Pidie Jaya",
+    "slug": "kabupaten-pidie-jaya",
+    "type": "kabupaten",
+    "province": {
+      "code": "11",
+      "name": "Aceh",
+      "slug": "aceh"
+    }
+  },
+  {
+    "code": "11.71",
+    "name": "Kota Banda Aceh",
+    "slug": "kota-banda-aceh",
+    "type": "kota",
+    "province": {
+      "code": "11",
+      "name": "Aceh",
+      "slug": "aceh"
+    }
+  },
+  {
+    "code": "11.72",
+    "name": "Kota Sabang",
+    "slug": "kota-sabang",
+    "type": "kota",
+    "province": {
+      "code": "11",
+      "name": "Aceh",
+      "slug": "aceh"
+    }
+  },
+  {
+    "code": "11.73",
+    "name": "Kota Lhokseumawe",
+    "slug": "kota-lhokseumawe",
+    "type": "kota",
+    "province": {
+      "code": "11",
+      "name": "Aceh",
+      "slug": "aceh"
+    }
+  },
+  {
+    "code": "11.74",
+    "name": "Kota Langsa",
+    "slug": "kota-langsa",
+    "type": "kota",
+    "province": {
+      "code": "11",
+      "name": "Aceh",
+      "slug": "aceh"
+    }
+  },
+  {
+    "code": "11.75",
+    "name": "Kota Subulussalam",
+    "slug": "kota-subulussalam",
+    "type": "kota",
+    "province": {
+      "code": "11",
+      "name": "Aceh",
+      "slug": "aceh"
+    }
+  },
+  {
+    "code": "12.01",
+    "name": "Kabupaten Tapanuli Tengah",
+    "slug": "kabupaten-tapanuli-tengah",
+    "type": "kabupaten",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.02",
+    "name": "Kabupaten Tapanuli Utara",
+    "slug": "kabupaten-tapanuli-utara",
+    "type": "kabupaten",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.03",
+    "name": "Kabupaten Tapanuli Selatan",
+    "slug": "kabupaten-tapanuli-selatan",
+    "type": "kabupaten",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.04",
+    "name": "Kabupaten Nias",
+    "slug": "kabupaten-nias",
+    "type": "kabupaten",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.05",
+    "name": "Kabupaten Langkat",
+    "slug": "kabupaten-langkat",
+    "type": "kabupaten",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.06",
+    "name": "Kabupaten Karo",
+    "slug": "kabupaten-karo",
+    "type": "kabupaten",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.07",
+    "name": "Kabupaten Deli Serdang",
+    "slug": "kabupaten-deli-serdang",
+    "type": "kabupaten",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.08",
+    "name": "Kabupaten Simalungun",
+    "slug": "kabupaten-simalungun",
+    "type": "kabupaten",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.09",
+    "name": "Kabupaten Asahan",
+    "slug": "kabupaten-asahan",
+    "type": "kabupaten",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.10",
+    "name": "Kabupaten Labuhanbatu",
+    "slug": "kabupaten-labuhanbatu",
+    "type": "kabupaten",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.11",
+    "name": "Kabupaten Dairi",
+    "slug": "kabupaten-dairi",
+    "type": "kabupaten",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.12",
+    "name": "Kabupaten Toba",
+    "slug": "kabupaten-toba",
+    "type": "kabupaten",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.13",
+    "name": "Kabupaten Mandailing Natal",
+    "slug": "kabupaten-mandailing-natal",
+    "type": "kabupaten",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.14",
+    "name": "Kabupaten Nias Selatan",
+    "slug": "kabupaten-nias-selatan",
+    "type": "kabupaten",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.15",
+    "name": "Kabupaten Pakpak Bharat",
+    "slug": "kabupaten-pakpak-bharat",
+    "type": "kabupaten",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.16",
+    "name": "Kabupaten Humbang Hasundutan",
+    "slug": "kabupaten-humbang-hasundutan",
+    "type": "kabupaten",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.17",
+    "name": "Kabupaten Samosir",
+    "slug": "kabupaten-samosir",
+    "type": "kabupaten",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.18",
+    "name": "Kabupaten Serdang Bedagai",
+    "slug": "kabupaten-serdang-bedagai",
+    "type": "kabupaten",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.19",
+    "name": "Kabupaten Batu Bara",
+    "slug": "kabupaten-batu-bara",
+    "type": "kabupaten",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.20",
+    "name": "Kabupaten Padang Lawas Utara",
+    "slug": "kabupaten-padang-lawas-utara",
+    "type": "kabupaten",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.21",
+    "name": "Kabupaten Padang Lawas",
+    "slug": "kabupaten-padang-lawas",
+    "type": "kabupaten",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.22",
+    "name": "Kabupaten Labuhanbatu Selatan",
+    "slug": "kabupaten-labuhanbatu-selatan",
+    "type": "kabupaten",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.23",
+    "name": "Kabupaten Labuhanbatu Utara",
+    "slug": "kabupaten-labuhanbatu-utara",
+    "type": "kabupaten",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.24",
+    "name": "Kabupaten Nias Utara",
+    "slug": "kabupaten-nias-utara",
+    "type": "kabupaten",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.25",
+    "name": "Kabupaten Nias Barat",
+    "slug": "kabupaten-nias-barat",
+    "type": "kabupaten",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.71",
+    "name": "Kota Medan",
+    "slug": "kota-medan",
+    "type": "kota",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.72",
+    "name": "Kota Pematangsiantar",
+    "slug": "kota-pematangsiantar",
+    "type": "kota",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.73",
+    "name": "Kota Sibolga",
+    "slug": "kota-sibolga",
+    "type": "kota",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.74",
+    "name": "Kota Tanjungbalai",
+    "slug": "kota-tanjungbalai",
+    "type": "kota",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.75",
+    "name": "Kota Binjai",
+    "slug": "kota-binjai",
+    "type": "kota",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.76",
+    "name": "Kota Tebing Tinggi",
+    "slug": "kota-tebing-tinggi",
+    "type": "kota",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.77",
+    "name": "Kota Padangsidimpuan",
+    "slug": "kota-padangsidimpuan",
+    "type": "kota",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "12.78",
+    "name": "Kota Gunungsitoli",
+    "slug": "kota-gunungsitoli",
+    "type": "kota",
+    "province": {
+      "code": "12",
+      "name": "Sumatera Utara",
+      "slug": "sumatera-utara"
+    }
+  },
+  {
+    "code": "13.01",
+    "name": "Kabupaten Pesisir Selatan",
+    "slug": "kabupaten-pesisir-selatan",
+    "type": "kabupaten",
+    "province": {
+      "code": "13",
+      "name": "Sumatera Barat",
+      "slug": "sumatera-barat"
+    }
+  },
+  {
+    "code": "13.02",
+    "name": "Kabupaten Solok",
+    "slug": "kabupaten-solok",
+    "type": "kabupaten",
+    "province": {
+      "code": "13",
+      "name": "Sumatera Barat",
+      "slug": "sumatera-barat"
+    }
+  },
+  {
+    "code": "13.03",
+    "name": "Kabupaten Sijunjung",
+    "slug": "kabupaten-sijunjung",
+    "type": "kabupaten",
+    "province": {
+      "code": "13",
+      "name": "Sumatera Barat",
+      "slug": "sumatera-barat"
+    }
+  },
+  {
+    "code": "13.04",
+    "name": "Kabupaten Tanah Datar",
+    "slug": "kabupaten-tanah-datar",
+    "type": "kabupaten",
+    "province": {
+      "code": "13",
+      "name": "Sumatera Barat",
+      "slug": "sumatera-barat"
+    }
+  },
+  {
+    "code": "13.05",
+    "name": "Kabupaten Padang Pariaman",
+    "slug": "kabupaten-padang-pariaman",
+    "type": "kabupaten",
+    "province": {
+      "code": "13",
+      "name": "Sumatera Barat",
+      "slug": "sumatera-barat"
+    }
+  },
+  {
+    "code": "13.06",
+    "name": "Kabupaten Agam",
+    "slug": "kabupaten-agam",
+    "type": "kabupaten",
+    "province": {
+      "code": "13",
+      "name": "Sumatera Barat",
+      "slug": "sumatera-barat"
+    }
+  },
+  {
+    "code": "13.07",
+    "name": "Kabupaten Lima Puluh Kota",
+    "slug": "kabupaten-lima-puluh-kota",
+    "type": "kabupaten",
+    "province": {
+      "code": "13",
+      "name": "Sumatera Barat",
+      "slug": "sumatera-barat"
+    }
+  },
+  {
+    "code": "13.08",
+    "name": "Kabupaten Pasaman",
+    "slug": "kabupaten-pasaman",
+    "type": "kabupaten",
+    "province": {
+      "code": "13",
+      "name": "Sumatera Barat",
+      "slug": "sumatera-barat"
+    }
+  },
+  {
+    "code": "13.09",
+    "name": "Kabupaten Kepulauan Mentawai",
+    "slug": "kabupaten-kepulauan-mentawai",
+    "type": "kabupaten",
+    "province": {
+      "code": "13",
+      "name": "Sumatera Barat",
+      "slug": "sumatera-barat"
+    }
+  },
+  {
+    "code": "13.10",
+    "name": "Kabupaten Dharmasraya",
+    "slug": "kabupaten-dharmasraya",
+    "type": "kabupaten",
+    "province": {
+      "code": "13",
+      "name": "Sumatera Barat",
+      "slug": "sumatera-barat"
+    }
+  },
+  {
+    "code": "13.11",
+    "name": "Kabupaten Solok Selatan",
+    "slug": "kabupaten-solok-selatan",
+    "type": "kabupaten",
+    "province": {
+      "code": "13",
+      "name": "Sumatera Barat",
+      "slug": "sumatera-barat"
+    }
+  },
+  {
+    "code": "13.12",
+    "name": "Kabupaten Pasaman Barat",
+    "slug": "kabupaten-pasaman-barat",
+    "type": "kabupaten",
+    "province": {
+      "code": "13",
+      "name": "Sumatera Barat",
+      "slug": "sumatera-barat"
+    }
+  },
+  {
+    "code": "13.71",
+    "name": "Kota Padang",
+    "slug": "kota-padang",
+    "type": "kota",
+    "province": {
+      "code": "13",
+      "name": "Sumatera Barat",
+      "slug": "sumatera-barat"
+    }
+  },
+  {
+    "code": "13.72",
+    "name": "Kota Solok",
+    "slug": "kota-solok",
+    "type": "kota",
+    "province": {
+      "code": "13",
+      "name": "Sumatera Barat",
+      "slug": "sumatera-barat"
+    }
+  },
+  {
+    "code": "13.73",
+    "name": "Kota Sawahlunto",
+    "slug": "kota-sawahlunto",
+    "type": "kota",
+    "province": {
+      "code": "13",
+      "name": "Sumatera Barat",
+      "slug": "sumatera-barat"
+    }
+  },
+  {
+    "code": "13.74",
+    "name": "Kota Padang Panjang",
+    "slug": "kota-padang-panjang",
+    "type": "kota",
+    "province": {
+      "code": "13",
+      "name": "Sumatera Barat",
+      "slug": "sumatera-barat"
+    }
+  },
+  {
+    "code": "13.75",
+    "name": "Kota Bukittinggi",
+    "slug": "kota-bukittinggi",
+    "type": "kota",
+    "province": {
+      "code": "13",
+      "name": "Sumatera Barat",
+      "slug": "sumatera-barat"
+    }
+  },
+  {
+    "code": "13.76",
+    "name": "Kota Payakumbuh",
+    "slug": "kota-payakumbuh",
+    "type": "kota",
+    "province": {
+      "code": "13",
+      "name": "Sumatera Barat",
+      "slug": "sumatera-barat"
+    }
+  },
+  {
+    "code": "13.77",
+    "name": "Kota Pariaman",
+    "slug": "kota-pariaman",
+    "type": "kota",
+    "province": {
+      "code": "13",
+      "name": "Sumatera Barat",
+      "slug": "sumatera-barat"
+    }
+  },
+  {
+    "code": "14.01",
+    "name": "Kabupaten Kampar",
+    "slug": "kabupaten-kampar",
+    "type": "kabupaten",
+    "province": {
+      "code": "14",
+      "name": "Riau",
+      "slug": "riau"
+    }
+  },
+  {
+    "code": "14.02",
+    "name": "Kabupaten Indragiri Hulu",
+    "slug": "kabupaten-indragiri-hulu",
+    "type": "kabupaten",
+    "province": {
+      "code": "14",
+      "name": "Riau",
+      "slug": "riau"
+    }
+  },
+  {
+    "code": "14.03",
+    "name": "Kabupaten Bengkalis",
+    "slug": "kabupaten-bengkalis",
+    "type": "kabupaten",
+    "province": {
+      "code": "14",
+      "name": "Riau",
+      "slug": "riau"
+    }
+  },
+  {
+    "code": "14.04",
+    "name": "Kabupaten Indragiri Hilir",
+    "slug": "kabupaten-indragiri-hilir",
+    "type": "kabupaten",
+    "province": {
+      "code": "14",
+      "name": "Riau",
+      "slug": "riau"
+    }
+  },
+  {
+    "code": "14.05",
+    "name": "Kabupaten Pelalawan",
+    "slug": "kabupaten-pelalawan",
+    "type": "kabupaten",
+    "province": {
+      "code": "14",
+      "name": "Riau",
+      "slug": "riau"
+    }
+  },
+  {
+    "code": "14.06",
+    "name": "Kabupaten Rokan Hulu",
+    "slug": "kabupaten-rokan-hulu",
+    "type": "kabupaten",
+    "province": {
+      "code": "14",
+      "name": "Riau",
+      "slug": "riau"
+    }
+  },
+  {
+    "code": "14.07",
+    "name": "Kabupaten Rokan Hilir",
+    "slug": "kabupaten-rokan-hilir",
+    "type": "kabupaten",
+    "province": {
+      "code": "14",
+      "name": "Riau",
+      "slug": "riau"
+    }
+  },
+  {
+    "code": "14.08",
+    "name": "Kabupaten Siak",
+    "slug": "kabupaten-siak",
+    "type": "kabupaten",
+    "province": {
+      "code": "14",
+      "name": "Riau",
+      "slug": "riau"
+    }
+  },
+  {
+    "code": "14.09",
+    "name": "Kabupaten Kuantan Singingi",
+    "slug": "kabupaten-kuantan-singingi",
+    "type": "kabupaten",
+    "province": {
+      "code": "14",
+      "name": "Riau",
+      "slug": "riau"
+    }
+  },
+  {
+    "code": "14.10",
+    "name": "Kabupaten Kepulauan Meranti",
+    "slug": "kabupaten-kepulauan-meranti",
+    "type": "kabupaten",
+    "province": {
+      "code": "14",
+      "name": "Riau",
+      "slug": "riau"
+    }
+  },
+  {
+    "code": "14.71",
+    "name": "Kota Pekanbaru",
+    "slug": "kota-pekanbaru",
+    "type": "kota",
+    "province": {
+      "code": "14",
+      "name": "Riau",
+      "slug": "riau"
+    }
+  },
+  {
+    "code": "14.72",
+    "name": "Kota Dumai",
+    "slug": "kota-dumai",
+    "type": "kota",
+    "province": {
+      "code": "14",
+      "name": "Riau",
+      "slug": "riau"
+    }
+  },
+  {
+    "code": "15.01",
+    "name": "Kabupaten Kerinci",
+    "slug": "kabupaten-kerinci",
+    "type": "kabupaten",
+    "province": {
+      "code": "15",
+      "name": "Jambi",
+      "slug": "jambi"
+    }
+  },
+  {
+    "code": "15.02",
+    "name": "Kabupaten Merangin",
+    "slug": "kabupaten-merangin",
+    "type": "kabupaten",
+    "province": {
+      "code": "15",
+      "name": "Jambi",
+      "slug": "jambi"
+    }
+  },
+  {
+    "code": "15.03",
+    "name": "Kabupaten Sarolangun",
+    "slug": "kabupaten-sarolangun",
+    "type": "kabupaten",
+    "province": {
+      "code": "15",
+      "name": "Jambi",
+      "slug": "jambi"
+    }
+  },
+  {
+    "code": "15.04",
+    "name": "Kabupaten Batanghari",
+    "slug": "kabupaten-batanghari",
+    "type": "kabupaten",
+    "province": {
+      "code": "15",
+      "name": "Jambi",
+      "slug": "jambi"
+    }
+  },
+  {
+    "code": "15.05",
+    "name": "Kabupaten Muaro Jambi",
+    "slug": "kabupaten-muaro-jambi",
+    "type": "kabupaten",
+    "province": {
+      "code": "15",
+      "name": "Jambi",
+      "slug": "jambi"
+    }
+  },
+  {
+    "code": "15.06",
+    "name": "Kabupaten Tanjung Jabung Barat",
+    "slug": "kabupaten-tanjung-jabung-barat",
+    "type": "kabupaten",
+    "province": {
+      "code": "15",
+      "name": "Jambi",
+      "slug": "jambi"
+    }
+  },
+  {
+    "code": "15.07",
+    "name": "Kabupaten Tanjung Jabung Timur",
+    "slug": "kabupaten-tanjung-jabung-timur",
+    "type": "kabupaten",
+    "province": {
+      "code": "15",
+      "name": "Jambi",
+      "slug": "jambi"
+    }
+  },
+  {
+    "code": "15.08",
+    "name": "Kabupaten Bungo",
+    "slug": "kabupaten-bungo",
+    "type": "kabupaten",
+    "province": {
+      "code": "15",
+      "name": "Jambi",
+      "slug": "jambi"
+    }
+  },
+  {
+    "code": "15.09",
+    "name": "Kabupaten Tebo",
+    "slug": "kabupaten-tebo",
+    "type": "kabupaten",
+    "province": {
+      "code": "15",
+      "name": "Jambi",
+      "slug": "jambi"
+    }
+  },
+  {
+    "code": "15.71",
+    "name": "Kota Jambi",
+    "slug": "kota-jambi",
+    "type": "kota",
+    "province": {
+      "code": "15",
+      "name": "Jambi",
+      "slug": "jambi"
+    }
+  },
+  {
+    "code": "15.72",
+    "name": "Kota Sungai Penuh",
+    "slug": "kota-sungai-penuh",
+    "type": "kota",
+    "province": {
+      "code": "15",
+      "name": "Jambi",
+      "slug": "jambi"
+    }
+  },
+  {
+    "code": "16.01",
+    "name": "Kabupaten Ogan Komering Ulu",
+    "slug": "kabupaten-ogan-komering-ulu",
+    "type": "kabupaten",
+    "province": {
+      "code": "16",
+      "name": "Sumatera Selatan",
+      "slug": "sumatera-selatan"
+    }
+  },
+  {
+    "code": "16.02",
+    "name": "Kabupaten Ogan Komering Ilir",
+    "slug": "kabupaten-ogan-komering-ilir",
+    "type": "kabupaten",
+    "province": {
+      "code": "16",
+      "name": "Sumatera Selatan",
+      "slug": "sumatera-selatan"
+    }
+  },
+  {
+    "code": "16.03",
+    "name": "Kabupaten Muara Enim",
+    "slug": "kabupaten-muara-enim",
+    "type": "kabupaten",
+    "province": {
+      "code": "16",
+      "name": "Sumatera Selatan",
+      "slug": "sumatera-selatan"
+    }
+  },
+  {
+    "code": "16.04",
+    "name": "Kabupaten Lahat",
+    "slug": "kabupaten-lahat",
+    "type": "kabupaten",
+    "province": {
+      "code": "16",
+      "name": "Sumatera Selatan",
+      "slug": "sumatera-selatan"
+    }
+  },
+  {
+    "code": "16.05",
+    "name": "Kabupaten Musi Rawas",
+    "slug": "kabupaten-musi-rawas",
+    "type": "kabupaten",
+    "province": {
+      "code": "16",
+      "name": "Sumatera Selatan",
+      "slug": "sumatera-selatan"
+    }
+  },
+  {
+    "code": "16.06",
+    "name": "Kabupaten Musi Banyuasin",
+    "slug": "kabupaten-musi-banyuasin",
+    "type": "kabupaten",
+    "province": {
+      "code": "16",
+      "name": "Sumatera Selatan",
+      "slug": "sumatera-selatan"
+    }
+  },
+  {
+    "code": "16.07",
+    "name": "Kabupaten Banyuasin",
+    "slug": "kabupaten-banyuasin",
+    "type": "kabupaten",
+    "province": {
+      "code": "16",
+      "name": "Sumatera Selatan",
+      "slug": "sumatera-selatan"
+    }
+  },
+  {
+    "code": "16.08",
+    "name": "Kabupaten Ogan Komering Ulu Timur",
+    "slug": "kabupaten-ogan-komering-ulu-timur",
+    "type": "kabupaten",
+    "province": {
+      "code": "16",
+      "name": "Sumatera Selatan",
+      "slug": "sumatera-selatan"
+    }
+  },
+  {
+    "code": "16.09",
+    "name": "Kabupaten Ogan Komering Ulu Selatan",
+    "slug": "kabupaten-ogan-komering-ulu-selatan",
+    "type": "kabupaten",
+    "province": {
+      "code": "16",
+      "name": "Sumatera Selatan",
+      "slug": "sumatera-selatan"
+    }
+  },
+  {
+    "code": "16.10",
+    "name": "Kabupaten Ogan Ilir",
+    "slug": "kabupaten-ogan-ilir",
+    "type": "kabupaten",
+    "province": {
+      "code": "16",
+      "name": "Sumatera Selatan",
+      "slug": "sumatera-selatan"
+    }
+  },
+  {
+    "code": "16.11",
+    "name": "Kabupaten Empat Lawang",
+    "slug": "kabupaten-empat-lawang",
+    "type": "kabupaten",
+    "province": {
+      "code": "16",
+      "name": "Sumatera Selatan",
+      "slug": "sumatera-selatan"
+    }
+  },
+  {
+    "code": "16.12",
+    "name": "Kabupaten Penukal Abab Lematang Ilir",
+    "slug": "kabupaten-penukal-abab-lematang-ilir",
+    "type": "kabupaten",
+    "province": {
+      "code": "16",
+      "name": "Sumatera Selatan",
+      "slug": "sumatera-selatan"
+    }
+  },
+  {
+    "code": "16.13",
+    "name": "Kabupaten Musi Rawas Utara",
+    "slug": "kabupaten-musi-rawas-utara",
+    "type": "kabupaten",
+    "province": {
+      "code": "16",
+      "name": "Sumatera Selatan",
+      "slug": "sumatera-selatan"
+    }
+  },
+  {
+    "code": "16.71",
+    "name": "Kota Palembang",
+    "slug": "kota-palembang",
+    "type": "kota",
+    "province": {
+      "code": "16",
+      "name": "Sumatera Selatan",
+      "slug": "sumatera-selatan"
+    }
+  },
+  {
+    "code": "16.72",
+    "name": "Kota Pagar Alam",
+    "slug": "kota-pagar-alam",
+    "type": "kota",
+    "province": {
+      "code": "16",
+      "name": "Sumatera Selatan",
+      "slug": "sumatera-selatan"
+    }
+  },
+  {
+    "code": "16.73",
+    "name": "Kota Lubuk Linggau",
+    "slug": "kota-lubuk-linggau",
+    "type": "kota",
+    "province": {
+      "code": "16",
+      "name": "Sumatera Selatan",
+      "slug": "sumatera-selatan"
+    }
+  },
+  {
+    "code": "16.74",
+    "name": "Kota Prabumulih",
+    "slug": "kota-prabumulih",
+    "type": "kota",
+    "province": {
+      "code": "16",
+      "name": "Sumatera Selatan",
+      "slug": "sumatera-selatan"
+    }
+  },
+  {
+    "code": "17.01",
+    "name": "Kabupaten Bengkulu Selatan",
+    "slug": "kabupaten-bengkulu-selatan",
+    "type": "kabupaten",
+    "province": {
+      "code": "17",
+      "name": "Bengkulu",
+      "slug": "bengkulu"
+    }
+  },
+  {
+    "code": "17.02",
+    "name": "Kabupaten Rejang Lebong",
+    "slug": "kabupaten-rejang-lebong",
+    "type": "kabupaten",
+    "province": {
+      "code": "17",
+      "name": "Bengkulu",
+      "slug": "bengkulu"
+    }
+  },
+  {
+    "code": "17.03",
+    "name": "Kabupaten Bengkulu Utara",
+    "slug": "kabupaten-bengkulu-utara",
+    "type": "kabupaten",
+    "province": {
+      "code": "17",
+      "name": "Bengkulu",
+      "slug": "bengkulu"
+    }
+  },
+  {
+    "code": "17.04",
+    "name": "Kabupaten Kaur",
+    "slug": "kabupaten-kaur",
+    "type": "kabupaten",
+    "province": {
+      "code": "17",
+      "name": "Bengkulu",
+      "slug": "bengkulu"
+    }
+  },
+  {
+    "code": "17.05",
+    "name": "Kabupaten Seluma",
+    "slug": "kabupaten-seluma",
+    "type": "kabupaten",
+    "province": {
+      "code": "17",
+      "name": "Bengkulu",
+      "slug": "bengkulu"
+    }
+  },
+  {
+    "code": "17.06",
+    "name": "Kabupaten Mukomuko",
+    "slug": "kabupaten-mukomuko",
+    "type": "kabupaten",
+    "province": {
+      "code": "17",
+      "name": "Bengkulu",
+      "slug": "bengkulu"
+    }
+  },
+  {
+    "code": "17.07",
+    "name": "Kabupaten Lebong",
+    "slug": "kabupaten-lebong",
+    "type": "kabupaten",
+    "province": {
+      "code": "17",
+      "name": "Bengkulu",
+      "slug": "bengkulu"
+    }
+  },
+  {
+    "code": "17.08",
+    "name": "Kabupaten Kepahiang",
+    "slug": "kabupaten-kepahiang",
+    "type": "kabupaten",
+    "province": {
+      "code": "17",
+      "name": "Bengkulu",
+      "slug": "bengkulu"
+    }
+  },
+  {
+    "code": "17.09",
+    "name": "Kabupaten Bengkulu Tengah",
+    "slug": "kabupaten-bengkulu-tengah",
+    "type": "kabupaten",
+    "province": {
+      "code": "17",
+      "name": "Bengkulu",
+      "slug": "bengkulu"
+    }
+  },
+  {
+    "code": "17.71",
+    "name": "Kota Bengkulu",
+    "slug": "kota-bengkulu",
+    "type": "kota",
+    "province": {
+      "code": "17",
+      "name": "Bengkulu",
+      "slug": "bengkulu"
+    }
+  },
+  {
+    "code": "18.01",
+    "name": "Kabupaten Lampung Selatan",
+    "slug": "kabupaten-lampung-selatan",
+    "type": "kabupaten",
+    "province": {
+      "code": "18",
+      "name": "Lampung",
+      "slug": "lampung"
+    }
+  },
+  {
+    "code": "18.02",
+    "name": "Kabupaten Lampung Tengah",
+    "slug": "kabupaten-lampung-tengah",
+    "type": "kabupaten",
+    "province": {
+      "code": "18",
+      "name": "Lampung",
+      "slug": "lampung"
+    }
+  },
+  {
+    "code": "18.03",
+    "name": "Kabupaten Lampung Utara",
+    "slug": "kabupaten-lampung-utara",
+    "type": "kabupaten",
+    "province": {
+      "code": "18",
+      "name": "Lampung",
+      "slug": "lampung"
+    }
+  },
+  {
+    "code": "18.04",
+    "name": "Kabupaten Lampung Barat",
+    "slug": "kabupaten-lampung-barat",
+    "type": "kabupaten",
+    "province": {
+      "code": "18",
+      "name": "Lampung",
+      "slug": "lampung"
+    }
+  },
+  {
+    "code": "18.05",
+    "name": "Kabupaten Tulang Bawang",
+    "slug": "kabupaten-tulang-bawang",
+    "type": "kabupaten",
+    "province": {
+      "code": "18",
+      "name": "Lampung",
+      "slug": "lampung"
+    }
+  },
+  {
+    "code": "18.06",
+    "name": "Kabupaten Tanggamus",
+    "slug": "kabupaten-tanggamus",
+    "type": "kabupaten",
+    "province": {
+      "code": "18",
+      "name": "Lampung",
+      "slug": "lampung"
+    }
+  },
+  {
+    "code": "18.07",
+    "name": "Kabupaten Lampung Timur",
+    "slug": "kabupaten-lampung-timur",
+    "type": "kabupaten",
+    "province": {
+      "code": "18",
+      "name": "Lampung",
+      "slug": "lampung"
+    }
+  },
+  {
+    "code": "18.08",
+    "name": "Kabupaten Way Kanan",
+    "slug": "kabupaten-way-kanan",
+    "type": "kabupaten",
+    "province": {
+      "code": "18",
+      "name": "Lampung",
+      "slug": "lampung"
+    }
+  },
+  {
+    "code": "18.09",
+    "name": "Kabupaten Pesawaran",
+    "slug": "kabupaten-pesawaran",
+    "type": "kabupaten",
+    "province": {
+      "code": "18",
+      "name": "Lampung",
+      "slug": "lampung"
+    }
+  },
+  {
+    "code": "18.10",
+    "name": "Kabupaten Pringsewu",
+    "slug": "kabupaten-pringsewu",
+    "type": "kabupaten",
+    "province": {
+      "code": "18",
+      "name": "Lampung",
+      "slug": "lampung"
+    }
+  },
+  {
+    "code": "18.11",
+    "name": "Kabupaten Mesuji",
+    "slug": "kabupaten-mesuji",
+    "type": "kabupaten",
+    "province": {
+      "code": "18",
+      "name": "Lampung",
+      "slug": "lampung"
+    }
+  },
+  {
+    "code": "18.12",
+    "name": "Kabupaten Tulang Bawang Barat",
+    "slug": "kabupaten-tulang-bawang-barat",
+    "type": "kabupaten",
+    "province": {
+      "code": "18",
+      "name": "Lampung",
+      "slug": "lampung"
+    }
+  },
+  {
+    "code": "18.13",
+    "name": "Kabupaten Pesisir Barat",
+    "slug": "kabupaten-pesisir-barat",
+    "type": "kabupaten",
+    "province": {
+      "code": "18",
+      "name": "Lampung",
+      "slug": "lampung"
+    }
+  },
+  {
+    "code": "18.71",
+    "name": "Kota Bandar Lampung",
+    "slug": "kota-bandar-lampung",
+    "type": "kota",
+    "province": {
+      "code": "18",
+      "name": "Lampung",
+      "slug": "lampung"
+    }
+  },
+  {
+    "code": "18.72",
+    "name": "Kota Metro",
+    "slug": "kota-metro",
+    "type": "kota",
+    "province": {
+      "code": "18",
+      "name": "Lampung",
+      "slug": "lampung"
+    }
+  },
+  {
+    "code": "19.01",
+    "name": "Kabupaten Bangka",
+    "slug": "kabupaten-bangka",
+    "type": "kabupaten",
+    "province": {
+      "code": "19",
+      "name": "Kepulauan Bangka Belitung",
+      "slug": "kepulauan-bangka-belitung"
+    }
+  },
+  {
+    "code": "19.02",
+    "name": "Kabupaten Belitung",
+    "slug": "kabupaten-belitung",
+    "type": "kabupaten",
+    "province": {
+      "code": "19",
+      "name": "Kepulauan Bangka Belitung",
+      "slug": "kepulauan-bangka-belitung"
+    }
+  },
+  {
+    "code": "19.03",
+    "name": "Kabupaten Bangka Selatan",
+    "slug": "kabupaten-bangka-selatan",
+    "type": "kabupaten",
+    "province": {
+      "code": "19",
+      "name": "Kepulauan Bangka Belitung",
+      "slug": "kepulauan-bangka-belitung"
+    }
+  },
+  {
+    "code": "19.04",
+    "name": "Kabupaten Bangka Tengah",
+    "slug": "kabupaten-bangka-tengah",
+    "type": "kabupaten",
+    "province": {
+      "code": "19",
+      "name": "Kepulauan Bangka Belitung",
+      "slug": "kepulauan-bangka-belitung"
+    }
+  },
+  {
+    "code": "19.05",
+    "name": "Kabupaten Bangka Barat",
+    "slug": "kabupaten-bangka-barat",
+    "type": "kabupaten",
+    "province": {
+      "code": "19",
+      "name": "Kepulauan Bangka Belitung",
+      "slug": "kepulauan-bangka-belitung"
+    }
+  },
+  {
+    "code": "19.06",
+    "name": "Kabupaten Belitung Timur",
+    "slug": "kabupaten-belitung-timur",
+    "type": "kabupaten",
+    "province": {
+      "code": "19",
+      "name": "Kepulauan Bangka Belitung",
+      "slug": "kepulauan-bangka-belitung"
+    }
+  },
+  {
+    "code": "19.71",
+    "name": "Kota Pangkal Pinang",
+    "slug": "kota-pangkal-pinang",
+    "type": "kota",
+    "province": {
+      "code": "19",
+      "name": "Kepulauan Bangka Belitung",
+      "slug": "kepulauan-bangka-belitung"
+    }
+  },
+  {
+    "code": "21.01",
+    "name": "Kabupaten Bintan",
+    "slug": "kabupaten-bintan",
+    "type": "kabupaten",
+    "province": {
+      "code": "21",
+      "name": "Kepulauan Riau",
+      "slug": "kepulauan-riau"
+    }
+  },
+  {
+    "code": "21.02",
+    "name": "Kabupaten Karimun",
+    "slug": "kabupaten-karimun",
+    "type": "kabupaten",
+    "province": {
+      "code": "21",
+      "name": "Kepulauan Riau",
+      "slug": "kepulauan-riau"
+    }
+  },
+  {
+    "code": "21.03",
+    "name": "Kabupaten Natuna",
+    "slug": "kabupaten-natuna",
+    "type": "kabupaten",
+    "province": {
+      "code": "21",
+      "name": "Kepulauan Riau",
+      "slug": "kepulauan-riau"
+    }
+  },
+  {
+    "code": "21.04",
+    "name": "Kabupaten Lingga",
+    "slug": "kabupaten-lingga",
+    "type": "kabupaten",
+    "province": {
+      "code": "21",
+      "name": "Kepulauan Riau",
+      "slug": "kepulauan-riau"
+    }
+  },
+  {
+    "code": "21.05",
+    "name": "Kabupaten Kepulauan Anambas",
+    "slug": "kabupaten-kepulauan-anambas",
+    "type": "kabupaten",
+    "province": {
+      "code": "21",
+      "name": "Kepulauan Riau",
+      "slug": "kepulauan-riau"
+    }
+  },
+  {
+    "code": "21.71",
+    "name": "Kota Batam",
+    "slug": "kota-batam",
+    "type": "kota",
+    "province": {
+      "code": "21",
+      "name": "Kepulauan Riau",
+      "slug": "kepulauan-riau"
+    }
+  },
+  {
+    "code": "21.72",
+    "name": "Kota Tanjung Pinang",
+    "slug": "kota-tanjung-pinang",
+    "type": "kota",
+    "province": {
+      "code": "21",
+      "name": "Kepulauan Riau",
+      "slug": "kepulauan-riau"
+    }
+  },
+  {
+    "code": "31.01",
+    "name": "Kabupaten Administrasi Kepulauan Seribu",
+    "slug": "kabupaten-administrasi-kepulauan-seribu",
+    "type": "kabupaten",
+    "province": {
+      "code": "31",
+      "name": "Daerah Khusus Ibukota Jakarta",
+      "slug": "daerah-khusus-ibukota-jakarta"
+    }
+  },
+  {
+    "code": "31.71",
+    "name": "Kota Administrasi Jakarta Pusat",
+    "slug": "kota-administrasi-jakarta-pusat",
+    "type": "kota",
+    "province": {
+      "code": "31",
+      "name": "Daerah Khusus Ibukota Jakarta",
+      "slug": "daerah-khusus-ibukota-jakarta"
+    }
+  },
+  {
+    "code": "31.72",
+    "name": "Kota Administrasi Jakarta Utara",
+    "slug": "kota-administrasi-jakarta-utara",
+    "type": "kota",
+    "province": {
+      "code": "31",
+      "name": "Daerah Khusus Ibukota Jakarta",
+      "slug": "daerah-khusus-ibukota-jakarta"
+    }
+  },
+  {
+    "code": "31.73",
+    "name": "Kota Administrasi Jakarta Barat",
+    "slug": "kota-administrasi-jakarta-barat",
+    "type": "kota",
+    "province": {
+      "code": "31",
+      "name": "Daerah Khusus Ibukota Jakarta",
+      "slug": "daerah-khusus-ibukota-jakarta"
+    }
+  },
+  {
+    "code": "31.74",
+    "name": "Kota Administrasi Jakarta Selatan",
+    "slug": "kota-administrasi-jakarta-selatan",
+    "type": "kota",
+    "province": {
+      "code": "31",
+      "name": "Daerah Khusus Ibukota Jakarta",
+      "slug": "daerah-khusus-ibukota-jakarta"
+    }
+  },
+  {
+    "code": "31.75",
+    "name": "Kota Administrasi Jakarta Timur",
+    "slug": "kota-administrasi-jakarta-timur",
+    "type": "kota",
+    "province": {
+      "code": "31",
+      "name": "Daerah Khusus Ibukota Jakarta",
+      "slug": "daerah-khusus-ibukota-jakarta"
+    }
+  },
+  {
+    "code": "32.01",
+    "name": "Kabupaten Bogor",
+    "slug": "kabupaten-bogor",
+    "type": "kabupaten",
+    "province": {
+      "code": "32",
+      "name": "Jawa Barat",
+      "slug": "jawa-barat"
+    }
+  },
+  {
+    "code": "32.02",
+    "name": "Kabupaten Sukabumi",
+    "slug": "kabupaten-sukabumi",
+    "type": "kabupaten",
+    "province": {
+      "code": "32",
+      "name": "Jawa Barat",
+      "slug": "jawa-barat"
+    }
+  },
+  {
+    "code": "32.03",
+    "name": "Kabupaten Cianjur",
+    "slug": "kabupaten-cianjur",
+    "type": "kabupaten",
+    "province": {
+      "code": "32",
+      "name": "Jawa Barat",
+      "slug": "jawa-barat"
+    }
+  },
+  {
+    "code": "32.04",
+    "name": "Kabupaten Bandung",
+    "slug": "kabupaten-bandung",
+    "type": "kabupaten",
+    "province": {
+      "code": "32",
+      "name": "Jawa Barat",
+      "slug": "jawa-barat"
+    }
+  },
+  {
+    "code": "32.05",
+    "name": "Kabupaten Garut",
+    "slug": "kabupaten-garut",
+    "type": "kabupaten",
+    "province": {
+      "code": "32",
+      "name": "Jawa Barat",
+      "slug": "jawa-barat"
+    }
+  },
+  {
+    "code": "32.06",
+    "name": "Kabupaten Tasikmalaya",
+    "slug": "kabupaten-tasikmalaya",
+    "type": "kabupaten",
+    "province": {
+      "code": "32",
+      "name": "Jawa Barat",
+      "slug": "jawa-barat"
+    }
+  },
+  {
+    "code": "32.07",
+    "name": "Kabupaten Ciamis",
+    "slug": "kabupaten-ciamis",
+    "type": "kabupaten",
+    "province": {
+      "code": "32",
+      "name": "Jawa Barat",
+      "slug": "jawa-barat"
+    }
+  },
+  {
+    "code": "32.08",
+    "name": "Kabupaten Kuningan",
+    "slug": "kabupaten-kuningan",
+    "type": "kabupaten",
+    "province": {
+      "code": "32",
+      "name": "Jawa Barat",
+      "slug": "jawa-barat"
+    }
+  },
+  {
+    "code": "32.09",
+    "name": "Kabupaten Cirebon",
+    "slug": "kabupaten-cirebon",
+    "type": "kabupaten",
+    "province": {
+      "code": "32",
+      "name": "Jawa Barat",
+      "slug": "jawa-barat"
+    }
+  },
+  {
+    "code": "32.10",
+    "name": "Kabupaten Majalengka",
+    "slug": "kabupaten-majalengka",
+    "type": "kabupaten",
+    "province": {
+      "code": "32",
+      "name": "Jawa Barat",
+      "slug": "jawa-barat"
+    }
+  },
+  {
+    "code": "32.11",
+    "name": "Kabupaten Sumedang",
+    "slug": "kabupaten-sumedang",
+    "type": "kabupaten",
+    "province": {
+      "code": "32",
+      "name": "Jawa Barat",
+      "slug": "jawa-barat"
+    }
+  },
+  {
+    "code": "32.12",
+    "name": "Kabupaten Indramayu",
+    "slug": "kabupaten-indramayu",
+    "type": "kabupaten",
+    "province": {
+      "code": "32",
+      "name": "Jawa Barat",
+      "slug": "jawa-barat"
+    }
+  },
+  {
+    "code": "32.13",
+    "name": "Kabupaten Subang",
+    "slug": "kabupaten-subang",
+    "type": "kabupaten",
+    "province": {
+      "code": "32",
+      "name": "Jawa Barat",
+      "slug": "jawa-barat"
+    }
+  },
+  {
+    "code": "32.14",
+    "name": "Kabupaten Purwakarta",
+    "slug": "kabupaten-purwakarta",
+    "type": "kabupaten",
+    "province": {
+      "code": "32",
+      "name": "Jawa Barat",
+      "slug": "jawa-barat"
+    }
+  },
+  {
+    "code": "32.15",
+    "name": "Kabupaten Karawang",
+    "slug": "kabupaten-karawang",
+    "type": "kabupaten",
+    "province": {
+      "code": "32",
+      "name": "Jawa Barat",
+      "slug": "jawa-barat"
+    }
+  },
+  {
+    "code": "32.16",
+    "name": "Kabupaten Bekasi",
+    "slug": "kabupaten-bekasi",
+    "type": "kabupaten",
+    "province": {
+      "code": "32",
+      "name": "Jawa Barat",
+      "slug": "jawa-barat"
+    }
+  },
+  {
+    "code": "32.17",
+    "name": "Kabupaten Bandung Barat",
+    "slug": "kabupaten-bandung-barat",
+    "type": "kabupaten",
+    "province": {
+      "code": "32",
+      "name": "Jawa Barat",
+      "slug": "jawa-barat"
+    }
+  },
+  {
+    "code": "32.18",
+    "name": "Kabupaten Pangandaran",
+    "slug": "kabupaten-pangandaran",
+    "type": "kabupaten",
+    "province": {
+      "code": "32",
+      "name": "Jawa Barat",
+      "slug": "jawa-barat"
+    }
+  },
+  {
+    "code": "32.71",
+    "name": "Kota Bogor",
+    "slug": "kota-bogor",
+    "type": "kota",
+    "province": {
+      "code": "32",
+      "name": "Jawa Barat",
+      "slug": "jawa-barat"
+    }
+  },
+  {
+    "code": "32.72",
+    "name": "Kota Sukabumi",
+    "slug": "kota-sukabumi",
+    "type": "kota",
+    "province": {
+      "code": "32",
+      "name": "Jawa Barat",
+      "slug": "jawa-barat"
+    }
+  },
+  {
+    "code": "32.73",
+    "name": "Kota Bandung",
+    "slug": "kota-bandung",
+    "type": "kota",
+    "province": {
+      "code": "32",
+      "name": "Jawa Barat",
+      "slug": "jawa-barat"
+    }
+  },
+  {
+    "code": "32.74",
+    "name": "Kota Cirebon",
+    "slug": "kota-cirebon",
+    "type": "kota",
+    "province": {
+      "code": "32",
+      "name": "Jawa Barat",
+      "slug": "jawa-barat"
+    }
+  },
+  {
+    "code": "32.75",
+    "name": "Kota Bekasi",
+    "slug": "kota-bekasi",
+    "type": "kota",
+    "province": {
+      "code": "32",
+      "name": "Jawa Barat",
+      "slug": "jawa-barat"
+    }
+  },
+  {
+    "code": "32.76",
+    "name": "Kota Depok",
+    "slug": "kota-depok",
+    "type": "kota",
+    "province": {
+      "code": "32",
+      "name": "Jawa Barat",
+      "slug": "jawa-barat"
+    }
+  },
+  {
+    "code": "32.77",
+    "name": "Kota Cimahi",
+    "slug": "kota-cimahi",
+    "type": "kota",
+    "province": {
+      "code": "32",
+      "name": "Jawa Barat",
+      "slug": "jawa-barat"
+    }
+  },
+  {
+    "code": "32.78",
+    "name": "Kota Tasikmalaya",
+    "slug": "kota-tasikmalaya",
+    "type": "kota",
+    "province": {
+      "code": "32",
+      "name": "Jawa Barat",
+      "slug": "jawa-barat"
+    }
+  },
+  {
+    "code": "32.79",
+    "name": "Kota Banjar",
+    "slug": "kota-banjar",
+    "type": "kota",
+    "province": {
+      "code": "32",
+      "name": "Jawa Barat",
+      "slug": "jawa-barat"
+    }
+  },
+  {
+    "code": "33.01",
+    "name": "Kabupaten Cilacap",
+    "slug": "kabupaten-cilacap",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.02",
+    "name": "Kabupaten Banyumas",
+    "slug": "kabupaten-banyumas",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.03",
+    "name": "Kabupaten Purbalingga",
+    "slug": "kabupaten-purbalingga",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.04",
+    "name": "Kabupaten Banjarnegara",
+    "slug": "kabupaten-banjarnegara",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.05",
+    "name": "Kabupaten Kebumen",
+    "slug": "kabupaten-kebumen",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.06",
+    "name": "Kabupaten Purworejo",
+    "slug": "kabupaten-purworejo",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.07",
+    "name": "Kabupaten Wonosobo",
+    "slug": "kabupaten-wonosobo",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.08",
+    "name": "Kabupaten Magelang",
+    "slug": "kabupaten-magelang",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.09",
+    "name": "Kabupaten Boyolali",
+    "slug": "kabupaten-boyolali",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.10",
+    "name": "Kabupaten Klaten",
+    "slug": "kabupaten-klaten",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.11",
+    "name": "Kabupaten Sukoharjo",
+    "slug": "kabupaten-sukoharjo",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.12",
+    "name": "Kabupaten Wonogiri",
+    "slug": "kabupaten-wonogiri",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.13",
+    "name": "Kabupaten Karanganyar",
+    "slug": "kabupaten-karanganyar",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.14",
+    "name": "Kabupaten Sragen",
+    "slug": "kabupaten-sragen",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.15",
+    "name": "Kabupaten Grobogan",
+    "slug": "kabupaten-grobogan",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.16",
+    "name": "Kabupaten Blora",
+    "slug": "kabupaten-blora",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.17",
+    "name": "Kabupaten Rembang",
+    "slug": "kabupaten-rembang",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.18",
+    "name": "Kabupaten Pati",
+    "slug": "kabupaten-pati",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.19",
+    "name": "Kabupaten Kudus",
+    "slug": "kabupaten-kudus",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.20",
+    "name": "Kabupaten Jepara",
+    "slug": "kabupaten-jepara",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.21",
+    "name": "Kabupaten Demak",
+    "slug": "kabupaten-demak",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.22",
+    "name": "Kabupaten Semarang",
+    "slug": "kabupaten-semarang",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.23",
+    "name": "Kabupaten Temanggung",
+    "slug": "kabupaten-temanggung",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.24",
+    "name": "Kabupaten Kendal",
+    "slug": "kabupaten-kendal",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.25",
+    "name": "Kabupaten Batang",
+    "slug": "kabupaten-batang",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.26",
+    "name": "Kabupaten Pekalongan",
+    "slug": "kabupaten-pekalongan",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.27",
+    "name": "Kabupaten Pemalang",
+    "slug": "kabupaten-pemalang",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.28",
+    "name": "Kabupaten Tegal",
+    "slug": "kabupaten-tegal",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.29",
+    "name": "Kabupaten Brebes",
+    "slug": "kabupaten-brebes",
+    "type": "kabupaten",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.71",
+    "name": "Kota Magelang",
+    "slug": "kota-magelang",
+    "type": "kota",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.72",
+    "name": "Kota Surakarta",
+    "slug": "kota-surakarta",
+    "type": "kota",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.73",
+    "name": "Kota Salatiga",
+    "slug": "kota-salatiga",
+    "type": "kota",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.74",
+    "name": "Kota Semarang",
+    "slug": "kota-semarang",
+    "type": "kota",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.75",
+    "name": "Kota Pekalongan",
+    "slug": "kota-pekalongan",
+    "type": "kota",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "33.76",
+    "name": "Kota Tegal",
+    "slug": "kota-tegal",
+    "type": "kota",
+    "province": {
+      "code": "33",
+      "name": "Jawa Tengah",
+      "slug": "jawa-tengah"
+    }
+  },
+  {
+    "code": "34.01",
+    "name": "Kabupaten Kulon Progo",
+    "slug": "kabupaten-kulon-progo",
+    "type": "kabupaten",
+    "province": {
+      "code": "34",
+      "name": "Daerah Istimewa Yogyakarta",
+      "slug": "daerah-istimewa-yogyakarta"
+    }
+  },
+  {
+    "code": "34.02",
+    "name": "Kabupaten Bantul",
+    "slug": "kabupaten-bantul",
+    "type": "kabupaten",
+    "province": {
+      "code": "34",
+      "name": "Daerah Istimewa Yogyakarta",
+      "slug": "daerah-istimewa-yogyakarta"
+    }
+  },
+  {
+    "code": "34.03",
+    "name": "Kabupaten Gunungkidul",
+    "slug": "kabupaten-gunungkidul",
+    "type": "kabupaten",
+    "province": {
+      "code": "34",
+      "name": "Daerah Istimewa Yogyakarta",
+      "slug": "daerah-istimewa-yogyakarta"
+    }
+  },
+  {
+    "code": "34.04",
+    "name": "Kabupaten Sleman",
+    "slug": "kabupaten-sleman",
+    "type": "kabupaten",
+    "province": {
+      "code": "34",
+      "name": "Daerah Istimewa Yogyakarta",
+      "slug": "daerah-istimewa-yogyakarta"
+    }
+  },
+  {
+    "code": "34.71",
+    "name": "Kota Yogyakarta",
+    "slug": "kota-yogyakarta",
+    "type": "kota",
+    "province": {
+      "code": "34",
+      "name": "Daerah Istimewa Yogyakarta",
+      "slug": "daerah-istimewa-yogyakarta"
+    }
+  },
+  {
+    "code": "35.01",
+    "name": "Kabupaten Pacitan",
+    "slug": "kabupaten-pacitan",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.02",
+    "name": "Kabupaten Ponorogo",
+    "slug": "kabupaten-ponorogo",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.03",
+    "name": "Kabupaten Trenggalek",
+    "slug": "kabupaten-trenggalek",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.04",
+    "name": "Kabupaten Tulungagung",
+    "slug": "kabupaten-tulungagung",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.05",
+    "name": "Kabupaten Blitar",
+    "slug": "kabupaten-blitar",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.06",
+    "name": "Kabupaten Kediri",
+    "slug": "kabupaten-kediri",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.07",
+    "name": "Kabupaten Malang",
+    "slug": "kabupaten-malang",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.08",
+    "name": "Kabupaten Lumajang",
+    "slug": "kabupaten-lumajang",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.09",
+    "name": "Kabupaten Jember",
+    "slug": "kabupaten-jember",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.10",
+    "name": "Kabupaten Banyuwangi",
+    "slug": "kabupaten-banyuwangi",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.11",
+    "name": "Kabupaten Bondowoso",
+    "slug": "kabupaten-bondowoso",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.12",
+    "name": "Kabupaten Situbondo",
+    "slug": "kabupaten-situbondo",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.13",
+    "name": "Kabupaten Probolinggo",
+    "slug": "kabupaten-probolinggo",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.14",
+    "name": "Kabupaten Pasuruan",
+    "slug": "kabupaten-pasuruan",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.15",
+    "name": "Kabupaten Sidoarjo",
+    "slug": "kabupaten-sidoarjo",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.16",
+    "name": "Kabupaten Mojokerto",
+    "slug": "kabupaten-mojokerto",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.17",
+    "name": "Kabupaten Jombang",
+    "slug": "kabupaten-jombang",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.18",
+    "name": "Kabupaten Nganjuk",
+    "slug": "kabupaten-nganjuk",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.19",
+    "name": "Kabupaten Madiun",
+    "slug": "kabupaten-madiun",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.20",
+    "name": "Kabupaten Magetan",
+    "slug": "kabupaten-magetan",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.21",
+    "name": "Kabupaten Ngawi",
+    "slug": "kabupaten-ngawi",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.22",
+    "name": "Kabupaten Bojonegoro",
+    "slug": "kabupaten-bojonegoro",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.23",
+    "name": "Kabupaten Tuban",
+    "slug": "kabupaten-tuban",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.24",
+    "name": "Kabupaten Lamongan",
+    "slug": "kabupaten-lamongan",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.25",
+    "name": "Kabupaten Gresik",
+    "slug": "kabupaten-gresik",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.26",
+    "name": "Kabupaten Bangkalan",
+    "slug": "kabupaten-bangkalan",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.27",
+    "name": "Kabupaten Sampang",
+    "slug": "kabupaten-sampang",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.28",
+    "name": "Kabupaten Pamekasan",
+    "slug": "kabupaten-pamekasan",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.29",
+    "name": "Kabupaten Sumenep",
+    "slug": "kabupaten-sumenep",
+    "type": "kabupaten",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.71",
+    "name": "Kota Kediri",
+    "slug": "kota-kediri",
+    "type": "kota",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.72",
+    "name": "Kota Blitar",
+    "slug": "kota-blitar",
+    "type": "kota",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.73",
+    "name": "Kota Malang",
+    "slug": "kota-malang",
+    "type": "kota",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.74",
+    "name": "Kota Probolinggo",
+    "slug": "kota-probolinggo",
+    "type": "kota",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.75",
+    "name": "Kota Pasuruan",
+    "slug": "kota-pasuruan",
+    "type": "kota",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.76",
+    "name": "Kota Mojokerto",
+    "slug": "kota-mojokerto",
+    "type": "kota",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.77",
+    "name": "Kota Madiun",
+    "slug": "kota-madiun",
+    "type": "kota",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.78",
+    "name": "Kota Surabaya",
+    "slug": "kota-surabaya",
+    "type": "kota",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "35.79",
+    "name": "Kota Batu",
+    "slug": "kota-batu",
+    "type": "kota",
+    "province": {
+      "code": "35",
+      "name": "Jawa Timur",
+      "slug": "jawa-timur"
+    }
+  },
+  {
+    "code": "36.01",
+    "name": "Kabupaten Pandeglang",
+    "slug": "kabupaten-pandeglang",
+    "type": "kabupaten",
+    "province": {
+      "code": "36",
+      "name": "Banten",
+      "slug": "banten"
+    }
+  },
+  {
+    "code": "36.02",
+    "name": "Kabupaten Lebak",
+    "slug": "kabupaten-lebak",
+    "type": "kabupaten",
+    "province": {
+      "code": "36",
+      "name": "Banten",
+      "slug": "banten"
+    }
+  },
+  {
+    "code": "36.03",
+    "name": "Kabupaten Tangerang",
+    "slug": "kabupaten-tangerang",
+    "type": "kabupaten",
+    "province": {
+      "code": "36",
+      "name": "Banten",
+      "slug": "banten"
+    }
+  },
+  {
+    "code": "36.04",
+    "name": "Kabupaten Serang",
+    "slug": "kabupaten-serang",
+    "type": "kabupaten",
+    "province": {
+      "code": "36",
+      "name": "Banten",
+      "slug": "banten"
+    }
+  },
+  {
+    "code": "36.71",
+    "name": "Kota Tangerang",
+    "slug": "kota-tangerang",
+    "type": "kota",
+    "province": {
+      "code": "36",
+      "name": "Banten",
+      "slug": "banten"
+    }
+  },
+  {
+    "code": "36.72",
+    "name": "Kota Cilegon",
+    "slug": "kota-cilegon",
+    "type": "kota",
+    "province": {
+      "code": "36",
+      "name": "Banten",
+      "slug": "banten"
+    }
+  },
+  {
+    "code": "36.73",
+    "name": "Kota Serang",
+    "slug": "kota-serang",
+    "type": "kota",
+    "province": {
+      "code": "36",
+      "name": "Banten",
+      "slug": "banten"
+    }
+  },
+  {
+    "code": "36.74",
+    "name": "Kota Tangerang Selatan",
+    "slug": "kota-tangerang-selatan",
+    "type": "kota",
+    "province": {
+      "code": "36",
+      "name": "Banten",
+      "slug": "banten"
+    }
+  },
+  {
+    "code": "51.01",
+    "name": "Kabupaten Jembrana",
+    "slug": "kabupaten-jembrana",
+    "type": "kabupaten",
+    "province": {
+      "code": "51",
+      "name": "Bali",
+      "slug": "bali"
+    }
+  },
+  {
+    "code": "51.02",
+    "name": "Kabupaten Tabanan",
+    "slug": "kabupaten-tabanan",
+    "type": "kabupaten",
+    "province": {
+      "code": "51",
+      "name": "Bali",
+      "slug": "bali"
+    }
+  },
+  {
+    "code": "51.03",
+    "name": "Kabupaten Badung",
+    "slug": "kabupaten-badung",
+    "type": "kabupaten",
+    "province": {
+      "code": "51",
+      "name": "Bali",
+      "slug": "bali"
+    }
+  },
+  {
+    "code": "51.04",
+    "name": "Kabupaten Gianyar",
+    "slug": "kabupaten-gianyar",
+    "type": "kabupaten",
+    "province": {
+      "code": "51",
+      "name": "Bali",
+      "slug": "bali"
+    }
+  },
+  {
+    "code": "51.05",
+    "name": "Kabupaten Klungkung",
+    "slug": "kabupaten-klungkung",
+    "type": "kabupaten",
+    "province": {
+      "code": "51",
+      "name": "Bali",
+      "slug": "bali"
+    }
+  },
+  {
+    "code": "51.06",
+    "name": "Kabupaten Bangli",
+    "slug": "kabupaten-bangli",
+    "type": "kabupaten",
+    "province": {
+      "code": "51",
+      "name": "Bali",
+      "slug": "bali"
+    }
+  },
+  {
+    "code": "51.07",
+    "name": "Kabupaten Karangasem",
+    "slug": "kabupaten-karangasem",
+    "type": "kabupaten",
+    "province": {
+      "code": "51",
+      "name": "Bali",
+      "slug": "bali"
+    }
+  },
+  {
+    "code": "51.08",
+    "name": "Kabupaten Buleleng",
+    "slug": "kabupaten-buleleng",
+    "type": "kabupaten",
+    "province": {
+      "code": "51",
+      "name": "Bali",
+      "slug": "bali"
+    }
+  },
+  {
+    "code": "51.71",
+    "name": "Kota Denpasar",
+    "slug": "kota-denpasar",
+    "type": "kota",
+    "province": {
+      "code": "51",
+      "name": "Bali",
+      "slug": "bali"
+    }
+  },
+  {
+    "code": "52.01",
+    "name": "Kabupaten Lombok Barat",
+    "slug": "kabupaten-lombok-barat",
+    "type": "kabupaten",
+    "province": {
+      "code": "52",
+      "name": "Nusa Tenggara Barat",
+      "slug": "nusa-tenggara-barat"
+    }
+  },
+  {
+    "code": "52.02",
+    "name": "Kabupaten Lombok Tengah",
+    "slug": "kabupaten-lombok-tengah",
+    "type": "kabupaten",
+    "province": {
+      "code": "52",
+      "name": "Nusa Tenggara Barat",
+      "slug": "nusa-tenggara-barat"
+    }
+  },
+  {
+    "code": "52.03",
+    "name": "Kabupaten Lombok Timur",
+    "slug": "kabupaten-lombok-timur",
+    "type": "kabupaten",
+    "province": {
+      "code": "52",
+      "name": "Nusa Tenggara Barat",
+      "slug": "nusa-tenggara-barat"
+    }
+  },
+  {
+    "code": "52.04",
+    "name": "Kabupaten Sumbawa",
+    "slug": "kabupaten-sumbawa",
+    "type": "kabupaten",
+    "province": {
+      "code": "52",
+      "name": "Nusa Tenggara Barat",
+      "slug": "nusa-tenggara-barat"
+    }
+  },
+  {
+    "code": "52.05",
+    "name": "Kabupaten Dompu",
+    "slug": "kabupaten-dompu",
+    "type": "kabupaten",
+    "province": {
+      "code": "52",
+      "name": "Nusa Tenggara Barat",
+      "slug": "nusa-tenggara-barat"
+    }
+  },
+  {
+    "code": "52.06",
+    "name": "Kabupaten Bima",
+    "slug": "kabupaten-bima",
+    "type": "kabupaten",
+    "province": {
+      "code": "52",
+      "name": "Nusa Tenggara Barat",
+      "slug": "nusa-tenggara-barat"
+    }
+  },
+  {
+    "code": "52.07",
+    "name": "Kabupaten Sumbawa Barat",
+    "slug": "kabupaten-sumbawa-barat",
+    "type": "kabupaten",
+    "province": {
+      "code": "52",
+      "name": "Nusa Tenggara Barat",
+      "slug": "nusa-tenggara-barat"
+    }
+  },
+  {
+    "code": "52.08",
+    "name": "Kabupaten Lombok Utara",
+    "slug": "kabupaten-lombok-utara",
+    "type": "kabupaten",
+    "province": {
+      "code": "52",
+      "name": "Nusa Tenggara Barat",
+      "slug": "nusa-tenggara-barat"
+    }
+  },
+  {
+    "code": "52.71",
+    "name": "Kota Mataram",
+    "slug": "kota-mataram",
+    "type": "kota",
+    "province": {
+      "code": "52",
+      "name": "Nusa Tenggara Barat",
+      "slug": "nusa-tenggara-barat"
+    }
+  },
+  {
+    "code": "52.72",
+    "name": "Kota Bima",
+    "slug": "kota-bima",
+    "type": "kota",
+    "province": {
+      "code": "52",
+      "name": "Nusa Tenggara Barat",
+      "slug": "nusa-tenggara-barat"
+    }
+  },
+  {
+    "code": "53.01",
+    "name": "Kabupaten Kupang",
+    "slug": "kabupaten-kupang",
+    "type": "kabupaten",
+    "province": {
+      "code": "53",
+      "name": "Nusa Tenggara Timur",
+      "slug": "nusa-tenggara-timur"
+    }
+  },
+  {
+    "code": "53.02",
+    "name": "Kabupaten Timor Tengah Selatan",
+    "slug": "kabupaten-timor-tengah-selatan",
+    "type": "kabupaten",
+    "province": {
+      "code": "53",
+      "name": "Nusa Tenggara Timur",
+      "slug": "nusa-tenggara-timur"
+    }
+  },
+  {
+    "code": "53.03",
+    "name": "Kabupaten Timor Tengah Utara",
+    "slug": "kabupaten-timor-tengah-utara",
+    "type": "kabupaten",
+    "province": {
+      "code": "53",
+      "name": "Nusa Tenggara Timur",
+      "slug": "nusa-tenggara-timur"
+    }
+  },
+  {
+    "code": "53.04",
+    "name": "Kabupaten Belu",
+    "slug": "kabupaten-belu",
+    "type": "kabupaten",
+    "province": {
+      "code": "53",
+      "name": "Nusa Tenggara Timur",
+      "slug": "nusa-tenggara-timur"
+    }
+  },
+  {
+    "code": "53.05",
+    "name": "Kabupaten Alor",
+    "slug": "kabupaten-alor",
+    "type": "kabupaten",
+    "province": {
+      "code": "53",
+      "name": "Nusa Tenggara Timur",
+      "slug": "nusa-tenggara-timur"
+    }
+  },
+  {
+    "code": "53.06",
+    "name": "Kabupaten Flores Timur",
+    "slug": "kabupaten-flores-timur",
+    "type": "kabupaten",
+    "province": {
+      "code": "53",
+      "name": "Nusa Tenggara Timur",
+      "slug": "nusa-tenggara-timur"
+    }
+  },
+  {
+    "code": "53.07",
+    "name": "Kabupaten Sikka",
+    "slug": "kabupaten-sikka",
+    "type": "kabupaten",
+    "province": {
+      "code": "53",
+      "name": "Nusa Tenggara Timur",
+      "slug": "nusa-tenggara-timur"
+    }
+  },
+  {
+    "code": "53.08",
+    "name": "Kabupaten Ende",
+    "slug": "kabupaten-ende",
+    "type": "kabupaten",
+    "province": {
+      "code": "53",
+      "name": "Nusa Tenggara Timur",
+      "slug": "nusa-tenggara-timur"
+    }
+  },
+  {
+    "code": "53.09",
+    "name": "Kabupaten Ngada",
+    "slug": "kabupaten-ngada",
+    "type": "kabupaten",
+    "province": {
+      "code": "53",
+      "name": "Nusa Tenggara Timur",
+      "slug": "nusa-tenggara-timur"
+    }
+  },
+  {
+    "code": "53.10",
+    "name": "Kabupaten Manggarai",
+    "slug": "kabupaten-manggarai",
+    "type": "kabupaten",
+    "province": {
+      "code": "53",
+      "name": "Nusa Tenggara Timur",
+      "slug": "nusa-tenggara-timur"
+    }
+  },
+  {
+    "code": "53.11",
+    "name": "Kabupaten Sumba Timur",
+    "slug": "kabupaten-sumba-timur",
+    "type": "kabupaten",
+    "province": {
+      "code": "53",
+      "name": "Nusa Tenggara Timur",
+      "slug": "nusa-tenggara-timur"
+    }
+  },
+  {
+    "code": "53.12",
+    "name": "Kabupaten Sumba Barat",
+    "slug": "kabupaten-sumba-barat",
+    "type": "kabupaten",
+    "province": {
+      "code": "53",
+      "name": "Nusa Tenggara Timur",
+      "slug": "nusa-tenggara-timur"
+    }
+  },
+  {
+    "code": "53.13",
+    "name": "Kabupaten Lembata",
+    "slug": "kabupaten-lembata",
+    "type": "kabupaten",
+    "province": {
+      "code": "53",
+      "name": "Nusa Tenggara Timur",
+      "slug": "nusa-tenggara-timur"
+    }
+  },
+  {
+    "code": "53.14",
+    "name": "Kabupaten Rote Ndao",
+    "slug": "kabupaten-rote-ndao",
+    "type": "kabupaten",
+    "province": {
+      "code": "53",
+      "name": "Nusa Tenggara Timur",
+      "slug": "nusa-tenggara-timur"
+    }
+  },
+  {
+    "code": "53.15",
+    "name": "Kabupaten Manggarai Barat",
+    "slug": "kabupaten-manggarai-barat",
+    "type": "kabupaten",
+    "province": {
+      "code": "53",
+      "name": "Nusa Tenggara Timur",
+      "slug": "nusa-tenggara-timur"
+    }
+  },
+  {
+    "code": "53.16",
+    "name": "Kabupaten Nagekeo",
+    "slug": "kabupaten-nagekeo",
+    "type": "kabupaten",
+    "province": {
+      "code": "53",
+      "name": "Nusa Tenggara Timur",
+      "slug": "nusa-tenggara-timur"
+    }
+  },
+  {
+    "code": "53.17",
+    "name": "Kabupaten Sumba Tengah",
+    "slug": "kabupaten-sumba-tengah",
+    "type": "kabupaten",
+    "province": {
+      "code": "53",
+      "name": "Nusa Tenggara Timur",
+      "slug": "nusa-tenggara-timur"
+    }
+  },
+  {
+    "code": "53.18",
+    "name": "Kabupaten Sumba Barat Daya",
+    "slug": "kabupaten-sumba-barat-daya",
+    "type": "kabupaten",
+    "province": {
+      "code": "53",
+      "name": "Nusa Tenggara Timur",
+      "slug": "nusa-tenggara-timur"
+    }
+  },
+  {
+    "code": "53.19",
+    "name": "Kabupaten Manggarai Timur",
+    "slug": "kabupaten-manggarai-timur",
+    "type": "kabupaten",
+    "province": {
+      "code": "53",
+      "name": "Nusa Tenggara Timur",
+      "slug": "nusa-tenggara-timur"
+    }
+  },
+  {
+    "code": "53.20",
+    "name": "Kabupaten Sabu Raijua",
+    "slug": "kabupaten-sabu-raijua",
+    "type": "kabupaten",
+    "province": {
+      "code": "53",
+      "name": "Nusa Tenggara Timur",
+      "slug": "nusa-tenggara-timur"
+    }
+  },
+  {
+    "code": "53.21",
+    "name": "Kabupaten Malaka",
+    "slug": "kabupaten-malaka",
+    "type": "kabupaten",
+    "province": {
+      "code": "53",
+      "name": "Nusa Tenggara Timur",
+      "slug": "nusa-tenggara-timur"
+    }
+  },
+  {
+    "code": "53.71",
+    "name": "Kota Kupang",
+    "slug": "kota-kupang",
+    "type": "kota",
+    "province": {
+      "code": "53",
+      "name": "Nusa Tenggara Timur",
+      "slug": "nusa-tenggara-timur"
+    }
+  },
+  {
+    "code": "61.01",
+    "name": "Kabupaten Sambas",
+    "slug": "kabupaten-sambas",
+    "type": "kabupaten",
+    "province": {
+      "code": "61",
+      "name": "Kalimantan Barat",
+      "slug": "kalimantan-barat"
+    }
+  },
+  {
+    "code": "61.02",
+    "name": "Kabupaten Mempawah",
+    "slug": "kabupaten-mempawah",
+    "type": "kabupaten",
+    "province": {
+      "code": "61",
+      "name": "Kalimantan Barat",
+      "slug": "kalimantan-barat"
+    }
+  },
+  {
+    "code": "61.03",
+    "name": "Kabupaten Sanggau",
+    "slug": "kabupaten-sanggau",
+    "type": "kabupaten",
+    "province": {
+      "code": "61",
+      "name": "Kalimantan Barat",
+      "slug": "kalimantan-barat"
+    }
+  },
+  {
+    "code": "61.04",
+    "name": "Kabupaten Ketapang",
+    "slug": "kabupaten-ketapang",
+    "type": "kabupaten",
+    "province": {
+      "code": "61",
+      "name": "Kalimantan Barat",
+      "slug": "kalimantan-barat"
+    }
+  },
+  {
+    "code": "61.05",
+    "name": "Kabupaten Sintang",
+    "slug": "kabupaten-sintang",
+    "type": "kabupaten",
+    "province": {
+      "code": "61",
+      "name": "Kalimantan Barat",
+      "slug": "kalimantan-barat"
+    }
+  },
+  {
+    "code": "61.06",
+    "name": "Kabupaten Kapuas Hulu",
+    "slug": "kabupaten-kapuas-hulu",
+    "type": "kabupaten",
+    "province": {
+      "code": "61",
+      "name": "Kalimantan Barat",
+      "slug": "kalimantan-barat"
+    }
+  },
+  {
+    "code": "61.07",
+    "name": "Kabupaten Bengkayang",
+    "slug": "kabupaten-bengkayang",
+    "type": "kabupaten",
+    "province": {
+      "code": "61",
+      "name": "Kalimantan Barat",
+      "slug": "kalimantan-barat"
+    }
+  },
+  {
+    "code": "61.08",
+    "name": "Kabupaten Landak",
+    "slug": "kabupaten-landak",
+    "type": "kabupaten",
+    "province": {
+      "code": "61",
+      "name": "Kalimantan Barat",
+      "slug": "kalimantan-barat"
+    }
+  },
+  {
+    "code": "61.09",
+    "name": "Kabupaten Sekadau",
+    "slug": "kabupaten-sekadau",
+    "type": "kabupaten",
+    "province": {
+      "code": "61",
+      "name": "Kalimantan Barat",
+      "slug": "kalimantan-barat"
+    }
+  },
+  {
+    "code": "61.10",
+    "name": "Kabupaten Melawi",
+    "slug": "kabupaten-melawi",
+    "type": "kabupaten",
+    "province": {
+      "code": "61",
+      "name": "Kalimantan Barat",
+      "slug": "kalimantan-barat"
+    }
+  },
+  {
+    "code": "61.11",
+    "name": "Kabupaten Kayong Utara",
+    "slug": "kabupaten-kayong-utara",
+    "type": "kabupaten",
+    "province": {
+      "code": "61",
+      "name": "Kalimantan Barat",
+      "slug": "kalimantan-barat"
+    }
+  },
+  {
+    "code": "61.12",
+    "name": "Kabupaten Kubu Raya",
+    "slug": "kabupaten-kubu-raya",
+    "type": "kabupaten",
+    "province": {
+      "code": "61",
+      "name": "Kalimantan Barat",
+      "slug": "kalimantan-barat"
+    }
+  },
+  {
+    "code": "61.71",
+    "name": "Kota Pontianak",
+    "slug": "kota-pontianak",
+    "type": "kota",
+    "province": {
+      "code": "61",
+      "name": "Kalimantan Barat",
+      "slug": "kalimantan-barat"
+    }
+  },
+  {
+    "code": "61.72",
+    "name": "Kota Singkawang",
+    "slug": "kota-singkawang",
+    "type": "kota",
+    "province": {
+      "code": "61",
+      "name": "Kalimantan Barat",
+      "slug": "kalimantan-barat"
+    }
+  },
+  {
+    "code": "62.01",
+    "name": "Kabupaten Kotawaringin Barat",
+    "slug": "kabupaten-kotawaringin-barat",
+    "type": "kabupaten",
+    "province": {
+      "code": "62",
+      "name": "Kalimantan Tengah",
+      "slug": "kalimantan-tengah"
+    }
+  },
+  {
+    "code": "62.02",
+    "name": "Kabupaten Kotawaringin Timur",
+    "slug": "kabupaten-kotawaringin-timur",
+    "type": "kabupaten",
+    "province": {
+      "code": "62",
+      "name": "Kalimantan Tengah",
+      "slug": "kalimantan-tengah"
+    }
+  },
+  {
+    "code": "62.03",
+    "name": "Kabupaten Kapuas",
+    "slug": "kabupaten-kapuas",
+    "type": "kabupaten",
+    "province": {
+      "code": "62",
+      "name": "Kalimantan Tengah",
+      "slug": "kalimantan-tengah"
+    }
+  },
+  {
+    "code": "62.04",
+    "name": "Kabupaten Barito Selatan",
+    "slug": "kabupaten-barito-selatan",
+    "type": "kabupaten",
+    "province": {
+      "code": "62",
+      "name": "Kalimantan Tengah",
+      "slug": "kalimantan-tengah"
+    }
+  },
+  {
+    "code": "62.05",
+    "name": "Kabupaten Barito Utara",
+    "slug": "kabupaten-barito-utara",
+    "type": "kabupaten",
+    "province": {
+      "code": "62",
+      "name": "Kalimantan Tengah",
+      "slug": "kalimantan-tengah"
+    }
+  },
+  {
+    "code": "62.06",
+    "name": "Kabupaten Katingan",
+    "slug": "kabupaten-katingan",
+    "type": "kabupaten",
+    "province": {
+      "code": "62",
+      "name": "Kalimantan Tengah",
+      "slug": "kalimantan-tengah"
+    }
+  },
+  {
+    "code": "62.07",
+    "name": "Kabupaten Seruyan",
+    "slug": "kabupaten-seruyan",
+    "type": "kabupaten",
+    "province": {
+      "code": "62",
+      "name": "Kalimantan Tengah",
+      "slug": "kalimantan-tengah"
+    }
+  },
+  {
+    "code": "62.08",
+    "name": "Kabupaten Sukamara",
+    "slug": "kabupaten-sukamara",
+    "type": "kabupaten",
+    "province": {
+      "code": "62",
+      "name": "Kalimantan Tengah",
+      "slug": "kalimantan-tengah"
+    }
+  },
+  {
+    "code": "62.09",
+    "name": "Kabupaten Lamandau",
+    "slug": "kabupaten-lamandau",
+    "type": "kabupaten",
+    "province": {
+      "code": "62",
+      "name": "Kalimantan Tengah",
+      "slug": "kalimantan-tengah"
+    }
+  },
+  {
+    "code": "62.10",
+    "name": "Kabupaten Gunung Mas",
+    "slug": "kabupaten-gunung-mas",
+    "type": "kabupaten",
+    "province": {
+      "code": "62",
+      "name": "Kalimantan Tengah",
+      "slug": "kalimantan-tengah"
+    }
+  },
+  {
+    "code": "62.11",
+    "name": "Kabupaten Pulang Pisau",
+    "slug": "kabupaten-pulang-pisau",
+    "type": "kabupaten",
+    "province": {
+      "code": "62",
+      "name": "Kalimantan Tengah",
+      "slug": "kalimantan-tengah"
+    }
+  },
+  {
+    "code": "62.12",
+    "name": "Kabupaten Murung Raya",
+    "slug": "kabupaten-murung-raya",
+    "type": "kabupaten",
+    "province": {
+      "code": "62",
+      "name": "Kalimantan Tengah",
+      "slug": "kalimantan-tengah"
+    }
+  },
+  {
+    "code": "62.13",
+    "name": "Kabupaten Barito Timur",
+    "slug": "kabupaten-barito-timur",
+    "type": "kabupaten",
+    "province": {
+      "code": "62",
+      "name": "Kalimantan Tengah",
+      "slug": "kalimantan-tengah"
+    }
+  },
+  {
+    "code": "62.71",
+    "name": "Kota Palangkaraya",
+    "slug": "kota-palangkaraya",
+    "type": "kota",
+    "province": {
+      "code": "62",
+      "name": "Kalimantan Tengah",
+      "slug": "kalimantan-tengah"
+    }
+  },
+  {
+    "code": "63.01",
+    "name": "Kabupaten Tanah Laut",
+    "slug": "kabupaten-tanah-laut",
+    "type": "kabupaten",
+    "province": {
+      "code": "63",
+      "name": "Kalimantan Selatan",
+      "slug": "kalimantan-selatan"
+    }
+  },
+  {
+    "code": "63.02",
+    "name": "Kabupaten Kotabaru",
+    "slug": "kabupaten-kotabaru",
+    "type": "kabupaten",
+    "province": {
+      "code": "63",
+      "name": "Kalimantan Selatan",
+      "slug": "kalimantan-selatan"
+    }
+  },
+  {
+    "code": "63.03",
+    "name": "Kabupaten Banjar",
+    "slug": "kabupaten-banjar",
+    "type": "kabupaten",
+    "province": {
+      "code": "63",
+      "name": "Kalimantan Selatan",
+      "slug": "kalimantan-selatan"
+    }
+  },
+  {
+    "code": "63.04",
+    "name": "Kabupaten Barito Kuala",
+    "slug": "kabupaten-barito-kuala",
+    "type": "kabupaten",
+    "province": {
+      "code": "63",
+      "name": "Kalimantan Selatan",
+      "slug": "kalimantan-selatan"
+    }
+  },
+  {
+    "code": "63.05",
+    "name": "Kabupaten Tapin",
+    "slug": "kabupaten-tapin",
+    "type": "kabupaten",
+    "province": {
+      "code": "63",
+      "name": "Kalimantan Selatan",
+      "slug": "kalimantan-selatan"
+    }
+  },
+  {
+    "code": "63.06",
+    "name": "Kabupaten Hulu Sungai Selatan",
+    "slug": "kabupaten-hulu-sungai-selatan",
+    "type": "kabupaten",
+    "province": {
+      "code": "63",
+      "name": "Kalimantan Selatan",
+      "slug": "kalimantan-selatan"
+    }
+  },
+  {
+    "code": "63.07",
+    "name": "Kabupaten Hulu Sungai Tengah",
+    "slug": "kabupaten-hulu-sungai-tengah",
+    "type": "kabupaten",
+    "province": {
+      "code": "63",
+      "name": "Kalimantan Selatan",
+      "slug": "kalimantan-selatan"
+    }
+  },
+  {
+    "code": "63.08",
+    "name": "Kabupaten Hulu Sungai Utara",
+    "slug": "kabupaten-hulu-sungai-utara",
+    "type": "kabupaten",
+    "province": {
+      "code": "63",
+      "name": "Kalimantan Selatan",
+      "slug": "kalimantan-selatan"
+    }
+  },
+  {
+    "code": "63.09",
+    "name": "Kabupaten Tabalong",
+    "slug": "kabupaten-tabalong",
+    "type": "kabupaten",
+    "province": {
+      "code": "63",
+      "name": "Kalimantan Selatan",
+      "slug": "kalimantan-selatan"
+    }
+  },
+  {
+    "code": "63.10",
+    "name": "Kabupaten Tanah Bumbu",
+    "slug": "kabupaten-tanah-bumbu",
+    "type": "kabupaten",
+    "province": {
+      "code": "63",
+      "name": "Kalimantan Selatan",
+      "slug": "kalimantan-selatan"
+    }
+  },
+  {
+    "code": "63.11",
+    "name": "Kabupaten Balangan",
+    "slug": "kabupaten-balangan",
+    "type": "kabupaten",
+    "province": {
+      "code": "63",
+      "name": "Kalimantan Selatan",
+      "slug": "kalimantan-selatan"
+    }
+  },
+  {
+    "code": "63.71",
+    "name": "Kota Banjarmasin",
+    "slug": "kota-banjarmasin",
+    "type": "kota",
+    "province": {
+      "code": "63",
+      "name": "Kalimantan Selatan",
+      "slug": "kalimantan-selatan"
+    }
+  },
+  {
+    "code": "63.72",
+    "name": "Kota Banjarbaru",
+    "slug": "kota-banjarbaru",
+    "type": "kota",
+    "province": {
+      "code": "63",
+      "name": "Kalimantan Selatan",
+      "slug": "kalimantan-selatan"
+    }
+  },
+  {
+    "code": "64.01",
+    "name": "Kabupaten Paser",
+    "slug": "kabupaten-paser",
+    "type": "kabupaten",
+    "province": {
+      "code": "64",
+      "name": "Kalimantan Timur",
+      "slug": "kalimantan-timur"
+    }
+  },
+  {
+    "code": "64.02",
+    "name": "Kabupaten Kutai Kartanegara",
+    "slug": "kabupaten-kutai-kartanegara",
+    "type": "kabupaten",
+    "province": {
+      "code": "64",
+      "name": "Kalimantan Timur",
+      "slug": "kalimantan-timur"
+    }
+  },
+  {
+    "code": "64.03",
+    "name": "Kabupaten Berau",
+    "slug": "kabupaten-berau",
+    "type": "kabupaten",
+    "province": {
+      "code": "64",
+      "name": "Kalimantan Timur",
+      "slug": "kalimantan-timur"
+    }
+  },
+  {
+    "code": "64.07",
+    "name": "Kabupaten Kutai Barat",
+    "slug": "kabupaten-kutai-barat",
+    "type": "kabupaten",
+    "province": {
+      "code": "64",
+      "name": "Kalimantan Timur",
+      "slug": "kalimantan-timur"
+    }
+  },
+  {
+    "code": "64.08",
+    "name": "Kabupaten Kutai Timur",
+    "slug": "kabupaten-kutai-timur",
+    "type": "kabupaten",
+    "province": {
+      "code": "64",
+      "name": "Kalimantan Timur",
+      "slug": "kalimantan-timur"
+    }
+  },
+  {
+    "code": "64.09",
+    "name": "Kabupaten Penajam Paser Utara",
+    "slug": "kabupaten-penajam-paser-utara",
+    "type": "kabupaten",
+    "province": {
+      "code": "64",
+      "name": "Kalimantan Timur",
+      "slug": "kalimantan-timur"
+    }
+  },
+  {
+    "code": "64.11",
+    "name": "Kabupaten Mahakam Ulu",
+    "slug": "kabupaten-mahakam-ulu",
+    "type": "kabupaten",
+    "province": {
+      "code": "64",
+      "name": "Kalimantan Timur",
+      "slug": "kalimantan-timur"
+    }
+  },
+  {
+    "code": "64.71",
+    "name": "Kota Balikpapan",
+    "slug": "kota-balikpapan",
+    "type": "kota",
+    "province": {
+      "code": "64",
+      "name": "Kalimantan Timur",
+      "slug": "kalimantan-timur"
+    }
+  },
+  {
+    "code": "64.72",
+    "name": "Kota Samarinda",
+    "slug": "kota-samarinda",
+    "type": "kota",
+    "province": {
+      "code": "64",
+      "name": "Kalimantan Timur",
+      "slug": "kalimantan-timur"
+    }
+  },
+  {
+    "code": "64.74",
+    "name": "Kota Bontang",
+    "slug": "kota-bontang",
+    "type": "kota",
+    "province": {
+      "code": "64",
+      "name": "Kalimantan Timur",
+      "slug": "kalimantan-timur"
+    }
+  },
+  {
+    "code": "65.01",
+    "name": "Kabupaten Bulungan",
+    "slug": "kabupaten-bulungan",
+    "type": "kabupaten",
+    "province": {
+      "code": "65",
+      "name": "Kalimantan Utara",
+      "slug": "kalimantan-utara"
+    }
+  },
+  {
+    "code": "65.02",
+    "name": "Kabupaten Malinau",
+    "slug": "kabupaten-malinau",
+    "type": "kabupaten",
+    "province": {
+      "code": "65",
+      "name": "Kalimantan Utara",
+      "slug": "kalimantan-utara"
+    }
+  },
+  {
+    "code": "65.03",
+    "name": "Kabupaten Nunukan",
+    "slug": "kabupaten-nunukan",
+    "type": "kabupaten",
+    "province": {
+      "code": "65",
+      "name": "Kalimantan Utara",
+      "slug": "kalimantan-utara"
+    }
+  },
+  {
+    "code": "65.04",
+    "name": "Kabupaten Tana Tidung",
+    "slug": "kabupaten-tana-tidung",
+    "type": "kabupaten",
+    "province": {
+      "code": "65",
+      "name": "Kalimantan Utara",
+      "slug": "kalimantan-utara"
+    }
+  },
+  {
+    "code": "65.71",
+    "name": "Kota Tarakan",
+    "slug": "kota-tarakan",
+    "type": "kota",
+    "province": {
+      "code": "65",
+      "name": "Kalimantan Utara",
+      "slug": "kalimantan-utara"
+    }
+  },
+  {
+    "code": "71.01",
+    "name": "Kabupaten Bolaang Mongondow",
+    "slug": "kabupaten-bolaang-mongondow",
+    "type": "kabupaten",
+    "province": {
+      "code": "71",
+      "name": "Sulawesi Utara",
+      "slug": "sulawesi-utara"
+    }
+  },
+  {
+    "code": "71.02",
+    "name": "Kabupaten Minahasa",
+    "slug": "kabupaten-minahasa",
+    "type": "kabupaten",
+    "province": {
+      "code": "71",
+      "name": "Sulawesi Utara",
+      "slug": "sulawesi-utara"
+    }
+  },
+  {
+    "code": "71.03",
+    "name": "Kabupaten Kepulauan Sangihe",
+    "slug": "kabupaten-kepulauan-sangihe",
+    "type": "kabupaten",
+    "province": {
+      "code": "71",
+      "name": "Sulawesi Utara",
+      "slug": "sulawesi-utara"
+    }
+  },
+  {
+    "code": "71.04",
+    "name": "Kabupaten Kepulauan Talaud",
+    "slug": "kabupaten-kepulauan-talaud",
+    "type": "kabupaten",
+    "province": {
+      "code": "71",
+      "name": "Sulawesi Utara",
+      "slug": "sulawesi-utara"
+    }
+  },
+  {
+    "code": "71.05",
+    "name": "Kabupaten Minahasa Selatan",
+    "slug": "kabupaten-minahasa-selatan",
+    "type": "kabupaten",
+    "province": {
+      "code": "71",
+      "name": "Sulawesi Utara",
+      "slug": "sulawesi-utara"
+    }
+  },
+  {
+    "code": "71.06",
+    "name": "Kabupaten Minahasa Utara",
+    "slug": "kabupaten-minahasa-utara",
+    "type": "kabupaten",
+    "province": {
+      "code": "71",
+      "name": "Sulawesi Utara",
+      "slug": "sulawesi-utara"
+    }
+  },
+  {
+    "code": "71.07",
+    "name": "Kabupaten Minahasa Tenggara",
+    "slug": "kabupaten-minahasa-tenggara",
+    "type": "kabupaten",
+    "province": {
+      "code": "71",
+      "name": "Sulawesi Utara",
+      "slug": "sulawesi-utara"
+    }
+  },
+  {
+    "code": "71.08",
+    "name": "Kabupaten Bolaang Mongondow Utara",
+    "slug": "kabupaten-bolaang-mongondow-utara",
+    "type": "kabupaten",
+    "province": {
+      "code": "71",
+      "name": "Sulawesi Utara",
+      "slug": "sulawesi-utara"
+    }
+  },
+  {
+    "code": "71.09",
+    "name": "Kabupaten Kep. Siau Tagulandang Biaro",
+    "slug": "kabupaten-kep-siau-tagulandang-biaro",
+    "type": "kabupaten",
+    "province": {
+      "code": "71",
+      "name": "Sulawesi Utara",
+      "slug": "sulawesi-utara"
+    }
+  },
+  {
+    "code": "71.10",
+    "name": "Kabupaten Bolaang Mongondow Timur",
+    "slug": "kabupaten-bolaang-mongondow-timur",
+    "type": "kabupaten",
+    "province": {
+      "code": "71",
+      "name": "Sulawesi Utara",
+      "slug": "sulawesi-utara"
+    }
+  },
+  {
+    "code": "71.11",
+    "name": "Kabupaten Bolaang Mongondow Selatan",
+    "slug": "kabupaten-bolaang-mongondow-selatan",
+    "type": "kabupaten",
+    "province": {
+      "code": "71",
+      "name": "Sulawesi Utara",
+      "slug": "sulawesi-utara"
+    }
+  },
+  {
+    "code": "71.71",
+    "name": "Kota Manado",
+    "slug": "kota-manado",
+    "type": "kota",
+    "province": {
+      "code": "71",
+      "name": "Sulawesi Utara",
+      "slug": "sulawesi-utara"
+    }
+  },
+  {
+    "code": "71.72",
+    "name": "Kota Bitung",
+    "slug": "kota-bitung",
+    "type": "kota",
+    "province": {
+      "code": "71",
+      "name": "Sulawesi Utara",
+      "slug": "sulawesi-utara"
+    }
+  },
+  {
+    "code": "71.73",
+    "name": "Kota Tomohon",
+    "slug": "kota-tomohon",
+    "type": "kota",
+    "province": {
+      "code": "71",
+      "name": "Sulawesi Utara",
+      "slug": "sulawesi-utara"
+    }
+  },
+  {
+    "code": "71.74",
+    "name": "Kota Kotamobagu",
+    "slug": "kota-kotamobagu",
+    "type": "kota",
+    "province": {
+      "code": "71",
+      "name": "Sulawesi Utara",
+      "slug": "sulawesi-utara"
+    }
+  },
+  {
+    "code": "72.01",
+    "name": "Kabupaten Banggai",
+    "slug": "kabupaten-banggai",
+    "type": "kabupaten",
+    "province": {
+      "code": "72",
+      "name": "Sulawesi Tengah",
+      "slug": "sulawesi-tengah"
+    }
+  },
+  {
+    "code": "72.02",
+    "name": "Kabupaten Poso",
+    "slug": "kabupaten-poso",
+    "type": "kabupaten",
+    "province": {
+      "code": "72",
+      "name": "Sulawesi Tengah",
+      "slug": "sulawesi-tengah"
+    }
+  },
+  {
+    "code": "72.03",
+    "name": "Kabupaten Donggala",
+    "slug": "kabupaten-donggala",
+    "type": "kabupaten",
+    "province": {
+      "code": "72",
+      "name": "Sulawesi Tengah",
+      "slug": "sulawesi-tengah"
+    }
+  },
+  {
+    "code": "72.04",
+    "name": "Kabupaten Toli-Toli",
+    "slug": "kabupaten-toli-toli",
+    "type": "kabupaten",
+    "province": {
+      "code": "72",
+      "name": "Sulawesi Tengah",
+      "slug": "sulawesi-tengah"
+    }
+  },
+  {
+    "code": "72.05",
+    "name": "Kabupaten Buol",
+    "slug": "kabupaten-buol",
+    "type": "kabupaten",
+    "province": {
+      "code": "72",
+      "name": "Sulawesi Tengah",
+      "slug": "sulawesi-tengah"
+    }
+  },
+  {
+    "code": "72.06",
+    "name": "Kabupaten Morowali",
+    "slug": "kabupaten-morowali",
+    "type": "kabupaten",
+    "province": {
+      "code": "72",
+      "name": "Sulawesi Tengah",
+      "slug": "sulawesi-tengah"
+    }
+  },
+  {
+    "code": "72.07",
+    "name": "Kabupaten Banggai Kepulauan",
+    "slug": "kabupaten-banggai-kepulauan",
+    "type": "kabupaten",
+    "province": {
+      "code": "72",
+      "name": "Sulawesi Tengah",
+      "slug": "sulawesi-tengah"
+    }
+  },
+  {
+    "code": "72.08",
+    "name": "Kabupaten Parigi Moutong",
+    "slug": "kabupaten-parigi-moutong",
+    "type": "kabupaten",
+    "province": {
+      "code": "72",
+      "name": "Sulawesi Tengah",
+      "slug": "sulawesi-tengah"
+    }
+  },
+  {
+    "code": "72.09",
+    "name": "Kabupaten Tojo Una Una",
+    "slug": "kabupaten-tojo-una-una",
+    "type": "kabupaten",
+    "province": {
+      "code": "72",
+      "name": "Sulawesi Tengah",
+      "slug": "sulawesi-tengah"
+    }
+  },
+  {
+    "code": "72.10",
+    "name": "Kabupaten Sigi",
+    "slug": "kabupaten-sigi",
+    "type": "kabupaten",
+    "province": {
+      "code": "72",
+      "name": "Sulawesi Tengah",
+      "slug": "sulawesi-tengah"
+    }
+  },
+  {
+    "code": "72.11",
+    "name": "Kabupaten Banggai Laut",
+    "slug": "kabupaten-banggai-laut",
+    "type": "kabupaten",
+    "province": {
+      "code": "72",
+      "name": "Sulawesi Tengah",
+      "slug": "sulawesi-tengah"
+    }
+  },
+  {
+    "code": "72.12",
+    "name": "Kabupaten Morowali Utara",
+    "slug": "kabupaten-morowali-utara",
+    "type": "kabupaten",
+    "province": {
+      "code": "72",
+      "name": "Sulawesi Tengah",
+      "slug": "sulawesi-tengah"
+    }
+  },
+  {
+    "code": "72.71",
+    "name": "Kota Palu",
+    "slug": "kota-palu",
+    "type": "kota",
+    "province": {
+      "code": "72",
+      "name": "Sulawesi Tengah",
+      "slug": "sulawesi-tengah"
+    }
+  },
+  {
+    "code": "73.01",
+    "name": "Kabupaten Kepulauan Selayar",
+    "slug": "kabupaten-kepulauan-selayar",
+    "type": "kabupaten",
+    "province": {
+      "code": "73",
+      "name": "Sulawesi Selatan",
+      "slug": "sulawesi-selatan"
+    }
+  },
+  {
+    "code": "73.02",
+    "name": "Kabupaten Bulukumba",
+    "slug": "kabupaten-bulukumba",
+    "type": "kabupaten",
+    "province": {
+      "code": "73",
+      "name": "Sulawesi Selatan",
+      "slug": "sulawesi-selatan"
+    }
+  },
+  {
+    "code": "73.03",
+    "name": "Kabupaten Bantaeng",
+    "slug": "kabupaten-bantaeng",
+    "type": "kabupaten",
+    "province": {
+      "code": "73",
+      "name": "Sulawesi Selatan",
+      "slug": "sulawesi-selatan"
+    }
+  },
+  {
+    "code": "73.04",
+    "name": "Kabupaten Jeneponto",
+    "slug": "kabupaten-jeneponto",
+    "type": "kabupaten",
+    "province": {
+      "code": "73",
+      "name": "Sulawesi Selatan",
+      "slug": "sulawesi-selatan"
+    }
+  },
+  {
+    "code": "73.05",
+    "name": "Kabupaten Takalar",
+    "slug": "kabupaten-takalar",
+    "type": "kabupaten",
+    "province": {
+      "code": "73",
+      "name": "Sulawesi Selatan",
+      "slug": "sulawesi-selatan"
+    }
+  },
+  {
+    "code": "73.06",
+    "name": "Kabupaten Gowa",
+    "slug": "kabupaten-gowa",
+    "type": "kabupaten",
+    "province": {
+      "code": "73",
+      "name": "Sulawesi Selatan",
+      "slug": "sulawesi-selatan"
+    }
+  },
+  {
+    "code": "73.07",
+    "name": "Kabupaten Sinjai",
+    "slug": "kabupaten-sinjai",
+    "type": "kabupaten",
+    "province": {
+      "code": "73",
+      "name": "Sulawesi Selatan",
+      "slug": "sulawesi-selatan"
+    }
+  },
+  {
+    "code": "73.08",
+    "name": "Kabupaten Bone",
+    "slug": "kabupaten-bone",
+    "type": "kabupaten",
+    "province": {
+      "code": "73",
+      "name": "Sulawesi Selatan",
+      "slug": "sulawesi-selatan"
+    }
+  },
+  {
+    "code": "73.09",
+    "name": "Kabupaten Maros",
+    "slug": "kabupaten-maros",
+    "type": "kabupaten",
+    "province": {
+      "code": "73",
+      "name": "Sulawesi Selatan",
+      "slug": "sulawesi-selatan"
+    }
+  },
+  {
+    "code": "73.10",
+    "name": "Kabupaten Pangkajene dan Kepulauan",
+    "slug": "kabupaten-pangkajene-dan-kepulauan",
+    "type": "kabupaten",
+    "province": {
+      "code": "73",
+      "name": "Sulawesi Selatan",
+      "slug": "sulawesi-selatan"
+    }
+  },
+  {
+    "code": "73.11",
+    "name": "Kabupaten Barru",
+    "slug": "kabupaten-barru",
+    "type": "kabupaten",
+    "province": {
+      "code": "73",
+      "name": "Sulawesi Selatan",
+      "slug": "sulawesi-selatan"
+    }
+  },
+  {
+    "code": "73.12",
+    "name": "Kabupaten Soppeng",
+    "slug": "kabupaten-soppeng",
+    "type": "kabupaten",
+    "province": {
+      "code": "73",
+      "name": "Sulawesi Selatan",
+      "slug": "sulawesi-selatan"
+    }
+  },
+  {
+    "code": "73.13",
+    "name": "Kabupaten Wajo",
+    "slug": "kabupaten-wajo",
+    "type": "kabupaten",
+    "province": {
+      "code": "73",
+      "name": "Sulawesi Selatan",
+      "slug": "sulawesi-selatan"
+    }
+  },
+  {
+    "code": "73.14",
+    "name": "Kabupaten Sidenreng Rappang",
+    "slug": "kabupaten-sidenreng-rappang",
+    "type": "kabupaten",
+    "province": {
+      "code": "73",
+      "name": "Sulawesi Selatan",
+      "slug": "sulawesi-selatan"
+    }
+  },
+  {
+    "code": "73.15",
+    "name": "Kabupaten Pinrang",
+    "slug": "kabupaten-pinrang",
+    "type": "kabupaten",
+    "province": {
+      "code": "73",
+      "name": "Sulawesi Selatan",
+      "slug": "sulawesi-selatan"
+    }
+  },
+  {
+    "code": "73.16",
+    "name": "Kabupaten Enrekang",
+    "slug": "kabupaten-enrekang",
+    "type": "kabupaten",
+    "province": {
+      "code": "73",
+      "name": "Sulawesi Selatan",
+      "slug": "sulawesi-selatan"
+    }
+  },
+  {
+    "code": "73.17",
+    "name": "Kabupaten Luwu",
+    "slug": "kabupaten-luwu",
+    "type": "kabupaten",
+    "province": {
+      "code": "73",
+      "name": "Sulawesi Selatan",
+      "slug": "sulawesi-selatan"
+    }
+  },
+  {
+    "code": "73.18",
+    "name": "Kabupaten Tana Toraja",
+    "slug": "kabupaten-tana-toraja",
+    "type": "kabupaten",
+    "province": {
+      "code": "73",
+      "name": "Sulawesi Selatan",
+      "slug": "sulawesi-selatan"
+    }
+  },
+  {
+    "code": "73.22",
+    "name": "Kabupaten Luwu Utara",
+    "slug": "kabupaten-luwu-utara",
+    "type": "kabupaten",
+    "province": {
+      "code": "73",
+      "name": "Sulawesi Selatan",
+      "slug": "sulawesi-selatan"
+    }
+  },
+  {
+    "code": "73.24",
+    "name": "Kabupaten Luwu Timur",
+    "slug": "kabupaten-luwu-timur",
+    "type": "kabupaten",
+    "province": {
+      "code": "73",
+      "name": "Sulawesi Selatan",
+      "slug": "sulawesi-selatan"
+    }
+  },
+  {
+    "code": "73.26",
+    "name": "Kabupaten Toraja Utara",
+    "slug": "kabupaten-toraja-utara",
+    "type": "kabupaten",
+    "province": {
+      "code": "73",
+      "name": "Sulawesi Selatan",
+      "slug": "sulawesi-selatan"
+    }
+  },
+  {
+    "code": "73.71",
+    "name": "Kota Makassar",
+    "slug": "kota-makassar",
+    "type": "kota",
+    "province": {
+      "code": "73",
+      "name": "Sulawesi Selatan",
+      "slug": "sulawesi-selatan"
+    }
+  },
+  {
+    "code": "73.72",
+    "name": "Kota Parepare",
+    "slug": "kota-parepare",
+    "type": "kota",
+    "province": {
+      "code": "73",
+      "name": "Sulawesi Selatan",
+      "slug": "sulawesi-selatan"
+    }
+  },
+  {
+    "code": "73.73",
+    "name": "Kota Palopo",
+    "slug": "kota-palopo",
+    "type": "kota",
+    "province": {
+      "code": "73",
+      "name": "Sulawesi Selatan",
+      "slug": "sulawesi-selatan"
+    }
+  },
+  {
+    "code": "74.01",
+    "name": "Kabupaten Kolaka",
+    "slug": "kabupaten-kolaka",
+    "type": "kabupaten",
+    "province": {
+      "code": "74",
+      "name": "Sulawesi Tenggara",
+      "slug": "sulawesi-tenggara"
+    }
+  },
+  {
+    "code": "74.02",
+    "name": "Kabupaten Konawe",
+    "slug": "kabupaten-konawe",
+    "type": "kabupaten",
+    "province": {
+      "code": "74",
+      "name": "Sulawesi Tenggara",
+      "slug": "sulawesi-tenggara"
+    }
+  },
+  {
+    "code": "74.03",
+    "name": "Kabupaten Muna",
+    "slug": "kabupaten-muna",
+    "type": "kabupaten",
+    "province": {
+      "code": "74",
+      "name": "Sulawesi Tenggara",
+      "slug": "sulawesi-tenggara"
+    }
+  },
+  {
+    "code": "74.04",
+    "name": "Kabupaten Buton",
+    "slug": "kabupaten-buton",
+    "type": "kabupaten",
+    "province": {
+      "code": "74",
+      "name": "Sulawesi Tenggara",
+      "slug": "sulawesi-tenggara"
+    }
+  },
+  {
+    "code": "74.05",
+    "name": "Kabupaten Konawe Selatan",
+    "slug": "kabupaten-konawe-selatan",
+    "type": "kabupaten",
+    "province": {
+      "code": "74",
+      "name": "Sulawesi Tenggara",
+      "slug": "sulawesi-tenggara"
+    }
+  },
+  {
+    "code": "74.06",
+    "name": "Kabupaten Bombana",
+    "slug": "kabupaten-bombana",
+    "type": "kabupaten",
+    "province": {
+      "code": "74",
+      "name": "Sulawesi Tenggara",
+      "slug": "sulawesi-tenggara"
+    }
+  },
+  {
+    "code": "74.07",
+    "name": "Kabupaten Wakatobi",
+    "slug": "kabupaten-wakatobi",
+    "type": "kabupaten",
+    "province": {
+      "code": "74",
+      "name": "Sulawesi Tenggara",
+      "slug": "sulawesi-tenggara"
+    }
+  },
+  {
+    "code": "74.08",
+    "name": "Kabupaten Kolaka Utara",
+    "slug": "kabupaten-kolaka-utara",
+    "type": "kabupaten",
+    "province": {
+      "code": "74",
+      "name": "Sulawesi Tenggara",
+      "slug": "sulawesi-tenggara"
+    }
+  },
+  {
+    "code": "74.09",
+    "name": "Kabupaten Konawe Utara",
+    "slug": "kabupaten-konawe-utara",
+    "type": "kabupaten",
+    "province": {
+      "code": "74",
+      "name": "Sulawesi Tenggara",
+      "slug": "sulawesi-tenggara"
+    }
+  },
+  {
+    "code": "74.10",
+    "name": "Kabupaten Buton Utara",
+    "slug": "kabupaten-buton-utara",
+    "type": "kabupaten",
+    "province": {
+      "code": "74",
+      "name": "Sulawesi Tenggara",
+      "slug": "sulawesi-tenggara"
+    }
+  },
+  {
+    "code": "74.11",
+    "name": "Kabupaten Kolaka Timur",
+    "slug": "kabupaten-kolaka-timur",
+    "type": "kabupaten",
+    "province": {
+      "code": "74",
+      "name": "Sulawesi Tenggara",
+      "slug": "sulawesi-tenggara"
+    }
+  },
+  {
+    "code": "74.12",
+    "name": "Kabupaten Konawe Kepulauan",
+    "slug": "kabupaten-konawe-kepulauan",
+    "type": "kabupaten",
+    "province": {
+      "code": "74",
+      "name": "Sulawesi Tenggara",
+      "slug": "sulawesi-tenggara"
+    }
+  },
+  {
+    "code": "74.13",
+    "name": "Kabupaten Muna Barat",
+    "slug": "kabupaten-muna-barat",
+    "type": "kabupaten",
+    "province": {
+      "code": "74",
+      "name": "Sulawesi Tenggara",
+      "slug": "sulawesi-tenggara"
+    }
+  },
+  {
+    "code": "74.14",
+    "name": "Kabupaten Buton Tengah",
+    "slug": "kabupaten-buton-tengah",
+    "type": "kabupaten",
+    "province": {
+      "code": "74",
+      "name": "Sulawesi Tenggara",
+      "slug": "sulawesi-tenggara"
+    }
+  },
+  {
+    "code": "74.15",
+    "name": "Kabupaten Buton Selatan",
+    "slug": "kabupaten-buton-selatan",
+    "type": "kabupaten",
+    "province": {
+      "code": "74",
+      "name": "Sulawesi Tenggara",
+      "slug": "sulawesi-tenggara"
+    }
+  },
+  {
+    "code": "74.71",
+    "name": "Kota Kendari",
+    "slug": "kota-kendari",
+    "type": "kota",
+    "province": {
+      "code": "74",
+      "name": "Sulawesi Tenggara",
+      "slug": "sulawesi-tenggara"
+    }
+  },
+  {
+    "code": "74.72",
+    "name": "Kota Bau Bau",
+    "slug": "kota-bau-bau",
+    "type": "kota",
+    "province": {
+      "code": "74",
+      "name": "Sulawesi Tenggara",
+      "slug": "sulawesi-tenggara"
+    }
+  },
+  {
+    "code": "75.01",
+    "name": "Kabupaten Gorontalo",
+    "slug": "kabupaten-gorontalo",
+    "type": "kabupaten",
+    "province": {
+      "code": "75",
+      "name": "Gorontalo",
+      "slug": "gorontalo"
+    }
+  },
+  {
+    "code": "75.02",
+    "name": "Kabupaten Boalemo",
+    "slug": "kabupaten-boalemo",
+    "type": "kabupaten",
+    "province": {
+      "code": "75",
+      "name": "Gorontalo",
+      "slug": "gorontalo"
+    }
+  },
+  {
+    "code": "75.03",
+    "name": "Kabupaten Bone Bolango",
+    "slug": "kabupaten-bone-bolango",
+    "type": "kabupaten",
+    "province": {
+      "code": "75",
+      "name": "Gorontalo",
+      "slug": "gorontalo"
+    }
+  },
+  {
+    "code": "75.04",
+    "name": "Kabupaten Pohuwato",
+    "slug": "kabupaten-pohuwato",
+    "type": "kabupaten",
+    "province": {
+      "code": "75",
+      "name": "Gorontalo",
+      "slug": "gorontalo"
+    }
+  },
+  {
+    "code": "75.05",
+    "name": "Kabupaten Gorontalo Utara",
+    "slug": "kabupaten-gorontalo-utara",
+    "type": "kabupaten",
+    "province": {
+      "code": "75",
+      "name": "Gorontalo",
+      "slug": "gorontalo"
+    }
+  },
+  {
+    "code": "75.71",
+    "name": "Kota Gorontalo",
+    "slug": "kota-gorontalo",
+    "type": "kota",
+    "province": {
+      "code": "75",
+      "name": "Gorontalo",
+      "slug": "gorontalo"
+    }
+  },
+  {
+    "code": "76.01",
+    "name": "Kabupaten Pasangkayu",
+    "slug": "kabupaten-pasangkayu",
+    "type": "kabupaten",
+    "province": {
+      "code": "76",
+      "name": "Sulawesi Barat",
+      "slug": "sulawesi-barat"
+    }
+  },
+  {
+    "code": "76.02",
+    "name": "Kabupaten Mamuju",
+    "slug": "kabupaten-mamuju",
+    "type": "kabupaten",
+    "province": {
+      "code": "76",
+      "name": "Sulawesi Barat",
+      "slug": "sulawesi-barat"
+    }
+  },
+  {
+    "code": "76.03",
+    "name": "Kabupaten Mamasa",
+    "slug": "kabupaten-mamasa",
+    "type": "kabupaten",
+    "province": {
+      "code": "76",
+      "name": "Sulawesi Barat",
+      "slug": "sulawesi-barat"
+    }
+  },
+  {
+    "code": "76.04",
+    "name": "Kabupaten Polewali Mandar",
+    "slug": "kabupaten-polewali-mandar",
+    "type": "kabupaten",
+    "province": {
+      "code": "76",
+      "name": "Sulawesi Barat",
+      "slug": "sulawesi-barat"
+    }
+  },
+  {
+    "code": "76.05",
+    "name": "Kabupaten Majene",
+    "slug": "kabupaten-majene",
+    "type": "kabupaten",
+    "province": {
+      "code": "76",
+      "name": "Sulawesi Barat",
+      "slug": "sulawesi-barat"
+    }
+  },
+  {
+    "code": "76.06",
+    "name": "Kabupaten Mamuju Tengah",
+    "slug": "kabupaten-mamuju-tengah",
+    "type": "kabupaten",
+    "province": {
+      "code": "76",
+      "name": "Sulawesi Barat",
+      "slug": "sulawesi-barat"
+    }
+  },
+  {
+    "code": "81.01",
+    "name": "Kabupaten Maluku Tengah",
+    "slug": "kabupaten-maluku-tengah",
+    "type": "kabupaten",
+    "province": {
+      "code": "81",
+      "name": "Maluku",
+      "slug": "maluku"
+    }
+  },
+  {
+    "code": "81.02",
+    "name": "Kabupaten Maluku Tenggara",
+    "slug": "kabupaten-maluku-tenggara",
+    "type": "kabupaten",
+    "province": {
+      "code": "81",
+      "name": "Maluku",
+      "slug": "maluku"
+    }
+  },
+  {
+    "code": "81.03",
+    "name": "Kabupaten Kepulauan Tanimbar",
+    "slug": "kabupaten-kepulauan-tanimbar",
+    "type": "kabupaten",
+    "province": {
+      "code": "81",
+      "name": "Maluku",
+      "slug": "maluku"
+    }
+  },
+  {
+    "code": "81.04",
+    "name": "Kabupaten Buru",
+    "slug": "kabupaten-buru",
+    "type": "kabupaten",
+    "province": {
+      "code": "81",
+      "name": "Maluku",
+      "slug": "maluku"
+    }
+  },
+  {
+    "code": "81.05",
+    "name": "Kabupaten Seram Bagian Timur",
+    "slug": "kabupaten-seram-bagian-timur",
+    "type": "kabupaten",
+    "province": {
+      "code": "81",
+      "name": "Maluku",
+      "slug": "maluku"
+    }
+  },
+  {
+    "code": "81.06",
+    "name": "Kabupaten Seram Bagian Barat",
+    "slug": "kabupaten-seram-bagian-barat",
+    "type": "kabupaten",
+    "province": {
+      "code": "81",
+      "name": "Maluku",
+      "slug": "maluku"
+    }
+  },
+  {
+    "code": "81.07",
+    "name": "Kabupaten Kepulauan Aru",
+    "slug": "kabupaten-kepulauan-aru",
+    "type": "kabupaten",
+    "province": {
+      "code": "81",
+      "name": "Maluku",
+      "slug": "maluku"
+    }
+  },
+  {
+    "code": "81.08",
+    "name": "Kabupaten Maluku Barat Daya",
+    "slug": "kabupaten-maluku-barat-daya",
+    "type": "kabupaten",
+    "province": {
+      "code": "81",
+      "name": "Maluku",
+      "slug": "maluku"
+    }
+  },
+  {
+    "code": "81.09",
+    "name": "Kabupaten Buru Selatan",
+    "slug": "kabupaten-buru-selatan",
+    "type": "kabupaten",
+    "province": {
+      "code": "81",
+      "name": "Maluku",
+      "slug": "maluku"
+    }
+  },
+  {
+    "code": "81.71",
+    "name": "Kota Ambon",
+    "slug": "kota-ambon",
+    "type": "kota",
+    "province": {
+      "code": "81",
+      "name": "Maluku",
+      "slug": "maluku"
+    }
+  },
+  {
+    "code": "81.72",
+    "name": "Kota Tual",
+    "slug": "kota-tual",
+    "type": "kota",
+    "province": {
+      "code": "81",
+      "name": "Maluku",
+      "slug": "maluku"
+    }
+  },
+  {
+    "code": "82.01",
+    "name": "Kabupaten Halmahera Barat",
+    "slug": "kabupaten-halmahera-barat",
+    "type": "kabupaten",
+    "province": {
+      "code": "82",
+      "name": "Maluku Utara",
+      "slug": "maluku-utara"
+    }
+  },
+  {
+    "code": "82.02",
+    "name": "Kabupaten Halmahera Tengah",
+    "slug": "kabupaten-halmahera-tengah",
+    "type": "kabupaten",
+    "province": {
+      "code": "82",
+      "name": "Maluku Utara",
+      "slug": "maluku-utara"
+    }
+  },
+  {
+    "code": "82.03",
+    "name": "Kabupaten Halmahera Utara",
+    "slug": "kabupaten-halmahera-utara",
+    "type": "kabupaten",
+    "province": {
+      "code": "82",
+      "name": "Maluku Utara",
+      "slug": "maluku-utara"
+    }
+  },
+  {
+    "code": "82.04",
+    "name": "Kabupaten Halmahera Selatan",
+    "slug": "kabupaten-halmahera-selatan",
+    "type": "kabupaten",
+    "province": {
+      "code": "82",
+      "name": "Maluku Utara",
+      "slug": "maluku-utara"
+    }
+  },
+  {
+    "code": "82.05",
+    "name": "Kabupaten Kepulauan Sula",
+    "slug": "kabupaten-kepulauan-sula",
+    "type": "kabupaten",
+    "province": {
+      "code": "82",
+      "name": "Maluku Utara",
+      "slug": "maluku-utara"
+    }
+  },
+  {
+    "code": "82.06",
+    "name": "Kabupaten Halmahera Timur",
+    "slug": "kabupaten-halmahera-timur",
+    "type": "kabupaten",
+    "province": {
+      "code": "82",
+      "name": "Maluku Utara",
+      "slug": "maluku-utara"
+    }
+  },
+  {
+    "code": "82.07",
+    "name": "Kabupaten Pulau Morotai",
+    "slug": "kabupaten-pulau-morotai",
+    "type": "kabupaten",
+    "province": {
+      "code": "82",
+      "name": "Maluku Utara",
+      "slug": "maluku-utara"
+    }
+  },
+  {
+    "code": "82.08",
+    "name": "Kabupaten Pulau Taliabu",
+    "slug": "kabupaten-pulau-taliabu",
+    "type": "kabupaten",
+    "province": {
+      "code": "82",
+      "name": "Maluku Utara",
+      "slug": "maluku-utara"
+    }
+  },
+  {
+    "code": "82.71",
+    "name": "Kota Ternate",
+    "slug": "kota-ternate",
+    "type": "kota",
+    "province": {
+      "code": "82",
+      "name": "Maluku Utara",
+      "slug": "maluku-utara"
+    }
+  },
+  {
+    "code": "82.72",
+    "name": "Kota Tidore Kepulauan",
+    "slug": "kota-tidore-kepulauan",
+    "type": "kota",
+    "province": {
+      "code": "82",
+      "name": "Maluku Utara",
+      "slug": "maluku-utara"
+    }
+  },
+  {
+    "code": "91.03",
+    "name": "Kabupaten Jayapura",
+    "slug": "kabupaten-jayapura",
+    "type": "kabupaten",
+    "province": {
+      "code": "91",
+      "name": "Papua",
+      "slug": "papua"
+    }
+  },
+  {
+    "code": "91.05",
+    "name": "Kabupaten Kepulauan Yapen",
+    "slug": "kabupaten-kepulauan-yapen",
+    "type": "kabupaten",
+    "province": {
+      "code": "91",
+      "name": "Papua",
+      "slug": "papua"
+    }
+  },
+  {
+    "code": "91.06",
+    "name": "Kabupaten Biak Numfor",
+    "slug": "kabupaten-biak-numfor",
+    "type": "kabupaten",
+    "province": {
+      "code": "91",
+      "name": "Papua",
+      "slug": "papua"
+    }
+  },
+  {
+    "code": "91.10",
+    "name": "Kabupaten Sarmi",
+    "slug": "kabupaten-sarmi",
+    "type": "kabupaten",
+    "province": {
+      "code": "91",
+      "name": "Papua",
+      "slug": "papua"
+    }
+  },
+  {
+    "code": "91.11",
+    "name": "Kabupaten Keerom",
+    "slug": "kabupaten-keerom",
+    "type": "kabupaten",
+    "province": {
+      "code": "91",
+      "name": "Papua",
+      "slug": "papua"
+    }
+  },
+  {
+    "code": "91.15",
+    "name": "Kabupaten Waropen",
+    "slug": "kabupaten-waropen",
+    "type": "kabupaten",
+    "province": {
+      "code": "91",
+      "name": "Papua",
+      "slug": "papua"
+    }
+  },
+  {
+    "code": "91.19",
+    "name": "Kabupaten Supiori",
+    "slug": "kabupaten-supiori",
+    "type": "kabupaten",
+    "province": {
+      "code": "91",
+      "name": "Papua",
+      "slug": "papua"
+    }
+  },
+  {
+    "code": "91.20",
+    "name": "Kabupaten Mamberamo Raya",
+    "slug": "kabupaten-mamberamo-raya",
+    "type": "kabupaten",
+    "province": {
+      "code": "91",
+      "name": "Papua",
+      "slug": "papua"
+    }
+  },
+  {
+    "code": "91.71",
+    "name": "Kota Jayapura",
+    "slug": "kota-jayapura",
+    "type": "kota",
+    "province": {
+      "code": "91",
+      "name": "Papua",
+      "slug": "papua"
+    }
+  },
+  {
+    "code": "92.02",
+    "name": "Kabupaten Manokwari",
+    "slug": "kabupaten-manokwari",
+    "type": "kabupaten",
+    "province": {
+      "code": "92",
+      "name": "Papua Barat",
+      "slug": "papua-barat"
+    }
+  },
+  {
+    "code": "92.03",
+    "name": "Kabupaten Fak Fak",
+    "slug": "kabupaten-fak-fak",
+    "type": "kabupaten",
+    "province": {
+      "code": "92",
+      "name": "Papua Barat",
+      "slug": "papua-barat"
+    }
+  },
+  {
+    "code": "92.06",
+    "name": "Kabupaten Teluk Bintuni",
+    "slug": "kabupaten-teluk-bintuni",
+    "type": "kabupaten",
+    "province": {
+      "code": "92",
+      "name": "Papua Barat",
+      "slug": "papua-barat"
+    }
+  },
+  {
+    "code": "92.07",
+    "name": "Kabupaten Teluk Wondama",
+    "slug": "kabupaten-teluk-wondama",
+    "type": "kabupaten",
+    "province": {
+      "code": "92",
+      "name": "Papua Barat",
+      "slug": "papua-barat"
+    }
+  },
+  {
+    "code": "92.08",
+    "name": "Kabupaten Kaimana",
+    "slug": "kabupaten-kaimana",
+    "type": "kabupaten",
+    "province": {
+      "code": "92",
+      "name": "Papua Barat",
+      "slug": "papua-barat"
+    }
+  },
+  {
+    "code": "92.11",
+    "name": "Kabupaten Manokwari Selatan",
+    "slug": "kabupaten-manokwari-selatan",
+    "type": "kabupaten",
+    "province": {
+      "code": "92",
+      "name": "Papua Barat",
+      "slug": "papua-barat"
+    }
+  },
+  {
+    "code": "92.12",
+    "name": "Kabupaten Pegunungan Arfak",
+    "slug": "kabupaten-pegunungan-arfak",
+    "type": "kabupaten",
+    "province": {
+      "code": "92",
+      "name": "Papua Barat",
+      "slug": "papua-barat"
+    }
+  },
+  {
+    "code": "93.01",
+    "name": "Kabupaten Merauke",
+    "slug": "kabupaten-merauke",
+    "type": "kabupaten",
+    "province": {
+      "code": "93",
+      "name": "Papua Selatan",
+      "slug": "papua-selatan"
+    }
+  },
+  {
+    "code": "93.02",
+    "name": "Kabupaten Boven Digoel",
+    "slug": "kabupaten-boven-digoel",
+    "type": "kabupaten",
+    "province": {
+      "code": "93",
+      "name": "Papua Selatan",
+      "slug": "papua-selatan"
+    }
+  },
+  {
+    "code": "93.03",
+    "name": "Kabupaten Mappi",
+    "slug": "kabupaten-mappi",
+    "type": "kabupaten",
+    "province": {
+      "code": "93",
+      "name": "Papua Selatan",
+      "slug": "papua-selatan"
+    }
+  },
+  {
+    "code": "93.04",
+    "name": "Kabupaten Asmat",
+    "slug": "kabupaten-asmat",
+    "type": "kabupaten",
+    "province": {
+      "code": "93",
+      "name": "Papua Selatan",
+      "slug": "papua-selatan"
+    }
+  },
+  {
+    "code": "94.01",
+    "name": "Kabupaten Nabire",
+    "slug": "kabupaten-nabire",
+    "type": "kabupaten",
+    "province": {
+      "code": "94",
+      "name": "Papua Tengah",
+      "slug": "papua-tengah"
+    }
+  },
+  {
+    "code": "94.02",
+    "name": "Kabupaten Puncak Jaya",
+    "slug": "kabupaten-puncak-jaya",
+    "type": "kabupaten",
+    "province": {
+      "code": "94",
+      "name": "Papua Tengah",
+      "slug": "papua-tengah"
+    }
+  },
+  {
+    "code": "94.03",
+    "name": "Kabupaten Paniai",
+    "slug": "kabupaten-paniai",
+    "type": "kabupaten",
+    "province": {
+      "code": "94",
+      "name": "Papua Tengah",
+      "slug": "papua-tengah"
+    }
+  },
+  {
+    "code": "94.04",
+    "name": "Kabupaten Mimika",
+    "slug": "kabupaten-mimika",
+    "type": "kabupaten",
+    "province": {
+      "code": "94",
+      "name": "Papua Tengah",
+      "slug": "papua-tengah"
+    }
+  },
+  {
+    "code": "94.05",
+    "name": "Kabupaten Puncak",
+    "slug": "kabupaten-puncak",
+    "type": "kabupaten",
+    "province": {
+      "code": "94",
+      "name": "Papua Tengah",
+      "slug": "papua-tengah"
+    }
+  },
+  {
+    "code": "94.06",
+    "name": "Kabupaten Dogiyai",
+    "slug": "kabupaten-dogiyai",
+    "type": "kabupaten",
+    "province": {
+      "code": "94",
+      "name": "Papua Tengah",
+      "slug": "papua-tengah"
+    }
+  },
+  {
+    "code": "94.07",
+    "name": "Kabupaten Intan Jaya",
+    "slug": "kabupaten-intan-jaya",
+    "type": "kabupaten",
+    "province": {
+      "code": "94",
+      "name": "Papua Tengah",
+      "slug": "papua-tengah"
+    }
+  },
+  {
+    "code": "94.08",
+    "name": "Kabupaten Deiyai",
+    "slug": "kabupaten-deiyai",
+    "type": "kabupaten",
+    "province": {
+      "code": "94",
+      "name": "Papua Tengah",
+      "slug": "papua-tengah"
+    }
+  },
+  {
+    "code": "95.01",
+    "name": "Kabupaten Jayawijaya",
+    "slug": "kabupaten-jayawijaya",
+    "type": "kabupaten",
+    "province": {
+      "code": "95",
+      "name": "Papua Pegunungan",
+      "slug": "papua-pegunungan"
+    }
+  },
+  {
+    "code": "95.02",
+    "name": "Kabupaten Pegunungan Bintang",
+    "slug": "kabupaten-pegunungan-bintang",
+    "type": "kabupaten",
+    "province": {
+      "code": "95",
+      "name": "Papua Pegunungan",
+      "slug": "papua-pegunungan"
+    }
+  },
+  {
+    "code": "95.03",
+    "name": "Kabupaten Yahukimo",
+    "slug": "kabupaten-yahukimo",
+    "type": "kabupaten",
+    "province": {
+      "code": "95",
+      "name": "Papua Pegunungan",
+      "slug": "papua-pegunungan"
+    }
+  },
+  {
+    "code": "95.04",
+    "name": "Kabupaten Tolikara",
+    "slug": "kabupaten-tolikara",
+    "type": "kabupaten",
+    "province": {
+      "code": "95",
+      "name": "Papua Pegunungan",
+      "slug": "papua-pegunungan"
+    }
+  },
+  {
+    "code": "95.05",
+    "name": "Kabupaten Mamberamo Tengah",
+    "slug": "kabupaten-mamberamo-tengah",
+    "type": "kabupaten",
+    "province": {
+      "code": "95",
+      "name": "Papua Pegunungan",
+      "slug": "papua-pegunungan"
+    }
+  },
+  {
+    "code": "95.06",
+    "name": "Kabupaten Yalimo",
+    "slug": "kabupaten-yalimo",
+    "type": "kabupaten",
+    "province": {
+      "code": "95",
+      "name": "Papua Pegunungan",
+      "slug": "papua-pegunungan"
+    }
+  },
+  {
+    "code": "95.07",
+    "name": "Kabupaten Lanny Jaya",
+    "slug": "kabupaten-lanny-jaya",
+    "type": "kabupaten",
+    "province": {
+      "code": "95",
+      "name": "Papua Pegunungan",
+      "slug": "papua-pegunungan"
+    }
+  },
+  {
+    "code": "95.08",
+    "name": "Kabupaten Nduga",
+    "slug": "kabupaten-nduga",
+    "type": "kabupaten",
+    "province": {
+      "code": "95",
+      "name": "Papua Pegunungan",
+      "slug": "papua-pegunungan"
+    }
+  },
+  {
+    "code": "96.01",
+    "name": "Kabupaten Sorong",
+    "slug": "kabupaten-sorong",
+    "type": "kabupaten",
+    "province": {
+      "code": "96",
+      "name": "Papua Barat Daya",
+      "slug": "papua-barat-daya"
+    }
+  },
+  {
+    "code": "96.02",
+    "name": "Kabupaten Sorong Selatan",
+    "slug": "kabupaten-sorong-selatan",
+    "type": "kabupaten",
+    "province": {
+      "code": "96",
+      "name": "Papua Barat Daya",
+      "slug": "papua-barat-daya"
+    }
+  },
+  {
+    "code": "96.03",
+    "name": "Kabupaten Raja Ampat",
+    "slug": "kabupaten-raja-ampat",
+    "type": "kabupaten",
+    "province": {
+      "code": "96",
+      "name": "Papua Barat Daya",
+      "slug": "papua-barat-daya"
+    }
+  },
+  {
+    "code": "96.04",
+    "name": "Kabupaten Tambrauw",
+    "slug": "kabupaten-tambrauw",
+    "type": "kabupaten",
+    "province": {
+      "code": "96",
+      "name": "Papua Barat Daya",
+      "slug": "papua-barat-daya"
+    }
+  },
+  {
+    "code": "96.05",
+    "name": "Kabupaten Maybrat",
+    "slug": "kabupaten-maybrat",
+    "type": "kabupaten",
+    "province": {
+      "code": "96",
+      "name": "Papua Barat Daya",
+      "slug": "papua-barat-daya"
+    }
+  },
+  {
+    "code": "96.71",
+    "name": "Kota Sorong",
+    "slug": "kota-sorong",
+    "type": "kota",
+    "province": {
+      "code": "96",
+      "name": "Papua Barat Daya",
+      "slug": "papua-barat-daya"
+    }
+  }
+]

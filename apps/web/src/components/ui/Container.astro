@@ -1,0 +1,14 @@
+---
+// The one page width and side gutter used by every section.
+interface Props {
+  as?: 'div' | 'section' | 'header';
+  class?: string;
+  [attribute: string]: unknown;
+}
+
+const { as: Tag = 'div', class: className, ...rest } = Astro.props;
+---
+
+<Tag class:list={['mx-auto w-full max-w-6xl px-4 sm:px-6', className]} {...rest}>
+  <slot />
+</Tag>

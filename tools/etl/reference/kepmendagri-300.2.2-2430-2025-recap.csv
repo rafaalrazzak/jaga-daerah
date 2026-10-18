@@ -1,0 +1,39 @@
+province_code,province_name,kabupaten,kota
+11,Aceh,18,5
+12,Sumatera Utara,25,8
+13,Sumatera Barat,12,7
+14,Riau,10,2
+15,Jambi,9,2
+16,Sumatera Selatan,13,4
+17,Bengkulu,9,1
+18,Lampung,13,2
+19,Kepulauan Bangka Belitung,6,1
+21,Kepulauan Riau,5,2
+31,Daerah Khusus Ibukota Jakarta,1,5
+32,Jawa Barat,18,9
+33,Jawa Tengah,29,6
+34,Daerah Istimewa Yogyakarta,4,1
+35,Jawa Timur,29,9
+36,Banten,4,4
+51,Bali,8,1
+52,Nusa Tenggara Barat,8,2
+53,Nusa Tenggara Timur,21,1
+61,Kalimantan Barat,12,2
+62,Kalimantan Tengah,13,1
+63,Kalimantan Selatan,11,2
+64,Kalimantan Timur,7,3
+65,Kalimantan Utara,4,1
+71,Sulawesi Utara,11,4
+72,Sulawesi Tengah,12,1
+73,Sulawesi Selatan,21,3
+74,Sulawesi Tenggara,15,2
+75,Gorontalo,5,1
+76,Sulawesi Barat,6,0
+81,Maluku,9,2
+82,Maluku Utara,8,2
+91,Papua,8,1
+92,Papua Barat,7,0
+93,Papua Selatan,4,0
+94,Papua Tengah,8,0
+95,Papua Pegunungan,8,0
+96,Papua Barat Daya,5,1

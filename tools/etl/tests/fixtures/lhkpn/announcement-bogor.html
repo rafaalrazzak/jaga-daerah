@@ -1,0 +1,92 @@
+<!--
+  Synthetic e-Announcement results page shaped like the real one saved from
+  https://elhkpn.kpk.go.id/ (POST .../check_search_announ). Every figure is invented, so no real
+  person's declaration is committed. The hidden cells (`lhkpn`, `lhkpnori`, `nik`, `tgl_lapor`,
+  `jenis_laporan`) and the download action's `data-id` token match the observed source structure.
+  Two people and three reports: Budi's 2025 and 2024 rows, plus Siti's 2025 row, so year selection
+  has to prefer the newest year per person rather than per table.
+-->
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <title>e-Announcement LHKPN</title>
+  </head>
+  <body>
+    <div class="container">
+      <h3 class="mb-3">Hasil Pencarian</h3>
+      <table class="table table-bordered" id="table-announcement">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Nama</th>
+            <th>Lembaga</th>
+            <th>Unit Kerja</th>
+            <th>Jabatan</th>
+            <th>Tanggal Lapor</th>
+            <th>Jenis Laporan</th>
+            <th>Total Harta Kekayaan</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>BUDI SANTOSO</td>
+            <td>PEMERINTAH KABUPATEN BOGOR</td>
+            <td>PIMPINAN TERTINGGI</td>
+            <td>BUPATI</td>
+            <td>31 Desember 2025</td>
+            <td>Periodik</td>
+            <td align="right">Rp.12.641.245.449</td>
+            <td>
+              <a
+                href="#"
+                data-id="9f3c1a20"
+                onclick="window.open('https://elhkpn.kpk.go.id/portal/user/download_lhkpn')"
+                >Unduh</a
+              >
+            </td>
+            <td class="lhkpn" hidden>9f3c1a20</td>
+            <td class="lhkpnori" hidden>20251231000001</td>
+            <td class="nik" hidden></td>
+            <td class="tgl_lapor" hidden>2025</td>
+            <td class="jenis_laporan" hidden>R</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>BUDI SANTOSO</td>
+            <td>PEMERINTAH KABUPATEN BOGOR</td>
+            <td>PIMPINAN TERTINGGI</td>
+            <td>BUPATI</td>
+            <td>31 Desember 2024</td>
+            <td>Periodik</td>
+            <td align="right">Rp.9.100.000.000</td>
+            <td><a href="#" data-id="4a71b0c9">Unduh</a></td>
+            <td class="lhkpn" hidden>4a71b0c9</td>
+            <td class="lhkpnori" hidden>20241231000002</td>
+            <td class="nik" hidden></td>
+            <td class="tgl_lapor" hidden>2024</td>
+            <td class="jenis_laporan" hidden>R</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>SITI RAHAYU</td>
+            <td>PEMERINTAH KABUPATEN BOGOR</td>
+            <td>PIMPINAN TERTINGGI</td>
+            <td>WAKIL BUPATI</td>
+            <td>31 Desember 2025</td>
+            <td>Khusus, Awal Menjabat</td>
+            <td align="right">Rp.823.500.000</td>
+            <td><a href="#" data-id="c50d9e11">Unduh</a></td>
+            <td class="lhkpn" hidden>c50d9e11</td>
+            <td class="lhkpnori" hidden>20251231000003</td>
+            <td class="nik" hidden></td>
+            <td class="tgl_lapor" hidden>2025</td>
+            <td class="jenis_laporan" hidden>K</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
