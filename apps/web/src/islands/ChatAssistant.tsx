@@ -3,6 +3,7 @@ import type { SubmitEvent } from 'react';
 
 import { INITIAL_SUGGESTIONS, queryAssistant } from '@/lib/assistant-engine';
 import type { AssistantResponse } from '@/lib/assistant-engine';
+import type { RegionSummary } from '@jaga-daerah/contracts';
 
 interface Message {
   id: string;
@@ -26,6 +27,9 @@ export default function ChatAssistant() {
       },
     },
   ]);
+
+  const [lastRegion, setLastRegion] = useState<RegionSummary | undefined>(undefined);
+  const [isThinking, setIsThinking] = useState(false);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -56,9 +60,9 @@ export default function ChatAssistant() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen]);
 
-  function handleSend(userText: string) {
+  async function handleSend(userText: string) {
     const trimmed = userText.trim();
-    if (!trimmed) return;
+    if (!trimmed || isThinking) return;
 
     const nextId = ++counterRef.current;
     const userMessage: Message = {
@@ -67,22 +71,39 @@ export default function ChatAssistant() {
       content: trimmed,
     };
 
-    const assistantResult = queryAssistant(trimmed);
-    const botMessage: Message = {
-      id: `a-${nextId}`,
-      sender: 'assistant',
-      content: assistantResult.text,
-      responsePayload: assistantResult,
-    };
-
-    setMessages((prev) => [...prev, userMessage, botMessage]);
+    setMessages((prev) => [...prev, userMessage]);
     setInput('');
-    setTimeout(() => messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' }), 60);
+    setIsThinking(true);
+    setTimeout(() => messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' }), 40);
+
+    try {
+      const assistantResult = await queryAssistant(trimmed, { lastRegion });
+      if (assistantResult.activeRegion) {
+        setLastRegion(assistantResult.activeRegion);
+      }
+      const botMessage: Message = {
+        id: `a-${nextId}`,
+        sender: 'assistant',
+        content: assistantResult.text,
+        responsePayload: assistantResult,
+      };
+      setMessages((prev) => [...prev, botMessage]);
+    } catch {
+      const botMessage: Message = {
+        id: `a-${nextId}`,
+        sender: 'assistant',
+        content: 'Terjadi sedikit kendala saat mengambil data. Silakan coba tanyakan kembali.',
+      };
+      setMessages((prev) => [...prev, botMessage]);
+    } finally {
+      setIsThinking(false);
+      setTimeout(() => messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' }), 60);
+    }
   }
 
   function onSubmit(e: SubmitEvent<HTMLFormElement>) {
     e.preventDefault();
-    handleSend(input);
+    void handleSend(input);
   }
 
   return (
@@ -101,9 +122,6 @@ export default function ChatAssistant() {
             </svg>
           </span>
           <span className="text-sm font-bold tracking-tight">Tanya Data Daerah</span>
-          <span className="hidden rounded-full bg-white/20 px-2 py-0.5 text-[10px] font-extrabold uppercase sm:inline-block">
-            Gratis
-          </span>
         </button>
       )}
 
@@ -129,7 +147,21 @@ export default function ChatAssistant() {
               </div>
               <div>
                 <h2 className="text-sm font-extrabold tracking-tight">Asisten JagaDaerah</h2>
-                <p className="text-[11px] text-white/80">Data Resmi DJPK, BNPB, BPK & BPS</p>
+                <div className="flex items-center gap-1.5">
+                  <p className="text-[11px] text-white/80">
+                    {lastRegion ? `Fokus: ${lastRegion.name}` : 'Data Resmi DJPK, BNPB, BPK & BPS'}
+                  </p>
+                  {lastRegion && (
+                    <button
+                      type="button"
+                      onClick={() => setLastRegion(undefined)}
+                      title="Reset fokus daerah"
+                      className="rounded bg-white/20 px-1.5 py-0.2 text-[10px] font-bold text-white hover:bg-white/30"
+                    >
+                      Reset
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
             <button
@@ -212,6 +244,21 @@ export default function ChatAssistant() {
                 )}
               </div>
             ))}
+
+            {/* Thinking Indicator */}
+            {isThinking && (
+              <div className="flex items-start">
+                <div className="rounded-2xl rounded-bl-xs border border-border bg-secondary px-3.5 py-2.5 shadow-xs">
+                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                    <span className="size-1.5 animate-bounce rounded-full bg-primary" />
+                    <span className="size-1.5 animate-bounce rounded-full bg-primary [animation-delay:150ms]" />
+                    <span className="size-1.5 animate-bounce rounded-full bg-primary [animation-delay:300ms]" />
+                    <span className="ml-1 text-[11px] font-medium">Menganalisis data daerah…</span>
+                  </div>
+                </div>
+              </div>
+            )}
+
             <div ref={messagesEndRef} />
           </div>
 
@@ -223,13 +270,18 @@ export default function ChatAssistant() {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ketik daerah atau pertanyaan…"
+                placeholder={
+                  lastRegion
+                    ? `Tanyakan kelanjutan ${lastRegion.name} atau bandingkan…`
+                    : 'Ketik daerah atau pertanyaan…'
+                }
                 aria-label="Pesan untuk asisten"
-                className="min-h-11 flex-1 rounded-xl border border-input bg-background px-3.5 text-xs text-foreground outline-hidden focus:border-foreground/40 sm:text-sm"
+                disabled={isThinking}
+                className="min-h-11 flex-1 rounded-xl border border-input bg-background px-3.5 text-xs text-foreground outline-hidden focus:border-foreground/40 disabled:opacity-60 sm:text-sm"
               />
               <button
                 type="submit"
-                disabled={!input.trim()}
+                disabled={!input.trim() || isThinking}
                 aria-label="Kirim pertanyaan"
                 className="inline-flex size-11 items-center justify-center rounded-xl bg-primary text-primary-foreground transition-opacity hover:bg-primary/90 disabled:opacity-40 focus-visible:outline-2 focus-visible:outline-ring"
               >

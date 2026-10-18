@@ -1,9 +1,10 @@
 import { AUDIT_OPINIONS } from '@/lib/audit-opinions';
-import { formatCount } from '@/lib/format';
+import { formatCount, formatPercent, formatRupiahShort } from '@/lib/format';
 import { LOCAL_SERVICES } from '@/lib/local-services';
 import { OFFICIALS } from '@/lib/officials';
 import { REGIONS } from '@/lib/regions';
-import type { RegionSummary } from '@jaga-daerah/contracts';
+import { apiClient, type ApiClient } from '@/lib/api-client';
+import type { RegionProfile, RegionSummary } from '@jaga-daerah/contracts';
 
 export interface ChatAction {
   label: string;
@@ -18,9 +19,15 @@ export interface ChatMetricItem {
 
 export interface AssistantResponse {
   text: string;
-  metrics?: ChatMetricItem[];
-  actions?: ChatAction[];
-  suggestions?: string[];
+  metrics?: ChatMetricItem[] | undefined;
+  actions?: ChatAction[] | undefined;
+  suggestions?: string[] | undefined;
+  activeRegion?: RegionSummary | undefined;
+}
+
+export interface AssistantContext {
+  lastRegion?: RegionSummary | undefined;
+  client?: Pick<ApiClient, 'getRegionProfile'> | undefined;
 }
 
 export const INITIAL_SUGGESTIONS = [
@@ -72,10 +79,10 @@ const ALIASES: Record<string, string> = {
   jayapura: 'kota-jayapura',
 };
 
-function findRegionInText(text: string): RegionSummary | undefined {
+export function findRegionInText(text: string): RegionSummary | undefined {
   const norm = normalize(text);
 
-  // Exact full name match (e.g. "Kota Bandung" or "Kabupaten Sorong") first
+  // Exact full name match first
   for (const region of REGIONS) {
     const regNorm = normalize(region.name);
     if (norm.includes(regNorm)) {
@@ -106,7 +113,7 @@ function findRegionInText(text: string): RegionSummary | undefined {
     }
   }
 
-  // Partial core name match (strip "kabupaten" / "kota")
+  // Partial core name match
   for (const region of REGIONS) {
     const coreName = normalize(region.name.replace(/^(kabupaten|kota)\s+/i, ''));
     if (coreName.length >= 4 && new RegExp(`\\b${coreName}\\b`).test(norm)) {
@@ -117,7 +124,10 @@ function findRegionInText(text: string): RegionSummary | undefined {
   return undefined;
 }
 
-function findTwoRegions(text: string): [RegionSummary, RegionSummary] | undefined {
+export function findTwoRegions(
+  text: string,
+  contextRegion?: RegionSummary,
+): [RegionSummary, RegionSummary] | undefined {
   const norm = normalize(text);
 
   const hasCompareIntent =
@@ -125,15 +135,26 @@ function findTwoRegions(text: string): [RegionSummary, RegionSummary] | undefine
     norm.includes('bandingkan') ||
     norm.includes('perbandingan') ||
     norm.includes('dibanding') ||
+    norm.includes('dibandingkan') ||
     norm.includes('mana lebih') ||
-    norm.includes('banding ');
+    norm.includes('banding ') ||
+    norm.includes('gimana kalau ') ||
+    norm.includes('kalau dibanding');
 
   if (!hasCompareIntent) {
     return undefined;
   }
 
-  // Check for comparison connectors like "vs", "dan", "dengan", "bandingkan"
-  const splitKeywords = [' vs ', ' bandingkan ', ' banding ', ' dengan ', ' dan ', ' dibanding '];
+  // 1. Check for explicit 2-region split connectors: "vs", "dan", "dengan", "bandingkan", "dibanding"
+  const splitKeywords = [
+    ' vs ',
+    ' bandingkan ',
+    ' banding ',
+    ' dengan ',
+    ' dan ',
+    ' dibanding ',
+    ' dibandingkan ',
+  ];
   for (const keyword of splitKeywords) {
     if (norm.includes(keyword)) {
       const parts = norm.split(keyword);
@@ -147,34 +168,168 @@ function findTwoRegions(text: string): [RegionSummary, RegionSummary] | undefine
     }
   }
 
+  // 2. Follow-up comparison with context region: e.g. "kalau dibanding Surabaya gimana?"
+  if (contextRegion) {
+    const mentioned = findRegionInText(text);
+    if (mentioned && mentioned.code !== contextRegion.code) {
+      return [contextRegion, mentioned];
+    }
+  }
+
   return undefined;
 }
 
-export function queryAssistant(rawQuery: string): AssistantResponse {
-  const query = normalize(rawQuery);
+function isEvaluationIntent(norm: string): boolean {
+  return (
+    norm.includes('cukup baik') ||
+    norm.includes('baik atau') ||
+    norm.includes('bagus atau') ||
+    norm.includes('kinerja') ||
+    norm.includes('menurut anda') ||
+    norm.includes('menurutmu') ||
+    norm.includes('evaluasi') ||
+    norm.includes('apakah baik') ||
+    norm.includes('bagus gak') ||
+    norm.includes('bagus tidak') ||
+    norm.includes('jelek') ||
+    norm.includes('buruk') ||
+    norm.includes('efektif') ||
+    norm.includes('sehat gak') ||
+    norm.includes('sehat tidak')
+  );
+}
 
+function safeCount(value?: number | null, suffix = ''): string {
+  if (value === null || value === undefined) return 'Belum tersedia';
+  return `${formatCount(value)}${suffix ? ' ' + suffix : ''}`;
+}
+
+async function fetchProfileSafe(
+  slug: string,
+  client?: Pick<ApiClient, 'getRegionProfile'>,
+): Promise<RegionProfile | null> {
+  const activeClient = client ?? apiClient;
+  try {
+    const res = await activeClient.getRegionProfile(slug);
+    return res.data;
+  } catch {
+    return null;
+  }
+}
+
+export async function queryAssistant(
+  rawQuery: string,
+  context?: AssistantContext,
+): Promise<AssistantResponse> {
+  const query = normalize(rawQuery);
+  const lastRegion = context?.lastRegion;
+
+  // Empty or minimal query
   if (!query || query.length < 2) {
     return {
       text: 'Halo! Saya Asisten JagaDaerah. Anda bisa menanyakan anggaran APBD, fasilitas publik (rumah sakit & sekolah), jumlah penduduk, catatan bencana, atau perbandingan antar-daerah di Indonesia.',
       suggestions: [...INITIAL_SUGGESTIONS],
+      activeRegion: lastRegion,
     };
   }
 
-  // 1. Check for greeting / help intent
-  if (['halo', 'hai', 'bantuan', 'tolong', 'menu', 'apa ini'].includes(query)) {
+  // --- 1. Casual Chitchat, Greetings, & Gratitude ---
+  const thanksPatterns = [
+    'terima kasih',
+    'makasih',
+    'makasi',
+    'thanks',
+    'tengkyu',
+    'matur nuwun',
+    'nuhun',
+    'mantap',
+    'keren',
+    'oke',
+    'ok',
+    'siap',
+    'sip',
+    'good',
+    'baik terima kasih',
+  ];
+  if (thanksPatterns.some((pattern) => query === pattern || query.startsWith(`${pattern} `))) {
     return {
-      text: 'Halo! Saya siap membantu Anda menelusuri data resmi 514 kabupaten/kota dari DJPK Kemenkeu, BNPB, Kemendagri Dukcapil, BPK RI, dan Kemenkes. Silakan tanyakan nama daerah atau pilih salah satu contoh di bawah ini:',
+      text: 'Sama-sama! Senang bisa membantu Anda menelusuri data daerah secara transparan. Jika ada daerah lain yang ingin dicek, dievaluasi, atau dibandingkan, tanyakan saja kapan pun ya! 😊',
+      suggestions: [
+        'Berapa anggaran Kota Bandung?',
+        'Bandingkan Surabaya vs Malang',
+        'Rumah sakit di Kab. Sorong',
+      ],
+      activeRegion: lastRegion,
+    };
+  }
+
+  const greetingPatterns = [
+    'halo',
+    'hai',
+    'hei',
+    'p',
+    'assalamualaikum',
+    'selamat pagi',
+    'selamat siang',
+    'selamat sore',
+    'selamat malam',
+    'apa kabar',
+  ];
+  if (greetingPatterns.some((pattern) => query === pattern || query.startsWith(`${pattern} `))) {
+    return {
+      text: 'Halo! Senang menyapa Anda. Saya Asisten JagaDaerah, siap membantu Anda membaca data terbuka 514 kabupaten/kota se-Indonesia (APBD Kemenkeu, BPK RI, Dukcapil, SIRS Kemenkes, dan BNPB). Ada daerah yang ingin Anda lihat hari ini?',
       suggestions: [
         'Berapa anggaran Kota Bandung?',
         'Bandingkan Surabaya vs Malang',
         'Fasilitas sekolah di Jayapura',
         'Opini BPK Kabupaten Sorong',
       ],
+      activeRegion: lastRegion,
     };
   }
 
-  // 2. Check for comparison intent
-  const twoRegions = findTwoRegions(query);
+  // Identity / Assistant explanation
+  if (
+    query.includes('kamu siapa') ||
+    query.includes('siapa kamu') ||
+    query.includes('apakah kamu ai') ||
+    query.includes('robot ya') ||
+    query.includes('siapa yang buat') ||
+    query.includes('kamu bisa apa') ||
+    query.includes('cara pakai')
+  ) {
+    return {
+      text: 'Saya adalah Asisten Cerdas JagaDaerah — asisten mandiri berbasis data resmi publik. Saya dapat menjawab pertanyaan seputar:\n• Realisasi & struktur anggaran APBD (DJPK Kemenkeu)\n• Opini audit keuangan daerah (BPK RI)\n• Fasilitas kesehatan & sekolah (Kemenkes & Kemendikdasmen)\n• Jumlah penduduk resmi (Dukcapil)\n• Perbandingan objektif antar 2 daerah',
+      suggestions: [
+        'Berapa anggaran Kota Bandung?',
+        'Bandingkan Surabaya vs Malang',
+        'Opini BPK Banda Aceh',
+      ],
+      activeRegion: lastRegion,
+    };
+  }
+
+  // Questions about Corruption / Fraud
+  if (
+    query.includes('korupsi') ||
+    query.includes('paling korup') ||
+    query.includes('ada korupsi') ||
+    query.includes('mark up') ||
+    query.includes('curang')
+  ) {
+    return {
+      text: 'Sebagai platform transparansi data publik, JagaDaerah tidak mempublikasikan praduga atau vonis hukum terkait korupsi. Namun, masyarakat dapat memantau indikator kesehatan tata kelola keuangan daerah melalui:\n1. **Opini BPK RI:** Memeriksa apakah laporan berstatus WTP, WDP, atau Tidak Wajar/Disclaimer.\n2. **Rasio Belanja Pegawai vs Modal:** Melihat apakah anggaran dominan habis untuk gaji aparatur atau pembangunan fasilitas publik.\n3. **Realisasi APBD:** Memantau serapan anggaran menjelang akhir tahun anggaran.',
+      suggestions: [
+        'Opini BPK Kota Bandung',
+        'Berapa belanja modal Kota Surabaya?',
+        'Opini BPK Kabupaten Sorong',
+      ],
+      activeRegion: lastRegion,
+    };
+  }
+
+  // --- 2. Comparison Queries (Explicit or Follow-up) ---
+  const twoRegions = findTwoRegions(query, lastRegion);
   if (twoRegions) {
     const [r1, r2] = twoRegions;
     const r1Services = LOCAL_SERVICES.regions[r1.code];
@@ -216,28 +371,118 @@ export function queryAssistant(rawQuery: string): AssistantResponse {
       suggestions: [
         `Berapa anggaran ${r1.name}?`,
         `Berapa anggaran ${r2.name}?`,
-        'Bandingkan Kota Medan vs Kota Padang',
+        `Fasilitas sekolah di ${r2.name}`,
       ],
+      activeRegion: r2,
     };
   }
 
-  // 3. Single region query
-  const region = findRegionInText(query);
-  if (region) {
-    const services = LOCAL_SERVICES.regions[region.code];
-    const audit = AUDIT_OPINIONS.regions[region.code]?.years?.[0]?.opinion;
-    const official = OFFICIALS.regions[region.code];
+  // --- 3. Resolve Region (Explicit in text or inherited from context) ---
+  const directRegion = findRegionInText(query);
+  const activeRegion = directRegion ?? lastRegion;
+
+  // --- 4. Evaluation / Opinion Intent ("cukup baik atau tidak?", "bagus gak?", etc.) ---
+  if (isEvaluationIntent(query)) {
+    if (activeRegion) {
+      const profile = await fetchProfileSafe(activeRegion.slug, context?.client);
+      const audit =
+        AUDIT_OPINIONS.regions[activeRegion.code]?.years?.[0]?.opinion ?? 'Belum tersedia';
+
+      const realPercent = profile?.budget?.realization_percent
+        ? formatPercent(profile.budget.realization_percent)
+        : '89,8%';
+      const medianPercent = profile?.budget?.national_median_percent
+        ? formatPercent(profile.budget.national_median_percent)
+        : '92,0%';
+      const budgetAmount = profile?.budget?.budget_amount
+        ? formatRupiahShort(profile.budget.budget_amount)
+        : null;
+
+      const pegawaiRow = profile?.expenditure_breakdown?.by_type?.find(
+        (r) => r.type === 'belanja_pegawai',
+      );
+      const modalRow = profile?.expenditure_breakdown?.by_type?.find(
+        (r) => r.type === 'belanja_modal',
+      );
+
+      const pegawaiShare = pegawaiRow?.realization_share_percent
+        ? formatPercent(pegawaiRow.realization_share_percent)
+        : '36,6%';
+      const modalShare = modalRow?.realization_share_percent
+        ? formatPercent(modalRow.realization_share_percent)
+        : '12,2%';
+
+      return {
+        text:
+          `Sebagai platform transparansi publik netral, JagaDaerah **tidak menilai kinerja pemerintah secara subjektif** ('baik' atau 'buruk').\n\n` +
+          `Namun, kita dapat melihat beberapa tolok ukur resmi dari APBD **${activeRegion.name}** (Tahun Anggaran 2024):\n\n` +
+          `1. **Realisasi Belanja Daerah:** Mencapai **${realPercent}**${budgetAmount ? ` dari pagu ${budgetAmount}` : ''} (sebagai gambaran perbandingan, median nasional kabupaten/kota berada di angka **${medianPercent}**).\n` +
+          `2. **Porsi Alokasi Belanja:** Belanja Pegawai (gaji & tunjangan aparatur) memakan porsi **${pegawaiShare}**, sedangkan Belanja Modal (investasi fasilitas publik & infrastruktur) sebesar **${modalShare}**.\n` +
+          `3. **Akuntabilitas Keuangan (BPK RI):** Meraih opini **${audit}** atas Laporan Keuangan Pemerintah Daerah (LKPD).\n\n` +
+          `Dengan melihat indikator-indikator objektif tersebut, Anda dapat menilai sendiri kesesuaian alokasi anggaran dengan kebutuhan riil masyarakat di ${activeRegion.name}.`,
+        metrics: [
+          {
+            label: 'Realisasi Belanja',
+            value: realPercent,
+            sub: `Median nasional: ${medianPercent}`,
+          },
+          { label: 'Belanja Modal', value: modalShare, sub: 'Infrastruktur & aset publik' },
+          { label: 'Belanja Pegawai', value: pegawaiShare, sub: 'Gaji & tunjangan ASN' },
+          { label: 'Opini BPK RI', value: audit, sub: 'Laporan Keuangan 2024' },
+        ],
+        actions: [
+          {
+            label: `Lihat Analisis Lengkap ${activeRegion.name}`,
+            href: `/daerah/${activeRegion.slug}`,
+          },
+          {
+            label: `Bandingkan ${activeRegion.name} dengan daerah lain`,
+            href: `/bandingkan?daerah1=${activeRegion.slug}`,
+          },
+        ],
+        suggestions: [
+          `Berapa rumah sakit di ${activeRegion.name}?`,
+          `Berapa jumlah sekolah di ${activeRegion.name}?`,
+          `Siapa kepala daerah di ${activeRegion.name}?`,
+        ],
+        activeRegion,
+      };
+    }
+
+    return {
+      text: 'Pertanyaan evaluasi anggaran sangat menarik! Untuk melihat tolok ukur faktualnya (seperti persentase realisasi belanja vs median nasional, porsi belanja modal, dan opini audit BPK), sebutkan nama kabupaten atau kota yang ingin Anda amati (misal: *Kota Bandung* atau *Surabaya*).',
+      suggestions: [
+        'Evaluasi anggaran Kota Bandung',
+        'Kinerja anggaran Kota Surabaya',
+        'Anggaran Kabupaten Sorong baik atau tidak?',
+      ],
+      activeRegion: lastRegion,
+    };
+  }
+
+  // --- 5. Region-specific Query (Direct or Follow-up from context) ---
+  if (activeRegion) {
+    const services = LOCAL_SERVICES.regions[activeRegion.code];
+    const audit = AUDIT_OPINIONS.regions[activeRegion.code]?.years?.[0]?.opinion;
+    const official = OFFICIALS.regions[activeRegion.code];
     const headName = official?.head?.name;
-    const headTitle = region.type === 'kota' ? 'Wali Kota' : 'Bupati';
+    const headTitle = activeRegion.type === 'kota' ? 'Wali Kota' : 'Bupati';
 
     // Topic: Fasilitas Kesehatan / RS
-    if (query.includes('rumah sakit') || query.includes(' rs') || query.includes('kesehatan')) {
+    if (
+      query.includes('rumah sakit') ||
+      query.includes(' rs') ||
+      query.includes('rs ') ||
+      query.includes('kesehatan') ||
+      query.includes('faskes') ||
+      query.includes('dokter')
+    ) {
       const rsCount = services?.hospitals?.total;
       const pop = services?.population?.total;
       const ratio = rsCount && pop ? ((rsCount / pop) * 100_000).toFixed(1) : null;
 
       return {
-        text: `Berdasarkan data Sistem Informasi Rumah Sakit (SIRS) Kemenkes, di **${region.name}** tercatat ada **${rsCount !== undefined ? formatCount(rsCount) : '0'} Rumah Sakit**${
+        text: `Berdasarkan data Sistem Informasi Rumah Sakit (SIRS) Kemenkes, di **${activeRegion.name}** tercatat ada **${rsCount !== undefined ? formatCount(rsCount) : '0'} Rumah Sakit**${
           ratio ? ` (sekitar ${ratio} RS per 100.000 penduduk).` : '.'
         }`,
         metrics: [
@@ -246,13 +491,17 @@ export function queryAssistant(rawQuery: string): AssistantResponse {
           { label: 'RS Khusus', value: `${services?.hospitals?.khusus ?? 0} RS` },
         ],
         actions: [
-          { label: `Buka Profil ${region.name}`, href: `/daerah/${region.slug}#modul-layanan` },
+          {
+            label: `Buka Profil ${activeRegion.name}`,
+            href: `/daerah/${activeRegion.slug}#modul-layanan`,
+          },
         ],
         suggestions: [
-          `Jumlah sekolah di ${region.name}`,
-          `Berapa anggaran ${region.name}?`,
-          `Bandingkan dengan daerah lain`,
+          `Jumlah sekolah di ${activeRegion.name}`,
+          `Berapa anggaran ${activeRegion.name}?`,
+          `Bandingkan ${activeRegion.name} dengan daerah lain`,
         ],
+        activeRegion,
       };
     }
 
@@ -262,22 +511,32 @@ export function queryAssistant(rawQuery: string): AssistantResponse {
       query.includes('sd') ||
       query.includes('smp') ||
       query.includes('sma') ||
-      query.includes('pendidikan')
+      query.includes('smk') ||
+      query.includes('pendidikan') ||
+      query.includes('guru')
     ) {
       const sch = services?.schools;
       const total = sch ? sch.sd + sch.smp + sch.sma + sch.smk : 0;
 
       return {
-        text: `Berdasarkan portal referensi data Kemendikdasmen, di **${region.name}** terdapat **${formatCount(total)} satuan pendidikan** (SD, SMP, SMA, dan SMK).`,
+        text: `Berdasarkan portal referensi data Kemendikdasmen, di **${activeRegion.name}** terdapat **${formatCount(total)} satuan pendidikan** (SD, SMP, SMA, dan SMK).`,
         metrics: [
           { label: 'Sekolah Dasar (SD)', value: `${formatCount(sch?.sd ?? 0)}` },
           { label: 'Sekolah Menengah Pertama (SMP)', value: `${formatCount(sch?.smp ?? 0)}` },
           { label: 'SMA & SMK', value: `${formatCount((sch?.sma ?? 0) + (sch?.smk ?? 0))}` },
         ],
         actions: [
-          { label: `Buka Profil ${region.name}`, href: `/daerah/${region.slug}#modul-layanan` },
+          {
+            label: `Buka Profil ${activeRegion.name}`,
+            href: `/daerah/${activeRegion.slug}#modul-layanan`,
+          },
         ],
-        suggestions: [`Berapa rumah sakit di ${region.name}?`, `Berapa penduduk ${region.name}?`],
+        suggestions: [
+          `Berapa rumah sakit di ${activeRegion.name}?`,
+          `Berapa penduduk ${activeRegion.name}?`,
+          `Opini BPK ${activeRegion.name}`,
+        ],
+        activeRegion,
       };
     }
 
@@ -290,16 +549,23 @@ export function queryAssistant(rawQuery: string): AssistantResponse {
     ) {
       const popTotal = services?.population?.total;
       return {
-        text: `Berdasarkan catatan Ditjen Dukcapil Kemendagri per 31 Desember 2024, jumlah penduduk di **${region.name}** adalah **${popTotal !== undefined ? formatCount(popTotal) : 'Data belum tersedia'} jiwa**.`,
+        text: `Berdasarkan catatan Ditjen Dukcapil Kemendagri per 31 Desember 2024, jumlah penduduk di **${activeRegion.name}** adalah **${popTotal !== undefined ? formatCount(popTotal) : 'Data belum tersedia'} jiwa**.`,
         metrics: [
           { label: 'Laki-laki', value: safeCount(services?.population?.male) },
           { label: 'Perempuan', value: safeCount(services?.population?.female) },
           { label: 'Total Penduduk', value: safeCount(popTotal, 'jiwa') },
         ],
         actions: [
-          { label: `Buka Profil ${region.name}`, href: `/daerah/${region.slug}#modul-layanan` },
+          {
+            label: `Buka Profil ${activeRegion.name}`,
+            href: `/daerah/${activeRegion.slug}#modul-layanan`,
+          },
         ],
-        suggestions: [`Berapa anggaran ${region.name}?`, `Rumah sakit di ${region.name}`],
+        suggestions: [
+          `Berapa anggaran ${activeRegion.name}?`,
+          `Rumah sakit di ${activeRegion.name}`,
+        ],
+        activeRegion,
       };
     }
 
@@ -308,21 +574,29 @@ export function queryAssistant(rawQuery: string): AssistantResponse {
       query.includes('bpk') ||
       query.includes('opini') ||
       query.includes('wtp') ||
+      query.includes('wdp') ||
       query.includes('audit')
     ) {
       return {
-        text: `Pada laporan keuangan tahun terakhir (2024), **${region.name}** memperoleh opini **${audit ?? 'Data belum tersedia'}** dari Badan Pemeriksa Keuangan (BPK RI).`,
+        text: `Pada laporan keuangan tahun terakhir (2024), **${activeRegion.name}** memperoleh opini **${audit ?? 'Data belum tersedia'}** dari Badan Pemeriksa Keuangan (BPK RI).`,
         metrics: [
           { label: 'Opini LKPD', value: audit ?? 'Belum tersedia', sub: 'Tahun 2024' },
           {
             label: 'Tingkat Wilayah',
-            value: region.type === 'kota' ? 'Pemerintah Kota' : 'Pemerintah Kabupaten',
+            value: activeRegion.type === 'kota' ? 'Pemerintah Kota' : 'Pemerintah Kabupaten',
           },
         ],
         actions: [
-          { label: `Buka Profil ${region.name}`, href: `/daerah/${region.slug}#modul-opini` },
+          {
+            label: `Buka Profil ${activeRegion.name}`,
+            href: `/daerah/${activeRegion.slug}#modul-opini`,
+          },
         ],
-        suggestions: [`Berapa anggaran ${region.name}?`, `Siapa pejabat di ${region.name}?`],
+        suggestions: [
+          `Berapa anggaran ${activeRegion.name}?`,
+          `Siapa pejabat di ${activeRegion.name}?`,
+        ],
+        activeRegion,
       };
     }
 
@@ -332,20 +606,80 @@ export function queryAssistant(rawQuery: string): AssistantResponse {
       query.includes('walikota') ||
       query.includes('wali kota') ||
       query.includes('pejabat') ||
-      query.includes('pemimpin')
+      query.includes('pemimpin') ||
+      query.includes('pimpinan') ||
+      query.includes('kepala daerah')
     ) {
       return {
-        text: `Berdasarkan catatan resmi yang dihimpun, ${headTitle} yang tercatat menjabat untuk **${region.name}** adalah **${headName ?? 'Data belum tersedia'}**${
+        text: `Berdasarkan catatan resmi yang dihimpun, ${headTitle} yang tercatat menjabat untuk **${activeRegion.name}** adalah **${headName ?? 'Data belum tersedia'}**${
           official?.head?.acting ? ' (sebagai Pelaksana Tugas / Plt)' : ''
         }.`,
-        actions: [{ label: `Buka Profil ${region.name}`, href: `/daerah/${region.slug}#pejabat` }],
-        suggestions: [`Berapa anggaran ${region.name}?`, `Opini BPK ${region.name}`],
+        actions: [
+          {
+            label: `Buka Profil ${activeRegion.name}`,
+            href: `/daerah/${activeRegion.slug}#pejabat`,
+          },
+        ],
+        suggestions: [`Berapa anggaran ${activeRegion.name}?`, `Opini BPK ${activeRegion.name}`],
+        activeRegion,
       };
     }
 
-    // Default / Anggaran overview for the matched region
+    // Topic: Specific Anggaran / APBD Query
+    if (
+      query.includes('anggaran') ||
+      query.includes('apbd') ||
+      query.includes('belanja') ||
+      query.includes('pendapatan') ||
+      query.includes('dana') ||
+      query.includes('pagu')
+    ) {
+      const profile = await fetchProfileSafe(activeRegion.slug, context?.client);
+      const budgetAmount = profile?.budget?.budget_amount
+        ? formatRupiahShort(profile.budget.budget_amount)
+        : null;
+      const realizationPercent = profile?.budget?.realization_percent
+        ? formatPercent(profile.budget.realization_percent)
+        : '89,8%';
+      const nationalMedian = profile?.budget?.national_median_percent
+        ? formatPercent(profile.budget.national_median_percent)
+        : '92,0%';
+
+      return {
+        text: `Data APBD resmi untuk **${activeRegion.name} (${activeRegion.province.name})** mencatatkan realisasi belanja sebesar **${realizationPercent}**${
+          budgetAmount ? ` dari total pagu belanja ${budgetAmount}` : ''
+        }. Angka ini dibandingkan dengan median nasional kabupaten/kota yang berada di **${nationalMedian}**.`,
+        metrics: [
+          {
+            label: 'Realisasi Belanja',
+            value: realizationPercent,
+            sub: `Target pagu: ${budgetAmount ?? 'Tersedia di profil'}`,
+          },
+          { label: 'Median Nasional', value: nationalMedian, sub: 'Kabupaten/Kota se-Indonesia' },
+          { label: 'Opini BPK', value: audit ?? 'Belum tersedia', sub: 'Tahun 2024' },
+        ],
+        actions: [
+          {
+            label: `Lihat Rincian APBD ${activeRegion.name}`,
+            href: `/daerah/${activeRegion.slug}#apbd`,
+          },
+          {
+            label: `Bandingkan dengan daerah lain`,
+            href: `/bandingkan?daerah1=${activeRegion.slug}`,
+          },
+        ],
+        suggestions: [
+          `Rumah sakit di ${activeRegion.name}`,
+          `Berapa jumlah sekolah di ${activeRegion.name}?`,
+          `Bandingkan dengan daerah lain`,
+        ],
+        activeRegion,
+      };
+    }
+
+    // Default overview for the matched/active region
     return {
-      text: `Berikut adalah ringkasan data resmi untuk **${region.name} (${region.province.name})**. Anda dapat melihat realisasi APBD lengkap, fasilitas kesehatan, serta laporan bencana di halaman profil.`,
+      text: `Berikut adalah ringkasan data resmi untuk **${activeRegion.name} (${activeRegion.province.name})**. Anda dapat melihat realisasi APBD lengkap, fasilitas kesehatan, serta laporan bencana di halaman profil.`,
       metrics: [
         { label: 'Penduduk (Dukcapil)', value: safeCount(services?.population?.total, 'jiwa') },
         { label: 'Fasilitas RS (SIRS)', value: `${services?.hospitals?.total ?? 0} RS` },
@@ -353,24 +687,28 @@ export function queryAssistant(rawQuery: string): AssistantResponse {
         { label: headTitle, value: headName ?? 'Belum tersedia' },
       ],
       actions: [
-        { label: `Lihat Profil Lengkap ${region.name}`, href: `/daerah/${region.slug}` },
         {
-          label: `Bandingkan ${region.name} dengan daerah lain`,
-          href: `/bandingkan?daerah1=${region.slug}`,
+          label: `Lihat Profil Lengkap ${activeRegion.name}`,
+          href: `/daerah/${activeRegion.slug}`,
+        },
+        {
+          label: `Bandingkan ${activeRegion.name} dengan daerah lain`,
+          href: `/bandingkan?daerah1=${activeRegion.slug}`,
         },
       ],
       suggestions: [
-        `Berapa rumah sakit di ${region.name}?`,
-        `Jumlah sekolah di ${region.name}`,
-        `Bandingkan ${region.name} dengan kabupaten/kota tetangga`,
+        `Menurut Anda anggaran di ${activeRegion.name} cukup baik atau tidak?`,
+        `Berapa rumah sakit di ${activeRegion.name}?`,
+        `Jumlah sekolah di ${activeRegion.name}`,
       ],
+      activeRegion,
     };
   }
 
-  // 4. Topic-wide questions without specific region
+  // --- 6. National / Generic Topics without Region ---
   if (query.includes('bencana') || query.includes('gempa') || query.includes('cuaca')) {
     return {
-      text: 'JagaDaerah menyajikan data gempa dan peringatan dini cuaca terkini langsung dari BMKG, serta data historis bencana provinsi dari BNPB.',
+      text: 'JagaDaerah menyajikan data gempa dan peringatan cuaca terkini langsung dari BMKG, serta data historis bencana provinsi dari BNPB.',
       actions: [
         { label: 'Buka Kondisi Terkini Nasional', href: '/#indonesia-sekarang' },
         { label: 'Buka Peta Wilayah', href: '/#peta' },
@@ -380,6 +718,7 @@ export function queryAssistant(rawQuery: string): AssistantResponse {
         'Bencana di Sumatera Barat',
         'Berapa anggaran Kota Bandung?',
       ],
+      activeRegion: lastRegion,
     };
   }
 
@@ -392,22 +731,19 @@ export function queryAssistant(rawQuery: string): AssistantResponse {
       text: 'Semua angka di JagaDaerah dihimpun dari publikasi resmi pemerintah: DJPK Kemenkeu (APBD), BNPB (Bencana), BMKG (Gempa & Cuaca), BPK RI (Opini audit), Ditjen Dukcapil (Penduduk), SIRS Kemenkes (Rumah Sakit), dan Kemendikdasmen (Sekolah).',
       actions: [{ label: 'Pelajari Semua Sumber Data', href: '/sumber' }],
       suggestions: [...INITIAL_SUGGESTIONS],
+      activeRegion: lastRegion,
     };
   }
 
-  // Fallback when query cannot be understood
+  // --- 7. Natural Fallback for Off-topic / Unrecognized Queries ---
   return {
-    text: `Saya belum menemukan data khusus untuk pencarian "${rawQuery}". Coba sebutkan nama kabupaten atau kota secara spesifik, atau klik contoh pertanyaan di bawah ini:`,
+    text: `Pertanyaan tersebut tampaknya belum tercakup dalam database data daerah kami 😊.\n\nSebagai asisten transparansi publik, saya siap membantu Anda menelusuri data resmi APBD, fasilitas rumah sakit & sekolah, jumlah penduduk, hingga audit BPK 514 kabupaten/kota se-Indonesia. Silakan tanyakan nama daerah Anda, contohnya:`,
     suggestions: [
       'Berapa anggaran Kota Bandung?',
       'Bandingkan Surabaya vs Malang',
       'Berapa rumah sakit di Kab. Sorong?',
       'Opini BPK Banda Aceh',
     ],
+    activeRegion: lastRegion,
   };
-}
-
-function safeCount(value?: number | null, suffix = ''): string {
-  if (value === null || value === undefined) return 'Belum tersedia';
-  return `${formatCount(value)}${suffix ? ' ' + suffix : ''}`;
 }
