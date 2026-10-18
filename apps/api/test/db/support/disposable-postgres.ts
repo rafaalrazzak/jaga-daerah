@@ -115,6 +115,11 @@ export async function startDisposablePostgres(): Promise<DisposablePostgres> {
       'C',
     ]);
     isRunning = true;
+    // Ubuntu's packaged server writes the socket lock under /var/run/postgresql, which the
+    // CI user cannot create. Tests connect over TCP, so the socket can live in this temp directory.
+    // Windows builds do not have that parameter.
+    const socketOption =
+      process.platform === 'win32' ? '' : ` -c unix_socket_directories=${dataDirectory}`;
     runDetached(
       [
         pgCtl,
@@ -125,7 +130,7 @@ export async function startDisposablePostgres(): Promise<DisposablePostgres> {
         '--log',
         logPath,
         '--options',
-        `-p ${port} -c listen_addresses=127.0.0.1 -c fsync=off`,
+        `-p ${port} -c listen_addresses=127.0.0.1 -c fsync=off${socketOption}`,
       ],
       logPath,
     );

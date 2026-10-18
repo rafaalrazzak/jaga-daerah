@@ -54,9 +54,12 @@ def database(tmp_path_factory: pytest.TempPathFactory) -> Iterator[dict[str, str
         check=True,
         capture_output=True,
     )
+    # Ubuntu's packaged server writes the socket lock under /var/run/postgresql, which the
+    # CI user cannot create. Tests connect over TCP. Windows builds do not have that parameter.
+    socket_option = "" if os.name == "nt" else f" -c unix_socket_directories={data}"
     started = subprocess.run(
         [str(bin_directory / "pg_ctl"), "start", "-D", str(data), "-w", "-l", str(data / "server.log"),
-         "-o", f"-p {port} -c listen_addresses=127.0.0.1 -c fsync=off"],
+         "-o", f"-p {port} -c listen_addresses=127.0.0.1 -c fsync=off{socket_option}"],
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
     )
