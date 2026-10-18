@@ -3,6 +3,7 @@ import '@/styles/global.css';
 
 import Logo from '@/components/Logo.astro';
 import SiteFooter from '@/components/SiteFooter.astro';
+import ChatAssistant from '@/islands/ChatAssistant';
 
 interface Props {
   title: string;
@@ -139,5 +140,6 @@ const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).href :
     </main>
 
     <SiteFooter />
+    <ChatAssistant client:idle />
   </body>
 </html>
