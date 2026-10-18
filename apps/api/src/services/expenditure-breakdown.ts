@@ -76,7 +76,7 @@ function narrative(
   return [
     complete
       ? `Pada tahun ${year}, belanja daerah ${regionName} terbagi ke ${rows.length} jenis belanja menurut klasifikasi APBD; jumlah seluruh jenis sama dengan total belanja daerah yang dipublikasikan.`
-      : `Pada tahun ${year}, ${rows.length} jenis belanja ${regionName} tercatat pada data DJPK; jenis yang tidak dilaporkan sumber ditampilkan sebagai "Data belum tersedia".`,
+      : `Pada tahun ${year}, ${rows.length} jenis belanja ${regionName} tercatat pada data DJPK; jenis yang tidak dilaporkan sumber tidak ditampilkan, dan sel yang kosong ditandai "Data belum tersedia".`,
     meaning,
   ];
 }

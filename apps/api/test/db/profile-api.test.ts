@@ -20,6 +20,8 @@ function createClient(runtimeUrl: string) {
   const app = createApp({
     openDatabase: () => createDatabase(runtimeUrl),
     allowedOrigins: ['http://localhost:4321'],
+    fetchUpstream: () => Promise.reject(new Error('no upstream in tests')),
+    firmsMapKey: undefined,
   });
   // parseDate: false keeps ISO strings, matching what browsers receive and the contracts expect.
   return { app, api: treaty(app, { parseDate: false }) };
@@ -124,9 +126,15 @@ describe('region profile API over the read-only runtime role', () => {
   test('renders an unavailable breakdown for a region with no jenis rows', async () => {
     const { data } = await profile('kabupaten-bandung-barat', 2025);
 
-    const breakdown = RegionProfileResponseSchema.parse(data).data.expenditure_breakdown;
+    const parsed = RegionProfileResponseSchema.parse(data);
+    const breakdown = parsed.data.expenditure_breakdown;
     expect(breakdown).toMatchObject({ status: 'unavailable', by_type: [] });
     expect(breakdown.narrative[0]).toContain('tidak memuat rincian belanja');
+    expect(parsed.data.expenditure_by_function).toMatchObject({
+      status: 'unavailable',
+      by_function: [],
+      total_realization_amount: null,
+    });
   });
 
   test('renders a partial budget without inventing a percentage', async () => {

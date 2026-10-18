@@ -8,6 +8,7 @@ import {
   datasetVersions,
   disasterFacts,
   expenditureBreakdownFacts,
+  expenditureFunctionFacts,
   naturalResourceRevenueFacts,
   provinces,
   regions,
@@ -45,6 +46,12 @@ export interface ExpenditureRecord {
   realizationAmount: string | null;
 }
 
+export interface ExpenditureFunctionFactRecord {
+  functionType: string;
+  budgetAmount: string | null;
+  realizationAmount: string | null;
+}
+
 export interface DisasterRecord {
   disasterType: string;
   eventCount: number | null;
@@ -77,6 +84,11 @@ export interface ProfileRepository {
   listAvailableYears(versionId: number, region: ProfileRegionRecord): Promise<number[]>;
   findBudget(versionId: number, regionId: number, year: number): Promise<BudgetRecord | undefined>;
   listExpenditures(versionId: number, regionId: number, year: number): Promise<ExpenditureRecord[]>;
+  listExpenditureFunctions(
+    versionId: number,
+    regionId: number,
+    year: number,
+  ): Promise<ExpenditureFunctionFactRecord[]>;
   /** Median realisation percent (one decimal, as text) across kab/kota with both amounts. */
   findNationalMedianPercent(versionId: number, year: number): Promise<string | null>;
   listNaturalResources(
@@ -206,6 +218,23 @@ export function createProfileRepository(db: Database): ProfileRepository {
           ),
         )
         .orderBy(asc(expenditureBreakdownFacts.expenditureType)),
+
+    listExpenditureFunctions: (versionId, regionId, year) =>
+      db
+        .select({
+          functionType: expenditureFunctionFacts.functionType,
+          budgetAmount: expenditureFunctionFacts.budgetAmount,
+          realizationAmount: expenditureFunctionFacts.realizationAmount,
+        })
+        .from(expenditureFunctionFacts)
+        .where(
+          and(
+            eq(expenditureFunctionFacts.datasetVersionId, versionId),
+            eq(expenditureFunctionFacts.regionId, regionId),
+            eq(expenditureFunctionFacts.year, year),
+          ),
+        )
+        .orderBy(asc(expenditureFunctionFacts.functionType)),
 
     listNaturalResources: (versionId, regionId, year) =>
       db

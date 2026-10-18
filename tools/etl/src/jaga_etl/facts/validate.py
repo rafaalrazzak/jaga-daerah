@@ -166,45 +166,84 @@ def _map_expenditures(djpk: DjpkResult, matcher: RegionMatcher, gate: GateResult
         )
 
 
-def _check_expenditures(gate: GateResult, years: tuple[int, ...]) -> dict[str, object]:
-    """The jenis subtotals must sum to the published Belanja Daerah total; that is the check that
-    makes the breakdown trustworthy, so a gap larger than the source's own rounding tolerance
-    blocks publication. Tolerance is per printed value: DJPK prints each figure rounded, so a sum of
-    N figures may differ from the total by up to half a unit of the least precise figure involved.
-    """
-    keys = Counter((f.region_code, f.year, f.expenditure_type) for f in gate.expenditure_facts)
-    gate.errors.extend(
-        f"duplicate expenditure row {code} {year} {kind}" for (code, year, kind), count in keys.items() if count > 1
-    )
-    # One reported total per region-year, so a missing jenis shows up as a short sum rather than a
-    # silently smaller partition. Values are the budget fact's already-parsed Decimal amounts.
-    totals = {(f.region_code, f.year): f for f in gate.budget_facts}
+def collect_djpk_facts(
+    djpk: DjpkResult, matcher: RegionMatcher
+) -> tuple[GateResult, list[dict[str, str]]]:
+    """Map DJPK records to facts without a database.
 
+    `run_gate` calls this and then adds BNPB and the publication checks; the web artifact build calls
+    it directly, because it needs the same region mapping and the same expenditure facts but neither
+    the disaster data nor the version-comparison checks. Sharing the call keeps the static page and
+    the API reading identical facts from identical bytes. The alias list is returned so the caller
+    can report which pemda matched through `reference/djpk-aliases.csv`.
+    """
+    gate = GateResult()
+    gate.errors.extend(f"DJPK rejection: {item}" for item in djpk.rejections)
+    alias_matches = _map_budget(djpk, matcher, gate)
+    _map_resources(djpk, matcher, gate)
+    _map_expenditures(djpk, matcher, gate)
+    return gate, alias_matches
+
+
+def reconcile_expenditure_subtotals(
+    expenditure_facts: list[ExpenditureFact],
+    budget_facts: list[BudgetFact],
+    tolerance: Decimal = EXPENDITURE_TOLERANCE,
+) -> tuple[Decimal, int, list[str]]:
+    """Compare each region-year's jenis subtotals against its published Belanja Daerah total.
+
+    Returns (worst absolute difference, region-years compared, blocking messages). Kept separate
+    from the gate so the database publication and the web artifact share one implementation: two
+    copies of the tolerance could disagree, and then the static page and the API would publish
+    different things from the same bytes.
+
+    A region-year is skipped when the total or any subtotal is NULL — an incomplete partition is
+    reported as partial, never compared as if it were whole.
+    """
+    totals = {(f.region_code, f.year): f for f in budget_facts}
     by_region_year: dict[tuple[str, int], list[ExpenditureFact]] = defaultdict(list)
-    for fact in gate.expenditure_facts:
+    for fact in expenditure_facts:
         by_region_year[(fact.region_code, fact.year)].append(fact)
 
     worst = Decimal(0)
     compared = 0
+    problems: list[str] = []
     for key, facts in sorted(by_region_year.items()):
         budget_fact = totals.get(key)
         if budget_fact is None:
             continue
         compared += 1
-        for field_name, total in (
-            ("anggaran", budget_fact.budget_amount),
-            ("realisasi", budget_fact.realization_amount),
+        for field_name, total, field in (
+            ("anggaran", budget_fact.budget_amount, "budget_amount"),
+            ("realisasi", budget_fact.realization_amount, "realization_amount"),
         ):
-            parts = [getattr(fact, "budget_amount" if field_name == "anggaran" else "realization_amount") for fact in facts]
+            parts = [getattr(fact, field) for fact in facts]
             if total is None or any(part is None for part in parts):
                 continue
-            difference = abs(sum(parts, Decimal(0)) - total)
+            subtotal = sum(parts, Decimal(0))
+            difference = abs(subtotal - total)
             worst = max(worst, difference)
-            if difference > EXPENDITURE_TOLERANCE:
-                gate.errors.append(
-                    f"jenis belanja {field_name} for {key[0]} {key[1]} sum to {sum(parts, Decimal(0))}, "
+            if difference > tolerance:
+                problems.append(
+                    f"jenis belanja {field_name} for {key[0]} {key[1]} sum to {subtotal}, "
                     f"published total is {total} (off by {difference})"
                 )
+    return worst, compared, problems
+
+
+def _check_expenditures(gate: GateResult, years: tuple[int, ...]) -> dict[str, object]:
+    """The jenis subtotals must sum to the published Belanja Daerah total; that is the check that
+    makes the breakdown trustworthy, so a gap larger than the source's own rounding tolerance
+    blocks publication. The comparison itself lives in `reconcile_expenditure_subtotals` so the
+    web artifact is gated by exactly the same rule.
+    """
+    keys = Counter((f.region_code, f.year, f.expenditure_type) for f in gate.expenditure_facts)
+    gate.errors.extend(
+        f"duplicate expenditure row {code} {year} {kind}" for (code, year, kind), count in keys.items() if count > 1
+    )
+
+    worst, compared, problems = reconcile_expenditure_subtotals(gate.expenditure_facts, gate.budget_facts)
+    gate.errors.extend(problems)
 
     per_year: dict[str, object] = {}
     for year in years:
@@ -399,11 +438,7 @@ def run_gate(
     accept_row_delta: bool = False,
     accepted_discrepancies: set[AcceptedDiscrepancy] | None = None,
 ) -> GateResult:
-    gate = GateResult()
-    gate.errors.extend(f"DJPK rejection: {item}" for item in djpk.rejections)
-    alias_matches = _map_budget(djpk, matcher, gate)
-    _map_resources(djpk, matcher, gate)
-    _map_expenditures(djpk, matcher, gate)
+    gate, alias_matches = collect_djpk_facts(djpk, matcher)
     gate.report = {
         "years": list(years),
         "djpk": {

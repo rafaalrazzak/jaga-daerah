@@ -1,4 +1,4 @@
-import { DisasterTypeSchema } from '@jaga-daerah/contracts';
+import { DisasterTypeSchema, buildExpenditureFunctionModule } from '@jaga-daerah/contracts';
 import type {
   MapRealization,
   BudgetModule,
@@ -126,11 +126,12 @@ export async function getRegionProfile(
     return { kind: 'year-unavailable', availableYears };
   }
 
-  const [budgetRecord, median, expenditures, resources, disasters, notes, sources] =
+  const [budgetRecord, median, expenditures, functions, resources, disasters, notes, sources] =
     await Promise.all([
       repository.findBudget(version.id, region.id, year),
       repository.findNationalMedianPercent(version.id, year),
       repository.listExpenditures(version.id, region.id, year),
+      repository.listExpenditureFunctions(version.id, region.id, year),
       repository.listNaturalResources(version.id, region.id, year),
       repository.listDisasters(version.id, region.province.id, year),
       repository.listDisasterNotes(version.id, year),
@@ -184,6 +185,15 @@ export async function getRegionProfile(
         expenditures,
         budgetAmount,
         realizationAmount,
+      ),
+      expenditure_by_function: buildExpenditureFunctionModule(
+        region.name,
+        year,
+        functions.map((row) => ({
+          type: row.functionType,
+          budgetAmount: row.budgetAmount,
+          realizationAmount: row.realizationAmount,
+        })),
       ),
       natural_resources: buildNaturalResourceModule(region.name, year, resources),
       disaster: buildDisasterModule(province, disasters, notes),

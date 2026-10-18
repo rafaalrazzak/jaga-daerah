@@ -40,6 +40,8 @@ function createClient(runtimeUrl: string) {
   const app = createApp({
     openDatabase: () => createDatabase(runtimeUrl),
     allowedOrigins: ['http://localhost:4321'],
+    fetchUpstream: () => Promise.reject(new Error('no upstream in tests')),
+    firmsMapKey: undefined,
   });
   // Eden Treaty calls app.handle() in-process with types inferred from the route contracts.
   return { app, api: treaty(app) };

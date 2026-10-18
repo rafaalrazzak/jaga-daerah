@@ -3,7 +3,12 @@ name = "jaga-daerah-etl"
 version = "0.0.0"
 description = "Auditable ETL for JagaDaerah reference and fact data."
 requires-python = ">=3.13"
-dependencies = ["defusedxml==0.7.1", "psycopg[binary]==3.3.6"]
+dependencies = [
+  "cryptography==46.0.3",
+  "defusedxml==0.7.1",
+  "psycopg[binary]==3.3.6",
+  "pypdf==6.7.4",
+]
 
 [dependency-groups]
 dev = ["pytest==9.1.1"]

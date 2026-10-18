@@ -43,6 +43,13 @@
       "when": 1792241575609,
       "tag": "0005_expenditure_breakdown_facts",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1792299992919,
+      "tag": "0006_expenditure_function_facts",
+      "breakpoints": true
     }
   ]
 }

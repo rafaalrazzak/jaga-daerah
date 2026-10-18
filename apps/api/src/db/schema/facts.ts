@@ -132,6 +132,60 @@ export const expenditureBreakdownFacts = pgTable(
   ],
 );
 
+// DJPK "Realisasi Belanja Daerah menurut fungsi". Nine functions. Tagging lines for kesehatan and
+// pendidikan are folded into those functions before insert. budget_amount stays NULL when the
+// workbook is realisation-only; that is not a reported zero.
+export const expenditureFunction = pgEnum('expenditure_function', [
+  'pelayanan_umum',
+  'ketertiban_dan_keamanan',
+  'ekonomi',
+  'perlindungan_lingkungan_hidup',
+  'perumahan_dan_fasilitas_umum',
+  'kesehatan',
+  'pariwisata',
+  'pendidikan',
+  'perlindungan_sosial',
+]);
+
+export const expenditureFunctionFacts = pgTable(
+  'expenditure_function_facts',
+  {
+    id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
+    datasetVersionId: integer('dataset_version_id')
+      .notNull()
+      .references(() => datasetVersions.id, { onDelete: 'restrict', onUpdate: 'restrict' }),
+    regionId: integer('region_id')
+      .notNull()
+      .references(() => regions.id, { onDelete: 'restrict', onUpdate: 'restrict' }),
+    year: smallint('year').notNull(),
+    functionType: expenditureFunction('function_type').notNull(),
+    budgetAmount: rupiah('budget_amount'),
+    realizationAmount: rupiah('realization_amount'),
+    sourceId: integer('source_id')
+      .notNull()
+      .references(() => dataSources.id, { onDelete: 'restrict', onUpdate: 'restrict' }),
+  },
+  (table) => [
+    unique('expenditure_function_facts_region_year_type_version_unique').on(
+      table.regionId,
+      table.year,
+      table.functionType,
+      table.datasetVersionId,
+    ),
+    check('expenditure_function_facts_year_range', sql`${table.year} ${YEAR_RANGE}`),
+    check(
+      'expenditure_function_facts_amounts_non_negative',
+      sql`(${table.budgetAmount} IS NULL OR ${table.budgetAmount} >= 0)
+        AND (${table.realizationAmount} IS NULL OR ${table.realizationAmount} >= 0)`,
+    ),
+    index('expenditure_function_facts_version_region_year_idx').on(
+      table.datasetVersionId,
+      table.regionId,
+      table.year,
+    ),
+  ],
+);
+
 // DJPK TKDD "Dana Bagi Hasil" lines grouped by resource (Dana Bagi Hasil SDA + DBH Perkebunan
 // Sawit). This is revenue-sharing a region receives, not a measure of its natural resources.
 export const naturalResourceType = pgEnum('natural_resource_type', [
@@ -255,6 +309,7 @@ export const etlRuns = pgTable(
 
 export type BudgetFactRow = typeof budgetFacts.$inferSelect;
 export type ExpenditureBreakdownFactRow = typeof expenditureBreakdownFacts.$inferSelect;
+export type ExpenditureFunctionFactRow = typeof expenditureFunctionFacts.$inferSelect;
 export type DisasterFactRow = typeof disasterFacts.$inferSelect;
 export type EtlRunRow = typeof etlRuns.$inferSelect;
 

@@ -57,6 +57,7 @@ function repository(overrides: Partial<ProfileRepository> = {}): ProfileReposito
         realizationAmount: '40.00',
       },
     ],
+    listExpenditureFunctions: async () => [],
     findNationalMedianPercent: async () => '95.0',
     listNaturalResources: async () => [],
     listDisasters: async () => disasters(),
