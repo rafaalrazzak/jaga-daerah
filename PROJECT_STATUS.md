@@ -1,6 +1,6 @@
 # Project Status
 
-Last updated: 17 October 2026
+Last updated: 18 October 2026
 
 ## Current State
 
@@ -8,11 +8,11 @@ Last updated: 17 October 2026
 - Product requirements and engineering standards are documented.
 - Root Bun/Oxfmt/Oxlint/TypeScript tooling is installed and passing.
 - Astro web, compiled Elysia Worker API, and shared contracts workspaces are created and buildable.
-- Drizzle schema for reference data, dataset versions, sources, budget/disaster facts, and ETL runs, and data notes; migrations 0000–0003.
+- Drizzle schema for reference data, dataset versions, sources, budget/disaster facts, expenditure breakdown, expenditure by function, natural-resource revenue, and ETL runs, and data notes; migrations 0000–0006.
 - Budget (DJPK, 2024–2025, all 508 autonomous kab/kota) and disaster (BNPB, 2024–2025, 38 provinces × 9 types) publication pipeline with quality gate and atomic activation; verified end-to-end on a local database.
 - Discovery API (`/v1/provinsi`, `/v1/provinsi/:kode/daerah`, `/v1/daerah/search`) reads PostgreSQL through Hyperdrive.
 - Region reference ETL imports all 38 provinces / 514 kabupaten-kota (Kepmendagri 2025).
-- Landing page with accessible region search (Eden + TanStack Query + `@almach/ui`) calls the API with exact-origin CORS.
+- Landing page with accessible region search (Eden + TanStack Query + `@almach/ui`) calls the API with exact-origin CORS. The landing also shows a country brief (`GET /v1/terkini`): the latest BMKG earthquakes, the nowcast warning headlines, and KLH ISPU station readings with the advice text from the ISPU site. Stations are not treated as kabupaten averages. `ISPU_API_TOKEN` is a Worker secret and is not committed.
 - Region profile: `GET /v1/daerah/:slug?year=` and `GET /v1/meta/status`; 514 prerendered profile pages with budget and province-level disaster modules.
 - Owner-approved additions (17 Oct 2026): national choropleth map (`GET /v1/peta/realisasi`), province locator map on profiles, LHKPN link-out section, live landing coverage, local dev stack (`bun run dev:db setup`, `bun run dev`).
 - No Cloudflare resources or PostgreSQL provider have been provisioned.
@@ -26,7 +26,27 @@ Objective: deploy a reviewable staging system without production commitment (see
 
 Exact next task (needs owner decisions before any paid or external resource is created): choose the managed PostgreSQL provider/region and confirm the Cloudflare account to use; then add security headers/CSP for Pages, a staging Hyperdrive config, a Worker staging environment, smoke tests, and a rollback runbook.
 
+Milestone 7 is not complete. The 18 October slice below does not close it.
+
 ## Completed Milestones
+
+### Public indicators on the profile (18 October 2026)
+
+Not a milestone close. Profile pages now also show:
+
+- Realisasi belanja menurut fungsi 2024 (`expenditure-functions.json`, 507 kabupaten/kota). Tagging is folded into kesehatan and pendidikan. The API field `expenditure_by_function` reads `expenditure_function_facts` (migration 0006); when that table is empty the page shows the 2024 artifact and keeps the year label on the section.
+- Realisasi pendapatan daerah 2024 (`revenue.json`, 498 kabupaten/kota). Kas daerah, not household income. Pemda absent from the workbook are omitted.
+- Rumah sakit and school counts (`local-services.json`). A SIRS row is counted when the kabupaten/kota name is unique, including four spelling aliases. A name shared by a kabupaten and a kota is counted only when the SIRS map coordinate falls inside exactly one of those two official polygons. 41 rows stay omitted. Names, addresses, phones, and coordinates are not stored. School pages have no school year. SLB is not counted. `/sumber` lists every published source.
+- Province land cover 2023 (`land-cover.json`, 38 provinces, four classes). Not a species list and not kabupaten data.
+- LHKPN stays a link to `https://elhkpn.kpk.go.id/`. No wealth figures are stored.
+- Landing map layers: realisation (default), hospital counts, school counts, and the 2024 province electrification ratio painted on every kabupaten/kota in that province (fixed bands, national 99,83%). Not a kabupaten/kota ratio.
+- Every profile has a province distribution map (`#modul-persebaran`): hospital and school counts ranked inside that province, plus the same province electricity ratio. The current region stays outlined. Neighbours open their profiles. No facility pins — SIRS has no coordinates, and names, phones, and addresses are not stored.
+- BPK opinion on the regional financial statements (`audit-opinions.json`, 508 kabupaten/kota, LKPD 2016–2024). The six DKI administrative regions show the province opinion and say so. WTP/WDP/TW/TMP only; a blank year is omitted, not treated as zero. Not a judgement of the official.
+
+- Population is the Dukcapil administrative count for 31 December 2024 (`local-services.json`), 514 kabupaten/kota, national total 284.973.643. Not a BPS census figure. Province rows in the source add up to that total, and three kabupaten/kota books that cite the same release match (Dairi, Gresik, Cimahi).
+- Welfare (`welfare.json`) is the latest BPS kabupaten/kota books: poverty from Susenas March 2025 (514 regions), HDI 2025 (514), and 2025 per-capita GRDP at current prices (488). The 2025 GRDP figure is preliminary. Papua Selatan, Papua Tengah, Papua Pegunungan, and Papua Barat Daya have no readable 2025 column, so those cells stay empty. Per-capita GRDP is regional output per person, not a wage.
+
+Not published, because there is no single national kabupaten/kota file: mangrove/sawah/permukiman splits, belanja per program/dinas, and a kabupaten/kota electrification ratio.
 
 ### Owner-approved addition — Regional heads in office (between M6 and M7)
 
@@ -58,7 +78,7 @@ Remaining risk:
 
 - ETL `jaga_etl.boundaries`: pinned MIT outlines (cahyadsn/wilayah_boundaries @ 28230eca), sealed snapshot, coverage gate (514/38 must match Kemendagri), projection + Douglas–Peucker → `apps/web/public/data/map-regions.json` (283 KB / 94 KB gzip).
 - API: `GET /v1/peta/realisasi?year=` (same percent/median rules as profiles; NULL kept; cache "profile"); contract `MapRealizationResponseSchema`.
-- Web: `InteractiveMap` island (client:visible) — five ordered classes by distance from the median (±3 / ±10 points) plus hatched "no data", hover tooltip, mouse click opens profile, touch tap-then-open, province select zooms (animated viewBox, instant with reduced motion), pressable legend with counts, sortable table alternative with links (keyboard focus mirrors on map), sideways pan on narrow screens. `ProvinceLocator` on profiles. `CoverageStats` (live `/v1/meta/status`) replaces the static summary. "Cara membaca data" section, header nav, profile section nav, updated footer credits.
+- Web: `InteractiveMap` island (client:visible) — five ordered classes by distance from the median (±3 / ±10 points) plus a grey "no data" fill, hover tooltip, mouse click opens profile, touch tap-then-open, province select reframes the map, pressable legend with counts, sortable table alternative with links (keyboard focus mirrors on map). The landing map is MapLibre on the CARTO Positron basemap; kabupaten/kota fills come from `public/data/regions.geojson` (same pinned boundary snapshot, simplified in degrees). The MapLibre worker is served from this site (`/maplibre-gl-worker.mjs`), not from a third-party script host. Drag, wheel, and pinch use MapLibre's camera. `ProvinceSpread`, `ProvinceLocator`, and the kecamatan map stay on the pre-projected SVG camera. `CoverageStats` (live `/v1/meta/status`) replaces the static summary. "Cara membaca data" section, header nav, profile section nav, updated footer credits.
 - Natural-resource revenue sharing (owner approved the "received, not wealth" framing, 17 Oct 2026): migration 0004 `natural_resource_revenue_facts` (+ ETL grant), TKDD export fetched with APBD in the DJPK snapshot, parser `facts/djpk/tkdd.py` (exact miliar → rupiah, 7 resource groups, unknown/duplicate lines block), staged + recounted with the other facts; profile contract `natural_resources` module (exact BigInt totals, NULL never a partial sum, neutral narrative + caveat); web "Dana bagi hasil sumber daya alam" section with caveat note, totals, table with bars, TKDD source link and rounding note.
 - Regional heads' names: superseded on 17 Oct 2026 — see "Owner-approved addition — Regional heads in office" below.
 - LHKPN: static "Harta kekayaan pejabat daerah" section linking to e-LHKPN KPK; nothing copied or stored (search is a reCAPTCHA POST form with no deep link or public API — verified 17 Oct 2026).

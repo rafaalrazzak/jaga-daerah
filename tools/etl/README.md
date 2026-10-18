@@ -9,7 +9,9 @@ bun run etl:regions -- --load                      # ... and upsert (needs ETL_D
 bun run etl:fetch -- --years 2024,2025             # download sealed DJPK + BNPB snapshots (network, ~1 req/s)
 bun run etl:publish -- --djpk <dir> --bnpb <dir>   # quality gate only (reads reference tables)
 bun run etl:publish -- --djpk <dir> --bnpb <dir> --load   # stage, verify, activate a dataset version
+bun run etl:expenditure                            # expenditure breakdown JSON for the static profile page (offline)
 uv run python -m jaga_etl.boundaries --output ../../apps/web/public/data/map-regions.json  # map outlines (from tools/etl)
+bun run etl:kecamatan-maps                         # per-region kecamatan maps (fetches the pinned files once)
 ```
 
 Raw snapshots live in `data/raw/` and reports in `reports/` (both gitignored). `ETL_DATABASE_URL` must use the `jaga_etl` role (`database/roles/etl-writer.sql`).
@@ -85,6 +87,54 @@ Blank cells stay `NULL` ("Data belum tersedia"); reported zeros stay `0`. Values
 
 Each run creates a `dataset_versions` row (`staging`), two `data_sources` rows (snapshot manifest checksums), an `etl_runs` audit row, and the facts. Activation retires the previous active version and promotes the new one in a single transaction. Any failure marks the new version `failed`, keeps its report, and leaves the active version unchanged. Republishing identical snapshots is rejected (the version label includes both snapshot checksums).
 
+## Expenditure breakdown for the static profile page (`jaga_etl.expenditure`)
+
+Builds `apps/web/src/data/expenditure.json` so the profile page can render the jenis-belanja section as static HTML, without a running PostgreSQL and without calling the API.
+
+```sh
+bun run etl:expenditure                       # newest sealed DJPK snapshot on disk
+uv run python -m jaga_etl.expenditure --snapshot data/raw/djpk/20261017T094824Z \
+  --output ../../apps/web/src/data/expenditure.json
+```
+
+- Offline by construction: it reads the sealed APBD exports and the checked-in region reference (`data/raw/wilayah-*.sql`), never a database and never the network. `jaga_etl.facts publish` stays the database path; this is the static path, and both read the same parser and the same `facts.validate` reconciliation.
+- Shape: `{ "source": {...}, "regions": { "<kemendagri code>": { "name": ..., "years": { "2025": <module> } } } }`. The inner module is field-for-field the API's `ExpenditureBreakdownModule` (`status`, `total_budget_amount`, `total_realization_amount`, `by_type[]`, `narrative[]`), so the static page and the API cannot disagree about the same bytes. Values are decimal strings; `NULL` means the source did not report a value, `0` means it reported zero.
+- Status threshold, identical to the API: `unavailable` when there are no jenis rows, `partial` when any reported amount is blank, otherwise `complete`. A pemda that simply does not budget a jenis (many do not budget `belanja_bunga`) is still `complete`, because every figure the source did state is present.
+- Gate (blocking): the same `EXPENDITURE_TOLERANCE` reconciliation as publication — jenis subtotals must sum to the published Belanja Daerah total within Rp1.00, so a missing or mis-parsed jenis fails the build instead of shipping a breakdown that does not add up. An unmatched pemda and DJPK's own percentage disagreement block too. Nothing is written when the gate fails.
+- `source` carries publisher, title, URL, the ten labels, the rounding caveat, the murni/perubahan ambiguity the repo already documents, the snapshot id/created-at/checksum, and the processed-at timestamp.
+
+## Belanja per fungsi, pendapatan, tutupan lahan, rumah sakit, sekolah
+
+Static profile artifacts. Raw workbooks and HTML stay under `tools/etl/data/raw/` (gitignored). Derived JSON is what the site reads.
+
+```sh
+uv run python -m jaga_etl.fungsi build \
+  --workbook data/raw/djpk-fungsi/31102025_Realisasi_Belanja_Daerah_2024.xlsx \
+  --output ../../apps/web/src/data/expenditure-functions.json
+uv run python -m jaga_etl.revenue build \
+  --workbook data/raw/djpk-ringkas/31102025_Data_Realisasi_Ringkas_APBD_2024.xlsx \
+  --output ../../apps/web/src/data/revenue.json
+uv run python -m jaga_etl.land_cover build \
+  --table data/raw/land-cover/pktl-2023.txt \
+  --output ../../apps/web/src/data/land-cover.json
+uv run python -m jaga_etl.places fetch --cache data/raw/places
+uv run python -m jaga_etl.places build \
+  --hospitals data/raw/places/sirs-rs.json \
+  --schools data/raw/places \
+  --output ../../apps/web/src/data/local-services.json
+uv run python -m jaga_etl.opinions build \
+  --csv data/raw/bpk-opini.csv \
+  --output ../../apps/web/src/data/audit-opinions.json
+```
+
+- Fungsi: realization only. Kesehatan Tagging and Pendidikan Tagging fold into the parent function. Unmatched pemda names block the build. One missing pemda is left empty.
+- Pendapatan: sum of the jenis lines under "4. Pendapatan Daerah" must match the sheet-1 pivot within Rp1. The amount column is named `nilaianggaran` inside a file the series page marks as realization. This is kas daerah, not household income.
+- Tutupan lahan: 2023 PKTL rekap, province level, four classes (primer, sekunder, tanaman, bukan hutan). Mangrove, sawah, settlements, and species lists are not in that table. `statistik.menlhk.go.id` no longer resolves; the checksum is of the retrieved text.
+- Rumah sakit: SIRS names, not the hospital code (that code is not Kemendagri). A name that matches more than one kabupaten/kota in the province is omitted, not assigned and not stored as zero.
+- Sekolah: dikdas columns are SD then SMP; dikmen columns are SMA, SMK, then SLB. SLB is not published. The pages print no school year. "Luar Negeri" is skipped. `Adm.`, `Kep.`, and "Padang Sidempuan" are expanded to the reviewed official forms before the shared name key.
+- Penduduk and rasio elektrifikasi are not built: there is no single national kabupaten/kota file with Kemendagri codes.
+- Opini BPK: the Portal Data BPK CSV, one row per pemda, years 2016–2024. Codes `WTP`, `WDP`, `TW`, and `TMP` only. A blank year is omitted. An unknown code, a duplicate, a missing 2024 opinion, or a kabupaten/kota that is not in the Kemendagri list blocks the build. The six DKI administrative regions have no statement of their own; the page shows the Provinsi DKI Jakarta opinion and says so. The opinion is BPK's view of the financial statements, not a judgement of the official.
+
 ## Map outlines (`jaga_etl.boundaries`)
 
 Builds `apps/web/public/data/map-regions.json` (pre-projected SVG paths for 514 kab/kota and 38 provinces, ~280 KB, ~94 KB gzip) so the web draws maps without a geo library or tile service.
@@ -94,6 +144,23 @@ Builds `apps/web/public/data/map-regions.json` (pre-projected SVG paths for 514 
 - Gate: every Kemendagri kab/kota and province must have an outline and nothing extra may appear; otherwise the build fails.
 - Processing: equirectangular projection scaled by cos(central latitude), Douglas–Peucker simplification at 0.6 px (width 1200), specks under 1.5 px² dropped, regions that vanish entirely kept as a 3 px marker.
 - The output records the source repository, commit, and licence. Outlines are for display only, not for legal boundary use.
+
+## Kecamatan maps (`jaga_etl.kecamatan_maps`)
+
+Builds `apps/web/public/data/kecamatan/<regionCode>.json` (one file per kabupaten/kota, 514 files, 7,285 kecamatan; ~4.5 MB total, median ~7.6 KB, max ~77 KB) for the interactive map on the region profile.
+
+```sh
+bun run etl:kecamatan-maps                                   # fetch once (sealed), gate, write
+uv run python -m jaga_etl.kecamatan_maps --output ../../apps/web/public/data/kecamatan   --snapshot data/raw/boundaries-kec/28230eca6e78              # offline
+```
+
+- Source: the same pinned [cahyadsn/wilayah_boundaries](https://github.com/cahyadsn/wilayah_boundaries) commit as the map outlines (MIT), files `db/kec/wilayah_boundaries_kec_<province>.sql` (38 files, ~12 MB). Parsed as text, never executed. Region outlines come from the `data/raw/boundaries/<commit>/` snapshot of `jaga_etl.boundaries`, which must exist first.
+- Snapshot: `data/raw/boundaries-kec/<commit>/`, sealed and checksummed, resumable.
+- Names are the Kemendagri kecamatan names from the pinned wilayah list (`data/raw/wilayah-*.sql`), joined strictly by code; the boundary file's own name column is ignored (it differs in spelling for 43 kecamatan).
+- Shape: `{code, width: 600, height, projection: {west, north, scale, cos_lat}, outline, kecamatan: [{code, name, path, cx, cy}]}`, kecamatan sorted by name. Projection per region: `x = (lon - west) * scale * cos_lat`, `y = (north - lat) * scale`, so the browser can place other points with the same numbers. `cx`/`cy` is a label point inside the largest polygon of the drawn (simplified) shape.
+- Processing: Douglas–Peucker at 0.6 px in each region's own 600 px frame, one-decimal coordinates; every island that keeps three points with a real area is kept. Outlines are simplified community data for display only, not legal boundaries.
+- Gate (blocking, nothing written): for each region in `apps/web/src/data/regions.json`, every Kemendagri kecamatan has a boundary, every boundary code is in the Kemendagri list and inside a listed region, codes are unique, each region has an outline and at least one kecamatan, and every path and projection is non-empty and finite.
+- Output goes through `jaga_etl.web_data.write_json` (indented) because Oxfmt checks `apps/web/public/data`.
 
 ## Regional heads in office (`jaga_etl.incumbents`)
 
@@ -179,12 +246,13 @@ Dropped rather than substituted with a non-official source:
 - **Island count per kabupaten/kota.** Not in the pinned MIT transcription (its `wilayah` table has
   only codes and names), and no official national per-region table was found. BNPB's CKAN holds
   island counts for one city only (Kota Pariaman, by kecamatan).
-- **Forest area and land cover by class.** The KLHK/Kemenhut geospatial hostnames no longer
+- **Forest area and land cover by class.** Per-kabupaten/kota figures are still not published. The KLHK/Kemenhut geospatial hostnames no longer
   resolve at all (`sigi.*`, `webgis.*`, `geoportal.*`, `kawasanhutan.*`, `sipongi.menlhk.go.id` —
   DNS failures, consistent with the ministry split). The per-kabupaten/kota figures exist only
   inside the _Statistik Lingkungan Hidup_ PDF, whose cover states "Dilarang memperbanyak atau
   memperjualbelikan sebagian atau seluruh isi buku ini tanpa izin dari penerbit" — no reproduction
-  without permission, so excluded. BIG's `PENUTUPLAHAN`/`VEGETASI` folders are RBI map sheets, not
+  without permission, so excluded. Province-level 2023 PKTL (four classes only) is a separate
+  artifact: see "Belanja per fungsi, pendapatan, tutupan lahan, rumah sakit, sekolah" above. BIG's `PENUTUPLAHAN`/`VEGETASI` folders are RBI map sheets, not
   administrative units, and `Atlas_PenggunaanLahan` is a tiles-only service that cannot be queried
   for attributes.
 - **Burnt area per kabupaten.** SiPongi (Kemenhut) does publish it as JSON, but its
@@ -304,3 +372,18 @@ uv run python -m jaga_etl.weather --propose-points
 - Gate (blocking): every one of the 514 Kemendagri kabupaten/kota must have exactly one reviewed sample point, that point must fall **inside its own boundary** (re-checked against the sealed boundary snapshot), no two regions may share a point, the snapshot must have been fetched at that exact URL, and all twelve months must be present. A region whose cell falls outside BMKG's coverage is published as unavailable with the reason, never as `0`.
 - Known source artefacts, 17 October 2026 snapshot: two Sumbawa cells report a physically impossible **negative** normal — 52.04 Kabupaten Sumbawa for Agustus and 52.05 Kabupaten Dompu for Agustus and September — and two regions (11.72 Kota Sabang, 96.01 Kabupaten Sorong) fall outside the raster entirely (`NoData` for all twelve months). None is published as a figure: those four regions show "Data belum tersedia" with the reason, so the run covers **510 of 514** kabupaten/kota. Negative months are never published and no partial total is ever summed.
 - Politeness: one request at a time, spaced 0.3 s, identifying User-Agent, response-size cap, and `Retry-After` honoured by the shared `PoliteFetcher`; a `NoData` cell is retried on at most 5 interior candidates so a poorly covered region cannot multiply requests. The snapshot under `data/raw/bmkg-weather/<id>/` is sealed, SHA-256-checksummed and resumable.
+
+## Live-conditions reference points (`jaga_etl.live_points`)
+
+Builds `apps/api/src/data/live-points.json`, the static per-region lookup the Worker uses to query live sources by location. Offline only: it reads files already on disk and never downloads.
+
+```sh
+uv run python -m jaga_etl.live_points --output ../../apps/api/src/data/live-points.json  # from tools/etl
+# overrides: --wilayah <sql> --boundaries <snapshot dir> --points <csv> --regions <regions.json>
+```
+
+- Inputs, all joined by Kemendagri code (never by name): the pinned wilayah dump (SHA-256 checked against `regions/source.py`), `reference/weather-sample-points.csv`, the sealed boundary snapshot, and `apps/web/src/data/regions.json` (authoritative slugs; its names must equal wilayah's).
+- `adm4`: the lowest-coded kelurahan/desa inside the lowest-coded kecamatan of the region. It is only the point a forecast is read for and is labelled by its desa/kecamatan name; it is not the regency capital.
+- `lat`/`lon`: the reviewed sample point, 4 decimals. `bbox`: `[west, south, east, north]` over every boundary ring, rounded outward to 3 decimals; a box filter, not a point-in-region test.
+- `kecamatan_list`: every kecamatan of the region (`code`, `name` as written in wilayah, `adm4`, `desa`), sorted by name, so a reader can pick the forecast point; each `adm4` is the lowest-coded kelurahan/desa in that kecamatan. The top-level `adm4`/`desa`/`kecamatan` are the default and equal the entry for the lowest-coded kecamatan.
+- Gate (blocking, nothing written on failure): exactly 514 regions matching `regions.json`; every region present in wilayah, the sample points and the boundaries; no duplicate codes in wilayah; an adm4 of shape `NN.NN.NN.NNNN` under the region code; at least one kecamatan, and every kecamatan has a kelurahan/desa whose adm4 sits under its own code; kecamatan codes unique; the default kecamatan listed exactly once with the same adm4 as the top-level one; a non-degenerate bbox inside lon 94–142 / lat −12–7 that contains the whole outline and the sample point.

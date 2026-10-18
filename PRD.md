@@ -95,11 +95,20 @@ Jika bagian lain tampak bertentangan dengan tabel ini, tabel keputusan ini menja
 
 ### Tambahan lingkup (disetujui pemilik produk, 17 Oktober 2026)
 
-- Peta choropleth kabupaten/kota di landing page: warna menurut persentase realisasi belanja dibanding median nasional, dengan tooltip, klik membuka profil, filter provinsi (zoom), legenda teks, dan tabel alternatif yang dapat dioperasikan dengan keyboard. Profil menampilkan peta provinsi dengan daerah tersebut disorot. Batas wilayah: `cahyadsn/wilayah_boundaries` (MIT, commit dipin), disederhanakan oleh `tools/etl`.
+- Peta choropleth kabupaten/kota di landing page: warna menurut persentase realisasi belanja dibanding median nasional, dengan tooltip, klik membuka profil, filter provinsi (zoom), legenda teks, dan tabel alternatif yang dapat dioperasikan dengan keyboard. Peta dasar landing memakai ubin vektor CARTO (MapLibre, berkas pekerja di situs sendiri). Poligon kabupaten/kota tetap dari batas resmi, bukan dari peta dasar. Lapisan lain pada peta yang sama: jumlah rumah sakit dan jumlah sekolah (lima kelompok menurut peringkat jumlah, bukan per penduduk). Lapisan listrik mewarnai rasio elektrifikasi 2024 per provinsi (nasional 99,83%): setiap kabupaten/kota dalam satu provinsi memakai angka provinsi itu, dengan ambang tetap, bukan peringkat. Setiap profil menampilkan peta persebaran provinsinya (rumah sakit, sekolah, listrik) dengan daerah tersebut diuraikan, tetangga dapat diklik, dan tabel alternatif. Batas wilayah: `cahyadsn/wilayah_boundaries` (MIT, commit dipin), disederhanakan oleh `tools/etl`.
 - Bagian "Harta kekayaan pejabat daerah" di profil (keputusan pemilik, 17 Oktober 2026, menggantikan keputusan sebelumnya): harta kekayaan pejabat daerah dari LHKPN yang dipublikasikan KPK, ditampilkan hanya bila ada sumber resminya. Setiap angka wajib berlabel tahun laporan, jabatan pada tahun laporan tersebut, sumber resmi, dan tanggal pemrosesan, disajikan netral tanpa menuduh atau menyimpulkan korupsi, dan angka tanpa sumber resmi tidak dipublikasikan. Keputusan pemilik adalah menampilkan angka; dasar penggunaan ulangnya dicatat sebagai keputusan pemilik yang masih terbuka, dengan asumsi kerja bahwa pengumuman LHKPN memang diwajibkan undang-undang, sehingga sisa risiko penggunaan ulang (tidak ada izin tertulis dari KPK, hanya pernyataan hak cipta yang dilindungi) diterima secara sadar. Bila KPK kemudian menyatakan syarat yang melarang publikasi ulang, angka ditarik dan bagian ini kembali hanya menautkan ke sumber resmi. Identitas pribadi di luar nama publik dan jabatan tidak disimpan; data pribadi tunduk pada UU PDP No. 27 Tahun 2022.
 
 - Modul "Dana bagi hasil sumber daya alam" di profil (disetujui pemilik, 17 Oktober 2026): Dana Bagi Hasil SDA (minyak bumi, gas bumi, minerba, kehutanan, perikanan, panas bumi) dan DBH Perkebunan Sawit yang **diterima** kabupaten/kota, dari ekspor TKDD DJPK. Selalu diberi label bahwa angka ini bukan ukuran kekayaan/cadangan alam daerah; nilai DJPK dibulatkan ke Rp10 juta.
 - Nama kepala daerah: **disetujui** (keputusan pemilik, 17 Oktober 2026, menggantikan penundaan pada hari yang sama). Profil menampilkan bupati/wali kota dan wakilnya yang menjabat, disertai gelar "Plt" untuk pelaksana tugas dan periode jabatan. Sumbernya daftar pejabat incumbent di Wikipedia bahasa Inggris, dicocokkan dengan daftar calon resmi KPU Pilkada 2024; hasil pencocokan dinyatakan terbuka di profil ("Cocok dengan daftar calon KPU" atau "Belum cocok dengan data KPU"), dan kabupaten/kota administrasi DKI Jakarta diberi label "Diangkat, bukan lewat Pilkada" karena tidak menyelenggarakan Pilkada. Setiap profil menautkan halaman sumber Wikipedia pada revisi yang dipakai (URL `oldid`, sehingga nomor revisi dapat ditelusuri) beserta tanggal revisinya, dan foto dari Wikimedia Commons ditampilkan dengan lisensi serta pemiliknya. Nama pejabat tetap ditampilkan bila belum ada padanan di daftar KPU, dengan label apa adanya.
+
+### Tambahan lingkup (18 Oktober 2026)
+
+- Realisasi belanja menurut fungsi (urusan) tahun 2024 dari seri data DJPK, per kabupaten/kota. Tagging kesehatan dan pendidikan digabung ke fungsi induknya. Ini realisasi, bukan pagu, dan bukan rincian program atau dinas.
+- Realisasi pendapatan daerah menurut jenis tahun 2024 dari berkas ringkas DJPK. Angka ini kas daerah, bukan penghasilan warga.
+- Jumlah rumah sakit (daftar SIRS Kemenkes) dan jumlah satuan pendidikan SD, SMP, SMA, dan SMK (portal referensi Kemendikdasmen). Nama wilayah yang tidak unik tidak dihitung. SLB tidak dijumlahkan. Bukan tempat tidur, bukan murid, dan bukan tahun ajaran.
+- Tutupan lahan 2023 tingkat provinsi dari rekapitulasi PKTL KLHK: hutan primer, hutan sekunder, hutan tanaman, dan bukan hutan. Bukan data kabupaten/kota, bukan daftar spesies, dan tidak memisah mangrove, sawah, perkebunan, atau permukiman.
+- Rasio elektrifikasi 2024 tingkat provinsi dari ESDM Statistik Ketenagalistrikan Tabel 7 (nasional 99,83%). Setiap kabupaten/kota di provinsi itu memakai angka yang sama. Rasio elektrifikasi per kabupaten/kota tidak dipasang: ESDM tidak menerbitkan satu berkas per kabupaten/kota. Jumlah penduduk yang dipasang adalah catatan Dukcapil 31 Desember 2024, bukan proyeksi BPS. LHKPN tetap hanya tautan ke e-LHKPN KPK; angka harta tidak disalin.
+- Opini BPK atas laporan keuangan pemerintah daerah, dari unduhan Portal Data BPK, tahun laporan 2016–2024. Empat kode resmi: WTP, WDP, TW, TMP. Kabupaten dan kota administrasi DKI Jakarta memakai opini provinsi dan diberi label tingkat provinsi. Opini ini bukan penilaian pejabat dan bukan temuan korupsi.
 
 ### Masuk lingkup — Final (menyusul, di luar PRD ini)
 
@@ -121,11 +130,19 @@ Jika bagian lain tampak bertentangan dengan tabel ini, tabel keputusan ini menja
 ```
 Home (Landing Page)
 ├── Cari Daerah (search/pilih provinsi > kabupaten/kota)
+├── Sumber data (/sumber)
 └── Profil Daerah [slug kabupaten/kota]
     ├── Pejabat yang menjabat
     ├── Ringkasan (ringkasan bahasa sederhana)
     ├── Modul Anggaran (APBD)
+    ├── Rincian jenis belanja
+    ├── Realisasi belanja menurut fungsi
+    ├── Pendapatan daerah
+    ├── Opini laporan keuangan (BPK)
+    ├── Dana bagi hasil SDA
     ├── Modul Bencana
+    ├── Penduduk, rumah sakit, dan sekolah
+    ├── Tutupan lahan (provinsi)
     └── Sumber Data & Metodologi
 ```
 
@@ -137,6 +154,7 @@ Home (Landing Page)
 - Search bar dengan autocomplete: mengetik nama daerah langsung memunculkan daftar kabupaten/kota yang cocok (island React, dipanggil lewat ky ke endpoint `/daerah/search`).
 - Highlight 2–3 contoh daerah (shortcut) yang datanya sudah lengkap, supaya pengguna/juri bisa langsung mencoba tanpa mengetik.
 - 3 angka ringkas di bawah hero (mis. jumlah daerah tercakup, tahun data, jumlah sumber resmi) sebagai bukti kredibilitas data.
+- Kondisi terkini seluruh Indonesia di landing (`GET /v1/terkini`): gempa terbaru dari daftar BMKG, judul peringatan dini cuaca yang sedang ditayangkan, dan indeks udara stasiun KLH/BPLH (ISPU). Indeks udara adalah pembacaan stasiun, bukan rata-rata kabupaten, dengan saran yang sama seperti situs ISPU. Ini bukan cuaca satu daerah; cuaca kabupaten/kota tetap di profil. Satu umpan yang gagal tidak menyembunyikan umpan yang lain.
 - CTA menuju halaman pencarian penuh untuk pengguna yang ingin menjelajah semua daerah.
 - Kriteria selesai: hero + search tampil < 2 detik di koneksi standar, search bar bisa dioperasikan dengan keyboard saja, layout responsif dari lebar HP sampai desktop.
 
@@ -158,6 +176,11 @@ Home (Landing Page)
   - Grafik batang anggaran vs realisasi (komponen Chart dari almach/ui).
   - Catatan singkat apakah persentase realisasi di atas/di bawah rata-rata nasional tahun yang sama.
   - Badge status sederhana (mis. "Realisasi tinggi" / "Realisasi rendah") dengan ambang batas yang dijelaskan di halaman metodologi.
+- **Realisasi belanja menurut fungsi**: sembilan fungsi APBD tahun 2024 (pelayanan umum, ketertiban, ekonomi, lingkungan, perumahan, kesehatan, pariwisata, pendidikan, perlindungan sosial). Label tahunnya tetap 2024 walaupun pemilih tahun profil menunjuk tahun lain. Anggaran per fungsi tidak digabung dari berkas bertanggal lain.
+- **Pendapatan daerah**: realisasi 2024 menurut jenis (pajak, retribusi, hasil kekayaan, PAD lain, transfer, hibah, dan lain-lain). Labelnya kas daerah, bukan penghasilan warga.
+- **Penduduk, rumah sakit, dan sekolah**: jumlah jiwa pada Data Konsolidasi Bersih Ditjen Dukcapil per 31 Desember 2024 (bukan Sensus BPS), plus jumlah fasilitas rumah sakit serta jumlah SD, SMP, SMA, dan SMK.
+- **Kemiskinan dan penghidupan**: persentase dan jumlah penduduk miskin Susenas Maret 2025, garis kemiskinan, PDRB per kapita 2025 (hasil ekonomi per orang, bukan gaji), dan Indeks Pembangunan Manusia 2025 beserta pengeluaran riil per kapita yang disesuaikan.
+- **Tutupan lahan**: empat kelas tahun 2023 untuk provinsi induk, dengan label tingkat provinsi.
 - **Modul Bencana**:
   - Jumlah kejadian bencana tahun terakhir, per jenis, di level provinsi.
   - Korban terdampak/meninggal/hilang (jika tersedia di sumber).
@@ -215,8 +238,35 @@ Home (Landing Page)
 - LHKPN bersifat tahunan: satu laporan mewakili periode 1 Januari–31 Desember dan tidak boleh disajikan sebagai harta terkini.
 - Bidang di luar daftar itu (identitas pribadi, nomor laporan, alamat, dokumen pindaian) tidak diambil dan tidak disimpan.
 - Dasar penggunaan ulang angka LHKPN adalah keputusan pemilik yang masih terbuka (opsi a: menunggu pernyataan KPK; opsi b: berdasarkan kewajiban pengumuman LHKPN menurut undang-undang, dengan atribusi dan penyajian netral). Tidak ditemukan izin tertulis dari KPK; sisa risiko penggunaan ulang diterima sadar oleh pemilik. Rincian di `docs/decisions/0003-publish-lhkpn-figures.md`.
+- Sampai portal e-LHKPN menyediakan unduhan publik, profil hanya menautkan `https://elhkpn.kpk.go.id/` dan tidak menyimpan angka harta.
 
-### 8.5 Skema Data Hasil Olahan (contoh struktur JSON per daerah)
+### 8.5 Realisasi belanja menurut fungsi (sumber: DJPK)
+
+- Berkas: `31102025_Realisasi_Belanja_Daerah_2024.xlsx` pada seri data DJPK (`https://djpk.kemenkeu.go.id/?p=5412`), diperbarui 31 Oktober 2025.
+- Satu baris per pemda per fungsi. Baris "Tagging" kesehatan dan pendidikan dijumlahkan ke fungsi induknya, bukan dihitung dua kali.
+- Berkas itu hanya memuat realisasi. Pagu fungsi dari berkas anggaran bulan Juli 2024 tidak digabung.
+
+### 8.6 Realisasi pendapatan daerah (sumber: DJPK)
+
+- Berkas: `31102025_Data_Realisasi_Ringkas_APBD_2024.xlsx` pada seri data yang sama.
+- Jenis di bawah "4. Pendapatan Daerah" dijumlahkan dan dicocokkan dengan baris total pada lembar ringkasan. Selisih lebih dari Rp1 menggagalkan build.
+- Kolom pada lembar data bernama `nilaianggaran`; halaman seri menandai berkas sebagai realisasi. Pemda yang tidak ada di berkas dikosongkan, tidak diisi nol.
+
+### 8.7 Rumah sakit dan satuan pendidikan
+
+- Rumah sakit: daftar JSON publik SIRS Kemenkes. Wilayah dari nama kabupaten/kota di dalam provinsi, karena kode rumah sakit bukan kode Kemendagri. Empat ejaan yang merujuk satu daerah resmi ikut dihitung. Nama yang cocok dengan kabupaten dan kota sekaligus dihitung hanya bila koordinat pada peta SIRS (`list_prop_noncovid`) berada di dalam tepat satu dari dua batas resmi itu. Baris tanpa koordinat, di luar kedua batas, atau di dalam keduanya tidak dihitung. Nama, alamat, telepon, dan koordinat tidak disimpan.
+- Halaman `/sumber` menuliskan penerbit, periode, tautan, dan batas pemakaian setiap data yang ditampilkan.
+- Sekolah: halaman dikdas (SD, SMP) dan dikmen (SMA, SMK) pada `referensi.data.kemendikdasmen.go.id`. SLB tidak dijumlahkan. Halaman tidak mencetak tahun ajaran, jadi angka dilabeli sebagai hitungan saat berkas diambil.
+- Jumlah penduduk kabupaten/kota adalah Data Konsolidasi Bersih Ditjen Dukcapil per 31 Desember 2024, bukan Sensus BPS. BPS tidak menyediakan satu berkas nasional berkode Kemendagri, dan portal provinsi tidak digabung. Tabel yang dipasang adalah satu berkas nasional berkode (`db/wilayah_penduduk.sql`). Jumlah kabupaten/kota di tiap provinsi sama dengan baris provinsinya, dan jumlah nasionalnya 284.973.643 jiwa, sama dengan rilis Dukcapil. Tiga baris dicek terhadap buku dinas yang mengutip rilis yang sama: Kabupaten Dairi 333.335, Kabupaten Gresik 1.327.497, Kota Cimahi 581.994.
+- Rasio elektrifikasi memakai Tabel 7 Statistik Ketenagalistrikan 2024 (satu angka per provinsi). Peta tidak mengarang rasio kabupaten/kota.
+
+### 8.8 Tutupan lahan provinsi (sumber: rekapitulasi PKTL KLHK 2023)
+
+- Empat kelas dalam hektare: hutan primer, hutan sekunder, hutan tanaman, bukan hutan. Satuan sumber adalah ribu hektare.
+- Tingkat provinsi saja. Host `statistik.menlhk.go.id` sudah tidak terurai; checksum pada artefak adalah tabel yang tersimpan.
+- Katalog Satu Data Indonesia 2014–2018 tidak dipakai.
+
+### 8.9 Skema Data Hasil Olahan (contoh struktur JSON per daerah)
 
 ```json
 {
@@ -245,6 +295,13 @@ Home (Landing Page)
   }
 }
 ```
+
+### 8.10 Kemiskinan, hasil ekonomi per orang, dan IPM (sumber: BPS)
+
+- Kemiskinan: buku Data dan Informasi Kemiskinan Kabupaten/Kota Tahun 2025, Tabel 2.1. BPS menghitungnya dari Susenas Maret 2025. Jumlah penduduk miskin dipasang dalam ribu jiwa, sama seperti tabel, dan tidak dibagi dengan catatan Dukcapil.
+- Hasil ekonomi per orang: PDRB per kapita atas dasar harga berlaku 2025 dari buku Produk Domestik Regional Bruto Kabupaten/Kota di Indonesia 2021–2025. Halaman menyebutnya hasil ekonomi daerah dibagi jumlah penduduk, bukan gaji. BPS menandai 2025 sebagai angka sangat sementara. Empat provinsi hasil pemekaran Papua tidak memuat angka 2025 yang bisa dibaca, jadi selnya kosong.
+- IPM: Lampiran 2 buku Indeks Pembangunan Manusia 2025, plus pengeluaran riil per kapita yang disesuaikan. Itu komponen IPM, bukan gaji.
+- Nama BPS dicocokkan ke kode Kemendagri di dalam provinsi yang sama. Nama yang tidak cocok satu-satu dikosongkan, tidak ditebak.
 
 ## 9. Alur Pengolahan Data (ETL)
 
@@ -426,16 +483,17 @@ Data production tidak boleh digunakan pada test otomatis yang melakukan write. B
 
 Base URL production: `https://api.jagadaerah.id/v1`. Seluruh endpoint publik bersifat `GET`, menghasilkan JSON UTF-8, dan tidak memerlukan login. Domain ini masih contoh sampai kepemilikan dan ketersediaannya diverifikasi.
 
-| Method | Path                      | Parameter                            | Fungsi                                                     | Cache publik |
-| ------ | ------------------------- | ------------------------------------ | ---------------------------------------------------------- | ------------ |
-| GET    | `/provinsi`               | `year?`                              | Daftar provinsi dan status ketersediaan data               | 24 jam       |
-| GET    | `/provinsi/:kode/daerah`  | `year?`, `cursor?`, `limit?`         | Daftar kabupaten/kota di provinsi                          | 24 jam       |
-| GET    | `/daerah/search`          | `q` wajib (min. 2), `limit` maks. 10 | Autocomplete nama daerah                                   | 1 jam        |
-| GET    | `/daerah/:slug`           | `year?`                              | Profil lengkap daerah; default tahun terbaru yang tersedia | 1 jam        |
-| GET    | `/daerah/:slug/ringkasan` | `year?`                              | Ringkasan teks untuk preview/share                         | 1 jam        |
-| GET    | `/peta/realisasi`         | `year?`                              | Persentase realisasi per kabupaten/kota untuk peta         | 1 jam        |
-| GET    | `/meta/status`            | —                                    | Versi dataset aktif, pembaruan, cakupan                    | 5 menit      |
-| GET    | `/health`                 | —                                    | Status proses Worker tanpa query data berat                | tanpa cache  |
+| Method | Path                      | Parameter                            | Fungsi                                                           | Cache publik |
+| ------ | ------------------------- | ------------------------------------ | ---------------------------------------------------------------- | ------------ |
+| GET    | `/provinsi`               | `year?`                              | Daftar provinsi dan status ketersediaan data                     | 24 jam       |
+| GET    | `/provinsi/:kode/daerah`  | `year?`, `cursor?`, `limit?`         | Daftar kabupaten/kota di provinsi                                | 24 jam       |
+| GET    | `/daerah/search`          | `q` wajib (min. 2), `limit` maks. 10 | Autocomplete nama daerah                                         | 1 jam        |
+| GET    | `/daerah/:slug`           | `year?`                              | Profil lengkap daerah; default tahun terbaru yang tersedia       | 1 jam        |
+| GET    | `/daerah/:slug/ringkasan` | `year?`                              | Ringkasan teks untuk preview/share                               | 1 jam        |
+| GET    | `/peta/realisasi`         | `year?`                              | Persentase realisasi per kabupaten/kota untuk peta               | 1 jam        |
+| GET    | `/daerah/:slug/terkini`   | `kecamatan?`                         | Cuaca, peringatan dini, gempa BMKG, titik panas FIRMS (ADR 0004) | 2 menit      |
+| GET    | `/meta/status`            | —                                    | Versi dataset aktif, pembaruan, cakupan                          | 5 menit      |
+| GET    | `/health`                 | —                                    | Status proses Worker tanpa query data berat                      | tanpa cache  |
 
 ### 16.1 Envelope Response
 

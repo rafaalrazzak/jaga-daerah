@@ -128,6 +128,7 @@ The Hyperdrive binding `id` in `wrangler.jsonc` is a placeholder until Milestone
 The Python ETL in `tools/etl/` is managed with uv. `bun run test:etl` runs offline unit tests plus publication tests against a disposable PostgreSQL (same binary discovery as `test:db`; uses `bun run db:migrate`). Pipelines:
 
 - `bun run etl:regions [-- --load] [-- --export-web ../../apps/web/src/data/regions.json]` — Kemendagri region codes; `--export-web` regenerates the committed list used to prerender one profile page per kab/kota.
+- `bun run etl:live-points` — offline; regenerates `apps/api/src/data/live-points.json` (per-region BMKG adm4 point, sample coordinate, bbox, per-kecamatan forecast points).
 - `bun run etl:fetch -- --years 2024,2025` — sealed DJPK + BNPB raw snapshots (network only here).
 - `bun run etl:publish -- --djpk <dir> --bnpb <dir> [--load] [--accept-row-delta]` — quality gate, then staging, database recount, and atomic activation of a new dataset version.
 
