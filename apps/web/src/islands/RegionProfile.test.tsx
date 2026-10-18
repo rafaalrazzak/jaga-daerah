@@ -68,6 +68,17 @@ function profile(overrides: Partial<RegionProfileResponse['data']> = {}): Region
           'Rincian ini memakai klasifikasi baku APBD menurut jenis belanja (misalnya belanja pegawai, barang dan jasa, modal). Rincian ini bukan belanja per program atau per dinas, sehingga tidak dapat dipakai untuk menilai satu kegiatan tertentu.',
         ],
       },
+      expenditure_by_function: {
+        year: 2024,
+        status: 'unavailable',
+        total_budget_amount: null,
+        total_realization_amount: null,
+        by_function: [],
+        narrative: [
+          'Data DJPK tahun 2024 tidak memuat realisasi belanja menurut fungsi untuk daerah ini.',
+          'Ini realisasi menurut fungsi (urusan) belanja, bukan pagu anggaran.',
+        ],
+      },
       natural_resources: {
         status: 'complete',
         total_budget_amount: '1215850000000.00',
@@ -157,7 +168,9 @@ describe('RegionProfile', () => {
     setup(async () => profile());
 
     expect(await screen().findByText(/Rp89,8 ribu/)).toBeDefined();
-    expect(screen().getByText('Rp8,35 triliun')).toBeDefined();
+    // The expenditure breakdown repeats the same total, so read it from the budget section.
+    const budget = screen().getByRole('region', { name: 'Anggaran belanja daerah' });
+    expect(within(budget).getByText('Rp8,35 triliun')).toBeDefined();
     expect(screen().getAllByText('Rp8.345.231.335.444,90').length).toBeGreaterThan(0);
     expect(screen().getByText(/Di bawah median nasional/)).toBeDefined();
     expect(screen().getByText('Data tingkat provinsi: Jawa Barat')).toBeDefined();
@@ -177,7 +190,7 @@ describe('RegionProfile', () => {
     const rows = within(table).getAllByRole('row');
     expect(rows[1]?.textContent).toContain('Panas bumi');
     expect(within(table).getByText('Rp1.150.500.000.000,00')).toBeDefined();
-    expect(screen().getByText('Ini bukan ukuran kekayaan alam daerah.')).toBeDefined();
+    expect(screen().getByText('Ini bukan ukuran kekayaan alam.')).toBeDefined();
     expect(screen().getAllByText('Rp1,17 triliun')).toHaveLength(2); // summary tile + section total
   });
 

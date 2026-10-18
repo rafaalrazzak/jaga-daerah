@@ -1,11 +1,11 @@
-import { Card } from '@almach/ui/card';
+import { cn } from '@almach/utils';
 import type { NaturalResourceModule } from '@jaga-daerah/contracts';
 
+import { ExternalLink, Note, Section, Stat } from '@/components/ui/Primitives';
 import { formatRupiahFull, formatRupiahShort } from '@/lib/format';
-import { SectionHeader } from './SectionHeader';
+import { table } from '@/components/ui/styles';
 
 const TKDD_URL = 'https://djpk.kemenkeu.go.id/portal/data/tkdd';
-const UNAVAILABLE = 'Data belum tersedia';
 
 /** Bar length in whole percent of the largest realisation, computed in BigInt cents. */
 function share(amount: string | null, largest: bigint): number {
@@ -40,53 +40,43 @@ export function NaturalResourceSection({
       row.realization_amount === null ? 0n : BigInt(row.realization_amount.replace('.', ''));
     return cents > max ? cents : max;
   }, 0n);
+  const { total_budget_amount: budget, total_realization_amount: realization } = resources;
 
   return (
-    <section aria-labelledby="modul-sda" className="scroll-mt-6 space-y-4">
-      <SectionHeader
-        id="modul-sda"
-        title="Dana bagi hasil sumber daya alam"
-        meta={`TKDD ${year} · tingkat kabupaten/kota`}
-      />
-
-      <div
-        role="note"
-        className="rounded-xl border border-border bg-accent/60 p-4 text-sm leading-relaxed"
-      >
-        <p className="font-semibold">Ini bukan ukuran kekayaan alam daerah.</p>
-        <p className="mt-1">
-          Angka di bawah adalah bagian penerimaan negara dari sumber daya alam yang ditransfer ke{' '}
-          {regionName} menurut rumus undang-undang. Daerah yang bukan penghasil pun bisa menerimanya
-          dari provinsinya.
+    <Section
+      id="modul-sda"
+      title="Dana bagi hasil sumber daya alam"
+      meta={`TKDD ${year} · tingkat kabupaten/kota`}
+      source={
+        <p>
+          Sumber: <ExternalLink href={TKDD_URL}>DJPK Kemenkeu, Portal Data TKDD</ExternalLink>.
+          Angka dibulatkan. Rp0 bisa berarti di bawah Rp5 juta.
         </p>
-      </div>
+      }
+    >
+      <Note title="Ini bukan ukuran kekayaan alam.">
+        Bagian penerimaan negara yang ditransfer ke {regionName}. Daerah yang bukan penghasil pun
+        bisa menerima bagian dari provinsinya.
+      </Note>
 
-      <Card className="space-y-6 rounded-2xl p-6 shadow-none sm:p-8">
-        <div className="space-y-2 text-lg leading-relaxed">
-          {resources.narrative.slice(0, 1).map((sentence) => (
-            <p key={sentence}>{sentence}</p>
-          ))}
-        </div>
+      <div className="rounded-2xl border border-border bg-card p-5 sm:p-6 space-y-6">
+        {resources.narrative.slice(0, 1).map((sentence) => (
+          <p key={sentence} className="text-lg leading-relaxed">
+            {sentence}
+          </p>
+        ))}
 
         {resources.by_type.length === 0 ? null : (
           <>
             <dl className="grid gap-6 sm:grid-cols-2">
-              <div>
-                <dt className="text-sm text-muted-foreground">Total alokasi</dt>
-                <dd className="mt-1 font-extrabold tracking-tight text-3xl tabular-nums">
-                  {resources.total_budget_amount === null
-                    ? UNAVAILABLE
-                    : formatRupiahShort(resources.total_budget_amount)}
-                </dd>
-              </div>
-              <div>
-                <dt className="text-sm text-muted-foreground">Total realisasi diterima</dt>
-                <dd className="mt-1 font-extrabold tracking-tight text-3xl tabular-nums">
-                  {resources.total_realization_amount === null
-                    ? UNAVAILABLE
-                    : formatRupiahShort(resources.total_realization_amount)}
-                </dd>
-              </div>
+              <Stat
+                label="Total alokasi"
+                value={budget === null ? null : formatRupiahShort(budget)}
+              />
+              <Stat
+                label="Total realisasi diterima"
+                value={realization === null ? null : formatRupiahShort(realization)}
+              />
             </dl>
 
             <div
@@ -95,41 +85,39 @@ export function NaturalResourceSection({
               role="region"
               aria-label="Tabel dana bagi hasil sumber daya alam"
             >
-              <table className="w-full min-w-[30rem] text-left text-sm">
+              <table className={cn(table.root, 'min-w-[30rem]')}>
                 <caption className="sr-only">
                   Dana bagi hasil sumber daya alam {regionName} tahun {year} per jenis
                 </caption>
                 <thead>
-                  <tr className="border-b border-border">
-                    <th scope="col" className="py-2 font-semibold">
-                      Jenis sumber daya
-                    </th>
-                    <th scope="col" className="py-2 text-right font-semibold">
+                  <tr>
+                    <th scope="col">Jenis sumber daya</th>
+                    <th scope="col" className="pl-4 text-right!">
                       Alokasi
                     </th>
-                    <th scope="col" className="py-2 text-right font-semibold">
+                    <th scope="col" className="pl-4 text-right!">
                       Realisasi
                     </th>
                   </tr>
                 </thead>
-                <tbody className="tabular-nums">
+                <tbody>
                   {resources.by_type.map((row) => (
-                    <tr key={row.type} className="border-b border-border last:border-0">
-                      <th scope="row" className="py-3 pr-4 align-top font-normal">
+                    <tr key={row.type}>
+                      <th scope="row" className="pr-4">
                         <span className="block font-semibold">{row.label}</span>
-                        <span aria-hidden="true" className="mt-2 block h-2 rounded-full bg-muted">
+                        <span aria-hidden="true" className="block h-2 rounded-full bg-muted mt-2">
                           <span
-                            className="block h-2 rounded-full bg-primary"
+                            className="block h-full rounded-full bg-primary"
                             style={{
                               width: `${Math.max(share(row.realization_amount, largest), row.realization_amount === null ? 0 : 1)}%`,
                             }}
                           />
                         </span>
                       </th>
-                      <td className="py-3 pl-4 text-right align-top">
+                      <td className="pl-4 text-right! pl-4">
                         <Money amount={row.budget_amount} />
                       </td>
-                      <td className="py-3 pl-4 text-right align-top">
+                      <td className="pl-4 text-right! pl-4">
                         <Money amount={row.realization_amount} />
                       </td>
                     </tr>
@@ -139,24 +127,7 @@ export function NaturalResourceSection({
             </div>
           </>
         )}
-
-        <p className="text-sm text-muted-foreground">
-          Sumber:{' '}
-          <a
-            href={TKDD_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-semibold text-primary underline underline-offset-4"
-          >
-            DJPK Kemenkeu, Portal Data TKDD
-            <span className="sr-only"> (membuka tab baru)</span>
-          </a>
-          . DJPK menampilkan angka dalam miliar rupiah dengan dua desimal, jadi nilai dibulatkan ke
-          Rp10 juta terdekat; “Rp0” bisa berarti di bawah Rp5 juta. Mencakup Dana Bagi Hasil SDA
-          (minyak bumi, gas bumi, mineral dan batubara, kehutanan, perikanan, panas bumi) dan DBH
-          Perkebunan Sawit.
-        </p>
-      </Card>
-    </section>
+      </div>
+    </Section>
   );
 }

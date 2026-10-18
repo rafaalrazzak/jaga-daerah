@@ -129,9 +129,8 @@ test.describe('landing page', () => {
   test('respects reduced motion', async ({ page }) => {
     await page.goto('/');
 
-    // The hero map carries the page's only entrance animation (HeroMap.astro); global.css
-    // collapses every animation duration under prefers-reduced-motion.
-    const hero = page.locator('.hero-map').first();
+    // The map illustration animates as one restrained entrance; reduced motion removes it.
+    const hero = page.locator('.map-stage').first();
     const durationMs = () =>
       hero.evaluate((element) => {
         const value = getComputedStyle(element).animationDuration;
@@ -155,8 +154,8 @@ test.describe('without JavaScript', () => {
   test('keeps the critical content and region shortcuts usable', async ({ page }) => {
     await page.goto('/');
 
-    await expect(page.getByRole('heading', { level: 1 })).toContainText(
-      'kabupaten/kota, satu tempat untuk cek uang daerahmu.',
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText(
+      'Kenali daerahmu lebih dekat.',
     );
     // Playwright text locators skip <noscript>; assert its markup directly.
     expect(await page.locator('noscript').first().textContent()).toContain(

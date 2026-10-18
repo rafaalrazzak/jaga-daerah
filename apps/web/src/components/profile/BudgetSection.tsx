@@ -1,39 +1,14 @@
-import { Badge } from '@almach/ui/badge';
-import { Card } from '@almach/ui/card';
 import type { BudgetModule, MedianComparison } from '@jaga-daerah/contracts';
 
+import { Section, Stat } from '@/components/ui/Primitives';
 import { formatPercent, formatRupiahFull, formatRupiahShort } from '@/lib/format';
-import { SectionHeader } from './SectionHeader';
 
-const UNAVAILABLE = 'Data belum tersedia';
 const COMPARISON_TEXT: Record<MedianComparison, string> = {
   above: 'Di atas median nasional',
   below: 'Di bawah median nasional',
   equal: 'Sama dengan median nasional',
 };
 const COMPARISON_SYMBOL: Record<MedianComparison, string> = { above: '▲', below: '▼', equal: '■' };
-
-function Amount({ label, amount }: { label: string; amount: string | null }) {
-  return (
-    <div>
-      <dt className="text-sm text-muted-foreground">{label}</dt>
-      <dd className="mt-1">
-        {amount === null ? (
-          <span className="text-lg font-semibold text-muted-foreground">{UNAVAILABLE}</span>
-        ) : (
-          <>
-            <span className="block font-extrabold tracking-tight text-3xl tabular-nums">
-              {formatRupiahShort(amount)}
-            </span>
-            <span className="mt-1 block font-mono text-xs break-all text-muted-foreground">
-              {formatRupiahFull(amount)}
-            </span>
-          </>
-        )}
-      </dd>
-    </div>
-  );
-}
 
 /** Bar width for a one-decimal percent string, capped so over-100% stays inside the track. */
 function width(percent: string): string {
@@ -42,7 +17,7 @@ function width(percent: string): string {
 
 /**
  * Realisation as a filled share of the budget, with the national median as a tick. Decorative:
- * the same figures are stated in the sentence and the amounts above it.
+ * the same figures are stated in the sentence and the amounts beside it.
  */
 function RealizationMeter({ percent, median }: { percent: string; median: string | null }) {
   return (
@@ -56,10 +31,6 @@ function RealizationMeter({ percent, median }: { percent: string; median: string
           />
         )}
       </div>
-      <div className="flex justify-between text-xs text-muted-foreground">
-        <span>0%</span>
-        <span>100% anggaran</span>
-      </div>
       <p className="flex flex-wrap gap-x-5 gap-y-1 text-xs text-muted-foreground">
         <span className="inline-flex items-center gap-2">
           <span className="inline-block h-2.5 w-5 rounded-full bg-primary" /> Sudah dibelanjakan
@@ -70,21 +41,32 @@ function RealizationMeter({ percent, median }: { percent: string; median: string
             {formatPercent(median)}
           </span>
         )}
+        <span className="sm:ml-auto">Penuh = 100% anggaran</span>
       </p>
     </div>
   );
 }
 
-export function BudgetSection({ budget, year }: { budget: BudgetModule; year: number }) {
-  return (
-    <section aria-labelledby="modul-anggaran" className="scroll-mt-6 space-y-4">
-      <SectionHeader
-        id="modul-anggaran"
-        title="Anggaran belanja daerah"
-        meta={`APBD ${year} · tingkat kabupaten/kota`}
-      />
+function short(value: string | null): string | null {
+  return value === null ? null : formatRupiahShort(value);
+}
 
-      <Card className="space-y-6 rounded-2xl p-6 shadow-none sm:p-8">
+function full(value: string | null): string | undefined {
+  return value === null ? undefined : formatRupiahFull(value);
+}
+
+export function BudgetSection({ budget, year }: { budget: BudgetModule; year: number }) {
+  const comparison = budget.median_comparison;
+  const median = budget.national_median_percent;
+
+  return (
+    <Section
+      id="modul-anggaran"
+      title="Anggaran belanja daerah"
+      meta={`APBD ${year} · tingkat kabupaten/kota`}
+      lead="Rencana belanja, dan yang sudah dibayar."
+    >
+      <div className="rounded-2xl border border-border bg-card p-5 sm:p-6 space-y-6">
         <div className="space-y-2 text-lg leading-relaxed">
           {budget.narrative.map((sentence) => (
             <p key={sentence}>{sentence}</p>
@@ -92,43 +74,42 @@ export function BudgetSection({ budget, year }: { budget: BudgetModule; year: nu
         </div>
 
         {budget.realization_percent === null ? null : (
-          <RealizationMeter
-            percent={budget.realization_percent}
-            median={budget.national_median_percent}
-          />
+          <RealizationMeter percent={budget.realization_percent} median={median} />
         )}
 
         <dl className="grid gap-6 sm:grid-cols-3">
-          <Amount label="Anggaran belanja" amount={budget.budget_amount} />
-          <Amount label="Sudah dibelanjakan (realisasi)" amount={budget.realization_amount} />
-          <div>
-            <dt className="text-sm text-muted-foreground">Persentase realisasi</dt>
-            <dd className="mt-1">
-              {budget.realization_percent === null ? (
-                <span className="text-lg font-semibold text-muted-foreground">
-                  Data tidak cukup
+          <Stat
+            label="Anggaran belanja"
+            value={short(budget.budget_amount)}
+            note={full(budget.budget_amount)}
+          />
+          <Stat
+            label="Sudah dibelanjakan (realisasi)"
+            value={short(budget.realization_amount)}
+            note={full(budget.realization_amount)}
+          />
+          <Stat
+            label="Persentase realisasi"
+            value={
+              budget.realization_percent === null ? null : formatPercent(budget.realization_percent)
+            }
+            missing="Data tidak cukup"
+            note={
+              comparison !== null && median !== null ? (
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-transparent border border-border px-3 py-1 text-xs font-semibold text-foreground mt-1">
+                  <span aria-hidden="true">{COMPARISON_SYMBOL[comparison]}</span>
+                  {COMPARISON_TEXT[comparison]} ({formatPercent(median)})
                 </span>
-              ) : (
-                <span className="block font-extrabold tracking-tight text-3xl tabular-nums">
-                  {formatPercent(budget.realization_percent)}
-                </span>
-              )}
-              {budget.median_comparison !== null && budget.national_median_percent !== null ? (
-                <Badge variant="outline" className="mt-2 gap-1">
-                  <span aria-hidden="true">{COMPARISON_SYMBOL[budget.median_comparison]}</span>
-                  {COMPARISON_TEXT[budget.median_comparison]} (
-                  {formatPercent(budget.national_median_percent)})
-                </Badge>
-              ) : null}
-            </dd>
-          </div>
+              ) : undefined
+            }
+          />
         </dl>
 
-        <p className="text-sm text-muted-foreground">
+        <p className="text-xs leading-5 text-muted-foreground">
           Pembanding: median persentase realisasi seluruh kabupaten/kota yang datanya lengkap pada
           tahun yang sama. Label ini menggambarkan posisi relatif, bukan penilaian kinerja.
         </p>
-      </Card>
-    </section>
+      </div>
+    </Section>
   );
 }

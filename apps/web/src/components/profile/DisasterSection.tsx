@@ -1,11 +1,11 @@
+import { cn } from '@almach/utils';
 import { Alert } from '@almach/ui/alert';
-import { Card } from '@almach/ui/card';
 import type { DisasterModule } from '@jaga-daerah/contracts';
 
+import { Disclosure, Section, Stat, UNAVAILABLE } from '@/components/ui/Primitives';
 import { formatCount } from '@/lib/format';
-import { SectionHeader } from './SectionHeader';
+import { table } from '@/components/ui/styles';
 
-const UNAVAILABLE = 'Data belum tersedia';
 const TOP_TYPES = 5;
 
 function count(value: number | null): string {
@@ -13,6 +13,7 @@ function count(value: number | null): string {
 }
 
 export function DisasterSection({ disaster, year }: { disaster: DisasterModule; year: number }) {
+  const province = disaster.province.name;
   const ranked = disaster.by_type
     .filter((row) => (row.event_count ?? 0) > 0)
     .toSorted((left, right) => (right.event_count ?? 0) - (left.event_count ?? 0))
@@ -20,75 +21,53 @@ export function DisasterSection({ disaster, year }: { disaster: DisasterModule; 
   const largest = ranked[0]?.event_count ?? 0;
 
   return (
-    <section aria-labelledby="modul-bencana" className="scroll-mt-6 space-y-4">
-      <SectionHeader
-        id="modul-bencana"
-        title="Kejadian bencana"
-        meta={`BNPB ${year} · tingkat provinsi`}
-      />
-
+    <Section id="modul-bencana" title="Kejadian bencana" meta={`BNPB ${year} · tingkat provinsi`}>
       <Alert>
         <Alert.Body>
-          <Alert.Title>Data tingkat provinsi: {disaster.province.name}</Alert.Title>
+          <Alert.Title>Data tingkat provinsi: {province}</Alert.Title>
           <Alert.Description>
-            Angka bencana berlaku untuk seluruh Provinsi {disaster.province.name}, bukan khusus
-            kabupaten/kota ini.
+            Angka ini untuk seluruh Provinsi {province}, bukan hanya kabupaten ini.
           </Alert.Description>
         </Alert.Body>
       </Alert>
 
-      <Card className="space-y-6 rounded-2xl p-6 shadow-none sm:p-8">
+      <div className="rounded-2xl border border-border bg-card p-5 sm:p-6 space-y-6">
         {disaster.status === 'unavailable' ? (
           <p className="text-lg text-muted-foreground">
-            {UNAVAILABLE} untuk Provinsi {disaster.province.name} tahun {year}.
+            {UNAVAILABLE} untuk Provinsi {province} tahun {year}.
           </p>
         ) : (
           <>
             <dl className="grid grid-cols-2 gap-6 sm:grid-cols-4">
-              {(
-                [
-                  ['Jumlah kejadian', disaster.totals.event_count],
-                  ['Korban meninggal', disaster.totals.deaths],
-                  ['Korban hilang', disaster.totals.missing],
-                  ['Korban terdampak', disaster.totals.affected],
-                ] as const
-              ).map(([label, value]) => (
-                <div key={label}>
-                  <dt className="text-sm text-muted-foreground">{label}</dt>
-                  <dd className="mt-1 font-extrabold tracking-tight text-2xl tabular-nums sm:text-3xl">
-                    {value === null ? (
-                      <span className="text-base text-muted-foreground">{UNAVAILABLE}</span>
-                    ) : (
-                      formatCount(value)
-                    )}
-                  </dd>
-                </div>
-              ))}
+              <Stat label="Jumlah kejadian" value={stat(disaster.totals.event_count)} />
+              <Stat label="Korban meninggal" value={stat(disaster.totals.deaths)} />
+              <Stat label="Korban hilang" value={stat(disaster.totals.missing)} />
+              <Stat label="Korban terdampak" value={stat(disaster.totals.affected)} />
             </dl>
 
             {ranked.length > 0 ? (
               <figure className="space-y-3">
                 <figcaption className="text-sm font-semibold">
-                  {ranked.length} jenis bencana terbanyak di Provinsi {disaster.province.name},{' '}
-                  {year} (jumlah kejadian)
+                  {ranked.length} jenis bencana terbanyak di Provinsi {province}, {year} (jumlah
+                  kejadian)
                 </figcaption>
-                {/* Each bar is labelled with its own number, so the list reads well without the bars. */}
+                {/* Each bar is labelled with its own number, so the list reads well without bars. */}
                 <ol className="space-y-3">
                   {ranked.map((row) => (
                     <li
                       key={row.type}
-                      className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-3 gap-y-1"
+                      className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-3 gap-y-1 text-sm"
                     >
-                      <span className="text-sm">{row.label}</span>
-                      <span className="text-sm font-semibold tabular-nums">
+                      <span>{row.label}</span>
+                      <span className="font-semibold tabular-nums">
                         {count(row.event_count)} kejadian
                       </span>
                       <span
                         aria-hidden="true"
-                        className="col-span-2 block h-2.5 rounded-full bg-muted"
+                        className="block h-2 rounded-full bg-muted col-span-2"
                       >
                         <span
-                          className="block h-2.5 rounded-full bg-primary"
+                          className="block h-full rounded-full bg-primary"
                           style={{
                             width: `${largest === 0 ? 0 : Math.max(((row.event_count ?? 0) / largest) * 100, 2)}%`,
                           }}
@@ -100,62 +79,55 @@ export function DisasterSection({ disaster, year }: { disaster: DisasterModule; 
               </figure>
             ) : null}
 
-            <details className="group rounded-xl border border-border">
-              <summary className="flex min-h-11 cursor-pointer items-center justify-between gap-3 px-4 py-2 text-sm font-semibold">
-                Lihat rincian semua jenis bencana dan korban
-                <span aria-hidden="true" className="transition-transform group-open:rotate-180">
-                  ▾
-                </span>
-              </summary>
+            <Disclosure
+              summary="Lihat rincian semua jenis bencana dan korban"
+              className="border-t border-border pt-2"
+            >
               {/* Focusable so keyboard users can scroll the wide table on small screens. */}
               <div
-                className="overflow-x-auto border-t border-border px-4 py-3"
+                className="overflow-x-auto pb-2"
                 tabIndex={0}
                 role="region"
-                aria-label={`Tabel rincian bencana Provinsi ${disaster.province.name}`}
+                aria-label={`Tabel rincian bencana Provinsi ${province}`}
               >
-                <table className="w-full min-w-[32rem] text-left text-sm">
+                <table className={cn(table.root, 'min-w-[32rem]')}>
                   <caption className="pb-2 text-left text-sm font-semibold">
-                    Rincian per jenis bencana, Provinsi {disaster.province.name} {year}
+                    Rincian per jenis bencana, Provinsi {province} {year}
                   </caption>
                   <thead>
-                    <tr className="border-b border-border">
-                      <th scope="col" className="py-2 font-semibold">
-                        Jenis bencana
-                      </th>
-                      <th scope="col" className="py-2 text-right font-semibold">
+                    <tr>
+                      <th scope="col">Jenis bencana</th>
+                      <th scope="col" className="pl-4 text-right!">
                         Kejadian
                       </th>
-                      <th scope="col" className="py-2 text-right font-semibold">
+                      <th scope="col" className="pl-4 text-right!">
                         Meninggal
                       </th>
-                      <th scope="col" className="py-2 text-right font-semibold">
+                      <th scope="col" className="pl-4 text-right!">
                         Hilang
                       </th>
-                      <th scope="col" className="py-2 text-right font-semibold">
+                      <th scope="col" className="pl-4 text-right!">
                         Terdampak
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="tabular-nums">
+                  <tbody>
                     {disaster.by_type.map((row) => (
-                      <tr key={row.type} className="border-b border-border last:border-0">
-                        <th scope="row" className="py-2 font-normal">
-                          {row.label}
-                        </th>
-                        <td className="py-2 text-right">{count(row.event_count)}</td>
-                        <td className="py-2 text-right">{count(row.deaths)}</td>
-                        <td className="py-2 text-right">{count(row.missing)}</td>
-                        <td className="py-2 text-right">{count(row.affected)}</td>
+                      <tr key={row.type}>
+                        <th scope="row">{row.label}</th>
+                        <td className="pl-4 text-right!">{count(row.event_count)}</td>
+                        <td className="pl-4 text-right!">{count(row.deaths)}</td>
+                        <td className="pl-4 text-right!">{count(row.missing)}</td>
+                        <td className="pl-4 text-right!">{count(row.affected)}</td>
                       </tr>
                     ))}
                   </tbody>
                 </table>
-                <p className="mt-2 text-xs text-muted-foreground">
+                <p className="text-xs leading-5 text-muted-foreground mt-2">
                   Tanda — berarti data belum tersedia di sumber.
                 </p>
               </div>
-            </details>
+            </Disclosure>
           </>
         )}
 
@@ -169,7 +141,11 @@ export function DisasterSection({ disaster, year }: { disaster: DisasterModule; 
             </ul>
           </div>
         ) : null}
-      </Card>
-    </section>
+      </div>
+    </Section>
   );
+}
+
+function stat(number: number | null): string | null {
+  return number === null ? null : formatCount(number);
 }

@@ -22,17 +22,17 @@ const administrative = provinceCode === '31';
 const source = CANDIDATES.source;
 ---
 
-<section aria-labelledby="pilkada" class="scroll-mt-24 space-y-6">
-  <div class="flex flex-wrap items-end justify-between gap-x-4 gap-y-1">
+<section aria-labelledby="pilkada" class="scroll-mt-32 space-y-5">
+  <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
     <h2 id="pilkada" class="text-2xl font-extrabold tracking-[-0.03em] sm:text-3xl">
       Pasangan calon Pilkada 2024
     </h2>
-    <p class="rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-muted-foreground">
+    <p class="inline-flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-muted-foreground">
       KPU Info Pemilu
     </p>
   </div>
 
-  <div class="rounded-2xl border border-border bg-accent/60 p-5 text-sm leading-relaxed">
+  <div role="note" class="rounded-2xl bg-secondary p-5 sm:p-6 text-sm leading-relaxed">
     {administrative ? (
       <p>
         <strong>{regionName}</strong> adalah kota/kabupaten administrasi: wali kota atau bupatinya
@@ -60,7 +60,7 @@ const source = CANDIDATES.source;
     <>
       {local === undefined ? null : <ElectionPairs election={local} placeName={regionName} />}
       {governor === undefined ? null : (
-        <details class="group rounded-2xl border border-border bg-card">
+        <details class="group rounded-2xl border border-border bg-card p-5 sm:p-6 p-0!">
           <summary class="flex min-h-11 cursor-pointer items-center justify-between gap-3 px-5 py-4 font-bold">
             Pemilihan Gubernur {provinceName} 2024 · {governor.pairs.length} pasangan calon
             <span aria-hidden="true" class="transition-transform group-open:rotate-180">
@@ -79,7 +79,7 @@ const source = CANDIDATES.source;
     <p class="text-muted-foreground">Data pasangan calon untuk daerah ini tidak tersedia di KPU.</p>
   ) : null}
 
-  <p class="text-xs text-muted-foreground">
+  <p class="text-xs leading-5 text-muted-foreground border-t border-border pt-4">
     Sumber:{' '}
     <a
       href={source.url}

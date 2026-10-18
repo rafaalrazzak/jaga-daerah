@@ -1,0 +1,22 @@
+---
+// A reading group on the profile. The sections inside keep their own headings and anchors.
+interface Props {
+  id: string;
+  title: string;
+  lead: string;
+}
+
+const { id, title, lead } = Astro.props;
+---
+
+<section aria-labelledby={id} class="scroll-mt-32">
+  <header class="max-w-2xl border-b border-border pb-3">
+    <h2 id={id} class="text-sm font-bold tracking-[0.08em] text-primary uppercase">
+      {title}
+    </h2>
+    <p class="mt-1 text-sm leading-relaxed text-muted-foreground">{lead}</p>
+  </header>
+  <div class="mt-6 space-y-8">
+    <slot />
+  </div>
+</section>

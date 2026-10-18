@@ -219,6 +219,17 @@ function profileBody(region: RegionCase, year: number) {
         ],
         narrative: ['Belanja pegawai menyerap bagian terbesar dari belanja daerah.'],
       },
+      expenditure_by_function: {
+        year: 2024,
+        status: 'unavailable',
+        total_budget_amount: null,
+        total_realization_amount: null,
+        by_function: [],
+        narrative: [
+          'Data DJPK tahun 2024 tidak memuat realisasi belanja menurut fungsi untuk daerah ini.',
+          'Ini realisasi menurut fungsi (urusan) belanja, bukan pagu anggaran.',
+        ],
+      },
       natural_resources: complete
         ? {
             status: 'complete',

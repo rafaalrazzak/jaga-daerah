@@ -50,9 +50,9 @@ const people = (pair: CandidatePair, electionData: Election): [CandidatePerson, 
   ) : null}
   <ul class="grid gap-4 lg:grid-cols-2">
     {election.pairs.map((pair) => (
-      <li class="flex flex-col rounded-2xl border border-border bg-card p-5 sm:p-6">
+      <li class="rounded-2xl border border-border bg-card p-5 sm:p-6 flex flex-col">
         <div class="flex items-center justify-between gap-3">
-          <span class="rounded-full bg-secondary px-3 py-1 text-xs font-bold">
+          <span class="inline-flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-foreground">
             {pair.number === null ? 'Tanpa nomor urut' : `Nomor urut ${pair.number}`}
           </span>
           {pair.elected_source === null ? null : (
@@ -93,7 +93,7 @@ const people = (pair: CandidatePair, electionData: Election): [CandidatePerson, 
                   <button
                     type="button"
                     data-copy={person.name}
-                    class="inline-flex min-h-11 items-center rounded-full border border-border px-3 text-xs font-semibold hover:border-foreground"
+                    class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full font-semibold transition-colors px-3 text-xs border border-border bg-card hover:border-foreground"
                   >
                     Salin nama
                   </button>
@@ -101,7 +101,7 @@ const people = (pair: CandidatePair, electionData: Election): [CandidatePerson, 
                     href={ELHKPN_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="inline-flex min-h-11 items-center rounded-full bg-secondary px-3 text-xs font-semibold hover:bg-accent hover:text-primary"
+                    class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full font-semibold transition-colors px-3 text-xs bg-secondary hover:bg-accent hover:text-primary"
                   >
                     Cek LHKPN di KPK ↗<span class="sr-only"> (membuka tab baru)</span>
                   </a>
@@ -116,7 +116,9 @@ const people = (pair: CandidatePair, electionData: Election): [CandidatePerson, 
             <p class="text-xs text-muted-foreground">Partai pengusung</p>
             <ul class="mt-2 flex flex-wrap gap-1.5">
               {pair.parties.map((party) => (
-                <li class="rounded-full bg-secondary px-2.5 py-1 text-xs font-semibold">{party}</li>
+                <li class="inline-flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-foreground">
+                  {party}
+                </li>
               ))}
             </ul>
           </div>

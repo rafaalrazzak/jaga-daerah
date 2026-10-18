@@ -2,6 +2,7 @@
 import '@/styles/global.css';
 
 import Logo from '@/components/Logo.astro';
+import SiteFooter from '@/components/SiteFooter.astro';
 
 interface Props {
   title: string;
@@ -9,6 +10,12 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+const NAV = [
+  { href: '/#indonesia-sekarang', label: 'Kondisi terkini' },
+  { href: '/#peta', label: 'Telusuri peta' },
+  { href: '/#panduan', label: 'Cara membaca' },
+  { href: '/sumber', label: 'Sumber' },
+] as const;
 // `Astro.site` is undefined unless astro.config sets `site` from PUBLIC_SITE_URL (no domain is final
 // yet, PRD §16). Absolute URLs are emitted only when it is present, so a site-less build ships no
 // canonical or og:url pointing at a guessed host.
@@ -40,84 +47,96 @@ const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).href :
       Lewati ke konten utama
     </a>
 
-    <div class="bg-primary text-primary-foreground">
-      <p class="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-3 gap-y-1 px-4 py-2 text-center text-sm">
-        <span>
-          Data APBD dan dana bagi hasil SDA <strong>2025</strong> sudah tersedia.
-        </span>
+    <header class="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur">
+      <div class="mx-auto flex h-16 max-w-6xl items-center gap-3 px-4 sm:px-6">
         <a
-          href="/#peta"
-          class="inline-flex min-h-11 items-center rounded-full border border-current px-4 font-semibold hover:bg-black/15"
+          href="/"
+          class="inline-flex min-h-11 shrink-0 items-center"
+          aria-label="JagaDaerah, beranda"
         >
-          Lihat peta
-        </a>
-      </p>
-    </div>
-
-    <header class="sticky top-0 z-40 border-b border-border bg-card/95 backdrop-blur">
-      <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-        <a href="/" class="inline-flex min-h-11 items-center" aria-label="JagaDaerah, beranda">
           <Logo />
         </a>
-        <nav aria-label="Utama">
-          <ul class="flex items-center gap-1 text-sm font-semibold sm:gap-2">
-            <li class="hidden sm:block">
-              <a
-                href="/#peta"
-                class="inline-flex min-h-11 items-center rounded-full px-4 hover:bg-secondary"
-              >
-                Peta
-              </a>
-            </li>
-            <li class="hidden sm:block">
-              <a
-                href="/#panduan"
-                class="inline-flex min-h-11 items-center rounded-full px-4 hover:bg-secondary"
-              >
-                Panduan
-              </a>
-            </li>
+        <nav aria-label="Utama" class="ml-auto hidden items-center gap-1 lg:flex">
+          <ul class="flex items-center gap-1 text-sm font-semibold">
+            {NAV.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class="inline-flex min-h-11 items-center rounded-full px-3 whitespace-nowrap hover:bg-secondary"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
             <li>
               <a
                 href="/#cari"
-                class="inline-flex min-h-11 items-center rounded-full bg-primary px-5 text-primary-foreground hover:bg-primary/90"
+                class="inline-flex min-h-11 items-center rounded-full bg-primary px-4 whitespace-nowrap text-primary-foreground hover:bg-primary/90"
               >
-                Cari daerah
+                Pilih daerah
               </a>
             </li>
           </ul>
         </nav>
+        <details id="menu-situs" class="group relative ml-auto lg:hidden">
+          <summary class="flex min-h-11 cursor-pointer list-none items-center gap-2 rounded-full border border-border px-3 text-sm font-semibold [&::-webkit-details-marker]:hidden">
+            <svg viewBox="0 0 20 20" class="size-5 group-open:hidden" aria-hidden="true">
+              <path fill="currentColor" d="M3 5.5h14v1.5H3zm0 4h14v1.5H3zm0 4h14V15H3z"></path>
+            </svg>
+            <svg viewBox="0 0 20 20" class="hidden size-5 group-open:block" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M5.1 3.9 10 8.8l4.9-4.9 1.2 1.2L11.2 10l4.9 4.9-1.2 1.2L10 11.2l-4.9 4.9-1.2-1.2L8.8 10 3.9 5.1z"
+              ></path>
+            </svg>
+            Menu
+          </summary>
+          <div class="absolute right-0 z-50 mt-2 w-[min(18rem,calc(100vw-2rem))] rounded-2xl border border-border bg-background p-2 shadow-lg">
+            <ul class="grid text-sm font-semibold">
+              {NAV.map((item) => (
+                <li>
+                  <a
+                    href={item.href}
+                    class="flex min-h-11 items-center rounded-xl px-3 whitespace-nowrap hover:bg-secondary"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <a
+              href="/#cari"
+              class="mt-1 flex min-h-11 items-center justify-center rounded-full bg-primary px-4 font-semibold whitespace-nowrap text-primary-foreground hover:bg-primary/90"
+            >
+              Pilih daerah
+            </a>
+          </div>
+        </details>
       </div>
+      <script>
+        const menu = document.querySelector('#menu-situs');
+        if (menu instanceof HTMLDetailsElement) {
+          for (const link of menu.querySelectorAll('a')) {
+            link.addEventListener('click', () => {
+              menu.open = false;
+            });
+          }
+          document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') menu.open = false;
+          });
+          document.addEventListener('click', (event) => {
+            if (!menu.open || !(event.target instanceof Node) || menu.contains(event.target))
+              return;
+            menu.open = false;
+          });
+        }
+      </script>
     </header>
 
     <main id="konten" tabindex="-1">
       <slot />
     </main>
 
-    <footer class="mt-24 border-t border-border bg-card">
-      <div class="mx-auto grid max-w-6xl gap-8 px-4 py-12 text-sm text-muted-foreground sm:px-6 md:grid-cols-[auto_minmax(0,1fr)]">
-        <a href="/" class="text-foreground" aria-label="JagaDaerah, beranda">
-          <Logo />
-        </a>
-        <div class="space-y-2 md:max-w-3xl">
-          <p>
-            JagaDaerah menyajikan data resmi apa adanya dan tidak menilai kinerja pemerintah daerah.
-          </p>
-          <p>
-            Sumber: kode wilayah Kepmendagri No. 300.2.2-2138 jo. 300.2.2-2430 Tahun 2025; APBD dan
-            TKDD dari DJPK Kemenkeu; kebencanaan dari BNPB; pasangan calon Pilkada 2024 dari KPU;
-            batas wilayah peta dari
-            <a
-              href="https://github.com/cahyadsn/wilayah_boundaries"
-              class="underline underline-offset-4"
-              rel="noopener noreferrer"
-            >
-              cahyadsn/wilayah_boundaries
-            </a>{' '}
-            (MIT), disederhanakan untuk tampilan.
-          </p>
-        </div>
-      </div>
-    </footer>
+    <SiteFooter />
   </body>
 </html>

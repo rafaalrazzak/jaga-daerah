@@ -54,14 +54,14 @@ export function ProfileSummary({ profile }: { profile: RegionProfile }) {
           <li key={tile.href}>
             <a
               href={tile.href}
-              className="group flex h-full flex-col rounded-2xl border border-border bg-card p-4 transition-colors hover:border-foreground"
+              className="rounded-2xl border border-border bg-card p-5 sm:p-6 group flex h-full flex-col transition-colors hover:border-foreground"
             >
               <span className="text-sm text-muted-foreground">{tile.label}</span>
-              <span className="mt-1 font-extrabold tracking-tight text-3xl tabular-nums">
+              <span className="text-[1.75rem] leading-tight font-extrabold tracking-tight tabular-nums [overflow-wrap:anywhere] mt-1">
                 {tile.value}
               </span>
               <span className="mt-1 text-sm text-muted-foreground">{tile.detail}</span>
-              <span className="mt-3 text-sm font-semibold text-primary group-hover:underline group-hover:underline-offset-4">
+              <span className="mt-auto pt-3 text-sm font-semibold text-primary group-hover:underline group-hover:underline-offset-4">
                 Lihat penjelasan <span aria-hidden="true">↓</span>
               </span>
             </a>

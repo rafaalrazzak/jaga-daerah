@@ -85,13 +85,13 @@ for (const correction of office?.corrections ?? []) {
 }
 ---
 
-<section aria-labelledby="pejabat-menjabat" class="scroll-mt-24 space-y-5">
-  <div class="flex flex-wrap items-end justify-between gap-x-4 gap-y-1">
+<section aria-labelledby="pejabat-menjabat" class="scroll-mt-32 space-y-5">
+  <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
     <h2 id="pejabat-menjabat" class="text-2xl font-extrabold tracking-[-0.03em] sm:text-3xl">
       Pejabat yang menjabat
     </h2>
     {office ? (
-      <p class="rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-muted-foreground">
+      <p class="inline-flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-muted-foreground">
         {office.since ? `Sejak ${formatDate(`${office.since}T00:00:00+07:00`)}` : 'Masa jabatan'}
         {until ? ` · berakhir ${formatDate(`${until}T00:00:00+07:00`)}` : ''}
       </p>
@@ -99,18 +99,18 @@ for (const correction of office?.corrections ?? []) {
   </div>
 
   {office === undefined ? (
-    <p class="rounded-2xl border border-border bg-card p-6 text-muted-foreground">
+    <p class="rounded-2xl border border-border bg-card p-5 sm:p-6 text-muted-foreground">
       Data pejabat untuk daerah ini belum tersedia.
     </p>
   ) : (
     <ul class="grid gap-4 md:grid-cols-2">
       {seats.map(({ person, title, track }) =>
         person === null ? (
-          <li class="flex items-center rounded-2xl border border-dashed border-border bg-card p-6 text-muted-foreground">
+          <li class="rounded-2xl border border-border bg-card p-5 sm:p-6 flex items-center border-dashed text-muted-foreground">
             {title}: tidak ada / kosong saat data diperbarui.
           </li>
         ) : (
-          <li class="flex flex-col rounded-2xl border border-border bg-card p-5 sm:p-6">
+          <li class="rounded-2xl border border-border bg-card p-5 sm:p-6 flex flex-col">
             <div class="flex gap-4">
               {person.photo ? (
                 <img
@@ -151,29 +151,29 @@ for (const correction of office?.corrections ?? []) {
                 </p>
                 <div class="mt-2 flex flex-wrap gap-1.5">
                   {person.party ? (
-                    <span class="rounded-full bg-secondary px-2.5 py-1 text-xs font-semibold">
+                    <span class="inline-flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-foreground">
                       {person.party}
                     </span>
                   ) : null}
                   {person.acting ? (
-                    <span class="rounded-full bg-highlight px-2.5 py-1 text-xs font-semibold">
+                    <span class="inline-flex items-center gap-1.5 rounded-full bg-highlight px-3 py-1 text-xs font-semibold text-foreground">
                       Plt<span class="sr-only"> (pelaksana tugas)</span>
                     </span>
                   ) : null}
                   {track !== null ? (
-                    <span class="rounded-full bg-accent px-2.5 py-1 text-xs font-semibold text-primary">
+                    <span class="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-primary">
                       Cocok dengan daftar calon KPU
                     </span>
                   ) : administrative ? (
-                    <span class="rounded-full border border-border px-2.5 py-1 text-xs font-semibold text-muted-foreground">
+                    <span class="inline-flex items-center gap-1.5 rounded-full bg-transparent border border-border px-3 py-1 text-xs font-semibold text-muted-foreground">
                       Diangkat, bukan lewat Pilkada
                     </span>
                   ) : person.kpu !== null ? (
-                    <span class="rounded-full border border-border px-2.5 py-1 text-xs font-semibold text-muted-foreground">
+                    <span class="inline-flex items-center gap-1.5 rounded-full bg-transparent border border-border px-3 py-1 text-xs font-semibold text-muted-foreground">
                       Data pasangan calon KPU tidak ditemukan
                     </span>
                   ) : (
-                    <span class="rounded-full border border-border px-2.5 py-1 text-xs font-semibold text-muted-foreground">
+                    <span class="inline-flex items-center gap-1.5 rounded-full bg-transparent border border-border px-3 py-1 text-xs font-semibold text-muted-foreground">
                       Belum cocok dengan data KPU
                     </span>
                   )}
@@ -214,7 +214,7 @@ for (const correction of office?.corrections ?? []) {
               <button
                 type="button"
                 data-copy={person.name}
-                class="inline-flex min-h-11 items-center rounded-full border border-border px-3 text-xs font-semibold hover:border-foreground"
+                class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full font-semibold transition-colors px-3 text-xs border border-border bg-card hover:border-foreground"
               >
                 <span data-copy-label>Salin nama</span>
                 <span class="sr-only"> {person.name}</span>
@@ -223,7 +223,7 @@ for (const correction of office?.corrections ?? []) {
                 href={ELHKPN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex min-h-11 items-center rounded-full bg-primary px-3 text-xs font-semibold text-primary-foreground hover:bg-primary/90"
+                class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full font-semibold transition-colors px-3 text-xs bg-primary text-primary-foreground hover:bg-primary/90"
               >
                 Cek di e-LHKPN KPK ↗<span class="sr-only"> (membuka tab baru)</span>
               </a>

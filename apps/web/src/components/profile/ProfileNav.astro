@@ -1,0 +1,56 @@
+---
+// Grouped section index. Small screens jump by group. From `lg` up, each group lists its sections.
+interface Group {
+  id: string;
+  label: string;
+  sections: readonly (readonly [href: string, label: string])[];
+}
+
+interface Props {
+  groups: readonly Group[];
+}
+
+const { groups } = Astro.props;
+const linkClass = 'inline-flex min-h-11 items-center px-3 hover:bg-secondary';
+---
+
+<nav
+  aria-label="Bagian profil"
+  class="z-30 -mx-4 border-b border-border bg-background px-4 py-3 sm:-mx-6 sm:px-6 lg:sticky lg:top-24 lg:mx-0 lg:max-h-[calc(100vh-7rem)] lg:self-start lg:overflow-y-auto lg:border-0 lg:bg-transparent lg:px-0 lg:py-0"
+>
+  <p class="mb-2 hidden text-xs font-bold tracking-[0.08em] text-muted-foreground uppercase lg:block">
+    Di halaman ini
+  </p>
+
+  <ul class="flex flex-wrap gap-2 text-sm font-semibold lg:hidden">
+    {groups.map((group) => (
+      <li>
+        <a href={`#${group.id}`} class={`${linkClass} rounded-full border border-border bg-card`}>
+          {group.label}
+        </a>
+      </li>
+    ))}
+  </ul>
+
+  <ul class="hidden space-y-4 text-sm font-semibold lg:block">
+    {groups.map((group) => (
+      <li>
+        <a href={`#${group.id}`} class={`${linkClass} w-full rounded-xl`}>
+          {group.label}
+        </a>
+        <ul class="mt-0.5 space-y-0.5">
+          {group.sections.map(([href, label]) => (
+            <li>
+              <a
+                href={href}
+                class={`${linkClass} w-full rounded-xl font-medium text-muted-foreground`}
+              >
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </li>
+    ))}
+  </ul>
+</nav>

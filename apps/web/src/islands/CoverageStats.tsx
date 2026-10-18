@@ -16,11 +16,13 @@ export interface CoverageStatsProps {
 
 function Figure({ value, label }: { value: string; label: string }) {
   return (
-    <div className="flex items-baseline gap-3 border-t border-border py-4 first:border-t-0 sm:block sm:border-t-0 sm:border-l sm:px-6 sm:first:border-l-0 sm:first:pl-0">
-      <dt className="order-2 text-sm text-muted-foreground sm:mt-1">{label}</dt>
-      <dd className="order-1 text-3xl font-extrabold tracking-tight whitespace-nowrap tabular-nums sm:text-4xl">
+    <div className="flex min-w-0 flex-col items-center justify-center px-2 py-3 text-center sm:px-3 sm:py-1">
+      <dd className="order-1 whitespace-nowrap text-2xl leading-none font-semibold tracking-tight tabular-nums sm:text-3xl">
         {value}
       </dd>
+      <dt className="order-2 mt-1 min-h-8 text-xs leading-tight text-muted-foreground sm:text-sm">
+        {label}
+      </dt>
     </div>
   );
 }
@@ -41,7 +43,7 @@ function Stats({ provinces, regions, client }: Required<Omit<CoverageStatsProps,
 
   return (
     <div>
-      <dl className="grid grid-cols-1 sm:grid-cols-4">
+      <dl className="grid grid-cols-2 divide-x divide-y divide-border sm:grid-cols-4 sm:divide-y-0">
         <Figure value={formatCount(live?.coverage.provinces ?? provinces)} label="provinsi" />
         <Figure value={formatCount(live?.coverage.regions ?? regions)} label="kabupaten/kota" />
         <Figure
@@ -50,12 +52,15 @@ function Stats({ provinces, regions, client }: Required<Omit<CoverageStatsProps,
         />
         <Figure value={yearRange} label="tahun anggaran" />
       </dl>
-      <p className="mt-3 text-sm text-muted-foreground" aria-live="polite">
+      <p
+        className="mt-2 border-t border-border pt-2 text-xs text-muted-foreground"
+        aria-live="polite"
+      >
         {live?.published_at
-          ? `Dataset ${live.dataset_version ?? ''} dipublikasikan ${formatDate(live.published_at)}.`
+          ? `Diperbarui ${formatDate(live.published_at)}.`
           : status.isError
-            ? 'Status dataset belum dapat dimuat.'
-            : 'Memuat status dataset…'}
+            ? 'Tanggal pembaruan belum tersedia.'
+            : 'Memuat tanggal pembaruan…'}
       </p>
     </div>
   );

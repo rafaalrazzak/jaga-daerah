@@ -23,6 +23,24 @@ function profileBody(slug: string, name: string, year: number, budget: Record<st
       year,
       available_years: [2025, 2024],
       budget,
+      expenditure_breakdown: {
+        status: 'unavailable',
+        total_budget_amount: null,
+        total_realization_amount: null,
+        by_type: [],
+        narrative: ['Data DJPK tidak memuat rincian belanja menurut jenis untuk daerah ini.'],
+      },
+      expenditure_by_function: {
+        year: 2024,
+        status: 'unavailable',
+        total_budget_amount: null,
+        total_realization_amount: null,
+        by_function: [],
+        narrative: [
+          'Data DJPK tahun 2024 tidak memuat realisasi belanja menurut fungsi untuk daerah ini.',
+          'Ini realisasi menurut fungsi (urusan) belanja, bukan pagu anggaran.',
+        ],
+      },
       natural_resources: {
         status: 'complete',
         total_budget_amount: '1215850000000.00',
@@ -142,7 +160,11 @@ test.describe('region profile', () => {
     await expect(page.getByText(/Rp89,8 ribu/)).toBeVisible();
     // The summary tile caption also contains the total ("dari anggaran Rp8,35 triliun"),
     // so match the amount element exactly.
-    await expect(page.getByText('Rp8,35 triliun', { exact: true })).toBeVisible();
+    await expect(
+      page
+        .getByRole('region', { name: 'Anggaran belanja daerah' })
+        .getByText('Rp8,35 triliun', { exact: true }),
+    ).toBeVisible();
     await expect(page.getByText(/Di bawah median nasional/)).toBeVisible();
     await expect(page.getByText('Data tingkat provinsi: Jawa Barat')).toBeVisible();
     // The per-type table lives inside a collapsed disclosure.

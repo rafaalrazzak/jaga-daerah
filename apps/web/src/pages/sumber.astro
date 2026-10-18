@@ -1,0 +1,50 @@
+---
+import Container from '@/components/ui/Container.astro';
+import ExternalLink from '@/components/ui/ExternalLink.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { SOURCE_CATALOG } from '@/lib/source-catalog';
+---
+
+<BaseLayout
+  title="Sumber data — JagaDaerah"
+  description="Penerbit, periode, dan tautan setiap data yang ditampilkan JagaDaerah, termasuk catatan yang membatasi angka itu."
+>
+  <Container as="section" class="max-w-3xl pt-10 pb-8">
+    <p class="text-xs font-bold tracking-[0.08em] text-muted-foreground uppercase">Sumber</p>
+    <h1 class="mt-3 text-4xl font-extrabold tracking-tight text-balance sm:text-5xl">
+      Data ini dari mana
+    </h1>
+    <p class="mt-5 text-lg text-muted-foreground">
+      Setiap angka di situs punya penerbit, periode, dan batas pemakaiannya. Angka yang tidak ada
+      dikosongkan, tidak diisi nol.
+    </p>
+  </Container>
+  {SOURCE_CATALOG.map((group) => (
+    <Container as="section" class="max-w-3xl py-4" aria-labelledby={group.id}>
+      <h2 id={group.id} class="text-2xl font-extrabold tracking-tight">
+        {group.title}
+      </h2>
+      <ul class="mt-4 space-y-3">
+        {group.sources.map((source) => (
+          <li class="rounded-2xl border border-border bg-card p-4">
+            <p class="text-xs font-bold tracking-[0.08em] text-muted-foreground uppercase">
+              {source.publisher}
+            </p>
+            <h3 class="mt-1 text-lg font-bold">{source.title}</h3>
+            <p class="mt-1 text-sm font-semibold">{source.period}</p>
+            <p class="mt-2 text-sm text-muted-foreground">{source.caveat}</p>
+            <ul class="mt-3 flex flex-wrap gap-x-4 gap-y-1">
+              {source.links.map((link) => (
+                <li>
+                  <ExternalLink href={link.href} button="soft" small>
+                    {link.label}
+                  </ExternalLink>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
+    </Container>
+  ))}
+</BaseLayout>

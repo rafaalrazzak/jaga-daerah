@@ -160,10 +160,7 @@ function RegionSearchCombobox({
         onKeyDown={onKeyDown}
         className="overflow-visible bg-transparent"
       >
-        <p aria-hidden="true" className="mb-2 text-sm font-semibold text-foreground">
-          Cari kabupaten atau kota
-        </p>
-        <div className="rounded-2xl border-2 border-foreground/85 bg-card transition-shadow focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/15">
+        <div className="overflow-hidden rounded-lg">
           <Command.Input
             ref={inputRef}
             value={query}
@@ -171,7 +168,7 @@ function RegionSearchCombobox({
             maxLength={80}
             placeholder="Contoh: Bandung, Sorong, Banda Aceh"
             aria-describedby={hintId}
-            className="h-14 text-lg"
+            className="h-14 text-base"
           />
           <Command.List
             label="Hasil pencarian daerah"

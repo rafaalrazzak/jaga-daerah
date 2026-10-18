@@ -5,6 +5,7 @@
 // debt) — never presented as current wealth, and never as an audit result (docs/decisions/0003).
 import type { LhkpnRegion } from '@jaga-daerah/contracts';
 
+import Disclosure from '@/components/ui/Disclosure.astro';
 import { formatDate, formatRupiahFull } from '@/lib/format';
 import { LHKPN } from '@/lib/lhkpn';
 
@@ -21,32 +22,31 @@ const record: LhkpnRegion | undefined = LHKPN.regions[regionCode];
 const history = record === undefined ? [] : [...record.reports].toReversed();
 ---
 
-<section aria-labelledby="harta-kekayaan" class="scroll-mt-24 space-y-6">
-  <div class="flex flex-wrap items-end justify-between gap-x-4 gap-y-1">
+<section aria-labelledby="harta-kekayaan" class="scroll-mt-32 space-y-5">
+  <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
     <h2 id="harta-kekayaan" class="text-2xl font-extrabold tracking-[-0.03em] sm:text-3xl">
       Harta kekayaan pejabat
     </h2>
-    <p class="rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-muted-foreground">
+    <p class="inline-flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-muted-foreground">
       Sumber: KPK e-LHKPN
     </p>
   </div>
 
   {record === undefined ? (
     <>
-      <p class="rounded-2xl border border-border bg-card p-6 text-muted-foreground">
-        Data harta kekayaan (LHKPN) untuk {regionName} belum tersedia. Angka harta hanya diumumkan
-        KPK, dan JagaDaerah menampilkannya setelah menyalin halaman pengumuman resmi secara manual.
-      </p>
-      <p class="text-sm">
+      <div class="rounded-2xl border border-border bg-card p-5 sm:p-6 flex flex-wrap items-center justify-between gap-4">
+        <p class="max-w-2xl text-muted-foreground">
+          Belum ada salinan pengumuman KPK untuk {regionName}. Angkanya tetap di situs KPK.
+        </p>
         <a
           href={ELHKPN_URL}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex min-h-11 items-center rounded-full bg-primary px-4 text-sm font-semibold text-primary-foreground hover:bg-primary/90"
+          class="inline-flex min-h-11 items-center justify-center gap-2 rounded-full font-semibold transition-colors px-4 text-sm bg-primary text-primary-foreground hover:bg-primary/90"
         >
           Cek di e-LHKPN KPK ↗<span class="sr-only"> (membuka tab baru)</span>
         </a>
-      </p>
+      </div>
     </>
   ) : (
     <>
@@ -63,7 +63,7 @@ const history = record === undefined ? [] : [...record.reports].toReversed();
         </p>
       </div>
 
-      <div class="rounded-2xl border border-border bg-accent/60 p-5">
+      <div class="rounded-2xl border border-border bg-card p-5 sm:p-6 border-primary/40 bg-accent/60">
         <p class="text-sm text-muted-foreground">
           Total harta kekayaan menurut KPK · tahun laporan {record.latest.year} · jabatan{' '}
           {record.latest.position}
@@ -91,7 +91,7 @@ const history = record === undefined ? [] : [...record.reports].toReversed();
         </h3>
         <ul class="space-y-3">
           {history.map((report) => (
-            <li class="rounded-2xl border border-border bg-card p-5">
+            <li class="rounded-2xl border border-border bg-card p-5 sm:p-6">
               <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
                 <p class="font-bold">
                   Tahun laporan {report.year} · {report.position}
@@ -118,40 +118,42 @@ const history = record === undefined ? [] : [...record.reports].toReversed();
         </ul>
       </div>
 
-      <div class="space-y-2 text-xs leading-relaxed text-muted-foreground">
-        <p>{record.notes}</p>
-        <p>
-          Sumber angka:{' '}
-          <a
-            href={LHKPN.source.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="underline underline-offset-2"
-          >
-            {LHKPN.source.publisher}, {LHKPN.source.title}
-          </a>
-          . JagaDaerah bukan penerbit angka ini, angka ini bukan hasil audit, dan tidak ada
-          kesimpulan apa pun tentang penggunaan anggaran yang ditarik darinya. Halaman pengumuman
-          disalin secara manual dari hasil pencarian e-Announcement; berkas simpanan{' '}
-          <span class="font-mono">{record.capture_file}</span> (SHA-256{' '}
-          <span class="font-mono">{record.capture_sha256.slice(0, 12)}…</span>) diunduh{' '}
-          {formatDate(record.downloaded_at)}.
-        </p>
-        <p>
-          Harta dan utang yang dideklarasikan disimpan KPK pada formulir LHKPN; yang ditampilkan di
-          sini hanya total bersih yang KPK sendiri publikasikan, dan rincian aset serta utang tidak
-          disalin. LHKPN bersifat tahunan, jadi satu angka mewakili periode 1 Januari–31 Desember
-          tahun laporan tersebut. Angka resmi lengkap:{' '}
-          <a
-            href={ELHKPN_URL}
-            class="underline underline-offset-2"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            e-LHKPN KPK ↗<span class="sr-only"> (membuka tab baru)</span>
-          </a>
-        </p>
-      </div>
+      <Disclosure summary="Tentang angka ini">
+        <div class="text-xs leading-5 text-muted-foreground space-y-2">
+          <p>{record.notes}</p>
+          <p>
+            Sumber angka:{' '}
+            <a
+              href={LHKPN.source.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="underline underline-offset-2"
+            >
+              {LHKPN.source.publisher}, {LHKPN.source.title}
+            </a>
+            . JagaDaerah bukan penerbit angka ini, angka ini bukan hasil audit, dan tidak ada
+            kesimpulan apa pun tentang penggunaan anggaran yang ditarik darinya. Halaman pengumuman
+            disalin secara manual dari hasil pencarian e-Announcement; berkas simpanan{' '}
+            <span class="font-mono">{record.capture_file}</span> (SHA-256{' '}
+            <span class="font-mono">{record.capture_sha256.slice(0, 12)}…</span>) diunduh{' '}
+            {formatDate(record.downloaded_at)}.
+          </p>
+          <p>
+            Harta dan utang yang dideklarasikan disimpan KPK pada formulir LHKPN; yang ditampilkan
+            di sini hanya total bersih yang KPK sendiri publikasikan, dan rincian aset serta utang
+            tidak disalin. LHKPN bersifat tahunan, jadi satu angka mewakili periode 1 Januari–31
+            Desember tahun laporan tersebut. Angka resmi lengkap:{' '}
+            <a
+              href={ELHKPN_URL}
+              class="underline underline-offset-2"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              e-LHKPN KPK ↗<span class="sr-only"> (membuka tab baru)</span>
+            </a>
+          </p>
+        </div>
+      </Disclosure>
     </>
   )}
 </section>

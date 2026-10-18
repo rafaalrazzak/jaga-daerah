@@ -49,6 +49,24 @@ const PROFILE = {
         'Dari setiap Rp100 ribu anggaran belanja Kota Bandung tahun 2025, sekitar Rp89,8 ribu tercatat sudah direalisasikan.',
       ],
     },
+    expenditure_breakdown: {
+      status: 'unavailable',
+      total_budget_amount: null,
+      total_realization_amount: null,
+      by_type: [],
+      narrative: ['Data DJPK tidak memuat rincian belanja menurut jenis untuk daerah ini.'],
+    },
+    expenditure_by_function: {
+      year: 2024,
+      status: 'unavailable',
+      total_budget_amount: null,
+      total_realization_amount: null,
+      by_function: [],
+      narrative: [
+        'Data DJPK tahun 2024 tidak memuat realisasi belanja menurut fungsi untuk daerah ini.',
+        'Ini realisasi menurut fungsi (urusan) belanja, bukan pagu anggaran.',
+      ],
+    },
     natural_resources: {
       status: 'complete',
       total_budget_amount: '1215850000000.00',
