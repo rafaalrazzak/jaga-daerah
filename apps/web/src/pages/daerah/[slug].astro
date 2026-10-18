@@ -182,6 +182,20 @@ const GROUPS = [
               </dd>
             </div>
           </dl>
+          <div class="mt-4">
+            <a
+              href={`/bandingkan?daerah1=${region.slug}`}
+              class="inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-background px-4 text-sm font-semibold text-foreground hover:bg-secondary focus-visible:outline-3 focus-visible:outline-ring"
+            >
+              <svg viewBox="0 0 20 20" class="size-4 text-muted-foreground" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M6.3 3.3a1 1 0 011.4 0l3 3a1 1 0 01-1.4 1.4L8 6.4V13a1 1 0 11-2 0V6.4L4.7 7.7a1 1 0 01-1.4-1.4l3-3zm7.4 13.4a1 1 0 01-1.4 0l-3-3a1 1 0 011.4-1.4l1.3 1.3V7a1 1 0 112 0v6.6l1.3-1.3a1 1 0 011.4 1.4l-3 3z"
+                />
+              </svg>
+              Bandingkan dengan daerah lain
+            </a>
+          </div>
         </div>
         <div class="w-full max-w-sm md:justify-self-end">
           <ProvinceLocator
