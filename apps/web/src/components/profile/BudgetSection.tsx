@@ -1,6 +1,7 @@
 import type { BudgetModule, MedianComparison } from '@jaga-daerah/contracts';
 
 import { Section, Stat } from '@/components/ui/Primitives';
+import { Term } from '@/components/ui/Term';
 import { formatPercent, formatRupiahFull, formatRupiahShort } from '@/lib/format';
 
 const COMPARISON_TEXT: Record<MedianComparison, string> = {
@@ -104,6 +105,11 @@ export function BudgetSection({ budget, year }: { budget: BudgetModule; year: nu
             }
           />
         </dl>
+
+        <div className="grid gap-2 border-t border-border pt-4 sm:grid-cols-2">
+          <Term id="realisasi" />
+          <Term id="median-nasional" />
+        </div>
 
         <p className="text-xs leading-5 text-muted-foreground">
           Pembanding: median persentase realisasi seluruh kabupaten/kota yang datanya lengkap pada

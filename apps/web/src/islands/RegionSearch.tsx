@@ -11,6 +11,11 @@ import type { KeyboardEvent, ReactNode } from 'react';
 import { ApiError, apiClient } from '@/lib/api-client';
 import type { ApiClient } from '@/lib/api-client';
 import { createQueryClient, regionQueryKeys } from '@/lib/query-client';
+import { addRecentRegion, readRecentRegions, writeRecentRegions } from '@/lib/recent-regions';
+import type { RecentRegion } from '@/lib/recent-regions';
+import { currentCoordinates, findRegionAt, loadRegionBoundaries } from '@/lib/region-boundaries';
+import type { Coordinates, RegionBoundary } from '@/lib/region-boundaries';
+import { REGIONS } from '@/lib/regions';
 
 export const SEARCH_DEBOUNCE_MS = 275;
 
@@ -29,6 +34,9 @@ export interface RegionSearchProps {
   queryClient?: QueryClient;
   navigate?: (href: string) => void;
   debounceMs?: number;
+  /** Injectable for tests; production reads the browser geolocation API. */
+  locate?: () => Promise<Coordinates>;
+  loadBoundaries?: () => Promise<RegionBoundary[]>;
 }
 
 export function regionHref(region: Pick<RegionSummary, 'slug'>): string {
@@ -88,14 +96,54 @@ function errorMessage(error: unknown): string {
     : 'Terjadi kesalahan. Silakan coba lagi.';
 }
 
+function locationErrorMessage(error: unknown): string {
+  if (typeof error === 'object' && error !== null && 'code' in error) {
+    const code = (error as { code?: unknown }).code;
+    if (code === 1) return 'Izin lokasi ditolak. Anda tetap bisa mencari dengan nama daerah.';
+    if (code === 2)
+      return 'Lokasi tidak tersedia di perangkat ini. Coba lagi atau ketik nama daerah.';
+    if (code === 3) return 'Pencarian lokasi terlalu lama. Coba lagi atau ketik nama daerah.';
+  }
+  if (error instanceof Error && error.message !== '') {
+    return error.message;
+  }
+  return 'Lokasi tidak dapat dibaca. Coba lagi atau ketik nama daerah.';
+}
+
+function toRecent(region: RegionSummary): RecentRegion {
+  return {
+    code: region.code,
+    name: region.name,
+    slug: region.slug,
+    provinceName: region.province.name,
+  };
+}
+
+function localStorageOrNull(): Storage | null {
+  try {
+    return window.localStorage;
+  } catch {
+    // Browsers can deny storage access (for example in private mode with cookies blocked).
+    return null;
+  }
+}
+
 function RegionSearchCombobox({
   client,
   navigate,
   debounceMs,
+  locate,
+  loadBoundaries,
 }: Required<Omit<RegionSearchProps, 'queryClient'>>) {
   const hintId = useId();
   const [query, setQuery] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
+  const [recent, setRecent] = useState<RecentRegion[]>([]);
+  const [geo, setGeo] = useState<
+    | { status: 'idle' }
+    | { status: 'locating' }
+    | { status: 'message'; text: string; failed: boolean }
+  >({ status: 'idle' });
 
   // The input is server-rendered, so people can type before the island hydrates; adopt that text
   // instead of discarding it.
@@ -105,6 +153,81 @@ function RegionSearchCombobox({
       setQuery(typedBeforeHydration);
     }
   }, []);
+
+  useEffect(() => {
+    const storage = localStorageOrNull();
+    if (storage !== null) {
+      // localStorage is only available after hydration, so this is the bridge from that external
+      // store into React state; reading it during render would break hydration.
+      // oxlint-disable-next-line react/set-state-in-effect
+      setRecent(readRecentRegions(storage));
+    }
+  }, []);
+
+  function remember(region: RecentRegion) {
+    const next = addRecentRegion(recent, region);
+    setRecent(next);
+    const storage = localStorageOrNull();
+    if (storage !== null) writeRecentRegions(storage, next);
+  }
+
+  function clearRecent() {
+    setRecent([]);
+    const storage = localStorageOrNull();
+    if (storage !== null) writeRecentRegions(storage, []);
+  }
+
+  async function locateMe() {
+    setGeo({ status: 'locating' });
+    let point: Coordinates;
+    try {
+      point = await locate();
+    } catch (error) {
+      setGeo({ status: 'message', text: locationErrorMessage(error), failed: true });
+      return;
+    }
+
+    let boundaries: RegionBoundary[];
+    try {
+      boundaries = await loadBoundaries();
+    } catch {
+      setGeo({
+        status: 'message',
+        text: 'Batas wilayah tidak dapat dimuat. Coba lagi atau ketik nama daerah.',
+        failed: true,
+      });
+      return;
+    }
+
+    const match = findRegionAt(point.lon, point.lat, boundaries);
+    if (match === null) {
+      setGeo({
+        status: 'message',
+        text: 'Lokasi Anda tidak berada di dalam batas kabupaten/kota yang dikenal. Ketik nama daerah.',
+        failed: true,
+      });
+      return;
+    }
+
+    const region = REGIONS.find((entry) => entry.code === match.code);
+    if (region === undefined) {
+      setGeo({
+        status: 'message',
+        text: 'Daerah untuk lokasi ini belum tersedia. Ketik nama daerah.',
+        failed: true,
+      });
+      return;
+    }
+
+    remember(toRecent(region));
+    setGeo({
+      status: 'message',
+      text: match.exact ? `Membuka ${region.name}…` : `Daerah terdekat: ${region.name}…`,
+      failed: false,
+    });
+    navigate(regionHref(region));
+  }
+
   const [debouncedQuery] = useDebouncedValue(query, { wait: debounceMs });
 
   const current = normalize(query);
@@ -178,7 +301,10 @@ function RegionSearchCombobox({
               <Command.Item
                 key={region.code}
                 value={region.code}
-                onSelect={() => navigate(regionHref(region))}
+                onSelect={() => {
+                  remember(toRecent(region));
+                  navigate(regionHref(region));
+                }}
                 className="flex min-h-12 items-center justify-between gap-3 px-3 py-2"
               >
                 <span className="min-w-0">
@@ -201,6 +327,63 @@ function RegionSearchCombobox({
       <p id={hintId} className="mt-2 text-sm text-muted-foreground">
         Ketik minimal {SEARCH_QUERY_MIN_LENGTH} huruf. Data tingkat kabupaten/kota.
       </p>
+
+      <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1">
+        <button
+          type="button"
+          onClick={() => void locateMe()}
+          disabled={geo.status === 'locating'}
+          className="inline-flex min-h-11 items-center gap-1.5 rounded-full border border-border bg-card px-3 text-xs font-semibold text-foreground hover:bg-secondary disabled:opacity-60"
+        >
+          <span aria-hidden="true">◎</span>
+          {geo.status === 'locating' ? 'Mencari lokasi…' : 'Gunakan lokasi saya'}
+        </button>
+      </div>
+      {geo.status === 'message' ? (
+        <p
+          className={`mt-1 text-sm ${geo.failed ? 'text-foreground' : 'text-muted-foreground'}`}
+          role="status"
+          aria-live="polite"
+        >
+          {geo.text}
+        </p>
+      ) : null}
+
+      {recent.length > 0 ? (
+        <div className="mt-3 border-t border-border pt-3">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <p className="text-xs font-bold tracking-wider text-muted-foreground uppercase">
+              Terakhir dibuka
+            </p>
+            <button
+              type="button"
+              onClick={clearRecent}
+              className="inline-flex min-h-11 items-center rounded-sm text-xs font-semibold text-muted-foreground underline underline-offset-4 hover:text-foreground"
+            >
+              Hapus riwayat
+            </button>
+          </div>
+          <ul className="mt-1 flex flex-wrap gap-2">
+            {recent.map((region) => (
+              <li key={region.code}>
+                <button
+                  type="button"
+                  onClick={() => {
+                    remember(region);
+                    navigate(regionHref(region));
+                  }}
+                  className="inline-flex min-h-11 max-w-full items-center gap-1.5 rounded-full border border-border bg-card px-3 text-sm font-semibold text-foreground hover:bg-secondary"
+                >
+                  <span className="truncate">{region.name}</span>
+                  <span className="shrink-0 text-xs font-normal text-muted-foreground">
+                    {region.provinceName}
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
 
       <div className="mt-3 min-h-6 text-sm text-foreground" role="status" aria-live="polite">
         {state.status === 'loading' ? (
@@ -228,10 +411,18 @@ export default function RegionSearch({
   queryClient = defaultQueryClient,
   navigate = defaultNavigate,
   debounceMs = SEARCH_DEBOUNCE_MS,
+  locate = currentCoordinates,
+  loadBoundaries = loadRegionBoundaries,
 }: RegionSearchProps) {
   return (
     <QueryClientProvider client={queryClient}>
-      <RegionSearchCombobox client={client} navigate={navigate} debounceMs={debounceMs} />
+      <RegionSearchCombobox
+        client={client}
+        navigate={navigate}
+        debounceMs={debounceMs}
+        locate={locate}
+        loadBoundaries={loadBoundaries}
+      />
     </QueryClientProvider>
   );
 }

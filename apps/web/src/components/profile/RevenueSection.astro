@@ -1,6 +1,7 @@
 ---
 import ExternalLink from '@/components/ui/ExternalLink.astro';
 import Section from '@/components/ui/Section.astro';
+import { Term } from '@/components/ui/Term';
 import { table } from '@/components/ui/styles';
 import { formatRupiahFull, formatRupiahShort } from '@/lib/format';
 import { REVENUE } from '@/lib/revenue';
@@ -70,6 +71,10 @@ const labels = REVENUE.labels;
       </table>
     </div>
   )}
+  <div class="grid gap-2 border-t border-border pt-4 sm:grid-cols-2">
+    <Term id="pad" />
+    <Term id="transfer" />
+  </div>
   <p slot="source" class="text-sm text-muted-foreground">
     Sumber:{' '}
     <ExternalLink href={REVENUE.source.url}>

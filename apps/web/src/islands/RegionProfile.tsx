@@ -251,6 +251,8 @@ function ProfileContent({
               sources={profile.data.data.sources}
               datasetVersion={profile.data.meta.dataset_version}
               publishedAt={profile.data.data.published_at}
+              profile={profile.data.data}
+              regionSlug={slug}
             />
           ) : null}
         </>

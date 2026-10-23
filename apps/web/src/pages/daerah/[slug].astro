@@ -4,6 +4,7 @@ import type { RegionSummary } from '@jaga-daerah/contracts';
 import CopyNameScript from '@/components/profile/CopyNameScript.astro';
 import AuditOpinionSection from '@/components/profile/AuditOpinionSection.astro';
 import CurrentOfficials from '@/components/profile/CurrentOfficials.astro';
+import GlossarySection from '@/components/profile/GlossarySection.astro';
 import LandCoverSection from '@/components/profile/LandCoverSection.astro';
 import LocalServicesSection from '@/components/profile/LocalServicesSection.astro';
 import SanitationSection from '@/components/profile/SanitationSection.astro';
@@ -116,7 +117,10 @@ const GROUPS = [
     id: 'kelompok-sumber',
     label: 'Sumber',
     lead: 'Tautan ke publikasi aslinya.',
-    sections: [['#sumber-data', 'Sumber data']],
+    sections: [
+      ['#sumber-data', 'Sumber data'],
+      ['#glosarium', 'Glosarium'],
+    ],
   },
 ] as const;
 ---
@@ -191,6 +195,18 @@ const GROUPS = [
             <div class="mt-4 flex flex-wrap items-center gap-2">
               <PinRegionButton client:load region={region} />
               <ShareCard client:load region={region} />
+              <a
+                href="#unduh-data"
+                class="inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-background px-4 text-sm font-semibold text-foreground hover:bg-secondary focus-visible:outline-3 focus-visible:outline-ring"
+              >
+                <svg viewBox="0 0 20 20" class="size-4 text-muted-foreground" aria-hidden="true">
+                  <path
+                    fill="currentColor"
+                    d="M10 2a1 1 0 011 1v7.6l2.3-2.3a1 1 0 011.4 1.4l-4 4a1 1 0 01-1.4 0l-4-4a1 1 0 011.4-1.4L9 10.6V3a1 1 0 011-1zM3 15a1 1 0 112 0v1h10v-1a1 1 0 112 0v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z"
+                  />
+                </svg>
+                Unduh data
+              </a>
               <a
                 href={`/bandingkan?daerah1=${region.slug}`}
                 class="inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-background px-4 text-sm font-semibold text-foreground hover:bg-secondary focus-visible:outline-3 focus-visible:outline-ring"
@@ -316,6 +332,7 @@ const GROUPS = [
         </ProfileGroup>
 
         <ProfileGroup id="kelompok-sumber" title="Sumber" lead={GROUPS[5].lead}>
+          <GlossarySection />
           <RegionProfile
             client:load
             segment="sources"

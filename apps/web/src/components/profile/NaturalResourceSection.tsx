@@ -2,6 +2,7 @@ import { cn } from '@almach/utils';
 import type { NaturalResourceModule } from '@jaga-daerah/contracts';
 
 import { ExternalLink, Note, Section, Stat } from '@/components/ui/Primitives';
+import { Term } from '@/components/ui/Term';
 import { formatRupiahFull, formatRupiahShort } from '@/lib/format';
 import { table } from '@/components/ui/styles';
 
@@ -58,6 +59,11 @@ export function NaturalResourceSection({
         Bagian penerimaan negara yang ditransfer ke {regionName}. Daerah yang bukan penghasil pun
         bisa menerima bagian dari provinsinya.
       </Note>
+
+      <div className="grid gap-2">
+        <Term id="dbh-sda" />
+        <Term id="transfer" />
+      </div>
 
       <div className="rounded-2xl border border-border bg-card p-5 sm:p-6 space-y-6">
         {resources.narrative.slice(0, 1).map((sentence) => (

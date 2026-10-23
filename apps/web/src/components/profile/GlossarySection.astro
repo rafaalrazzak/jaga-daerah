@@ -1,0 +1,32 @@
+---
+import Section from '@/components/ui/Section.astro';
+import { GLOSSARY } from '@/lib/glossary';
+---
+
+<Section
+  id="glosarium"
+  title="Glosarium"
+  meta="Istilah di halaman ini"
+  lead="Arti singkat istilah yang muncul di profil, ditulis tanpa penilaian kinerja."
+>
+  <dl class="grid gap-4 sm:grid-cols-2">
+    {GLOSSARY.map((entry) => (
+      <div
+        id={`glosarium-${entry.id}`}
+        class="scroll-mt-32 rounded-2xl border border-border bg-card p-5 sm:p-6"
+      >
+        <dt class="font-semibold tracking-tight">{entry.label}</dt>
+        <dd class="mt-1 text-sm leading-relaxed text-muted-foreground">
+          {entry.definition}
+          {entry.note === undefined ? null : (
+            <span class="mt-1 block text-muted-foreground">{entry.note}</span>
+          )}
+        </dd>
+      </div>
+    ))}
+  </dl>
+  <p class="text-sm leading-relaxed text-muted-foreground">
+    Kosong berarti sumber belum melaporkan angka, bukan nol. Setiap angka di profil memakai tahun
+    dan tingkat wilayah yang tertulis di judul bagiannya.
+  </p>
+</Section>

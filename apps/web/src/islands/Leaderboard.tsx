@@ -1,7 +1,10 @@
+import { GraduationCap, Hospital, Scale, TriangleAlert, X } from 'lucide-react';
 import { useMemo, useState } from 'react';
 
 import { AUDIT_OPINIONS } from '@/lib/audit-opinions';
 import { formatCount } from '@/lib/format';
+import { compareMetric, formatRate, perTenThousand } from '@/lib/leaderboard';
+import type { LeaderboardBasis } from '@/lib/leaderboard';
 import { LOCAL_SERVICES } from '@/lib/local-services';
 import { NATURE } from '@/lib/nature';
 import { REGIONS } from '@/lib/regions';
@@ -21,11 +24,30 @@ interface LeaderboardItem {
   auditOpinion: string;
 }
 
+function totalFor(item: LeaderboardItem, tab: LeaderboardTab): number {
+  if (tab === 'rumah-sakit') return item.hospitalTotal;
+  if (tab === 'sekolah') return item.schoolTotal;
+  if (tab === 'bencana') return item.disasterTotal;
+  return 0;
+}
+
+function TabIcon({ tab }: { tab: LeaderboardTab }) {
+  const className = 'size-4 shrink-0';
+  if (tab === 'rumah-sakit') return <Hospital className={className} aria-hidden="true" />;
+  if (tab === 'sekolah') return <GraduationCap className={className} aria-hidden="true" />;
+  if (tab === 'bencana') return <TriangleAlert className={className} aria-hidden="true" />;
+  return <Scale className={className} aria-hidden="true" />;
+}
+
 export default function Leaderboard() {
   const [activeTab, setActiveTab] = useState<LeaderboardTab>('rumah-sakit');
   const [selectedProvince, setSelectedProvince] = useState<string>('ALL');
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [sortDescending, setSortDescending] = useState<boolean>(true);
+  // Opini is a label, not a count, so it has no per-capita form.
+  const [basis, setBasis] = useState<LeaderboardBasis>('total');
+  const rateAvailable = activeTab !== 'opini';
+  const useRate = rateAvailable && basis === 'per-10000';
 
   // Provinces list
   const provinces = useMemo(() => {
@@ -85,24 +107,20 @@ export default function Leaderboard() {
       );
     }
 
-    const direction = sortDescending ? -1 : 1;
-
     return filtered.toSorted((a, b) => {
-      if (activeTab === 'rumah-sakit') {
-        return (a.hospitalTotal - b.hospitalTotal) * direction;
+      if (activeTab === 'opini') {
+        // Opini: WTP first
+        const weightA = a.auditOpinion === 'WTP' ? 3 : a.auditOpinion === 'WDP' ? 2 : 1;
+        const weightB = b.auditOpinion === 'WTP' ? 3 : b.auditOpinion === 'WDP' ? 2 : 1;
+        return (weightA - weightB) * (sortDescending ? -1 : 1);
       }
-      if (activeTab === 'sekolah') {
-        return (a.schoolTotal - b.schoolTotal) * direction;
-      }
-      if (activeTab === 'bencana') {
-        return (a.disasterTotal - b.disasterTotal) * direction;
-      }
-      // Opini: WTP first
-      const weightA = a.auditOpinion === 'WTP' ? 3 : a.auditOpinion === 'WDP' ? 2 : 1;
-      const weightB = b.auditOpinion === 'WTP' ? 3 : b.auditOpinion === 'WDP' ? 2 : 1;
-      return (weightA - weightB) * direction;
+      const value = (item: LeaderboardItem) =>
+        useRate
+          ? perTenThousand(totalFor(item, activeTab), item.population)
+          : totalFor(item, activeTab);
+      return compareMetric(value(a), value(b), sortDescending);
     });
-  }, [allItems, selectedProvince, searchQuery, activeTab, sortDescending]);
+  }, [allItems, selectedProvince, searchQuery, activeTab, sortDescending, useRate]);
 
   return (
     <div className="space-y-6">
@@ -111,46 +129,50 @@ export default function Leaderboard() {
         <button
           type="button"
           onClick={() => setActiveTab('rumah-sakit')}
-          className={`min-h-11 rounded-full px-4 text-xs font-bold transition-all sm:text-sm ${
+          className={`inline-flex min-h-11 items-center gap-2 rounded-full px-4 text-xs font-bold transition-all sm:text-sm ${
             activeTab === 'rumah-sakit'
               ? 'bg-primary text-primary-foreground shadow-xs'
               : 'border border-border bg-card text-foreground hover:bg-secondary'
           }`}
         >
-          🏥 Rumah Sakit
+          <TabIcon tab="rumah-sakit" />
+          Rumah Sakit
         </button>
         <button
           type="button"
           onClick={() => setActiveTab('sekolah')}
-          className={`min-h-11 rounded-full px-4 text-xs font-bold transition-all sm:text-sm ${
+          className={`inline-flex min-h-11 items-center gap-2 rounded-full px-4 text-xs font-bold transition-all sm:text-sm ${
             activeTab === 'sekolah'
               ? 'bg-primary text-primary-foreground shadow-xs'
               : 'border border-border bg-card text-foreground hover:bg-secondary'
           }`}
         >
-          🎓 Fasilitas Sekolah
+          <TabIcon tab="sekolah" />
+          Fasilitas Sekolah
         </button>
         <button
           type="button"
           onClick={() => setActiveTab('bencana')}
-          className={`min-h-11 rounded-full px-4 text-xs font-bold transition-all sm:text-sm ${
+          className={`inline-flex min-h-11 items-center gap-2 rounded-full px-4 text-xs font-bold transition-all sm:text-sm ${
             activeTab === 'bencana'
               ? 'bg-primary text-primary-foreground shadow-xs'
               : 'border border-border bg-card text-foreground hover:bg-secondary'
           }`}
         >
-          🚨 Bencana (BNPB 2024)
+          <TabIcon tab="bencana" />
+          Bencana (BNPB 2024)
         </button>
         <button
           type="button"
           onClick={() => setActiveTab('opini')}
-          className={`min-h-11 rounded-full px-4 text-xs font-bold transition-all sm:text-sm ${
+          className={`inline-flex min-h-11 items-center gap-2 rounded-full px-4 text-xs font-bold transition-all sm:text-sm ${
             activeTab === 'opini'
               ? 'bg-primary text-primary-foreground shadow-xs'
               : 'border border-border bg-card text-foreground hover:bg-secondary'
           }`}
         >
-          ⚖️ Opini LKPD BPK RI
+          <TabIcon tab="opini" />
+          Opini LKPD BPK RI
         </button>
       </div>
 
@@ -191,31 +213,75 @@ export default function Leaderboard() {
               <button
                 type="button"
                 onClick={() => setSearchQuery('')}
+                aria-label="Hapus kata kunci pencarian"
                 className="absolute inset-y-0 right-0 flex items-center pr-3 text-muted-foreground hover:text-foreground"
               >
-                ✕
+                <X className="size-4" aria-hidden="true" />
               </button>
             )}
           </div>
         </div>
 
-        {/* Sort order toggle */}
-        <button
-          type="button"
-          onClick={() => setSortDescending(!sortDescending)}
-          className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-xl border border-border bg-background px-3.5 text-xs font-semibold text-foreground hover:bg-secondary"
-        >
-          <span>Urutan:</span>
-          <span className="font-bold text-primary">
-            {sortDescending ? 'Tertinggi ↓' : 'Terendah ↑'}
-          </span>
-        </button>
+        {/* Ranking basis and sort order */}
+        <div className="flex flex-wrap items-center gap-2">
+          {rateAvailable ? (
+            <div
+              role="group"
+              aria-label="Dasar peringkat"
+              className="inline-flex rounded-xl border border-border bg-background p-0.5"
+            >
+              <button
+                type="button"
+                aria-pressed={!useRate}
+                onClick={() => setBasis('total')}
+                className={`min-h-11 rounded-[10px] px-3 text-xs font-semibold transition-colors ${
+                  useRate
+                    ? 'text-muted-foreground hover:text-foreground'
+                    : 'bg-secondary text-foreground'
+                }`}
+              >
+                Total
+              </button>
+              <button
+                type="button"
+                aria-pressed={useRate}
+                onClick={() => setBasis('per-10000')}
+                className={`min-h-11 rounded-[10px] px-3 text-xs font-semibold transition-colors ${
+                  useRate
+                    ? 'bg-secondary text-foreground'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                per 10.000 penduduk
+              </button>
+            </div>
+          ) : null}
+
+          <button
+            type="button"
+            onClick={() => setSortDescending(!sortDescending)}
+            className="inline-flex min-h-11 items-center justify-center gap-1.5 rounded-xl border border-border bg-background px-3.5 text-xs font-semibold text-foreground hover:bg-secondary"
+          >
+            <span>Urutan:</span>
+            <span className="font-bold text-primary">
+              {sortDescending ? 'Tertinggi ↓' : 'Terendah ↑'}
+            </span>
+          </button>
+        </div>
       </div>
 
       {/* Results Count Summary */}
-      <div className="flex items-center justify-between text-xs text-muted-foreground">
-        <span>Menampilkan {displayItems.length} daerah</span>
-        <span>Klik nama daerah untuk membuka profil lengkap & rincian APBD</span>
+      <div className="space-y-1 text-xs text-muted-foreground">
+        <div className="flex items-center justify-between gap-3">
+          <span>Menampilkan {displayItems.length} daerah</span>
+          <span>Klik nama daerah untuk membuka profil lengkap &amp; rincian APBD</span>
+        </div>
+        {useRate ? (
+          <p>
+            Angka per 10.000 penduduk memakai jumlah penduduk Dukcapil 31 Desember 2024. Daerah
+            tanpa angka penduduk diletakkan di bawah, bukan dianggap nol.
+          </p>
+        ) : null}
       </div>
 
       {/* Leaderboard Table / Cards */}
@@ -228,9 +294,12 @@ export default function Leaderboard() {
                 <th className="px-4 py-3">Kabupaten / Kota</th>
                 <th className="px-4 py-3">Provinsi</th>
                 <th className="px-4 py-3 text-right">
-                  {activeTab === 'rumah-sakit' && 'Total Rumah Sakit'}
-                  {activeTab === 'sekolah' && 'Total Sekolah'}
-                  {activeTab === 'bencana' && 'Kejadian Bencana 2024'}
+                  {activeTab === 'rumah-sakit' &&
+                    (useRate ? 'Rumah Sakit per 10.000 Penduduk' : 'Total Rumah Sakit')}
+                  {activeTab === 'sekolah' &&
+                    (useRate ? 'Sekolah per 10.000 Penduduk' : 'Total Sekolah')}
+                  {activeTab === 'bencana' &&
+                    (useRate ? 'Bencana per 10.000 Penduduk' : 'Kejadian Bencana 2024')}
                   {activeTab === 'opini' && 'Opini BPK RI'}
                 </th>
                 <th className="px-4 py-3 text-right hidden md:table-cell">Jumlah Penduduk</th>
@@ -240,6 +309,8 @@ export default function Leaderboard() {
             <tbody className="divide-y divide-border/50">
               {displayItems.slice(0, 100).map((item, idx) => {
                 const rank = idx + 1;
+                const total = totalFor(item, activeTab);
+                const rate = useRate ? perTenThousand(total, item.population) : null;
                 return (
                   <tr key={item.code} className="transition-colors hover:bg-secondary/40">
                     <td className="px-4 py-3 text-center font-bold">
@@ -269,10 +340,7 @@ export default function Leaderboard() {
                     </td>
                     <td className="px-4 py-3 text-muted-foreground">{item.provinceName}</td>
                     <td className="px-4 py-3 text-right font-extrabold text-foreground">
-                      {activeTab === 'rumah-sakit' && `${formatCount(item.hospitalTotal)} RS`}
-                      {activeTab === 'sekolah' && `${formatCount(item.schoolTotal)} Sekolah`}
-                      {activeTab === 'bencana' && `${formatCount(item.disasterTotal)} Kali`}
-                      {activeTab === 'opini' && (
+                      {activeTab === 'opini' ? (
                         <span
                           className={`rounded-md px-2 py-0.5 text-xs font-bold ${
                             item.auditOpinion === 'WTP'
@@ -284,6 +352,23 @@ export default function Leaderboard() {
                         >
                           {item.auditOpinion}
                         </span>
+                      ) : useRate ? (
+                        rate === null ? (
+                          <span className="font-medium text-muted-foreground">—</span>
+                        ) : (
+                          <>
+                            <span>{formatRate(rate)}</span>
+                            <span className="block text-[11px] font-medium text-muted-foreground">
+                              {formatCount(total)} total
+                            </span>
+                          </>
+                        )
+                      ) : activeTab === 'rumah-sakit' ? (
+                        `${formatCount(total)} RS`
+                      ) : activeTab === 'sekolah' ? (
+                        `${formatCount(total)} Sekolah`
+                      ) : (
+                        `${formatCount(total)} Kali`
                       )}
                     </td>
                     <td className="px-4 py-3 text-right text-muted-foreground hidden md:table-cell">

@@ -10,8 +10,11 @@ import userEvent from '@testing-library/user-event';
 import { ApiError } from '@/lib/api-client';
 import type { ApiClient } from '@/lib/api-client';
 import { createQueryClient } from '@/lib/query-client';
+import { RECENT_REGIONS_KEY } from '@/lib/recent-regions';
+import { parseRegionBoundaries } from '@/lib/region-boundaries';
 
 import RegionSearch from './RegionSearch';
+import type { RegionSearchProps } from './RegionSearch';
 
 // Testing Library's `screen` binds to document.body at import time, before happy-dom registers;
 // resolve it per call instead.
@@ -42,7 +45,10 @@ function fakeClient(respond: (query: string) => Promise<RegionSummary[]>) {
   return { client, calls };
 }
 
-function setup(respond: (query: string) => Promise<RegionSummary[]>) {
+function setup(
+  respond: (query: string) => Promise<RegionSummary[]>,
+  options: Pick<RegionSearchProps, 'locate' | 'loadBoundaries'> = {},
+) {
   const { client, calls } = fakeClient(respond);
   const navigate = mock((_href: string) => {});
   const user = userEvent.setup();
@@ -52,6 +58,7 @@ function setup(respond: (query: string) => Promise<RegionSummary[]>) {
       queryClient={createQueryClient()}
       navigate={navigate}
       debounceMs={20}
+      {...options}
     />,
   );
   return { calls, navigate, user, input: screen().getByRole('combobox') };
@@ -60,6 +67,7 @@ function setup(respond: (query: string) => Promise<RegionSummary[]>) {
 afterEach(() => {
   cleanup();
   onlineManager.setOnline(true);
+  window.localStorage.clear();
 });
 
 describe('RegionSearch', () => {
@@ -186,5 +194,87 @@ describe('RegionSearch', () => {
 
     await waitFor(() => expect(screen().getByRole('status').textContent).toContain('offline'));
     expect(calls).toHaveLength(0);
+  });
+
+  test('remembers the region opened from search', async () => {
+    const { user, input, navigate } = setup(async () => BANDUNG);
+
+    await user.type(input, 'band');
+    await screen().findAllByRole('option');
+    await user.keyboard('{Enter}');
+
+    expect(navigate).toHaveBeenCalledWith('/daerah/kabupaten-bandung');
+    const stored = JSON.parse(window.localStorage.getItem(RECENT_REGIONS_KEY) ?? '[]') as {
+      slug?: string;
+    }[];
+    expect(stored[0]?.slug).toBe('kabupaten-bandung');
+  });
+
+  test('shows recently opened regions and can clear them', async () => {
+    window.localStorage.setItem(
+      RECENT_REGIONS_KEY,
+      JSON.stringify([
+        {
+          code: '32.73',
+          name: 'Kota Bandung',
+          slug: 'kota-bandung',
+          provinceName: 'Jawa Barat',
+        },
+      ]),
+    );
+    const { user, navigate } = setup(async () => []);
+
+    const chip = await screen().findByRole('button', { name: /Kota Bandung/ });
+    await user.click(chip);
+    expect(navigate).toHaveBeenCalledWith('/daerah/kota-bandung');
+
+    await user.click(screen().getByRole('button', { name: 'Hapus riwayat' }));
+    expect(screen().queryByText('Terakhir dibuka')).toBeNull();
+    expect(window.localStorage.getItem(RECENT_REGIONS_KEY)).toBeNull();
+  });
+
+  test('opens the region containing the visitor location', async () => {
+    const boundaries = parseRegionBoundaries({
+      type: 'FeatureCollection',
+      features: [
+        {
+          type: 'Feature',
+          properties: { code: '32.73' },
+          geometry: {
+            type: 'Polygon',
+            coordinates: [
+              [
+                [106, -7],
+                [108, -7],
+                [108, -5],
+                [106, -5],
+                [106, -7],
+              ],
+            ],
+          },
+        },
+      ],
+    });
+    const { user, navigate } = setup(async () => [], {
+      locate: () => Promise.resolve({ lon: 107, lat: -6 }),
+      loadBoundaries: () => Promise.resolve(boundaries),
+    });
+
+    await user.click(screen().getByRole('button', { name: 'Gunakan lokasi saya' }));
+
+    await waitFor(() => expect(navigate).toHaveBeenCalledWith('/daerah/kota-bandung'));
+    expect(await screen().findByText(/Membuka Kota Bandung/)).toBeTruthy();
+  });
+
+  test('explains a denied location permission and keeps manual search available', async () => {
+    const { user } = setup(async () => [], {
+      locate: () => Promise.reject(Object.assign(new Error('denied'), { code: 1 })),
+      loadBoundaries: () => Promise.resolve([]),
+    });
+
+    await user.click(screen().getByRole('button', { name: 'Gunakan lokasi saya' }));
+
+    expect(await screen().findByText(/Izin lokasi ditolak/)).toBeTruthy();
+    expect(screen().getByRole('combobox')).toBeTruthy();
   });
 });

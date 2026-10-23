@@ -3,6 +3,7 @@ import type { AuditOpinionCode } from '@jaga-daerah/contracts';
 
 import ExternalLink from '@/components/ui/ExternalLink.astro';
 import Section from '@/components/ui/Section.astro';
+import { Term } from '@/components/ui/Term';
 import { AUDIT_OPINIONS } from '@/lib/audit-opinions';
 
 interface Props {
@@ -67,6 +68,10 @@ const MEANING: Record<AuditOpinionCode, string> = {
       </p>
     </div>
   )}
+  <div class="grid gap-2 border-t border-border pt-4 sm:grid-cols-2">
+    <Term id="opini-bpk" />
+    <Term id="wtp" />
+  </div>
   <p slot="source" class="text-sm text-muted-foreground">
     Opini ini tentang laporan keuangan, bukan tentang pejabat. Sumber:{' '}
     <ExternalLink href={AUDIT_OPINIONS.source.page}>Portal Data BPK</ExternalLink>.
