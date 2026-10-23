@@ -19,8 +19,12 @@ import Weather from '@/components/profile/Weather.astro';
 import Container from '@/components/ui/Container.astro';
 import LiveDot from '@/components/ui/LiveDot.astro';
 import LiveConditions from '@/islands/LiveConditions';
+import PinRegionButton from '@/islands/PinRegionButton';
+import PrintableReport from '@/components/profile/PrintableReport.astro';
 import ProvinceLocator from '@/islands/ProvinceLocator';
 import RegionProfile from '@/islands/RegionProfile';
+import ShareCard from '@/islands/ShareCard';
+import TaxCalculator from '@/islands/TaxCalculator';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { formatCount } from '@/lib/format';
 import { EXPENDITURE_FUNCTIONS } from '@/lib/expenditure-functions';
@@ -68,6 +72,7 @@ const GROUPS = [
     lead: 'Uang kas daerah. Bukan gaji warga.',
     sections: [
       ['#modul-anggaran', 'Anggaran'],
+      ['#tax-calc-heading', 'Kalkulator pajak'],
       ['#modul-rincian-belanja', 'Rincian belanja'],
       ['#modul-belanja-fungsi', 'Fungsi belanja'],
       ['#modul-pendapatan', 'Pendapatan'],
@@ -120,185 +125,208 @@ const GROUPS = [
   title={`${region.name}, ${region.province.name} — Anggaran, pejabat, dan risiko bencana | JagaDaerah`}
   description={`Kondisi terkini, pejabat yang menjabat, ringkasan anggaran belanja ${region.name}, dana bagi hasil sumber daya alam, dan kejadian bencana di Provinsi ${region.province.name}, dari data resmi.`}
 >
-  <div class="border-b border-border bg-card">
-    <Container class="py-6 sm:py-10">
-      <nav aria-label="Lokasi halaman" class="text-sm text-muted-foreground">
-        <ol class="flex flex-wrap items-center gap-1.5">
-          <li>
-            <a
-              href="/"
-              class="inline-flex min-h-11 items-center underline-offset-4 hover:text-foreground hover:underline"
-            >
-              Beranda
-            </a>
-          </li>
-          <li aria-hidden="true">/</li>
-          <li>Provinsi {region.province.name}</li>
-          <li aria-hidden="true">/</li>
-          <li aria-current="page" class="font-semibold text-foreground">
-            {region.name}
-          </li>
-        </ol>
-      </nav>
+  <div class="print:hidden">
+    <div class="border-b border-border bg-card">
+      <Container class="py-6 sm:py-10">
+        <nav aria-label="Lokasi halaman" class="text-sm text-muted-foreground">
+          <ol class="flex flex-wrap items-center gap-1.5">
+            <li>
+              <a
+                href="/"
+                class="inline-flex min-h-11 items-center underline-offset-4 hover:text-foreground hover:underline"
+              >
+                Beranda
+              </a>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li>Provinsi {region.province.name}</li>
+            <li aria-hidden="true">/</li>
+            <li aria-current="page" class="font-semibold text-foreground">
+              {region.name}
+            </li>
+          </ol>
+        </nav>
 
-      <div class="mt-4 grid items-center gap-8 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] md:gap-12">
-        <div>
-          <div class="flex flex-wrap gap-2">
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-primary">
-              {typeLabel}
-            </span>
-            <span class="inline-flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-muted-foreground">
-              Kode Kemendagri {region.code}
-            </span>
-            {administrative ? (
-              <span class="inline-flex items-center gap-1.5 rounded-full bg-highlight px-3 py-1 text-xs font-semibold text-foreground">
-                Daerah administrasi
+        <div class="mt-4 grid items-center gap-8 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] md:gap-12">
+          <div>
+            <div class="flex flex-wrap gap-2">
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-primary">
+                {typeLabel}
               </span>
-            ) : null}
-          </div>
-          <h1 class="mt-4 text-[clamp(2.25rem,7vw,4rem)] leading-[1.02] font-extrabold tracking-[-0.04em] text-balance">
-            {region.name}
-          </h1>
-          <p class="mt-2 text-lg text-muted-foreground">Provinsi {region.province.name}</p>
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-muted-foreground">
+                Kode Kemendagri {region.code}
+              </span>
+              {administrative ? (
+                <span class="inline-flex items-center gap-1.5 rounded-full bg-highlight px-3 py-1 text-xs font-semibold text-foreground">
+                  Daerah administrasi
+                </span>
+              ) : null}
+            </div>
+            <h1 class="mt-4 text-[clamp(2.25rem,7vw,4rem)] leading-[1.02] font-extrabold tracking-[-0.04em] text-balance">
+              {region.name}
+            </h1>
+            <p class="mt-2 text-lg text-muted-foreground">Provinsi {region.province.name}</p>
 
-          <dl class="mt-6 grid gap-4 sm:grid-cols-2">
-            <div class="rounded-2xl bg-secondary p-5 sm:p-6 py-4!">
-              <dt class="text-sm text-muted-foreground">{headTitle} yang menjabat</dt>
-              <dd class="mt-0.5 font-bold break-words">
-                {head === null ? 'Data belum tersedia' : head.name}
-                {head?.acting ? (
-                  <span class="inline-flex items-center gap-1.5 rounded-full bg-highlight px-3 py-1 text-xs font-semibold text-foreground ml-1">
-                    Plt
-                  </span>
-                ) : null}
-              </dd>
+            <dl class="mt-6 grid gap-4 sm:grid-cols-2">
+              <div class="rounded-2xl bg-secondary p-5 sm:p-6 py-4!">
+                <dt class="text-sm text-muted-foreground">{headTitle} yang menjabat</dt>
+                <dd class="mt-0.5 font-bold break-words">
+                  {head === null ? 'Data belum tersedia' : head.name}
+                  {head?.acting ? (
+                    <span class="inline-flex items-center gap-1.5 rounded-full bg-highlight px-3 py-1 text-xs font-semibold text-foreground ml-1">
+                      Plt
+                    </span>
+                  ) : null}
+                </dd>
+              </div>
+              <div class="rounded-2xl bg-secondary p-5 sm:p-6 py-4!">
+                <dt class="text-sm text-muted-foreground">Luas wilayah (BIG)</dt>
+                <dd class="mt-0.5 font-bold tabular-nums">
+                  {area === undefined
+                    ? 'Data belum tersedia'
+                    : `${formatCount(area.value)} ${area.unit}`}
+                </dd>
+              </div>
+            </dl>
+            <div class="mt-4 flex flex-wrap items-center gap-2">
+              <PinRegionButton client:load region={region} />
+              <ShareCard client:load region={region} />
+              <a
+                href={`/bandingkan?daerah1=${region.slug}`}
+                class="inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-background px-4 text-sm font-semibold text-foreground hover:bg-secondary focus-visible:outline-3 focus-visible:outline-ring"
+              >
+                <svg viewBox="0 0 20 20" class="size-4 text-muted-foreground" aria-hidden="true">
+                  <path
+                    fill="currentColor"
+                    d="M6.3 3.3a1 1 0 011.4 0l3 3a1 1 0 01-1.4 1.4L8 6.4V13a1 1 0 11-2 0V6.4L4.7 7.7a1 1 0 01-1.4-1.4l3-3zm7.4 13.4a1 1 0 01-1.4 0l-3-3a1 1 0 011.4-1.4l1.3 1.3V7a1 1 0 112 0v6.6l1.3-1.3a1 1 0 011.4 1.4l-3 3z"
+                  />
+                </svg>
+                Bandingkan
+              </a>
             </div>
-            <div class="rounded-2xl bg-secondary p-5 sm:p-6 py-4!">
-              <dt class="text-sm text-muted-foreground">Luas wilayah (BIG)</dt>
-              <dd class="mt-0.5 font-bold tabular-nums">
-                {area === undefined
-                  ? 'Data belum tersedia'
-                  : `${formatCount(area.value)} ${area.unit}`}
-              </dd>
-            </div>
-          </dl>
-          <div class="mt-4">
-            <a
-              href={`/bandingkan?daerah1=${region.slug}`}
-              class="inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-background px-4 text-sm font-semibold text-foreground hover:bg-secondary focus-visible:outline-3 focus-visible:outline-ring"
-            >
-              <svg viewBox="0 0 20 20" class="size-4 text-muted-foreground" aria-hidden="true">
-                <path
-                  fill="currentColor"
-                  d="M6.3 3.3a1 1 0 011.4 0l3 3a1 1 0 01-1.4 1.4L8 6.4V13a1 1 0 11-2 0V6.4L4.7 7.7a1 1 0 01-1.4-1.4l3-3zm7.4 13.4a1 1 0 01-1.4 0l-3-3a1 1 0 011.4-1.4l1.3 1.3V7a1 1 0 112 0v6.6l1.3-1.3a1 1 0 011.4 1.4l-3 3z"
-                />
-              </svg>
-              Bandingkan dengan daerah lain
-            </a>
+          </div>
+          <div class="w-full max-w-sm md:justify-self-end">
+            <ProvinceLocator
+              client:visible
+              regionCode={region.code}
+              regionName={region.name}
+              provinceName={region.province.name}
+            />
           </div>
         </div>
-        <div class="w-full max-w-sm md:justify-self-end">
-          <ProvinceLocator
-            client:visible
+      </Container>
+    </div>
+
+    <Container class="mt-6 sm:mt-8 lg:grid lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-8">
+      <ProfileNav groups={GROUPS} />
+
+      <div class="min-w-0 space-y-12 pt-6 lg:pt-0">
+        <ProfileGroup id="kelompok-sekarang" title="Sekarang" lead={GROUPS[0].lead}>
+          <section aria-labelledby="kondisi-terkini" class="scroll-mt-32 space-y-4">
+            <header class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+              <h2
+                id="kondisi-terkini"
+                class="text-2xl font-extrabold tracking-[-0.03em] sm:text-3xl"
+              >
+                Kondisi terkini
+              </h2>
+              <p class="inline-flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-muted-foreground">
+                <LiveDot /> Langsung dari BMKG · kabupaten/kota
+              </p>
+            </header>
+            <LiveConditions client:load slug={region.slug} regionName={region.name} />
+            <noscript>
+              <p class="rounded-2xl border border-border bg-card p-5 sm:p-6">
+                Kondisi terkini dimuat dengan JavaScript. Untuk peringatan dini resmi, buka
+                <a
+                  href="https://www.bmkg.go.id/"
+                  class="rounded-sm font-semibold text-primary underline underline-offset-4 hover:decoration-2"
+                >
+                  bmkg.go.id
+                </a>
+                .
+              </p>
+            </noscript>
+          </section>
+        </ProfileGroup>
+
+        <ProfileGroup id="kelompok-keuangan" title="Keuangan" lead={GROUPS[1].lead}>
+          <RegionProfile
+            client:load
+            segment="finance"
+            slug={region.slug}
+            regionName={region.name}
+            functionRows={functionRows}
+            functionSource={functionSource}
+          />
+          <noscript>
+            <p class="rounded-2xl border border-border bg-card p-5 text-sm sm:p-6">
+              Anggaran dan bencana dimuat dengan JavaScript.
+            </p>
+          </noscript>
+          <TaxCalculator client:visible slug={region.slug} regionName={region.name} />
+          <RevenueSection regionCode={region.code} regionName={region.name} />
+        </ProfileGroup>
+
+        <ProfileGroup id="kelompok-layanan" title="Layanan" lead={GROUPS[2].lead}>
+          <LocalServicesSection regionCode={region.code} regionName={region.name} />
+          <WelfareSection regionCode={region.code} regionName={region.name} />
+          <SanitationSection regionCode={region.code} regionName={region.name} />
+          <ProvinceSpreadSection
             regionCode={region.code}
             regionName={region.name}
             provinceName={region.province.name}
           />
-        </div>
+        </ProfileGroup>
+
+        <ProfileGroup id="kelompok-alam" title="Alam" lead={GROUPS[3].lead}>
+          <RegionProfile
+            client:load
+            segment="disaster"
+            slug={region.slug}
+            regionName={region.name}
+          />
+          <LandCoverSection
+            provinceCode={region.province.code}
+            provinceName={region.province.name}
+          />
+          <NatureConditions regionCode={region.code} regionName={region.name} />
+          <Weather regionCode={region.code} regionName={region.name} />
+        </ProfileGroup>
+
+        <ProfileGroup id="kelompok-pemerintahan" title="Pemerintahan" lead={GROUPS[4].lead}>
+          <CurrentOfficials
+            regionCode={region.code}
+            regionType={region.type}
+            administrative={administrative}
+          />
+          <AuditOpinionSection
+            regionCode={region.code}
+            regionName={region.name}
+            provinceCode={region.province.code}
+            provinceName={region.province.name}
+          />
+          <OfficialWealth regionCode={region.code} regionName={region.name} />
+          <Officials
+            regionCode={region.code}
+            regionName={region.name}
+            provinceCode={region.province.code}
+            provinceName={region.province.name}
+          />
+        </ProfileGroup>
+
+        <ProfileGroup id="kelompok-sumber" title="Sumber" lead={GROUPS[5].lead}>
+          <RegionProfile
+            client:load
+            segment="sources"
+            slug={region.slug}
+            regionName={region.name}
+          />
+        </ProfileGroup>
       </div>
     </Container>
   </div>
 
-  <Container class="mt-6 sm:mt-8 lg:grid lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-8">
-    <ProfileNav groups={GROUPS} />
-
-    <div class="min-w-0 space-y-12 pt-6 lg:pt-0">
-      <ProfileGroup id="kelompok-sekarang" title="Sekarang" lead={GROUPS[0].lead}>
-        <section aria-labelledby="kondisi-terkini" class="scroll-mt-32 space-y-4">
-          <header class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
-            <h2 id="kondisi-terkini" class="text-2xl font-extrabold tracking-[-0.03em] sm:text-3xl">
-              Kondisi terkini
-            </h2>
-            <p class="inline-flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1 text-xs font-semibold text-muted-foreground">
-              <LiveDot /> Langsung dari BMKG · kabupaten/kota
-            </p>
-          </header>
-          <LiveConditions client:load slug={region.slug} regionName={region.name} />
-          <noscript>
-            <p class="rounded-2xl border border-border bg-card p-5 sm:p-6">
-              Kondisi terkini dimuat dengan JavaScript. Untuk peringatan dini resmi, buka
-              <a
-                href="https://www.bmkg.go.id/"
-                class="rounded-sm font-semibold text-primary underline underline-offset-4 hover:decoration-2"
-              >
-                bmkg.go.id
-              </a>
-              .
-            </p>
-          </noscript>
-        </section>
-      </ProfileGroup>
-
-      <ProfileGroup id="kelompok-keuangan" title="Keuangan" lead={GROUPS[1].lead}>
-        <RegionProfile
-          client:load
-          segment="finance"
-          slug={region.slug}
-          regionName={region.name}
-          functionRows={functionRows}
-          functionSource={functionSource}
-        />
-        <noscript>
-          <p class="rounded-2xl border border-border bg-card p-5 text-sm sm:p-6">
-            Anggaran dan bencana dimuat dengan JavaScript.
-          </p>
-        </noscript>
-        <RevenueSection regionCode={region.code} regionName={region.name} />
-      </ProfileGroup>
-
-      <ProfileGroup id="kelompok-layanan" title="Layanan" lead={GROUPS[2].lead}>
-        <LocalServicesSection regionCode={region.code} regionName={region.name} />
-        <WelfareSection regionCode={region.code} regionName={region.name} />
-        <SanitationSection regionCode={region.code} regionName={region.name} />
-        <ProvinceSpreadSection
-          regionCode={region.code}
-          regionName={region.name}
-          provinceName={region.province.name}
-        />
-      </ProfileGroup>
-
-      <ProfileGroup id="kelompok-alam" title="Alam" lead={GROUPS[3].lead}>
-        <RegionProfile client:load segment="disaster" slug={region.slug} regionName={region.name} />
-        <LandCoverSection provinceCode={region.province.code} provinceName={region.province.name} />
-        <NatureConditions regionCode={region.code} regionName={region.name} />
-        <Weather regionCode={region.code} regionName={region.name} />
-      </ProfileGroup>
-
-      <ProfileGroup id="kelompok-pemerintahan" title="Pemerintahan" lead={GROUPS[4].lead}>
-        <CurrentOfficials
-          regionCode={region.code}
-          regionType={region.type}
-          administrative={administrative}
-        />
-        <AuditOpinionSection
-          regionCode={region.code}
-          regionName={region.name}
-          provinceCode={region.province.code}
-          provinceName={region.province.name}
-        />
-        <OfficialWealth regionCode={region.code} regionName={region.name} />
-        <Officials
-          regionCode={region.code}
-          regionName={region.name}
-          provinceCode={region.province.code}
-          provinceName={region.province.name}
-        />
-      </ProfileGroup>
-
-      <ProfileGroup id="kelompok-sumber" title="Sumber" lead={GROUPS[5].lead}>
-        <RegionProfile client:load segment="sources" slug={region.slug} regionName={region.name} />
-      </ProfileGroup>
-    </div>
-  </Container>
+  <PrintableReport region={region} />
   <CopyNameScript />
 </BaseLayout>

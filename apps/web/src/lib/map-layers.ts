@@ -3,15 +3,23 @@ import type { MapClass } from '@/lib/map';
 import { LOCAL_SERVICES } from '@/lib/local-services';
 import { REGIONS } from '@/lib/regions';
 
+import { NATURE } from '@/lib/nature';
+
 /** What the choropleth is showing. Electricity is the 2024 province ratio, painted on every kabupaten/kota in that province. */
-export type MapLayer = 'realisasi' | 'rumah-sakit' | 'sekolah' | 'listrik';
+export type MapLayer = 'realisasi' | 'bencana' | 'rumah-sakit' | 'sekolah' | 'listrik';
 
 export const MAP_LAYERS: readonly { key: MapLayer; label: string }[] = [
   { key: 'realisasi', label: 'Realisasi belanja' },
+  { key: 'bencana', label: 'Bencana' },
   { key: 'rumah-sakit', label: 'Rumah sakit' },
   { key: 'sekolah', label: 'Sekolah' },
   { key: 'listrik', label: 'Listrik' },
 ];
+
+export function disasterSnapshot(code: string): number | null {
+  const reg = NATURE.regions[code];
+  return reg?.events_by_year?.['2024'] ?? null;
+}
 
 export interface HospitalFigures {
   total: number;

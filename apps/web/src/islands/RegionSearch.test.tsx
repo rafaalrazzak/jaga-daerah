@@ -166,7 +166,7 @@ describe('RegionSearch', () => {
   test('cancels the superseded request when the query changes', async () => {
     const { user, input, calls } = setup(
       (query) =>
-        new Promise((resolve) => setTimeout(() => resolve(query === 'band' ? [] : BANDUNG), 80)),
+        new Promise((resolve) => setTimeout(() => resolve(query === 'band' ? [] : BANDUNG), 200)),
     );
 
     await user.type(input, 'band');

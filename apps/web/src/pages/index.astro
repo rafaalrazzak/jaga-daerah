@@ -6,6 +6,7 @@ import CoverageStats from '@/islands/CoverageStats';
 import IndonesiaNow from '@/islands/IndonesiaNow';
 import InteractiveMap from '@/islands/InteractiveMap';
 import RegionSearch from '@/islands/RegionSearch';
+import PinnedRegionBanner from '@/islands/PinnedRegionBanner';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { REGIONS } from '@/lib/regions';
 
@@ -21,6 +22,8 @@ const EXAMPLES = [
   title="JagaDaerah — Kenali daerahmu lewat data yang mudah dipahami"
   description="Cari daerahmu dan pahami anggaran, pejabat, serta catatan bencana dari sumber resmi, dijelaskan dengan konteks yang mudah diikuti."
 >
+  <PinnedRegionBanner client:load />
+
   <Container as="section" class="pt-8 pb-12 sm:pt-14 sm:pb-16">
     <div class="grid items-center gap-8 lg:grid-cols-[minmax(22rem,0.86fr)_minmax(0,1.14fr)] lg:gap-14">
       <div class="max-w-xl py-2 sm:py-6">

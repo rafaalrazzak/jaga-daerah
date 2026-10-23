@@ -21,6 +21,7 @@ import {
   MAP_LAYERS,
   QUANTITY_LABEL,
   countScale,
+  disasterSnapshot,
   electrificationClass,
   electrificationRatio,
   formatRatio,
@@ -117,6 +118,10 @@ function MapContent({
     () => countScale(REGIONS.map((region) => placeSnapshot(region.code).schools?.total ?? null)),
     [],
   );
+  const disasterScale = useMemo(
+    () => countScale(REGIONS.map((region) => disasterSnapshot(region.code))),
+    [],
+  );
   const median = realization.data?.national_median_percent ?? null;
 
   const scopeCodes = useMemo(
@@ -132,17 +137,19 @@ function MapContent({
     for (const region of REGIONS) {
       const place = placeSnapshot(region.code);
       const klass =
-        layer === 'rumah-sakit'
-          ? hospitalScale.classify(place.hospitals?.total ?? null)
-          : layer === 'sekolah'
-            ? schoolScale.classify(place.schools?.total ?? null)
-            : layer === 'listrik'
-              ? electrificationClass(electrificationRatio(region.code))
-              : classify(percentByCode.get(region.code), median);
+        layer === 'bencana'
+          ? disasterScale.classify(disasterSnapshot(region.code))
+          : layer === 'rumah-sakit'
+            ? hospitalScale.classify(place.hospitals?.total ?? null)
+            : layer === 'sekolah'
+              ? schoolScale.classify(place.schools?.total ?? null)
+              : layer === 'listrik'
+                ? electrificationClass(electrificationRatio(region.code))
+                : classify(percentByCode.get(region.code), median);
       next.set(region.code, klass);
     }
     return next;
-  }, [layer, hospitalScale, schoolScale, percentByCode, median]);
+  }, [layer, hospitalScale, schoolScale, disasterScale, percentByCode, median]);
   const dimmed = useMemo(() => {
     const next = new Set<string>();
     for (const region of REGIONS) {
@@ -165,15 +172,17 @@ function MapContent({
       const place = placeSnapshot(code);
       const percent = percentByCode.get(code) ?? null;
       const value =
-        layer === 'rumah-sakit'
-          ? (place.hospitals?.total ?? null)
-          : layer === 'sekolah'
-            ? (place.schools?.total ?? null)
-            : layer === 'listrik'
-              ? Number(electrificationRatio(code) ?? Number.NaN) || null
-              : percent === null
-                ? null
-                : Number(percent);
+        layer === 'bencana'
+          ? disasterSnapshot(code)
+          : layer === 'rumah-sakit'
+            ? (place.hospitals?.total ?? null)
+            : layer === 'sekolah'
+              ? (place.schools?.total ?? null)
+              : layer === 'listrik'
+                ? Number(electrificationRatio(code) ?? Number.NaN) || null
+                : percent === null
+                  ? null
+                  : Number(percent);
       return [{ region, percent, value }];
     });
     const direction = sort.descending ? -1 : 1;
@@ -234,8 +243,10 @@ function MapContent({
       : `Provinsi ${PROVINCES.find((province) => province.code === provinceCode)?.name ?? ''}`;
   const placeLead = provinceCode === NATIONAL ? 'Seluruh Indonesia' : scopeName;
   const classFor = (code: string): MapClass => classes.get(code) ?? 'none';
-  const activeScale = layer === 'sekolah' ? schoolScale : hospitalScale;
-  const quantityUnit = layer === 'sekolah' ? 'sekolah' : 'rumah sakit';
+  const activeScale =
+    layer === 'sekolah' ? schoolScale : layer === 'bencana' ? disasterScale : hospitalScale;
+  const quantityUnit =
+    layer === 'sekolah' ? 'sekolah' : layer === 'bencana' ? 'kejadian bencana' : 'rumah sakit';
 
   if (realization.isError) {
     return (
@@ -269,6 +280,10 @@ function MapContent({
     sort.key === key ? (sort.descending ? 'descending' : 'ascending') : 'none';
 
   function figureText(code: string, percent: string | null): string {
+    if (layer === 'bencana') {
+      const count = disasterSnapshot(code);
+      return count === null ? '—' : `${formatCount(count)} kali`;
+    }
     const place = placeSnapshot(code);
     if (layer === 'rumah-sakit') {
       return place.hospitals === null ? '—' : formatCount(place.hospitals.total);
@@ -284,6 +299,11 @@ function MapContent({
   }
 
   function detailText(code: string, percent: string | null): string {
+    if (layer === 'bencana') {
+      const count = disasterSnapshot(code);
+      if (count === null) return 'Catatan bencana BNPB tidak memuat angka untuk daerah ini.';
+      return `Total ${formatCount(count)} kejadian bencana alam tercatat sepanjang 2024 menurut data resmi BNPB.`;
+    }
     const place = placeSnapshot(code);
     if (layer === 'rumah-sakit') {
       if (place.hospitals === null)
@@ -620,7 +640,13 @@ function MapContent({
                     className="min-h-11 font-semibold"
                     onClick={() => toggleSort('percent')}
                   >
-                    {layer === 'realisasi' ? 'Realisasi' : layer === 'listrik' ? 'Rasio' : 'Jumlah'}{' '}
+                    {layer === 'realisasi'
+                      ? 'Realisasi'
+                      : layer === 'listrik'
+                        ? 'Rasio'
+                        : layer === 'bencana'
+                          ? 'Bencana 2024'
+                          : 'Jumlah'}{' '}
                     {sortState('percent') === 'none' ? '' : sort.descending ? '↓' : '↑'}
                   </button>
                 </th>

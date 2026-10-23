@@ -1,0 +1,242 @@
+---
+import type { RegionSummary } from '@jaga-daerah/contracts';
+
+import { AUDIT_OPINIONS } from '@/lib/audit-opinions';
+import { LOCAL_SERVICES } from '@/lib/local-services';
+import { NATURE } from '@/lib/nature';
+import { OFFICIALS } from '@/lib/officials';
+import { SANITATION } from '@/lib/sanitation';
+import { WELFARE } from '@/lib/welfare';
+import { formatCount } from '@/lib/format';
+
+interface Props {
+  region: RegionSummary;
+}
+
+const { region } = Astro.props;
+
+const head = OFFICIALS.regions[region.code]?.head ?? null;
+const area = NATURE.regions[region.code]?.area;
+const services = LOCAL_SERVICES.regions[region.code];
+const hospitals = services?.hospitals;
+const schools = services?.schools;
+const population = services?.population;
+const natureEntry = NATURE.regions[region.code];
+const disaster2024 = natureEntry?.events_by_year?.['2024'] ?? null;
+const opinionList = AUDIT_OPINIONS.regions[region.code]?.years ?? [];
+const latestOpinion = opinionList.at(-1);
+const welfare = WELFARE.regions[region.code];
+const sanitation = SANITATION.regions[region.code];
+
+const headTitle = region.type === 'kota' ? 'Wali Kota' : 'Bupati';
+const totalSchools = schools ? schools.sd + schools.smp + schools.sma + schools.smk : null;
+
+const opinionExplanation: Record<string, string> = {
+  WTP: 'Wajar Tanpa Pengecualian — Laporan keuangan disajikan secara wajar dalam semua hal yang material sesuai Standar Akuntansi Pemerintahan (Kategori Tertinggi BPK).',
+  WDP: 'Wajar Dengan Pengecualian — Terdapat pos belanja atau pencatatan tertentu yang tidak sesuai standar material, namun tidak merata ke seluruh laporan.',
+  TW: 'Tidak Wajar — Laporan keuangan tidak menyajikan secara wajar posisi keuangan dan realisasi anggaran daerah.',
+  TMP: 'Tidak Menyatakan Pendapat (Disclaimer) — Auditor BPK tidak memperoleh bukti audit yang cukup untuk memberikan opini keuangan.',
+};
+---
+
+<div
+  id="print-document"
+  class="hidden print:block font-sans text-black bg-white p-6 leading-normal"
+>
+  {/* Kop Dokumen Resmi */}
+  <header class="border-b-2 border-black pb-4 mb-6">
+    <div class="flex items-start justify-between">
+      <div>
+        <p class="text-xs font-black tracking-widest uppercase text-emerald-800">
+          JAGADAERAH · REPUBLIK INDONESIA
+        </p>
+        <h1 class="text-2xl font-black tracking-tight mt-1 text-black">
+          LEMBAR TRANSPARANSI PUBLIK DAERAH
+        </h1>
+        <p class="text-xs text-neutral-600 mt-0.5">
+          Ringkasan Resmi: Tata Kelola Keuangan APBD, Fasilitas Publik, Akuntabilitas BPK, dan
+          Risiko Bencana
+        </p>
+      </div>
+      <div class="text-right">
+        <span class="inline-block border border-black px-2 py-0.5 text-[10px] font-bold uppercase">
+          Dokumen Publik Resmi
+        </span>
+        <p class="text-[10px] text-neutral-600 mt-1">
+          Arsip daring: jagadaerah.id/daerah/{region.slug}
+        </p>
+      </div>
+    </div>
+  </header>
+
+  {/* Identitas Wilayah & Pimpinan */}
+  <section class="mb-6">
+    <h2 class="text-xs font-bold uppercase tracking-wider border-b border-neutral-400 pb-1 mb-3 text-neutral-800">
+      1. Identitas Wilayah & Pimpinan Pemerintahan Daerah
+    </h2>
+    <div class="grid grid-cols-2 gap-x-6 gap-y-2 text-xs">
+      <div class="flex justify-between border-b border-neutral-200 py-1">
+        <span class="text-neutral-600">Nama Daerah:</span>
+        <span class="font-bold">{region.name}</span>
+      </div>
+      <div class="flex justify-between border-b border-neutral-200 py-1">
+        <span class="text-neutral-600">Provinsi:</span>
+        <span class="font-bold">{region.province.name}</span>
+      </div>
+      <div class="flex justify-between border-b border-neutral-200 py-1">
+        <span class="text-neutral-600">Klasifikasi Wilayah:</span>
+        <span class="font-bold capitalize">{region.type}</span>
+      </div>
+      <div class="flex justify-between border-b border-neutral-200 py-1">
+        <span class="text-neutral-600">Kode Kemendagri:</span>
+        <span class="font-mono font-bold">{region.code}</span>
+      </div>
+      <div class="flex justify-between border-b border-neutral-200 py-1">
+        <span class="text-neutral-600">{headTitle} yang Menjabat:</span>
+        <span class="font-bold">
+          {head?.name ?? 'Data belum tersedia'}
+          {head?.acting ? ' (Plt / Penjabat)' : ''}
+        </span>
+      </div>
+      <div class="flex justify-between border-b border-neutral-200 py-1">
+        <span class="text-neutral-600">Luas Wilayah (BIG):</span>
+        <span class="font-bold">
+          {area ? `${formatCount(area.value)} ${area.unit}` : 'Data belum tersedia'}
+        </span>
+      </div>
+      <div class="flex justify-between border-b border-neutral-200 py-1">
+        <span class="text-neutral-600">Jumlah Penduduk (BPS/Dukcapil):</span>
+        <span class="font-bold">
+          {population ? `${formatCount(population.total)} jiwa` : 'Data dihimpun'}
+        </span>
+      </div>
+      <div class="flex justify-between border-b border-neutral-200 py-1">
+        <span class="text-neutral-600">Persentase Penduduk Miskin:</span>
+        <span class="font-bold">
+          {welfare?.poverty?.percent ? `${welfare.poverty.percent}%` : 'Data dihimpun'}
+        </span>
+      </div>
+    </div>
+  </section>
+
+  {/* Akuntabilitas Keuangan BPK RI */}
+  <section class="mb-6">
+    <h2 class="text-xs font-bold uppercase tracking-wider border-b border-neutral-400 pb-1 mb-3 text-neutral-800">
+      2. Akuntabilitas & Tata Kelola Keuangan Daerah (Audit BPK RI)
+    </h2>
+    <div class="border border-neutral-300 p-3 rounded-sm bg-neutral-50 text-xs">
+      <div class="flex items-center justify-between mb-2">
+        <div>
+          <span class="text-neutral-600 font-medium">Opini BPK RI atas LKPD Terakhir:</span>
+          <span class="ml-2 font-black text-sm px-2 py-0.5 border border-black bg-white">
+            {latestOpinion?.opinion ?? 'Dalam Evaluasi'} ({latestOpinion?.year ?? '2024'})
+          </span>
+        </div>
+        <span class="text-[10px] text-neutral-500">Sumber: Portal Data Resmi BPK RI</span>
+      </div>
+      <p class="text-[11px] text-neutral-700 leading-relaxed">
+        {latestOpinion?.opinion
+          ? (opinionExplanation[latestOpinion.opinion] ?? 'Opini resmi BPK.')
+          : 'Laporan belum dipublikasikan.'}
+      </p>
+    </div>
+  </section>
+
+  {/* Layanan Publik & Fasilitas Warga */}
+  <section class="mb-6">
+    <h2 class="text-xs font-bold uppercase tracking-wider border-b border-neutral-400 pb-1 mb-3 text-neutral-800">
+      3. Fasilitas Layanan Publik (Kesehatan & Pendidikan)
+    </h2>
+    <div class="grid grid-cols-2 gap-4 text-xs">
+      <div class="border border-neutral-300 p-3 rounded-sm">
+        <h3 class="font-bold mb-2 flex items-center justify-between border-b border-neutral-200 pb-1">
+          <span>Fasilitas Kesehatan</span>
+          <span class="font-black">{hospitals?.total ?? 0} Rumah Sakit</span>
+        </h3>
+        <ul class="space-y-1 text-neutral-700">
+          <li class="flex justify-between">
+            <span>• RS Umum:</span>
+            <span class="font-semibold">{hospitals?.umum ?? 0}</span>
+          </li>
+          <li class="flex justify-between">
+            <span>• RS Ibu & Anak:</span>
+            <span class="font-semibold">{hospitals?.ibu_anak ?? 0}</span>
+          </li>
+          <li class="flex justify-between">
+            <span>• RS Khusus:</span>
+            <span class="font-semibold">{hospitals?.khusus ?? 0}</span>
+          </li>
+        </ul>
+        <p class="mt-2 text-[10px] text-neutral-500">Sumber: Kementerian Kesehatan RI</p>
+      </div>
+
+      <div class="border border-neutral-300 p-3 rounded-sm">
+        <h3 class="font-bold mb-2 flex items-center justify-between border-b border-neutral-200 pb-1">
+          <span>Fasilitas Pendidikan</span>
+          <span class="font-black">{totalSchools ? formatCount(totalSchools) : 0} Sekolah</span>
+        </h3>
+        <ul class="space-y-1 text-neutral-700">
+          <li class="flex justify-between">
+            <span>• Sekolah Dasar (SD):</span>
+            <span class="font-semibold">{schools?.sd ? formatCount(schools.sd) : 0}</span>
+          </li>
+          <li class="flex justify-between">
+            <span>• Sekolah Menengah Pertama (SMP):</span>
+            <span class="font-semibold">{schools?.smp ? formatCount(schools.smp) : 0}</span>
+          </li>
+          <li class="flex justify-between">
+            <span>• SMA & SMK:</span>
+            <span class="font-semibold">
+              {schools ? formatCount(schools.sma + schools.smk) : 0}
+            </span>
+          </li>
+        </ul>
+        <p class="mt-2 text-[10px] text-neutral-500">Sumber: Kemendikdasmen (Dapodik)</p>
+      </div>
+    </div>
+  </section>
+
+  {/* Catatan Kebencanaan & Sanitasi */}
+  <section class="mb-6">
+    <h2 class="text-xs font-bold uppercase tracking-wider border-b border-neutral-400 pb-1 mb-3 text-neutral-800">
+      4. Catatan Kebencanaan (BNPB) & Akses Sanitasi (BPS)
+    </h2>
+    <div class="grid grid-cols-2 gap-4 text-xs">
+      <div class="border border-neutral-300 p-3 rounded-sm">
+        <span class="text-neutral-600">Kejadian Bencana Tercatat (Tahun 2024):</span>
+        <p class="text-base font-black mt-1">
+          {disaster2024 !== null ? `${disaster2024} Kejadian` : 'Data dihimpun'}
+        </p>
+        <p class="text-[10px] text-neutral-500 mt-1">
+          Sumber: Badan Nasional Penanggulangan Bencana (BNPB)
+        </p>
+      </div>
+      <div class="border border-neutral-300 p-3 rounded-sm">
+        <span class="text-neutral-600">Akses Rumah Tangga ke Sanitasi Layak:</span>
+        <p class="text-base font-black mt-1">
+          {sanitation?.percent ? `${sanitation.percent}%` : 'Data dihimpun'}
+        </p>
+        <p class="text-[10px] text-neutral-500 mt-1">
+          Sumber: Badan Pusat Statistik (BPS SDG 6.2.1)
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* Pernyataan Legalitas & Sumber Data */}
+  <footer class="mt-8 border-t border-neutral-400 pt-3 text-[10px] text-neutral-600 flex justify-between items-end">
+    <div>
+      <p class="font-bold text-neutral-900">
+        Disusun secara otomatis oleh platform transparansi independen JagaDaerah (jagadaerah.id).
+      </p>
+      <p class="mt-0.5">
+        Data dihimpun dari portal terbuka kementerian/lembaga resmi: DJPK Kemenkeu, BPK RI, BNPB,
+        Kemendikdasmen, BPS, dan BIG.
+      </p>
+    </div>
+    <div class="text-right whitespace-nowrap pl-4">
+      <p class="font-mono text-[9px]">KODE WILAYAH: {region.code}</p>
+      <p class="text-[9px]">STATUS: TERVERIFIKASI</p>
+    </div>
+  </footer>
+</div>

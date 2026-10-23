@@ -226,3 +226,58 @@ details:not([open]) > :not(summary) {
     scroll-behavior: auto !important;
   }
 }
+
+/* Optimization for Print & PDF export */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 1.2cm;
+  }
+
+  html,
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-size: 10pt;
+    line-height: 1.4;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Never print screen-only chrome, buttons, navigation, dialog overlays, or chat widgets */
+  header,
+  footer,
+  nav,
+  aside,
+  button,
+  input,
+  textarea,
+  select,
+  [role='dialog'],
+  [aria-modal='true'],
+  .no-print,
+  #floating-chat-container,
+  .chat-assistant-widget {
+    display: none !important;
+  }
+
+  #print-document {
+    display: block !important;
+    visibility: visible !important;
+    width: 100% !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  tr,
+  .print-card {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}

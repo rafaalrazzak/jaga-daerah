@@ -22,5 +22,5 @@ export async function expectPostgresError(
     cause !== null && typeof cause === 'object' && 'code' in cause ? cause.code : undefined;
   const allowed = typeof sqlState === 'string' ? [sqlState] : sqlState;
 
-  expect(allowed).toContain(code);
+  expect(allowed as readonly unknown[]).toContain(code);
 }
