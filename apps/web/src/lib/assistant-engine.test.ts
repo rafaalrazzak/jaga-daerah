@@ -1,7 +1,8 @@
-import { describe, expect, test } from 'bun:test';
+import { describe, expect, spyOn, test } from 'bun:test';
 
 import { queryAssistant } from '@/lib/assistant-engine';
 import type { AssistantContext } from '@/lib/assistant-engine';
+import { apiClient } from '@/lib/api-client';
 import { REGIONS } from '@/lib/regions';
 
 // Tests for the built-in deterministic engine without network dependencies
@@ -129,5 +130,36 @@ describe('assistant-engine', () => {
   test('strictly rejects off-topic requests (recipes, poetry, fiction)', async () => {
     const res = await runQuery('resep cara memasak nasi goreng');
     expect(res.text).toContain('di luar konteks data publik daerah');
+  });
+});
+
+describe('assistant scope gate', () => {
+  test('refuses public-figure questions instead of calling the LLM', async () => {
+    const llm = spyOn(apiClient, 'askAssistant');
+    try {
+      const res = await queryAssistant('anda tau Nadiem Makarim Gak?');
+      expect(llm).not.toHaveBeenCalled();
+      expect(res.text).toContain('hanya bisa menjawab pertanyaan tentang data daerah');
+      expect(res.usedOpenRouter).toBeUndefined();
+    } finally {
+      llm.mockRestore();
+    }
+  });
+
+  test('still sends regional questions to the LLM proxy', async () => {
+    const llm = spyOn(apiClient, 'askAssistant').mockResolvedValue({
+      reply: 'Anggaran Kota Bandung tersedia di profil.',
+      model: 'test/model',
+    });
+    const profile = spyOn(apiClient, 'getRegionProfile').mockRejectedValue(new Error('offline'));
+    try {
+      const res = await queryAssistant('Berapa anggaran Kota Bandung?');
+      expect(llm).toHaveBeenCalledTimes(1);
+      expect(res.usedOpenRouter).toBe(true);
+      expect(res.modelUsed).toBe('test/model');
+    } finally {
+      llm.mockRestore();
+      profile.mockRestore();
+    }
   });
 });

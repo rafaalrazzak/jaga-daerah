@@ -777,6 +777,77 @@ export function isOffTopicRequest(rawQuery: string): boolean {
   return offTopicPatterns.some((regex) => regex.test(q));
 }
 
+/** Vocabulary that ties a question to the facts this application actually holds. */
+const REGIONAL_DATA_TERMS: readonly string[] = [
+  'anggaran',
+  'apbd',
+  'belanja',
+  'realisasi',
+  'pendapatan',
+  'pajak',
+  'retribusi',
+  'dana',
+  'sda',
+  'tkdd',
+  'bencana',
+  'gempa',
+  'banjir',
+  'longsor',
+  'cuaca',
+  'iklim',
+  'rumah sakit',
+  'sekolah',
+  'pendidikan',
+  'penduduk',
+  'populasi',
+  'opini',
+  'bpk',
+  'pejabat',
+  'bupati',
+  'wali kota',
+  'walikota',
+  'gubernur',
+  'lhkpn',
+  'harta',
+  'kekayaan',
+  'pilkada',
+  'kandidat',
+  'fasilitas',
+  'sanitasi',
+  'kemiskinan',
+  'ipm',
+  'pdrb',
+  'elektrifikasi',
+  'tutupan lahan',
+  'hutan',
+  'bandingkan',
+  'perbandingan',
+  'daerah',
+  'pemda',
+  'kabupaten',
+  'kota',
+  'provinsi',
+];
+
+/**
+ * True when the question mentions a region, a province, or a field that exists in the dataset.
+ * Used to keep the LLM from answering general knowledge or public-figure questions it cannot
+ * source from JagaDaerah data.
+ */
+export function isRegionalDataQuery(rawQuery: string): boolean {
+  if (findRegionInText(rawQuery) !== undefined || findProvinceInText(rawQuery) !== undefined) {
+    return true;
+  }
+  const normalized = normalize(rawQuery);
+  return REGIONAL_DATA_TERMS.some((term) => normalized.includes(term));
+}
+
+const OUT_OF_SCOPE_ANSWER =
+  'Maaf, saya hanya bisa menjawab pertanyaan tentang data daerah di JagaDaerah: anggaran APBD, pendapatan, belanja, fasilitas publik, penduduk, opini BPK, dana SDA, dan bencana. Saya tidak menjawab profil tokoh, artis, atau pengetahuan umum di luar data aplikasi ini.';
+
+const PERSON_QUERY_PATTERN =
+  /\b(?:anda|kamu|kau)\s+(?:tau|tahu|kenal)\b|\b(?:siapa|siapakah)\b|\bprofil\b|\bbiodata\b/i;
+
 export async function queryAssistant(
   rawQuery: string,
   context?: AssistantContext,
@@ -821,13 +892,21 @@ export async function queryAssistant(
 
   // The Worker proxies the LLM call; when it is unavailable, the deterministic engine answers.
   if (!context?.skipOpenRouter) {
-    try {
-      const llmResponse = await queryOpenRouterAssistant(rawQuery, query, context);
-      if (llmResponse) {
-        return llmResponse;
+    if (isRegionalDataQuery(rawQuery)) {
+      try {
+        const llmResponse = await queryOpenRouterAssistant(rawQuery, query, context);
+        if (llmResponse) {
+          return llmResponse;
+        }
+      } catch (err) {
+        console.warn('Panggilan asisten gagal, beralih ke mesin internal:', err);
       }
-    } catch (err) {
-      console.warn('Panggilan asisten gagal, beralih ke mesin internal:', err);
+    } else if (PERSON_QUERY_PATTERN.test(query)) {
+      return {
+        text: OUT_OF_SCOPE_ANSWER,
+        suggestions: [...INITIAL_SUGGESTIONS],
+        activeRegion: lastRegion,
+      };
     }
   }
 
