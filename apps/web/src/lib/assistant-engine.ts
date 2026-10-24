@@ -9,9 +9,7 @@ import type { RegionProfile, RegionSummary } from '@jaga-daerah/contracts';
 
 import {
   buildOpenRouterSystemPrompt,
-  callOpenRouter,
-  getOpenRouterConfig,
-  type OpenRouterConfig,
+  cleanAssistantOutput,
   type OpenRouterMessage,
 } from '@/lib/openrouter';
 
@@ -45,8 +43,6 @@ export interface AssistantContext {
   lastRegion?: RegionSummary | undefined;
   client?: Pick<ApiClient, 'getRegionProfile'> | undefined;
   history?: AssistantChatMessage[] | undefined;
-  openRouterKey?: string | undefined;
-  openRouterModel?: string | undefined;
   skipOpenRouter?: boolean | undefined;
 }
 
@@ -412,7 +408,6 @@ async function queryOpenRouterAssistant(
   rawQuery: string,
   query: string,
   context: AssistantContext | undefined,
-  config: OpenRouterConfig,
 ): Promise<AssistantResponse | null> {
   const lastRegion = context?.lastRegion;
   const twoRegions = findTwoRegions(query, lastRegion);
@@ -672,16 +667,16 @@ async function queryOpenRouterAssistant(
     { role: 'user', content: rawQuery },
   ];
 
-  const answer = await callOpenRouter(messages, config);
+  const reply = await apiClient.askAssistant(messages);
 
   return {
-    text: answer,
+    text: cleanAssistantOutput(reply.reply),
     metrics,
     actions,
     suggestions,
     activeRegion,
     usedOpenRouter: true,
-    modelUsed: config.model,
+    modelUsed: reply.model,
   };
 }
 
@@ -824,28 +819,15 @@ export async function queryAssistant(
     };
   }
 
-  // Check OpenRouter configuration from .env
-  const openRouterConfig = getOpenRouterConfig();
-  if (context?.openRouterKey) {
-    openRouterConfig.apiKey = context.openRouterKey.trim();
-  }
-  if (context?.openRouterModel) {
-    openRouterConfig.model = context.openRouterModel.trim();
-  }
-
-  if (openRouterConfig.apiKey && !context?.skipOpenRouter) {
+  // The Worker proxies the LLM call; when it is unavailable, the deterministic engine answers.
+  if (!context?.skipOpenRouter) {
     try {
-      const llmResponse = await queryOpenRouterAssistant(
-        rawQuery,
-        query,
-        context,
-        openRouterConfig,
-      );
+      const llmResponse = await queryOpenRouterAssistant(rawQuery, query, context);
       if (llmResponse) {
         return llmResponse;
       }
     } catch (err) {
-      console.warn('Panggilan OpenRouter gagal, beralih ke mesin internal:', err);
+      console.warn('Panggilan asisten gagal, beralih ke mesin internal:', err);
     }
   }
 

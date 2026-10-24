@@ -11,6 +11,7 @@ export const ERROR_STATUS = {
   DAERAH_NOT_FOUND: 404,
   YEAR_NOT_AVAILABLE: 404,
   RATE_LIMITED: 429,
+  ASSISTANT_UNAVAILABLE: 503,
   INTERNAL_ERROR: 500,
 } as const satisfies Record<ErrorCode, number>;
 
@@ -21,6 +22,8 @@ const ERROR_MESSAGE: Record<ErrorCode, string> = {
   DAERAH_NOT_FOUND: 'Daerah tidak ditemukan.',
   YEAR_NOT_AVAILABLE: 'Data untuk tahun tersebut belum tersedia.',
   RATE_LIMITED: 'Terlalu banyak permintaan. Coba lagi nanti.',
+  ASSISTANT_UNAVAILABLE:
+    'Asisten sedang tidak dapat menjawab. Coba lagi atau gunakan pencarian daerah.',
   INTERNAL_ERROR: 'Terjadi kesalahan pada server.',
 };
 

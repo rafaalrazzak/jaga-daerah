@@ -1,5 +1,6 @@
 import { createApiTreaty } from '@jaga-daerah/api/client';
 import {
+  AssistantReplyResponseSchema,
   ErrorResponseSchema,
   LiveConditionsResponseSchema,
   MapRealizationResponseSchema,
@@ -9,6 +10,8 @@ import {
   RegionSearchResponseSchema,
 } from '@jaga-daerah/contracts';
 import type {
+  AssistantMessage,
+  AssistantReply,
   ErrorCode,
   LiveConditions,
   MapRealization,
@@ -19,6 +22,7 @@ import type {
 } from '@jaga-daerah/contracts';
 
 const REQUEST_TIMEOUT_MS = 8_000;
+const ASSISTANT_TIMEOUT_MS = 30_000;
 
 export type ApiFailureKind = 'api' | 'network' | 'timeout' | 'invalid-response';
 
@@ -57,6 +61,10 @@ export interface ApiClient {
     options?: { kecamatan?: string; signal?: AbortSignal },
   ): Promise<LiveConditions>;
   getNationalBrief(options?: { signal?: AbortSignal }): Promise<NationalBrief>;
+  askAssistant(
+    messages: readonly AssistantMessage[],
+    options?: { signal?: AbortSignal },
+  ): Promise<AssistantReply>;
 }
 
 function isAbort(error: unknown): boolean {
@@ -108,8 +116,9 @@ async function call<T>(
   schema: ResponseSchema<T>,
   callerSignal: AbortSignal | undefined,
   request: (signal: AbortSignal) => Promise<EdenResult>,
+  timeoutMs = REQUEST_TIMEOUT_MS,
 ): Promise<T> {
-  const timeout = AbortSignal.timeout(REQUEST_TIMEOUT_MS);
+  const timeout = AbortSignal.timeout(timeoutMs);
   const signal = callerSignal === undefined ? timeout : AbortSignal.any([callerSignal, timeout]);
 
   let result: EdenResult;
@@ -189,6 +198,16 @@ export function createApiClient(apiOrigin: string, fetcher?: typeof fetch): ApiC
     async getNationalBrief(options = {}) {
       const body = await call(NationalBriefResponseSchema, options.signal, (signal) =>
         api.v1.terkini.get({ fetch: { signal } }),
+      );
+      return body.data;
+    },
+
+    async askAssistant(messages, options = {}) {
+      const body = await call(
+        AssistantReplyResponseSchema,
+        options.signal,
+        (signal) => api.v1.assistant.post({ messages: [...messages] }, { fetch: { signal } }),
+        ASSISTANT_TIMEOUT_MS,
       );
       return body.data;
     },

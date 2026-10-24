@@ -10,6 +10,20 @@ export type { ErrorCode, ErrorDetail, ErrorResponse, SuccessMeta } from './envel
 export { HealthResponseSchema } from './health';
 export type { HealthResponse } from './health';
 export {
+  ASSISTANT_MAX_CONTENT_LENGTH,
+  ASSISTANT_MAX_MESSAGES,
+  AssistantMessageSchema,
+  AssistantReplyResponseSchema,
+  AssistantReplySchema,
+  AssistantRequestSchema,
+} from './assistant';
+export type {
+  AssistantMessage,
+  AssistantReply,
+  AssistantReplyResponse,
+  AssistantRequest,
+} from './assistant';
+export {
   PROVINCE_REGIONS_MAX_LIMIT,
   ProvinceCodeSchema,
   ProvinceListQuerySchema,

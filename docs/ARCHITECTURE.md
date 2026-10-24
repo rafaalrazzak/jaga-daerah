@@ -42,6 +42,7 @@ Python/pandas ETL ← DJPK + BNPB + KPK LHKPN publications + region reference fi
 - Calculate derived percentages and deterministic public narratives.
 - Return a consistent success/error envelope and caching headers.
 - Remain stateless across requests.
+- Proxy assistant completions with a Worker-held OpenRouter key; no provider credential reaches the browser.
 
 ### PostgreSQL
 

@@ -3,7 +3,7 @@ import type { SubmitEvent } from 'react';
 
 import { INITIAL_SUGGESTIONS, queryAssistant } from '@/lib/assistant-engine';
 import type { AssistantResponse } from '@/lib/assistant-engine';
-import { cleanAssistantOutput, getOpenRouterConfig } from '@/lib/openrouter';
+import { cleanAssistantOutput } from '@/lib/openrouter';
 import type { RegionSummary } from '@jaga-daerah/contracts';
 
 interface SpeechRecognitionEvent extends Event {
@@ -301,7 +301,6 @@ const WELCOME_MESSAGE: Message = {
 };
 
 export default function ChatAssistant() {
-  const isLlmActive = Boolean(getOpenRouterConfig().apiKey);
   const [isOpen, setIsOpen] = useState<boolean>(() => {
     if (typeof window === 'undefined') return false;
     try {
@@ -594,11 +593,6 @@ export default function ChatAssistant() {
               <div>
                 <div className="flex items-center gap-1.5">
                   <h2 className="text-sm font-extrabold tracking-tight">Asisten JagaDaerah</h2>
-                  {isLlmActive && (
-                    <span className="rounded-full bg-white/20 px-1.5 py-0.2 text-[9px] font-bold text-emerald-200">
-                      Aktif
-                    </span>
-                  )}
                 </div>
                 <div className="flex items-center gap-1.5">
                   <p className="text-[11px] text-white/80">

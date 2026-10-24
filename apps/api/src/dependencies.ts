@@ -12,4 +12,10 @@ export interface AppDependencies {
   firmsMapKey: string | undefined;
   /** Bearer token for the public ISPU list. Unset leaves the air block unconfigured. */
   ispuApiToken?: string | undefined;
+  /** OpenRouter credential. Server-side only: the browser never receives this value. */
+  openRouterApiKey?: string | undefined;
+  /** OpenRouter model; falls back to the assistant default when unset. */
+  openRouterModel?: string | undefined;
+  /** Injected by tests; production uses the platform fetch. */
+  fetchAssistant?: typeof fetch | undefined;
 }

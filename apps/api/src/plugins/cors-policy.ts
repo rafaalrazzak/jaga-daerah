@@ -20,13 +20,14 @@ export function parseAllowedOrigins(value: string): string[] {
 }
 
 /**
- * Exact-origin CORS for the public read-only API (SECURITY.md): no reflection of arbitrary
- * origins, no credentials, GET only, and the request ID exposed for client error reports.
+ * Exact-origin CORS for the public API (SECURITY.md): no reflection of arbitrary origins, no
+ * credentials, GET plus the stateless assistant POST, and the request ID exposed for client error
+ * reports.
  */
 export function corsPolicy(allowedOrigins: readonly string[]) {
   return cors({
     origin: [...allowedOrigins],
-    methods: ['GET', 'OPTIONS'],
+    methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: 'Accept, Content-Type',
     exposeHeaders: REQUEST_ID_HEADER,
     credentials: false,

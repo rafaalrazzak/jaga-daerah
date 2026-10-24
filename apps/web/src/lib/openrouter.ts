@@ -3,46 +3,28 @@ export interface OpenRouterMessage {
   content: string;
 }
 
-export interface OpenRouterConfig {
-  apiKey: string;
-  model: string;
-}
-
 export const DEFAULT_OPENROUTER_MODEL = 'minimax/minimax-m3.1-flash';
 
-/**
- * Retrieves the active OpenRouter configuration directly from environment variables (.env).
- * No user input or client-side storage is used so the API configuration cannot be tampered with.
- */
-export function getOpenRouterConfig(): OpenRouterConfig {
-  let envKey = '';
-  let envModel = '';
-
-  try {
-    envKey =
-      (import.meta.env.PUBLIC_OPENROUTER_API_KEY as string | undefined) ??
-      (import.meta.env.OPENROUTER_API_KEY as string | undefined) ??
-      '';
-    envModel =
-      (import.meta.env.PUBLIC_OPENROUTER_MODEL as string | undefined) ??
-      (import.meta.env.OPENROUTER_MODEL as string | undefined) ??
-      '';
-  } catch {
-    // import.meta.env might not be defined in non-Vite runners
-  }
-
-  if (!envKey && typeof process !== 'undefined' && process.env) {
-    envKey = process.env.OPENROUTER_API_KEY ?? process.env.PUBLIC_OPENROUTER_API_KEY ?? '';
-  }
-  if (!envModel && typeof process !== 'undefined' && process.env) {
-    envModel = process.env.OPENROUTER_MODEL ?? process.env.PUBLIC_OPENROUTER_MODEL ?? '';
-  }
-
-  return {
-    apiKey: envKey.trim(),
-    model: envModel.trim() || DEFAULT_OPENROUTER_MODEL,
-  };
-}
+/** Common English words that leak into otherwise Indonesian answers. */
+const ENGLISH_REPLACEMENTS: readonly (readonly [RegExp, string])[] = [
+  [/\bpopulation\b/gi, 'penduduk'],
+  [/\bbudget\b/gi, 'anggaran'],
+  [/\brevenue\b/gi, 'pendapatan'],
+  [/\bexpenditure\b/gi, 'belanja'],
+  [/\baudit opinion\b/gi, 'opini audit'],
+  [/\bpublic services?\b/gi, 'layanan publik'],
+  [/\binfrastructure\b/gi, 'infrastruktur'],
+  [/\bhealth\b/gi, 'kesehatan'],
+  [/\beducation\b/gi, 'pendidikan'],
+  [/\bdisaster\b/gi, 'bencana'],
+  [/\bgovernment\b/gi, 'pemerintah'],
+  [/\bhowever\b/gi, 'namun'],
+  [/\btherefore\b/gi, 'oleh karena itu'],
+  [/\boverall\b/gi, 'secara umum'],
+  [/\bin conclusion\b/gi, 'sebagai kesimpulan'],
+  [/\bmoreover\b/gi, 'selain itu'],
+  [/\bfor example\b/gi, 'misalnya'],
+];
 
 /**
  * Sanitizes assistant output:
@@ -100,7 +82,7 @@ export function cleanAssistantOutput(raw: string): string {
   // 6. Remove Chinese / CJK unified ideographs and punctuation
   text = text.replace(/[\u4e00-\u9fff\u3400-\u4dbf\uf900-\ufaff\u3000-\u303f]/g, '');
 
-  // 7. Replace common stray English transition phrases leaked by multilingual LLM
+  // 7. Replace common stray English words leaked by multilingual LLM
   text = text.replace(/\bDuring\s+(\d{4})\b/gi, 'Sepanjang tahun $1');
   text = text.replace(/\baccording to\b/gi, 'berdasarkan data');
   text = text.replace(/\bFor context,?\s*/gi, 'Sebagai gambaran, ');
@@ -111,12 +93,35 @@ export function cleanAssistantOutput(raw: string): string {
   text = text.replace(/\bOpinion\s+BPK\b/gi, 'Opini BPK');
   text = text.replace(/\bLastly,?\s*/gi, 'Terakhir, ');
   text = text.replace(/\bFurthermore,?\s*/gi, 'Lebih lanjut, ');
+  for (const [pattern, replacement] of ENGLISH_REPLACEMENTS) {
+    text = text.replace(pattern, replacement);
+  }
 
-  // 8. Clean up stray punctuation and whitespace
+  // 8. Remove LaTeX/Markdown escape artifacts and stray structural characters
+  text = text.replace(/\\([{}[\]()_*#+.!,;:?-])/g, '$1');
+  text = text.replace(/[{}]/g, ' ');
+  text = text.replace(/_/g, ' ');
+  text = text.replace(/[ \t]*[`~]+[ \t]*/g, ' ');
+  text = text.replace(/\\+(?=\s|$)/g, '');
+
+  // 9. Repair punctuation and spacing without touching numbers like 10.000 or 1,5
+  text = text.replace(/[ \t]+([,.;:!?])/g, '$1');
+  text = text.replace(/([.!?])(?=[A-Za-zÀ-ÿ])/g, '$1 ');
+  text = text.replace(/([.!?]\s+)([a-z])/g, (_, punctuation: string, letter: string) => {
+    return punctuation + letter.toUpperCase();
+  });
+  text = text.replace(/\.{2,}/g, '.');
+  text = text.replace(/,{2,}/g, ',');
+  text = text.replace(/\(\s+/g, '(');
+  text = text.replace(/\s+\)/g, ')');
   text = text.replace(/[ \t]{2,}/g, ' ');
   text = text.replace(/\n{3,}/g, '\n\n');
+  text = text.replace(/^[\s,;:.!?]+/, '').trim();
+  if (text !== '') {
+    text = text.charAt(0).toUpperCase() + text.slice(1);
+  }
 
-  return text.trim();
+  return text;
 }
 
 /**
@@ -140,6 +145,7 @@ PANDUAN BAHASA & KOMUNIKASI:
 2. DILARANG KERAS mencampur kata atau frasa sambung bahasa Inggris di tengah kalimat (JANGAN gunakan frasa seperti "During", "According to", "For context", "In addition", "accessing", "conveying", "opinion"). Gunakan selalu padanan bahasa Indonesia yang tepat: "Sepanjang tahun...", "Berdasarkan data...", "Sebagai gambaran...", "Selain itu...", "mengakses", "menyampaikan", "opini".
 3. DILARANG menampilkan proses berpikir, draf perancangan, atau monolog evaluasi bahasa (seperti "Let's concise", "Avoid English", dll). Langsung berikan teks jawaban akhir yang sudah rapi dan siap dibaca pengguna.
 4. Jangan pernah menyertakan karakter Mandarin/Hanzi.
+5. DILARANG memakai LaTeX, kurung kurawal, garis bawah (_), escape backslash, atau simbol markup mentah. Tulis kalimat utuh dengan tanda baca Indonesia yang benar (spasi setelah titik/koma, huruf kapital di awal kalimat). Jangan menyelipkan istilah Inggris seperti "Population", "budget", atau "health"; gunakan "penduduk", "anggaran", dan "kesehatan".
 
 TUGAS & PENDEKATAN INFORMASI:
 - Jawab pertanyaan HANYA berdasarkan DATA TERVERIFIKASI SISTEM JAGADAERAH yang disertakan di bawah (APBD DJPK Kemenkeu, Bencana BNPB, Gempa & Cuaca BMKG, Opini BPK RI, RS Kemenkes, Sekolah Kemendikdasmen, Kependudukan Dukcapil Kemendagri).
@@ -153,82 +159,4 @@ TUGAS & PENDEKATAN INFORMASI:
   prompt += `\n\nJawablah sekarang langsung kepada pengguna dalam Bahasa Indonesia yang bersih, ramah, dan mengalir alami:`;
 
   return prompt;
-}
-
-/**
- * Sends a chat completion request to OpenRouter using the environment API key and model.
- */
-export async function callOpenRouter(
-  messages: OpenRouterMessage[],
-  config?: Partial<OpenRouterConfig>,
-  signal?: AbortSignal,
-): Promise<string> {
-  const activeConfig = { ...getOpenRouterConfig(), ...config };
-
-  if (!activeConfig.apiKey) {
-    throw new Error('OPENROUTER_API_KEY belum dikonfigurasi di file .env.');
-  }
-
-  const endpoint = 'https://openrouter.ai/api/v1/chat/completions';
-  const siteUrl = typeof window !== 'undefined' ? window.location.origin : 'https://jagadaerah.id';
-
-  const response = await fetch(endpoint, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${activeConfig.apiKey}`,
-      'HTTP-Referer': siteUrl,
-      'X-Title': 'JagaDaerah - Transparansi Daerah',
-    },
-    body: JSON.stringify({
-      model: activeConfig.model || DEFAULT_OPENROUTER_MODEL,
-      messages,
-      temperature: 0.2,
-      max_tokens: 800,
-    }),
-    ...(signal ? { signal } : {}),
-  });
-
-  if (!response.ok) {
-    let errorMsg = `HTTP ${response.status} ${response.statusText}`;
-    try {
-      const errorJson = (await response.json()) as { error?: { message?: string } };
-      if (errorJson?.error?.message) {
-        errorMsg = errorJson.error.message;
-      }
-    } catch {
-      // Keep HTTP status
-    }
-
-    if (response.status === 401) {
-      throw new Error(
-        `API Key OpenRouter tidak valid. Silakan periksa nilai OPENROUTER_API_KEY di .env.`,
-      );
-    }
-    if (response.status === 402) {
-      throw new Error(
-        `Kredit OpenRouter tidak mencukupi atau limit terlampaui. Silakan periksa limit key Anda di OpenRouter.`,
-      );
-    }
-    if (response.status === 429) {
-      throw new Error(`Batas kuota model tercapai pada OpenRouter. Coba sesaat lagi.`);
-    }
-    if (response.status === 400 && activeConfig.model.endsWith(':free')) {
-      const fallbackModel = activeConfig.model.replace(':free', '');
-      return callOpenRouter(messages, { ...config, model: fallbackModel }, signal);
-    }
-
-    throw new Error(`OpenRouter Error: ${errorMsg}`);
-  }
-
-  const data = (await response.json()) as {
-    choices?: Array<{ message?: { content?: string } }>;
-  };
-
-  const content = data?.choices?.[0]?.message?.content;
-  if (!content || typeof content !== 'string') {
-    throw new Error('Respons dari OpenRouter tidak berisi teks yang valid.');
-  }
-
-  return cleanAssistantOutput(content);
 }

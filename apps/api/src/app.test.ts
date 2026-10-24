@@ -9,6 +9,16 @@ import { parseAllowedOrigins } from '#api/plugins/cors-policy';
 const ALLOWED_ORIGIN = 'http://localhost:4321';
 const DATABASE_FAILURE = 'connect ECONNREFUSED 10.0.0.1:5432 password=secret';
 
+function askAssistant(app: ReturnType<typeof createApp>) {
+  return app.handle(
+    new Request('http://localhost/v1/assistant', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json', origin: ALLOWED_ORIGIN },
+      body: JSON.stringify({ messages: [{ role: 'user', content: 'Halo' }] }),
+    }),
+  );
+}
+
 describe('createApp', () => {
   const consoleError = spyOn(console, 'error').mockImplementation(() => {});
 
@@ -56,7 +66,7 @@ describe('createApp', () => {
 
       expect(response.status).toBe(204);
       expect(response.headers.get('Access-Control-Allow-Origin')).toBe(ALLOWED_ORIGIN);
-      expect(response.headers.get('Access-Control-Allow-Methods')).toBe('GET, OPTIONS');
+      expect(response.headers.get('Access-Control-Allow-Methods')).toBe('GET, POST, OPTIONS');
     });
   });
 
@@ -151,6 +161,50 @@ describe('createApp', () => {
       );
       expect(response.status).toBe(404);
       expect(ErrorResponseSchema.parse(await response.json()).error.code).toBe('DAERAH_NOT_FOUND');
+    });
+  });
+
+  describe('assistant proxy', () => {
+    test('returns ASSISTANT_UNAVAILABLE when no server key is configured', async () => {
+      const response = await askAssistant(app);
+
+      expect(response.status).toBe(503);
+      expect(response.headers.get('Cache-Control')).toBe('no-store');
+      expect(ErrorResponseSchema.parse(await response.json()).error.code).toBe(
+        'ASSISTANT_UNAVAILABLE',
+      );
+    });
+
+    test('sends the conversation to OpenRouter with the server-side key', async () => {
+      let seen: RequestInit | undefined;
+      const withKey = createApp({
+        openDatabase: () => {
+          throw new Error(DATABASE_FAILURE);
+        },
+        allowedOrigins: [ALLOWED_ORIGIN],
+        fetchUpstream: () => Promise.reject(new Error('no upstream in tests')),
+        firmsMapKey: undefined,
+        openRouterApiKey: 'server-secret',
+        openRouterModel: 'test/model',
+        fetchAssistant: (_input, init) => {
+          seen = init;
+          return Promise.resolve(
+            new Response(JSON.stringify({ choices: [{ message: { content: 'Halo juga' } }] }), {
+              status: 200,
+              headers: { 'content-type': 'application/json' },
+            }),
+          );
+        },
+      });
+
+      const response = await askAssistant(withKey);
+      const body = (await response.json()) as { data: { reply: string; model: string } };
+
+      expect(response.status).toBe(200);
+      expect(body.data).toEqual({ reply: 'Halo juga', model: 'test/model' });
+      expect(response.headers.get('Access-Control-Allow-Origin')).toBe(ALLOWED_ORIGIN);
+      const headers = seen?.headers as Record<string, string>;
+      expect(headers.Authorization).toBe('Bearer server-secret');
     });
   });
 });

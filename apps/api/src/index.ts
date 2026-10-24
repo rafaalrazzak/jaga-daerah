@@ -10,6 +10,11 @@ const UPSTREAM_TIMEOUT_MS = 6000;
 // wrangler.jsonc for stable types, but read defensively: a deployment without it still works.
 const firmsMapKey: unknown = Reflect.get(env, 'FIRMS_MAP_KEY');
 const ispuApiToken: unknown = Reflect.get(env, 'ISPU_API_TOKEN');
+// Accept both the shared secret name and the legacy PUBLIC_ name already set on the Worker.
+const openRouterApiKey: unknown =
+  Reflect.get(env, 'OPENROUTER_API_KEY') ?? Reflect.get(env, 'PUBLIC_OPENROUTER_API_KEY');
+const openRouterModel: unknown =
+  Reflect.get(env, 'OPENROUTER_MODEL') ?? Reflect.get(env, 'PUBLIC_OPENROUTER_MODEL');
 const allowedOrigins = env.CORS_ALLOWED_ORIGINS;
 if (allowedOrigins === undefined) {
   throw new Error('CORS_ALLOWED_ORIGINS is not configured');
@@ -34,4 +39,6 @@ export default createApp({
     }),
   firmsMapKey: typeof firmsMapKey === 'string' ? firmsMapKey : undefined,
   ispuApiToken: typeof ispuApiToken === 'string' ? ispuApiToken : undefined,
+  openRouterApiKey: typeof openRouterApiKey === 'string' ? openRouterApiKey : undefined,
+  openRouterModel: typeof openRouterModel === 'string' ? openRouterModel : undefined,
 });

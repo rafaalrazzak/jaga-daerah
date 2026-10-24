@@ -29,6 +29,7 @@ Primary risks:
 - Set `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`, and `frame-ancestors` policy.
 - Use `noopener noreferrer` for external new-tab links.
 - Do not store search history or identifiers without a documented need.
+- Never ship LLM/provider keys in the browser bundle. The assistant calls the Worker proxy, which holds the key as a secret.
 
 ### API
 

@@ -85,6 +85,7 @@ Use `.env.example` as the inventory. Never place real values in documentation or
 
 - Public variables may enter the browser bundle only when intentionally prefixed/handled by the frontend framework.
 - Server secrets belong in Wrangler/Cloudflare secret storage.
+- The assistant's `OPENROUTER_API_KEY` is Worker-only: set it as a Worker secret in production and in `apps/api/.dev.vars` locally. It must never appear in `PUBLIC_*` variables or the web build.
 - Hyperdrive bindings are environment-specific.
 
 ## Drizzle Workflow

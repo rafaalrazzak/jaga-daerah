@@ -6,6 +6,7 @@ import { cacheControl } from '#api/plugins/cache-control';
 import { corsPolicy } from '#api/plugins/cors-policy';
 import { errorHandler } from '#api/plugins/error-handler';
 import { requestContext } from '#api/plugins/request-context';
+import { createAssistantRoutes } from '#api/routes/assistant';
 import { healthRoutes } from '#api/routes/health';
 import { createLiveRoutes } from '#api/routes/live';
 import { createProfileRoutes } from '#api/routes/profiles';
@@ -21,6 +22,7 @@ export function createApp(dependencies: AppDependencies) {
     .use(errorHandler)
     .use(cacheControl)
     .use(healthRoutes)
+    .use(createAssistantRoutes(dependencies))
     .use(createProvinceRoutes(dependencies))
     .use(createRegionRoutes(dependencies))
     .use(createProfileRoutes(dependencies))

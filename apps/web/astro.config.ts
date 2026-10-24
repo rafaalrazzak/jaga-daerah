@@ -42,20 +42,6 @@ const loadedEnv = {
   ...parseEnvFile(path.join(configDir, '.env')),
 };
 
-const openRouterKey =
-  process.env.OPENROUTER_API_KEY ||
-  process.env.PUBLIC_OPENROUTER_API_KEY ||
-  loadedEnv.OPENROUTER_API_KEY ||
-  loadedEnv.PUBLIC_OPENROUTER_API_KEY ||
-  '';
-
-const openRouterModel =
-  process.env.OPENROUTER_MODEL ||
-  process.env.PUBLIC_OPENROUTER_MODEL ||
-  loadedEnv.OPENROUTER_MODEL ||
-  loadedEnv.PUBLIC_OPENROUTER_MODEL ||
-  'minimax/minimax-m3.1-flash';
-
 // The production domain is not decided yet (PRD §16), so it comes from the build environment instead
 // of being hardcoded. An unset or invalid value must still build — without a canonical URL, og:url,
 // or sitemap pointing at a guessed host.
@@ -84,11 +70,5 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     envDir: '../../',
-    define: {
-      'import.meta.env.PUBLIC_OPENROUTER_API_KEY': JSON.stringify(openRouterKey),
-      'import.meta.env.PUBLIC_OPENROUTER_MODEL': JSON.stringify(openRouterModel),
-      'import.meta.env.OPENROUTER_API_KEY': JSON.stringify(openRouterKey),
-      'import.meta.env.OPENROUTER_MODEL': JSON.stringify(openRouterModel),
-    },
   },
 });
