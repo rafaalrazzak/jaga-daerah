@@ -33,6 +33,22 @@ describe('Leaderboard', () => {
     expect(screen().getByRole('columnheader', { name: /Total Rumah Sakit/ })).toBeTruthy();
   });
 
+  test('keeps the national rank when the table is searched', async () => {
+    const user = userEvent.setup();
+    render(<Leaderboard />);
+
+    const input = screen().getByRole('textbox', { name: 'Cari nama daerah' });
+    await user.type(input, 'asmat');
+
+    const link = await screen().findByRole('link', { name: 'Kabupaten Asmat' });
+    const row = link.closest('tr');
+    expect(row).not.toBeNull();
+    const rank = within(row as HTMLElement)
+      .getAllByRole('cell')[0]
+      ?.textContent?.trim();
+    expect(rank).not.toBe('1');
+  });
+
   test('hides the rate switch on the audit-opinion tab', async () => {
     const user = userEvent.setup();
     render(<Leaderboard />);

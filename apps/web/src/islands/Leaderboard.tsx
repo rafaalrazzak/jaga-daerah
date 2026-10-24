@@ -91,9 +91,32 @@ export default function Leaderboard() {
     });
   }, []);
 
-  // Filtered & Sorted items
+  // Full national ranking for the active tab, basis, and sort order. Rankings are assigned before
+  // filtering so a search result keeps its real national rank instead of restarting at #1.
+  const rankedItems = useMemo(() => {
+    return allItems.toSorted((a, b) => {
+      if (activeTab === 'opini') {
+        // Opini: WTP first
+        const weightA = a.auditOpinion === 'WTP' ? 3 : a.auditOpinion === 'WDP' ? 2 : 1;
+        const weightB = b.auditOpinion === 'WTP' ? 3 : b.auditOpinion === 'WDP' ? 2 : 1;
+        return (weightA - weightB) * (sortDescending ? -1 : 1);
+      }
+      const value = (item: LeaderboardItem) =>
+        useRate
+          ? perTenThousand(totalFor(item, activeTab), item.population)
+          : totalFor(item, activeTab);
+      return compareMetric(value(a), value(b), sortDescending);
+    });
+  }, [allItems, activeTab, sortDescending, useRate]);
+
+  const rankByCode = useMemo(
+    () => new Map(rankedItems.map((item, index) => [item.code, index + 1])),
+    [rankedItems],
+  );
+
+  // Province and name filters keep the national order (and rank) from `rankedItems`.
   const displayItems = useMemo(() => {
-    let filtered = allItems;
+    let filtered = rankedItems;
 
     if (selectedProvince !== 'ALL') {
       filtered = filtered.filter((item) => item.provinceCode === selectedProvince);
@@ -107,20 +130,8 @@ export default function Leaderboard() {
       );
     }
 
-    return filtered.toSorted((a, b) => {
-      if (activeTab === 'opini') {
-        // Opini: WTP first
-        const weightA = a.auditOpinion === 'WTP' ? 3 : a.auditOpinion === 'WDP' ? 2 : 1;
-        const weightB = b.auditOpinion === 'WTP' ? 3 : b.auditOpinion === 'WDP' ? 2 : 1;
-        return (weightA - weightB) * (sortDescending ? -1 : 1);
-      }
-      const value = (item: LeaderboardItem) =>
-        useRate
-          ? perTenThousand(totalFor(item, activeTab), item.population)
-          : totalFor(item, activeTab);
-      return compareMetric(value(a), value(b), sortDescending);
-    });
-  }, [allItems, selectedProvince, searchQuery, activeTab, sortDescending, useRate]);
+    return filtered;
+  }, [rankedItems, selectedProvince, searchQuery]);
 
   return (
     <div className="space-y-6">
@@ -282,6 +293,11 @@ export default function Leaderboard() {
             tanpa angka penduduk diletakkan di bawah, bukan dianggap nol.
           </p>
         ) : null}
+        {searchQuery.trim() !== '' || selectedProvince !== 'ALL' ? (
+          <p>
+            Peringkat tetap mengikuti posisi nasional pada tab dan urutan ini, bukan hasil filter.
+          </p>
+        ) : null}
       </div>
 
       {/* Leaderboard Table / Cards */}
@@ -307,8 +323,8 @@ export default function Leaderboard() {
               </tr>
             </thead>
             <tbody className="divide-y divide-border/50">
-              {displayItems.slice(0, 100).map((item, idx) => {
-                const rank = idx + 1;
+              {displayItems.slice(0, 100).map((item) => {
+                const rank = rankByCode.get(item.code) ?? 0;
                 const total = totalFor(item, activeTab);
                 const rate = useRate ? perTenThousand(total, item.population) : null;
                 return (
