@@ -1,6 +1,12 @@
 import type { DatabaseHandle } from '#api/db/client';
 import type { FetchUpstream } from '#api/services/live-conditions';
 
+/** Minimal fetch surface used by the assistant proxy, so tests need no Bun-only properties. */
+export type AssistantFetch = (
+  input: string | URL | Request,
+  init?: RequestInit,
+) => Promise<Response>;
+
 export interface AppDependencies {
   /** Opens a database handle for one request; the caller must close it. */
   openDatabase: () => DatabaseHandle;
@@ -17,5 +23,5 @@ export interface AppDependencies {
   /** OpenRouter model; falls back to the assistant default when unset. */
   openRouterModel?: string | undefined;
   /** Injected by tests; production uses the platform fetch. */
-  fetchAssistant?: typeof fetch | undefined;
+  fetchAssistant?: AssistantFetch | undefined;
 }
