@@ -10,7 +10,7 @@ import { cacheControl } from '#api/plugins/cache-control';
 import { requestContext } from '#api/plugins/request-context';
 
 const OPENROUTER_ENDPOINT = 'https://openrouter.ai/api/v1/chat/completions';
-const DEFAULT_MODEL = 'minimax/minimax-m3.1-flash';
+const DEFAULT_MODEL = 'openrouter/free';
 const UPSTREAM_TIMEOUT_MS = 25_000;
 
 /**

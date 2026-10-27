@@ -4,7 +4,7 @@ import { DEFAULT_OPENROUTER_MODEL, buildOpenRouterSystemPrompt } from '@/lib/ope
 
 describe('openrouter module', () => {
   test('keeps the expected default model id', () => {
-    expect(DEFAULT_OPENROUTER_MODEL).toContain('minimax/minimax-m3.1-flash');
+    expect(DEFAULT_OPENROUTER_MODEL).toContain('openrouter/free');
   });
 
   test('builds system prompt with regional data and neutrality guidelines', () => {

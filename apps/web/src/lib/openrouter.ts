@@ -3,7 +3,7 @@ export interface OpenRouterMessage {
   content: string;
 }
 
-export const DEFAULT_OPENROUTER_MODEL = 'minimax/minimax-m3.1-flash';
+export const DEFAULT_OPENROUTER_MODEL = 'openrouter/free';
 
 /** Common English words that leak into otherwise Indonesian answers. */
 const ENGLISH_REPLACEMENTS: readonly (readonly [RegExp, string])[] = [
