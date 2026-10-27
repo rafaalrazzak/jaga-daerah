@@ -3,7 +3,6 @@ import { Alert } from '@almach/ui/alert';
 import type { DisasterModule } from '@jaga-daerah/contracts';
 
 import { Disclosure, Section, Stat, UNAVAILABLE } from '@/components/ui/Primitives';
-import { Term } from '@/components/ui/Term';
 import { formatCount } from '@/lib/format';
 import { table } from '@/components/ui/styles';
 
@@ -31,10 +30,6 @@ export function DisasterSection({ disaster, year }: { disaster: DisasterModule; 
           </Alert.Description>
         </Alert.Body>
       </Alert>
-
-      <div className="grid gap-2">
-        <Term id="bencana-provinsi" />
-      </div>
 
       <div className="rounded-2xl border border-border bg-card p-5 sm:p-6 space-y-6">
         {disaster.status === 'unavailable' ? (

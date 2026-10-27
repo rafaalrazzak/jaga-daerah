@@ -51,7 +51,7 @@ export default function PinRegionButton({ region }: PinRegionButtonProps) {
       onClick={togglePin}
       className={`inline-flex min-h-11 items-center gap-2 rounded-full border px-4 text-sm font-semibold transition-colors focus-visible:outline-3 focus-visible:outline-ring ${
         isPinned
-          ? 'border-primary/40 bg-primary/10 text-primary hover:bg-primary/20'
+          ? 'border-primary bg-primary text-primary-foreground hover:bg-primary/90'
           : 'border-border bg-background text-foreground hover:bg-secondary'
       }`}
       aria-pressed={isPinned}
@@ -59,7 +59,7 @@ export default function PinRegionButton({ region }: PinRegionButtonProps) {
     >
       <svg
         viewBox="0 0 20 20"
-        className={`size-4 ${isPinned ? 'text-primary fill-primary' : 'text-muted-foreground'}`}
+        className={`size-4 ${isPinned ? 'text-primary-foreground fill-primary-foreground' : 'text-muted-foreground'}`}
         fill={isPinned ? 'currentColor' : 'none'}
         stroke="currentColor"
         strokeWidth={isPinned ? 0 : 1.5}

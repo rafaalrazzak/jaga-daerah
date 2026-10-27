@@ -558,7 +558,6 @@ export default function ChatAssistant() {
         <button
           type="button"
           onClick={() => setIsOpen(true)}
-          aria-label="Buka Asisten JagaDaerah"
           className="group flex min-h-12 items-center gap-2.5 rounded-full bg-primary px-4 py-2.5 text-primary-foreground shadow-xl shadow-primary/25 transition-all duration-200 hover:scale-[1.03] hover:bg-primary/95 focus-visible:outline-3 focus-visible:outline-offset-2 focus-visible:outline-ring"
         >
           <span className="flex size-7 items-center justify-center rounded-full bg-white/20 text-white">

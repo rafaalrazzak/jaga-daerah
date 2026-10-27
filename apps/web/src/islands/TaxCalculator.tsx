@@ -108,7 +108,7 @@ export default function TaxCalculator({ slug, regionName }: TaxCalculatorProps) 
     >
       <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1 text-xs font-bold text-foreground">
             Kalkulator Warga
           </span>
           <h3
