@@ -137,7 +137,14 @@ test.describe('realisation map', () => {
   test('locates the region on its province map in the profile', async ({ page }) => {
     await page.goto('/daerah/kota-bandung');
 
-    await expect(page.locator('figure path.map-current')).toHaveAttribute('data-code', '32.73');
+    // The map hydrates with `client:visible`; at 320 px it starts below the fold, so scroll it into
+    // view before waiting for the hydrated SVG.
+    const map = page.locator('figure', {
+      hasText: 'Lokasi Kota Bandung di Provinsi Jawa Barat',
+    });
+    await map.scrollIntoViewIfNeeded();
+
+    await expect(map.locator('path.map-current')).toHaveAttribute('data-code', '32.73');
     await expect(page.getByText('Lokasi Kota Bandung di Provinsi Jawa Barat')).toBeVisible();
     const kpk = page.getByRole('link', { name: /Cek di e-LHKPN KPK/ }).first();
     await expect(kpk).toHaveAttribute('href', 'https://elhkpn.kpk.go.id/');
